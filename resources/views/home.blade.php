@@ -3,38 +3,22 @@
 @section('content')
 <div class="container">
 <div class="row">
-    <div class="col-lg-3">
-        <a href="#" style="text-decoration: none;">
+    <div class="col-lg-6">
+        <a href="{{route('agents')}}" style="text-decoration: none;">
             <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header text-center">Total Agents</div>
                 <div class="card-body bg-light text-dark">
-                    <h3 class="card-title text-center">#</h3>
+                    <h3 class="card-title text-center">{{$agents->count()}}</h3>
                 </div>
             </div>
         </a>
     </div>
-    <div class="col-lg-3">
-        <a href="#" style="text-decoration: none;">
+    <div class="col-lg-6">
+        <a href="{{route('students')}}" style="text-decoration: none;">
             <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header text-center">Total Students</div>
                 <div class="card-body bg-light text-dark">
-                    <h3 class="card-title text-center">#</h3>
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="col-lg-3">
-        <a href="#" style="text-decoration: none;">
-            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-                <div class="card-body bg-light text-dark">
-                    <h3 class="card-title text-center">#</h3>
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="col-lg-3">
-        <a href="#" style="text-decoration: none;">
-            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-                <div class="card-body bg-light text-dark">
-                    <h3 class="card-title text-center">#</h3>
+                    <h3 class="card-title text-center">{{$students->count()}}</h3>
                 </div>
             </div>
         </a>

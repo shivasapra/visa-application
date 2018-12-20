@@ -16,4 +16,8 @@ class agentProfile extends Model
 	{
 		return $this->hasMany('App\studentProfile');	
 	}
+	public function leads()
+	{
+		return $this->hasMany('App\leads');	
+	}
 }

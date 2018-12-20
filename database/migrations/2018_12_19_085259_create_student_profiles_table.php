@@ -26,6 +26,7 @@ class CreateStudentProfilesTable extends Migration
             $table->string('address');
             $table->integer('postal_code');
             $table->integer('agent_id');
+            $table->integer('lead_id')->nullable();
             $table->timestamps();
         });
     }

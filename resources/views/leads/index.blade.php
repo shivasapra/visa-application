@@ -20,6 +20,7 @@
 				
 			</thead>
 			<tbody>
+
 				@if($leads->count()>0)
 					@foreach($leads as $lead)
 					<tr>
@@ -31,13 +32,15 @@
 						<td>
 							@if($lead->status == 0)
 								Not processed
+								<a href="{{route('status.edit',['id'=>$lead->id])}}" class="btn btn-sm btn-info">Edit</a>
 							@elseif($lead->status == 1)
 								Processing
 									<a href="{{route('student.add',['id'=>$lead->id])}}" class="btn btn-sm btn-success">Add student</a>
+									<a href="{{route('status.edit',['id'=>$lead->id])}}" class="btn btn-sm btn-info">Edit</a>
 							@else
-								Processed
+								<a href="{{route('details.lead',['id'=>$lead->id])}}">Processed</a>
 							@endif
-							<a href="{{route('status.edit',['id'=>$lead->id])}}" class="btn btn-sm btn-info">Edit</a>
+							
 						</td>
 
 						{{-- <td>

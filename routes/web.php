@@ -33,6 +33,15 @@ Route::post('/student/store',[
 		'uses'=> 'StudentController@store',
 		'as'=>'students.store'
 	]);
+Route::get('/student/delete/{id}',[
+		'uses'=> 'StudentController@destroy',
+		'as'=>'student.delete'
+	]);
+Route::get('/student/details/{id}',[
+		'uses'=> 'StudentController@details',
+		'as'=>'details'
+	]);
+
 
 //agents
 Route::get('/agents',[
@@ -85,7 +94,14 @@ Route::post('/status/save/{id}',[
 		'as'=>'status.save'
 	]);
 Route::get('/add/student/{id}',[
-		'uses'=> 'leadController@addStudent',
+		'uses'=> 'leadController@studentAdd',
 		'as'=>'student.add'
 	]);
-
+Route::post('convert/lead/{id}',[
+		'uses'=> 'leadController@convertLead',
+		'as'=>'convert.lead'
+	]);
+Route::get('details/lead/{id}',[
+		'uses'=> 'leadController@detailsLead',
+		'as'=>'details.lead'
+	]);

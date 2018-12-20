@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\leads;
 use App\agentProfile;
+use App\studentProfile;
+use Session;
 class leadController extends Controller
 {
     /**
@@ -23,7 +25,14 @@ class leadController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        $agents= agentProfile::all();
+        if($agents->count()==0)
+           {
+
+            Session::flash('info','You must have some agents to create a lead');
+            return redirect()->back();
+           }
         return view('leads.create')->with('agents',agentProfile::all());
     }
 
@@ -121,5 +130,48 @@ class leadController extends Controller
     public function studentAdd($id){
         $lead = leads::find($id);
         return view('leads.studentAdd')->with('lead',$lead);
+    }
+
+
+    public function convertLead(Request $request,$id)
+    {
+        $this->validate($request,[
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'gender' => 'required',
+            'email' => 'required|email',
+            'agent_id' =>'required',
+        ]);
+
+        $agent = agentProfile::find($request->agent_id);
+        studentProfile::create([
+            'lead_id' => $id,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'gender' => $request->gender,
+            'title' => $request->title,
+            'first_language' => $request->first_language,
+            'DOB' => $request->DOB,
+            'Mobile' => $request->Mobile,
+            'address' => $request->address,
+            'postal_code' => $request->postal_code,
+            'agent_id' => $request->agent_id,
+        ]);
+
+        $agent->students = $agent->students + 1;
+        $agent->save();
+        $lead = leads::find($id);
+        $lead->status = 2;
+        $lead->save();
+        
+        return redirect()->route("students");
+    }
+    public function detailsLead($id){
+        $lead = leads::find($id);
+        $student = studentProfile::take(1)->where('lead_id',$id)->get();
+        // dd($student);
+        $student_id = $student[0]['id'];
+        return redirect()->route('details',['id'=>$student_id]);
     }
 }

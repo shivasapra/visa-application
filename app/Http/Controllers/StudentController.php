@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\studentProfile;
 use App\agentProfile;
+use Session;
 class StudentController extends Controller
 {
     /**
@@ -23,7 +24,14 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        $agents= agentProfile::all();
+        if($agents->count()==0)
+           {
+
+            Session::flash('info','You must have some agents to create a student');
+            return redirect()->back();
+           }
         return view('student.create')->with('agents',agentProfile::all());
     }
 
@@ -106,6 +114,17 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = studentProfile::find($id);
+        $student->agent->students = $student->agent->students - 1;
+        $student->agent->save();
+        $student->lead->status=0;
+        $student->lead->save();
+        $student->forceDelete();
+        return redirect()->route('students');
+    }
+    public function details($id){
+        // dd($id);
+        $student = studentProfile::find($id);
+        return view('student.details')->with('student',$student);
     }
 }

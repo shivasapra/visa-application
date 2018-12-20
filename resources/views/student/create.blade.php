@@ -40,12 +40,19 @@
 					<input type="email" name='email' class="form-control">
 				</div>
 				<div class="form-group">
-					<label for="gender">gender</label>
-					<input type="text" name='gender' class="form-control">
+					<label for="title">Title</label><br>
+					<select name="title" class="form-control" >
+					 <option value="Mr." >Mr.</option>
+					 <option value="Mrs." >Mrs.</option>
+					 <option value="Miss" >Miss</option>
+				</select>
 				</div>
 				<div class="form-group">
-					<label for="title">Title</label>
-					<input type="text" name='title' class="form-control">
+					<label for="gender">Gender</label><br>
+					<select name="gender" class="form-control" >
+					 <option value="male" >Male</option>
+					 <option value="female" >Female</option>
+				</select>
 				</div>
 				<div class="form-group">
 					<label for="first_language">First Language</label>

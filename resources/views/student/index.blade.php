@@ -23,12 +23,13 @@
 				@if($students->count()>0)
 					@foreach($students as $student)
 					<tr>
-						<td>
-							{{$student->first_name}}
+						<td><a href="{{route('details',['id'=>$student->id])}}">
+							{{$student->first_name}}</a>
 						</td>
 						<td>{{$student->last_name}}</td>
 						<td>{{$student->email}}</td>
 						<td>{{$student->gender}}</td>
+						<td><a href="{{route('student.delete',['id'=>$student->id])}}" class="btn btn-sm btn-danger">Delete</a></td>
 						{{-- <td>
 							<a href="{{route('post.edit',['id' => $post->id])}}" class="btn btn-sm btn-info">Edit</a>
 							<a href="{{route('post.delete',['id' => $post->id])}}" class="btn btn-sm btn-danger">Trash</a>
@@ -44,8 +45,8 @@
 
 			</tbody>
 		</table>
-	<div class="text-center">
+{{-- 	<div class="text-center">
 					<a href="{{route('students.create')}}" class="btn btn-sm btn-info">Add Student</a>
-				</div>
+				</div> --}}
 	</div>
 @stop
