@@ -81,17 +81,19 @@
                             <li class="list-group">
                                 <a href="#">Dashboard</a>
                             </li>
-                            <li class="list-group">
-                                <a href="#">Leads</a>
-                            </li>
-                            <li class="list-group">
-                                <a href="{{route('students')}}">Students</a>
-                            </li>
+                            {{-- @if($agents->count()>0) --}}
+                                <li class="list-group">
+                                    <a href="{{route('leads')}}">Leads</a>
+                                </li>
+                                <li class="list-group">
+                                    <a href="{{route('students')}}">Students</a>
+                                </li>
+                                {{-- @endif --}}
                             <li class="list-group">
                                 <a href="{{route('agents')}}">Agents</a>
                             </li>
                             <li class="list-group">
-                                <a href="#">Offer Letter Status</a>
+                                <a href="">Offer Letter Status</a>
                             </li>
                             <li class="list-group">
                                 <a href="#">File progress status</a>

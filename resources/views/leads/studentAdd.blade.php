@@ -15,7 +15,7 @@
 
 
 
-	<div class="card-header">Create a new student</div>
+	<div class="card-header">Converting lead into student</div>
 		<div class="card-body">
 			<form action="{{route('students.store')}}" method='post'>
 				{{csrf_field()}}
@@ -23,7 +23,7 @@
 				<label for="agent_id">Select agent</label><br>
 				<select name="agent_id" class="form-control" >
 					@foreach( $agents as $agent)
-					 <option value="{{$agent->id}}">{{$agent->name}}</option>
+					 <option value="{{$agent->id}}" >{{$agent->name}}</option>
 					@endforeach
 				</select>
 				</div>
@@ -69,7 +69,7 @@
 				</div>
 				<div class="form-group">
 					<div class="text-center">
-						<button class="btn btn-success" type="submit">Add user</button>
+						<button class="btn btn-success" type="submit">Add student</button>
 					</div>
 				</div>
 				

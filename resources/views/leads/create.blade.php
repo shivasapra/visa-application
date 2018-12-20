@@ -15,45 +15,29 @@
 
 
 
-	<div class="card-header">Create a new student</div>
+	<div class="card-header">Create a new lead</div>
 		<div class="card-body">
-			<form action="{{route('students.store')}}" method='post'>
+			<form action="{{route('lead.store')}}" method='post'>
 				{{csrf_field()}}
 				<div class="form-group">
-				<label for="agent_id">Select agent</label><br>
-				<select name="agent_id" class="form-control" >
+				<label for="agent_id">Select Agent</label><br>
+				<select name="agent_id" class="form-control">
 					@foreach( $agents as $agent)
 					 <option value="{{$agent->id}}">{{$agent->name}}</option>
 					@endforeach
 				</select>
 				</div>
 				<div class="form-group">
-					<label for="first_name">First name</label>
-					<input type="text" name='first_name' class="form-control">
+					<label for="student_fname">First name</label>
+					<input type="text" name='student_fname' class="form-control">
 				</div>
 				<div class="form-group">
-					<label for="last_name">Last name</label>
-					<input type="text" name='last_name' class="form-control">
+					<label for="student_lname">Last name</label>
+					<input type="text" name='student_lname' class="form-control">
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
 					<input type="email" name='email' class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="gender">gender</label>
-					<input type="text" name='gender' class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="title">Title</label>
-					<input type="text" name='title' class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="first_language">First Language</label>
-					<input type="text" name='first_language' class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="DOB">DOB</label>
-					<input type="text" name='DOB' placeholder="dd/mm/yyyy" class="form-control">
 				</div>
 				<div class="form-group">
 					<label for="Mobile">Moblie</label>
@@ -68,8 +52,12 @@
 					<input type="text" name='postal_code' class="form-control">
 				</div>
 				<div class="form-group">
+					<label for="description">Description</label>
+					<textarea name="description" cols="5" rows="5" class="form-control"></textarea>
+					
+				<div class="form-group">
 					<div class="text-center">
-						<button class="btn btn-success" type="submit">Add user</button>
+						<button class="btn btn-success" type="submit">Add lead</button>
 					</div>
 				</div>
 				

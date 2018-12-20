@@ -1,5 +1,5 @@
 <?php
-
+use App\agentProfile;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//students
+
 Route::get('/students',[
 		'uses'=> 'StudentController@index',
 		'as'=>'students'
@@ -32,7 +34,7 @@ Route::post('/student/store',[
 		'as'=>'students.store'
 	]);
 
-
+//agents
 Route::get('/agents',[
 		'uses'=> 'AgentController@index',
 		'as'=>'agents'
@@ -60,3 +62,30 @@ Route::get('/agent/contracts/{id}',[
         'uses' => 'AgentController@contracts',
         'as' => 'agent.contracts'
 	]);
+
+//leads
+Route::get('/leads',[
+		'uses'=> 'leadController@index',
+		'as'=>'leads'
+	]);
+Route::get('/lead/create',[
+		'uses'=> 'leadController@create',
+		'as'=>'lead.create'
+	]);
+Route::post('/lead/store',[
+		'uses'=> 'leadController@store',
+		'as'=>'lead.store'
+	]);
+Route::get('/status/edit/{id}',[
+		'uses'=> 'leadController@statusEdit',
+		'as'=>'status.edit'
+	]);
+Route::post('/status/save/{id}',[
+		'uses'=> 'leadController@statusSave',
+		'as'=>'status.save'
+	]);
+Route::get('/add/student/{id}',[
+		'uses'=> 'leadController@addStudent',
+		'as'=>'student.add'
+	]);
+
