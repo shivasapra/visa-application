@@ -132,4 +132,23 @@ class AgentController extends Controller
 
         return view('agent.agentContracts')->with('agent',$agent);
     }
+
+    public function summary($id)
+    {   
+        $agent = agentProfile::find($id);
+        return view('agent.summary')->with('agent',$agent);
+    }
+
+    public function updateSummary(Request $request, $id){
+        $agent = agentProfile::find($id);
+        $agent->interested = $request->interested;
+        $agent->refused = $request->refused;
+        $agent->proposal_sent = $request->proposal_sent;
+        $agent->document_sent = $request->document_sent;
+        $agent->agreement = $request->agreement;
+        $agent->certification = $request->certification;
+        $agent->save();
+        return redirect()->route('agents');
+
+    }
 }

@@ -43,6 +43,7 @@ Route::get('/student/details/{id}',[
 	]);
 
 
+
 //agents
 Route::get('/agents',[
 		'uses'=> 'AgentController@index',
@@ -70,6 +71,14 @@ Route::get('/agent/studentList/{id}',[
 Route::get('/agent/contracts/{id}',[
         'uses' => 'AgentController@contracts',
         'as' => 'agent.contracts'
+	]);
+Route::get('/agent/summary/{id}',[
+        'uses' => 'AgentController@summary',
+        'as' => 'summary'
+	]);
+Route::post('/update/summary/{id}',[
+		'uses'=> 'AgentController@updateSummary',
+		'as'=>'summary.update'
 	]);
 
 //leads

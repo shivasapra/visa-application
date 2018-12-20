@@ -46,7 +46,11 @@
         </a>
     </div>
     
-</div>
+    </div>
 	</div>
+    
+        <div class="text-center">
+    <a href="{{route('summary',['id'=>$agent->id])}}" class="btn btn-info">Agent Summary</a>
+    </div>
 
 @stop

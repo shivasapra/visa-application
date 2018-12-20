@@ -29,6 +29,12 @@ class CreateAgentProfilesTable extends Migration
             $table->integer('about_to_expired_c')->default(0);
             $table->integer('added_c')->default(0);
             $table->integer('declined_c')->default(0);
+            $table->string('interested')->default('no');
+            $table->string('refused')->default('no');
+            $table->string('proposal_sent')->default('no');
+            $table->string('document_sent')->default('no');
+            $table->string('agreement')->default('no');
+            $table->string('certification')->default('no');
             $table->timestamps();
         });
     }
