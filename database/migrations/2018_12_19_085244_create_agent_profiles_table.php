@@ -35,6 +35,12 @@ class CreateAgentProfilesTable extends Migration
             $table->string('document_sent')->default('no');
             $table->string('agreement')->default('no');
             $table->string('certification')->default('no');
+            $table->integer('total_files')->default(0);
+            $table->integer('files_not_started')->default(0);
+            $table->integer('files_in_process')->default(0);
+            $table->integer('files_in_hold')->default(0);
+            $table->integer('files_canceled')->default(0);
+            $table->integer('files_finished')->default(0);
             $table->timestamps();
         });
     }

@@ -23,8 +23,8 @@
 				@if($students->count()>0)
 					@foreach($students as $student)
 					<tr>
-						<td>
-							{{$student->first_name}}
+						<td><a href="{{route('student.details',['id'=>$student->id])}}">
+							{{$student->first_name}}</a>
 						</td>
 						<td>{{$student->last_name}}</td>
 						<td>{{$student->email}}</td>

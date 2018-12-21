@@ -33,6 +33,7 @@ class leadController extends Controller
             Session::flash('info','You must have some agents to create a lead');
             return redirect()->back();
            }
+
         return view('leads.create')->with('agents',agentProfile::all());
     }
 
@@ -66,6 +67,7 @@ class leadController extends Controller
             'agent_id' => $request->agent_id,
             'description' => $request->description,
         ]);
+        Session::flash('success','new lead created ');
         return redirect()->route('leads');
     }
 
@@ -124,6 +126,7 @@ class leadController extends Controller
         // dd($request->status);
         $lead->status = $request->status;
         $lead->save();
+        Session::flash('success','Status Changed');
         return redirect()->route('leads');
     }
 
@@ -164,7 +167,7 @@ class leadController extends Controller
         $lead = leads::find($id);
         $lead->status = 2;
         $lead->save();
-        
+        Session::flash('success','lead converted! to student');
         return redirect()->route("students");
     }
     public function detailsLead($id){
@@ -172,6 +175,6 @@ class leadController extends Controller
         $student = studentProfile::take(1)->where('lead_id',$id)->get();
         // dd($student);
         $student_id = $student[0]['id'];
-        return redirect()->route('details',['id'=>$student_id]);
+        return redirect()->route('student.details',['id'=>$student_id]);
     }
 }

@@ -97,7 +97,7 @@
                                 <a href="">Offer Letter Status</a>
                             </li>
                             <li class="list-group">
-                                <a href="#">File progress status</a>
+                                <a href="">File progress status</a>
                             </li>
                             <li class="list-group">
                                 <a href="#">Accepted Letter</a>

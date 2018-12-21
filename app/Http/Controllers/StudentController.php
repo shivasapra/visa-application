@@ -68,7 +68,7 @@ class StudentController extends Controller
 
         $agent->students = $agent->students + 1;
         $agent->save();
-        
+        Session::flash('success','student created successfully');
         return redirect()->route("students");
     }
 
@@ -120,6 +120,7 @@ class StudentController extends Controller
         $student->lead->status=0;
         $student->lead->save();
         $student->forceDelete();
+        Session::flash('success','Student Deleted!');
         return redirect()->route('students');
     }
     public function details($id){

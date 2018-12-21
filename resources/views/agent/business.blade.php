@@ -45,6 +45,16 @@
             </div>
         </a>
     </div>
+    <div class="col-lg-3">
+        <a href="{{route('agent.files',['id'=>$agent->id])}}" style="text-decoration: none;">
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header text-center">Total files</div>
+                <div class="card-body bg-light text-dark">
+                    <h3 class="card-title text-center">{{$agent->total_files}}</h3>
+                </div>
+            </div>
+        </a>
+    </div>
     
     </div>
 	</div>

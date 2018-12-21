@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\agentProfile;
 use App\studentProfile;
+use Session;
 class AgentController extends Controller
 {
     /**
@@ -62,6 +63,7 @@ class AgentController extends Controller
             'photo' => 'uploads/agents/'.$photo_new_name,
             'license' => 'uploads/agents/'.$license_new_name,
         ]);
+        Session::flash('success','agent created successfully');
         return redirect()->route("agents");
     }
 
@@ -148,7 +150,13 @@ class AgentController extends Controller
         $agent->agreement = $request->agreement;
         $agent->certification = $request->certification;
         $agent->save();
+        Session::flash('success','Summary updated successfully');
         return redirect()->route('agents');
 
+    }
+    public function files($id)
+    {
+        $agent = agentProfile::find($id);
+        return view('agent.agentFiles')->with('agent',$agent);
     }
 }

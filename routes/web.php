@@ -39,7 +39,7 @@ Route::get('/student/delete/{id}',[
 	]);
 Route::get('/student/details/{id}',[
 		'uses'=> 'StudentController@details',
-		'as'=>'details'
+		'as'=>'student.details'
 	]);
 
 
@@ -79,6 +79,10 @@ Route::get('/agent/summary/{id}',[
 Route::post('/update/summary/{id}',[
 		'uses'=> 'AgentController@updateSummary',
 		'as'=>'summary.update'
+	]);
+Route::get('/agent/files/{id}',[
+        'uses' => 'AgentController@files',
+        'as' => 'agent.files'
 	]);
 
 //leads
