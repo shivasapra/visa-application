@@ -118,3 +118,8 @@ Route::get('details/lead/{id}',[
 		'uses'=> 'leadController@detailsLead',
 		'as'=>'details.lead'
 	]);
+//
+Route::get('files/progress',[
+		'uses' =>'FilesController@index',
+		'as' => 'files.progress'
+	]);
