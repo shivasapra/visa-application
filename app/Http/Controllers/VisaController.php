@@ -114,14 +114,18 @@ class VisaController extends Controller
     public function update(Request $request, $id)
     {
         $visa = visa::find($id);
-        dd($request->approved);
-        $visa->approved = $request->approved;
-        $visa->rejected = $request->rejected; 
+        $approved = "approved".$id;
+        $rejected = 'rejected'.$id;
+        // $final_id = $test_id + $r
+        // dd($request->approved);
+        // approved{{$visa->id}}
+        $visa->approved = $request->$approved;
+        $visa->rejected = $request->$rejected;
         $visa->save();
-        if ($request->approved == 'yes') {
+        if ($request->$approved == 'yes') {
             $visa->student->visa_approved = $visa->student->visa_approved + 1;
             }
-        if ($request->rejected == 'yes') {
+        if ($request->$rejected == 'yes') {
             $visa->student->visa_rejected = $visa->student->visa_rejected + 1;
             }
         $visa->student->save();
