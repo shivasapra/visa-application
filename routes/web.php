@@ -123,3 +123,16 @@ Route::get('files/progress',[
 		'uses' =>'FilesController@index',
 		'as' => 'files.progress'
 	]);
+//
+Route::get('visa/create/{id}',[
+		'uses' =>'VisaController@create',
+		'as' => 'visa.create'
+	]);
+Route::get('visa/details/{id}',[
+		'uses' =>'VisaController@details',
+		'as' => 'visa.details'
+	]);
+Route::post('/visa/store',[
+		'uses'=> 'VisaController@store',
+		'as'=>'visa.store'
+	]);

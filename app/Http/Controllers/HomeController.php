@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\agentProfile;
 use App\studentProfile;
+use App\leads;
 class HomeController extends Controller
 {
     /**
@@ -24,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')->with('agents',agentProfile::all())->with('students',studentProfile::all());
+        return view('home')->with('agents',agentProfile::all())->with('students',studentProfile::all())
+                            ->with('leads',leads::all());
     }
 }

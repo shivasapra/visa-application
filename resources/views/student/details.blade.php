@@ -73,5 +73,8 @@
 				</div>
 			</tbody>
 		</table>
+		<div class="text-center">
+			<a href="{{route('visa.details',['id'=>$student->id])}}" class="btn btn-sm btn-info">Visa Details</a>
+		</div>
 	</div>
 @stop

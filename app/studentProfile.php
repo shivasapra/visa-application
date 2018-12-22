@@ -18,4 +18,8 @@ class studentProfile extends Model
     {
     	return $this->belongsTo('App\leads');
     }
+    public function visa()
+    {
+        return $this->hasMany('App\visa');
+    }
 }

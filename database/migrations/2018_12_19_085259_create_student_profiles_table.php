@@ -27,6 +27,9 @@ class CreateStudentProfilesTable extends Migration
             $table->integer('postal_code');
             $table->integer('agent_id');
             $table->integer('lead_id')->nullable();
+            $table->integer('visa_approved')->default(0);
+            $table->integer('visa_rejected')->default(0);
+            $table->integer('visa_re_applied')->default(0);
             $table->timestamps();
         });
     }
