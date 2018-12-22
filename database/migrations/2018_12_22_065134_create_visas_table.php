@@ -19,7 +19,7 @@ class CreateVisasTable extends Migration
             $table->integer('student_id');
             $table->string('approved')->default('no');
             $table->string('rejected')->default('no');
-            $table->string('re_applied')->default('no');
+            $table->string('re_apply')->default('no');
             $table->timestamps();
         });
     }

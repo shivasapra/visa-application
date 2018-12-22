@@ -124,15 +124,32 @@ Route::get('files/progress',[
 		'as' => 'files.progress'
 	]);
 //
+Route::get('visa/index/',[
+		'uses' =>'VisaController@index',
+		'as' => 'visa.index'
+	]);
+
 Route::get('visa/create/{id}',[
 		'uses' =>'VisaController@create',
 		'as' => 'visa.create'
 	]);
+
+Route::post('/visa/store',[
+		'uses'=> 'VisaController@store',
+		'as'=>'visa.store'
+	]);
+
 Route::get('visa/details/{id}',[
 		'uses' =>'VisaController@details',
 		'as' => 'visa.details'
 	]);
-Route::post('/visa/store',[
-		'uses'=> 'VisaController@store',
-		'as'=>'visa.store'
+
+Route::get('visa/details/update/{id}',[
+		'uses' =>'VisaController@detailsUpdate',
+		'as' => 'visa.details.update'
+	]);
+
+Route::post('visa/update/{id}',[
+		'uses' =>'VisaController@Update',
+		'as' => 'visa.update'
 	]);

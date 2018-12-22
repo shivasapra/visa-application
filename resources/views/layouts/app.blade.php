@@ -103,7 +103,7 @@
                                 <a href="#">Accepted Letter</a>
                             </li>
                             <li class="list-group">
-                                <a href="#">Visa status</a>
+                                <a href="{{route('visa.index')}}">Visa status</a>
                             </li>
                         </ul>
                     </div>    

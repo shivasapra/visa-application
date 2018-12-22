@@ -15,7 +15,21 @@ class VisaController extends Controller
      */
     public function index()
     {
-        //
+        $visas = visa::all();
+        $students = studentProfile::all();
+        $total_approved = 0;
+        $total_rejected = 0;
+        $total_re_applied = 0;
+            
+        foreach ($students as $student) {
+            $total_approved = $total_approved + $student->visa_approved;
+            $total_rejected = $total_rejected + $student->visa_rejected;
+            $total_re_applied = $total_re_applied + $student->visa_re_applied;
+        }
+        return view('visa.index')->with('visas',$visas)
+                            ->with('total_approved',$total_approved)
+                            ->with('total_rejected',$total_rejected)
+                            ->with('total_re_applied',$total_re_applied);
     }
 
     /**
@@ -35,6 +49,17 @@ class VisaController extends Controller
         $visas = visa::take(100)->where('student_id',$id)->get();
         return view('visa.details')->with('visas',$visas)
                                     ->with('student',$student);
+    }
+
+    public function detailsUpdate($id){
+        
+        $visa = visa::find($id);
+        $visa->re_apply = 'yes';
+        $visa->save();
+        $visa->student->visa_re_applied = $visa->student->visa_re_applied + 1 ;
+        $visa->student->save(); 
+        Session::flash('success','Re-applied');
+        return redirect()->route('students');
     }
 
     /**
@@ -88,7 +113,35 @@ class VisaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $visa = visa::find($id);
+        dd($request->approved);
+        $visa->approved = $request->approved;
+        $visa->rejected = $request->rejected; 
+        $visa->save();
+        if ($request->approved == 'yes') {
+            $visa->student->visa_approved = $visa->student->visa_approved + 1;
+            }
+        if ($request->rejected == 'yes') {
+            $visa->student->visa_rejected = $visa->student->visa_rejected + 1;
+            }
+        $visa->student->save();
+
+        $visas = visa::all();
+        $students = studentProfile::all();
+        $total_approved = 0;
+        $total_rejected = 0;
+        $total_re_applied = 0;
+            
+        foreach ($students as $student) {
+            $total_approved = $total_approved + $student->visa_approved;
+            $total_rejected = $total_rejected + $student->visa_rejected;
+            $total_re_applied = $total_re_applied + $student->visa_re_applied;
+        }
+        return view('visa.index')->with('visas',$visas)
+                            ->with('total_approved',$total_approved)
+                            ->with('total_rejected',$total_rejected)
+                            ->with('total_re_applied',$total_re_applied);
+
     }
 
     /**

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class visa extends Model
 {
     protected $fillable = [
-    	'travel_to','student_id','approved','rejected','re_applied','re_fund',
+    	'travel_to','student_id','approved','rejected','re_apply','re_fund',
 
     ];
 
