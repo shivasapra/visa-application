@@ -71,7 +71,15 @@
 								{{'rejected'}}
 							</td>
 						@endif
-						<td>{{$visa->re_apply}}</td>
+						<td>
+							@if($visa->approved == 'yes')
+								{{"--"}}
+							@elseif($visa->rejected == 'yes')
+								{{"--"}}
+							@elseif($visa->re_apply == 'yes' and $visa->rejected == 'no')
+								<strong>{{'Re-applied'}}</strong>
+							@endif
+						</td>
 					</tr>
 				</tbody>
 			@endforeach

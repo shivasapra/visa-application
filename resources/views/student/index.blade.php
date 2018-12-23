@@ -46,8 +46,8 @@
 
 			</tbody>
 		</table>
-{{-- 	<div class="text-center">
+	<div class="text-center">
 					<a href="{{route('students.create')}}" class="btn btn-sm btn-info">Add Student</a>
-				</div> --}}
+				</div>
 	</div>
 @stop
