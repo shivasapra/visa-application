@@ -11,6 +11,10 @@ use App\agentProfile;
 |
 */
 
+Route::get('/test', function () {
+    return view('layouts.frontend');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
