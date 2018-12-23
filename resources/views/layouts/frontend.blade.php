@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('app/plugins/app-build/vendor.css?v=2.1.1')}}" >
     <link rel="stylesheet" type="text/css" href="{{asset('app/plugins/fullcalendar/fullcalendar.min.css?v=2.1.1')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('app/css/style.min.css?v=2.1.1')}}">
+    <link href="{{ asset('/css/toastr.min.css') }}" rel="stylesheet">
             <script>var site_url="http://localhost/crm/",admin_url="http://localhost/crm/admin/",max_php_ini_upload_size_bytes="2097152",google_api="",calendarIDs="",is_admin="1",is_staff_member="1",has_permission_tasks_checklist_items_delete="1",app_language="",app_is_mobile="",app_user_browser="chrome",app_date_format="Y-m-d",app_decimal_places="2",app_scroll_responsive_tables="0",app_company_is_required="1",app_default_view_calendar="month",app_maximum_allowed_ticket_attachments="4",app_show_setup_menu_item_only_on_hover="0",app_calendar_events_limit="4",app_tables_pagination_limit="25",app_newsfeed_maximum_files_upload="10",app_time_format="24",app_decimal_separator=".",app_thousand_separator=",",app_currency_placement="before",app_timezone="Europe/Berlin",app_calendar_first_day="0",app_allowed_files=".png,.jpg,.pdf,.doc,.docx,.xls,.xlsx,.zip,.rar,.txt",app_show_table_export_button="to_all",app_desktop_notifications="0",app_dismiss_desktop_not_after="0";var appLang = {};appLang["invoice_task_billable_timers_found"] = "Started timers found";appLang["validation_extension_not_allowed"] = "File extension not allowed";appLang["tag"] = "Tag";appLang["options"] = "Options";appLang["no_items_warning"] = "Enter at least one item.";appLang["item_forgotten_in_preview"] = "Have you forgotten to add this item?";appLang["email_exists"] = "Email already exists";appLang["new_notification"] = "New Notification!";appLang["estimate_number_exists"] = "This estimate number exists for the ongoing year.";appLang["invoice_number_exists"] = "This invoice number exists for the ongoing year.";appLang["confirm_action_prompt"] = "Are you sure you want to perform this action?";appLang["calendar_expand"] = "expand";appLang["proposal_save"] = "Save Proposal";appLang["contract_save"] = "Save Contract";appLang["media_files"] = "Files";appLang["credit_note_number_exists"] = "Credit note number already exists";appLang["item_field_not_formatted"] = "The number in the input field is not formatted while edit/add item and should remain not formatted do not try to format it manually in here.";appLang["filter_by"] = "Filter by";appLang["you_can_not_upload_any_more_files"] = "You can not upload any more files";appLang["cancel_upload"] = "Cancel Upload";appLang["remove_file"] = "Remove file";appLang["browser_not_support_drag_and_drop"] = "Your browser does not support drag'n'drop file uploads";appLang["drop_files_here_to_upload"] = "Drop files here to upload";appLang["file_exceeds_max_filesize"] = "The uploaded file exceeds the upload_max_filesize directive in php.ini (2 MB)";appLang["file_exceeds_maxfile_size_in_form"] = "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form (2 MB)";appLang["unit"] = "Unit";appLang["dt_length_menu_all"] = "All";appLang["dt_button_reload"] = "Reload";appLang["dt_button_excel"] = "Excel";appLang["dt_button_csv"] = "CSV";appLang["dt_button_pdf"] = "PDF";appLang["dt_button_print"] = "Print";appLang["dt_button_export"] = "Export";appLang["search_ajax_empty"] = "Select and begin typing";appLang["search_ajax_initialized"] = "Start typing to search";appLang["search_ajax_searching"] = "Searching...";appLang["not_results_found"] = "No results found";appLang["search_ajax_placeholder"] = "Type to search...";appLang["currently_selected"] = "Currently Selected";appLang["task_stop_timer"] = "Stop Timer";appLang["dt_button_column_visibility"] = "Visibility";appLang["note"] = "Note";appLang["search_tasks"] = "Search Tasks";appLang["confirm"] = "Confirm";appLang["showing_billable_tasks_from_project"] = "Showing billable tasks from project";appLang["invoice_task_item_project_tasks_not_included"] = "Projects tasks are not included in this list.";appLang["credit_amount_bigger_then_invoice_balance"] = "Total credits amount is bigger then invoice balance due";appLang["credit_amount_bigger_then_credit_note_remaining_credits"] = "Total credits amount is bigger then remaining credits";appLang["save"] = "Save";</script>    <script>
         appLang['datatables'] = {"emptyTable":"No entries found","info":"Showing _START_ to _END_ of _TOTAL_ entries","infoEmpty":"Showing 0 to 0 of 0 entries","infoFiltered":"(filtered from _MAX_ total entries)","lengthMenu":"_MENU_","loadingRecords":"Loading...","processing":"<div class=\"dt-loader\"><\/div>","search":"<div class=\"input-group\"><span class=\"input-group-addon\"><span class=\"fa fa-search\"><\/span><\/span>","searchPlaceholder":"Search...","zeroRecords":"No matching records found","paginate":{"first":"First","last":"Last","next":"Next","previous":"Previous"},"aria":{"sortAscending":" activate to sort column ascending","sortDescending":" activate to sort column descending"}};
         var totalUnreadNotifications = 0,
@@ -64,6 +65,7 @@
         }</script>
 </head>
 <body class="app admin dashboard invoices-total-manual user-id-1 chrome">
+@if(auth::check())
   <div id="header">
          <div class="hide-menu"><i class="fa fa-bars"></i></div>
          <div id="logo"></div>
@@ -109,6 +111,7 @@
           <a href="#" class="dropdown-toggle" id="dropdownQuickLinks" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           <i class="fa fa-gavel" aria-hidden="true"></i>
           </a>
+        //
           {{-- <ul class="dropdown-menu" aria-labelledby="dropdownQuickLinks">
                             <li>
                 <a href="http://localhost/crm/admin/invoices/invoice" >
@@ -200,24 +203,24 @@
       </li>
 
       <li class="menu-item-dashboard">
-        <a href="" aria-expanded="false">
+        <a href="{{route('home')}}" aria-expanded="false">
           <i class="fa fa-tachometer menu-icon"></i>
           Dashboard </a>
       </li>
       <li class="menu-item-customers">
-        <a href="" aria-expanded="false"><i class="fa fa-user-o menu-icon"></i>
+        <a href="{{route('agents')}}" aria-expanded="false"><i class="fa fa-user-o menu-icon"></i>
         Agents</a>
       </li>
       <li class="menu-item-leads">
-        <a href=" aria-expanded="false"><i class="fa fa-tty menu-icon"></i>
+        <a href="{{route('leads')}}" aria-expanded="false"><i class="fa fa-tty menu-icon"></i>
         Leads</a>
       </li>    
       <li class="menu-item-customers">
-        <a href="" aria-expanded="false"><i class="fa fa-user-o menu-icon"></i>
+        <a href="{{route('students')}}" aria-expanded="false"><i class="fa fa-user-o menu-icon"></i>
         Students</a>
       </li>
       <li class="menu-item-dashboard">
-        <a href="" aria-expanded="false">
+        <a href="{{route('files.progress')}}" aria-expanded="false">
         <i class="fa fa-tachometer menu-icon"></i>
         File Progress  </a>
       </li>
@@ -239,8 +242,12 @@
   </aside>
 
   <div id="wrapper">
+    <div class="container">
+      {{-- <div class="text-center"><h1>Visa office Management</h1></div><br> --}}
       @yield('content')
+    </div>
   </div>
+@endif
 
 
 
@@ -254,9 +261,19 @@
   <script src="{{asset('app/plugins/jquery-validation/jquery.validate.min.js?v=2.1.1')}}"></script>
   <script src="{{asset('app/plugins/fullcalendar/fullcalendar.min.js?v=2.1.1')}}"></script>
   <script src="{{asset('app/js/main.min.js?v=2.1.1')}}"></script>
+  <script src="{{ asset('/js/toastr.min.js') }}"></script>
+  <script>
+      @if(Session::has('success'))
+          toastr.success("{{Session::get('success')}}")
+      @endif
+      @if(Session::has('info'))
+          toastr.info("{{Session::get('info')}}")
+      @endif
+  </script>
+
 
   //Scripts
-  <script>
+    <script>
           function custom_fields_hyperlink(){
            var cf_hyperlink = $('body').find('.cf-hyperlink');
            if(cf_hyperlink.length){
@@ -307,7 +324,7 @@
                   });
               });
            }}
-  </script>
+    </script>
     <div class="modal fade _event" id="newEventModal">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -365,7 +382,7 @@
     </div>
     </form></div><!-- /.modal-content -->
     </div><!-- /.modal-dialog --></div><!-- /.modal -->
-  <script>
+    <script>
       var weekly_payments_statistics;
       var user_dashboard_visibility = [{"id":"top_stats","visible":"0"},{"id":"finance_overview","visible":"0"},{"id":"user_data","visible":"0"},{"id":"calendar","visible":"0"},{"id":"weekly_payments_chart","visible":"0"},{"id":"todos","visible":"0"},{"id":"leads_chart","visible":"0"},{"id":"projects_chart","visible":"0"},{"id":"projects_activity","visible":"0"}];
       $(function() {
@@ -576,7 +593,6 @@
                       },
                   },
               });
-              }}}
-  </script>
+              }}}</script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
 <div class="row">
     <div class="col-lg-4">
         <a href="{{route('agents')}}" style="text-decoration: none;">
@@ -34,7 +34,7 @@
         </a>
     </div>
 </div>
-</div>
+</div> --}}
 {{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
