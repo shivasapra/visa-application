@@ -55,6 +55,8 @@ class VisaController extends Controller
         
         $visa = visa::find($id);
         $visa->re_apply = 'yes';
+        $visa->approved = 'no';
+        $visa->rejected = 'no';
         $visa->save();
         $visa->student->visa_re_applied = $visa->student->visa_re_applied + 1 ;
         $visa->student->save(); 
@@ -111,24 +113,70 @@ class VisaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function approve(Request $request, $id)
     {
         $visa = visa::find($id);
-        $approved = "approved".$id;
-        $rejected = 'rejected'.$id;
+        // $approved = "approved".$id;
+        // $rejected = 'rejected'.$id;
         // $final_id = $test_id + $r
         // dd($request->approved);
         // approved{{$visa->id}}
-        $visa->approved = $request->$approved;
-        $visa->rejected = $request->$rejected;
+        $visa->approved = 'yes';
+        $visa->student->visa_approved = $visa->student->visa_approved + 1;
+        
+        // $visa->approved = $request->$approved;
+        // $visa->rejected = $request->$rejected;
         $visa->save();
-        if ($request->$approved == 'yes') {
-            $visa->student->visa_approved = $visa->student->visa_approved + 1;
-            }
-        if ($request->$rejected == 'yes') {
-            $visa->student->visa_rejected = $visa->student->visa_rejected + 1;
-            }
+        // if ($request->$approved == 'yes') {
+        //     $visa->student->visa_approved = $visa->student->visa_approved + 1;
+        //     }
+        // if ($request->$rejected == 'yes') {
+        //     $visa->student->visa_rejected = $visa->student->visa_rejected + 1;
+        //     }
         $visa->student->save();
+
+
+
+        $visas = visa::all();
+        $students = studentProfile::all();
+        $total_approved = 0;
+        $total_rejected = 0;
+        $total_re_applied = 0;
+            
+        foreach ($students as $student) {
+            $total_approved = $total_approved + $student->visa_approved;
+            $total_rejected = $total_rejected + $student->visa_rejected;
+            $total_re_applied = $total_re_applied + $student->visa_re_applied;
+        }
+        return view('visa.index')->with('visas',$visas)
+                            ->with('total_approved',$total_approved)
+                            ->with('total_rejected',$total_rejected)
+                            ->with('total_re_applied',$total_re_applied);
+
+    }
+    public function reject(Request $request, $id)
+    {
+        $visa = visa::find($id);
+        // $approved = "approved".$id;
+        // $rejected = 'rejected'.$id;
+        // $final_id = $test_id + $r
+        // dd($request->approved);
+        // approved{{$visa->id}}
+        $visa->rejected = 'yes';
+        $visa->student->visa_rejected = $visa->student->visa_rejected + 1;
+        
+        // $visa->approved = $request->$approved;
+        // $visa->rejected = $request->$rejected;
+        $visa->save();
+        // if ($request->$approved == 'yes') {
+        //     $visa->student->visa_approved = $visa->student->visa_approved + 1;
+        //     }
+        // if ($request->$rejected == 'yes') {
+        //     $visa->student->visa_rejected = $visa->student->visa_rejected + 1;
+        //     }
+        $visa->student->save();
+
+
 
         $visas = visa::all();
         $students = studentProfile::all();

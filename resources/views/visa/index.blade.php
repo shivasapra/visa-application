@@ -36,21 +36,14 @@
 					Travel To
 				</th>
 				<th>
-					Approved
-				</th>
-				<th>
-					Rejected
+					Status
 				</th>
 				<th>
 					Re-applied
 				</th>
 				
 			</thead>
-		</table>
 			@foreach($visas as $visa)
-			<form action="{{route('visa.update',['id'=>$visa->id])}}" method="post">
-						{{csrf_field()}}
-			<table class="table table-hover">
 				<tbody>
 					<tr>
 						<td>
@@ -60,28 +53,36 @@
 						</td>
 						<td>{{$visa->travel_to}}</td>
 
-						<td>
-							<input type="radio" name="approved{{$visa->id}}" value="yes" 
-								{{($visa->approved == 'yes')?"checked":" "}}>Yes
-								<input type="radio" name="approved{{$visa->id}}" value="no"
-								{{($visa->approved == 'no')?"checked":" "}}>No
-						</td>
-						<td>
-							<input type="radio" name="rejected{{$visa->id}}" value="yes" 
-								{{($visa->rejected == 'yes')?"checked":" "}}>Yes
-							<input type="radio" name="rejected{{$visa->id}}" value="no"
-								{{($visa->rejected == 'no')?"checked":" "}}>No
-						</td>
-
+						@if($visa->approved == 'no' and $visa->rejected == 'no')
+							<td>
+								<a href="{{route('visa.approve',['id'=>$visa->id])}}">
+									<input name="approve" type="submit" value="Approve" class="btn btn-sm btn-success">
+								</a>
+								<a href="{{route('visa.reject',['id'=>$visa->id])}}">
+									<input name="reject" type="submit" value="Reject" class="btn btn-sm btn-danger">
+								</a>
+							</td>
+						@elseif($visa->approved == 'yes')
+							<td>
+								{{"Approved"}}
+							</td>
+						@elseif($visa->rejected == 'yes')
+							<td>
+								{{'rejected'}}
+							</td>
+						@endif
 						<td>{{$visa->re_apply}}</td>
-						<td><input type="submit" value="Save" class="btn btn-sm btn-success"></td>
-						
 					</tr>
-					</tbody>
-					</table>
-					</form>
-					@endforeach
-		
-		
-		
+				</tbody>
+			@endforeach
+	</table>
 @stop
+
+
+
+
+
+{{-- <input type="radio" name="rejected{{$visa->id}}" value="yes" 
+								{{($visa->rejected == 'yes')?"checked":" "}}>Yes
+								<input type="radio" name="rejected{{$visa->id}}" value="no"
+								{{($visa->rejected == 'no')?"checked":" "}}>No --}}

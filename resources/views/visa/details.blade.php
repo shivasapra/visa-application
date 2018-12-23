@@ -9,13 +9,10 @@
 					Travel To
 				</th>
 				<th>
-					Approved
+					Status
 				</th>
 				<th>
-					Rejected
-				</th>
-				<th>
-					Re-applied
+					Re-apply
 				</th>
 				
 			</thead>
@@ -26,14 +23,24 @@
 						<td>
 							{{$visa->travel_to}}
 						</td>
-						<td>{{$visa->approved}}</td>
-						<td>{{$visa->rejected}}</td>
-						<td>
-							@if($visa->re_apply == 'no')
-								<a href="{{route('visa.details.update',['id'=>$visa->id])}}" class="btn btn-sm btn-success">Re-Apply</a>
+						<td>@if($visa->approved == 'yes')
+							{{'Approved'}}
+							@elseif($visa->rejected == 'yes')
+							{{'Rejected'}}
 							@else
-								{{"Re-applied"}}
-								@endif
+							{{"Pending"}}
+							@endif
+						</td>
+						<td>
+							@if($visa->rejected == 'yes' and $visa->approved == 'no')
+								<a href="{{route('visa.details.update',['id'=>$visa->id])}}" class="btn btn-sm btn-success">Re-Apply</a>
+							@elseif($visa->approved == 'yes' and $visa->rejected == 'no')
+								{{"--"}}
+							@elseif($visa->approved == 'no' and $visa->rejected == 'no')
+								{{'--'}}
+							@elseif($visa->visa_re_apply == 'yes')
+								{{'Re-applied'}}
+							@endif
 						</td>
 					</tr>
 					@endforeach
