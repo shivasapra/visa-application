@@ -12,7 +12,7 @@ use App\agentProfile;
 */
 
 Route::get('/test', function () {
-    return view('layouts.frontend');
+    return view('layouts.test');
 });
 
 // Route::get('/', function () {

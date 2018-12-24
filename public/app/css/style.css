@@ -961,7 +961,7 @@ small {
     font-size: 70%;
 }
 
-@-webkit-keyframes loader {
+/*@-webkit-keyframes loader {
     0% {
         background: #f0f0f0;
     }
@@ -984,8 +984,8 @@ small {
         background: #f0f0f0;
     }
 }
-
-.table-bordered>thead>tr>th,
+*/
+.bordered>thead>tr>th,
 .table-bordered>tbody>tr>th,
 .table-bordered>tfoot>tr>th,
 .table-bordered>thead>tr>td,
@@ -8107,7 +8107,7 @@ input#tags {
 .table-loading .dataTables_length,
 .table-loading .dt-buttons,
 .table-loading .dataTables_filter {
-    opacity: 0 !important;
+    opacity: 100 !important;
 }
 
 .table-loading table thead tr {
@@ -8123,10 +8123,10 @@ input#tags {
     border: 0;
 }
 
-.table-loading {
+/*.table-loading {
     background: url(../images/table-loading.png);
     background-repeat: repeat-x;
-}
+}*/
 
 .task-info-created small {
     font-size: 85%;

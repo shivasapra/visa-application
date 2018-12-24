@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 @section('content')
 	
 	<div class="card-header text-center"><strong> Contracts under "{{$agent->name}}"</strong></div>

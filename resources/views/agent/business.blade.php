@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 @section('content')
 	
 	<div class="card-header text-center"><strong>Agent Business -> {{$agent->name}}</strong></div>

@@ -1,4 +1,4 @@
-@extends("layouts.app")
+@extends("layouts.frontend")
 @section('content')
 	<div class="card-header text-center"><strong>{{$student->first_name}}'s</strong> Details:</div>
 	<div class="card-body">
