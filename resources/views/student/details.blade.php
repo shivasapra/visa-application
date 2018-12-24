@@ -15,7 +15,7 @@
 @endsection
 @section('content')
 	<div class="content-header text-center">
-    	<h3 class="content-header-title"><strong>{{$student->first_name}}'s</strong> Details:</h3>
+    <h3 class="content-header-title"><strong>{{$student->first_name}}'s</strong> Details:</h3>
     </div>
 	<div class="content-body">
 		<div class="row">
