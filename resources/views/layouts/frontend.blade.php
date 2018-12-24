@@ -14,31 +14,32 @@
   <link href="{{asset('app/front/https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i')}}"
   rel="stylesheet">
   <!-- BEGIN VENDOR CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/app-assets/css/vendors.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/app-assets/vendors/css/forms/icheck/icheck.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/app-assets/vendors/css/forms/icheck/custom.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/app-assets/vendors/css/charts/morris.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/app-assets/vendors/css/extensions/unslider.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/app-assets/vendors/css/weather-icons/climacons.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/vendors.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/vendors/css/forms/icheck/icheck.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/vendors/css/forms/icheck/custom.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/vendors/css/charts/morris.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/vendors/css/extensions/unslider.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/vendors/css/weather-icons/climacons.min.css")}}">
   <!-- END VENDOR CSS-->
   <!-- BEGIN STACK CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/app-assets/css/app.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/app.css")}}">
   <!-- END STACK CSS-->
   <!-- BEGIN Page Level CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/app-assets/css/core/colors/palette-climacon.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/app-assets/css/core/colors/palette-gradient.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/app-assets/fonts/simple-line-icons/style.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/app-assets/fonts/meteocons/style.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/app-assets/css/pages/users.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/core/menu/menu-types/vertical-menu.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/core/colors/palette-climacon.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/core/colors/palette-gradient.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/fonts/simple-line-icons/style.min.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/fonts/meteocons/style.min.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/pages/users.css")}}">
   <!-- END Page Level CSS-->
   <!-- BEGIN Custom CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset('app/front/assets/css/style.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
   <!-- END Custom CSS-->
+  @yield('css')
 </head>
 
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar"
-data-open="click" data-menu="vertical-menu" data-col="2-columns">
+  data-open="click" data-menu="vertical-menu" data-col="2-columns">
   <!-- fixed-top-->
   <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-light navbar-border">
     <div class="navbar-wrapper">
@@ -48,7 +49,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
           <li class="nav-item">
             <a class="navbar-brand" href="index.html">
               <img class="brand-logo" alt="stack admin logo" src="{{asset('app/front/app-assets/images/logo/stack-logo.png')}}">
-              <h2 class="brand-text">Stack</h2>
+              <h2 class="brand-text">Visa Application</h2>
             </a>
           </li>
           <li class="nav-item d-md-none">
@@ -72,7 +73,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
               <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                 <span class="avatar avatar-online">
                   <img src="{{asset('app/images/user-placeholder.jpg')}}" alt="avatar"><i></i></span>
-                <span class="user-name">John Doe</span>
+                <span class="user-name">{{ Auth::user()->name }}</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="user-profile.html"><i class="ft-user"></i> Edit Profile</a>
                 <div class="dropdown-divider"></div>
@@ -140,8 +141,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
   <div class="app-content content">
     <div class="content-wrapper">
-      <div class="content-header row">
-      </div>
+      
       <div class="content-body">
         @yield('content')
       </div>
@@ -151,17 +151,17 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
   <footer class="footer footer-static footer-light navbar-border">
     
   </footer>
-  <!-- BEGIN VENDOR JS-->
+  <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBDkKetQwosod2SZ7ZGCpxuJdxY3kxo5Po"
+  type="text/javascript"></script>
+   <!-- BEGIN VENDOR JS-->
   <script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script>
   <!-- BEGIN VENDOR JS-->
   <!-- BEGIN PAGE VENDOR JS-->
-  <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBDkKetQwosod2SZ7ZGCpxuJdxY3kxo5Po"
-  type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/charts/gmaps.min.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/forms/icheck/icheck.min.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/extensions/jquery.knob.min.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/charts/raphael-min.js")}}" type="text/javascript"></script>
-  <script src="{{asset("app/front/app-assets/vendors/js/charts/morris.min.js")}}" type="text/javascript"></script>
+  <script src="{{asset("app/front/app-assets/vendors/js/charts/morris.min.j")}}s" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/charts/jquery.sparkline.min.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/extensions/unslider-min.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/charts/echarts/echarts.js")}}" type="text/javascript"></script>
@@ -174,5 +174,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="{{asset("app/front/app-assets/js/scripts/pages/dashboard-fitness.js")}}" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
+  @yield('js')
+
 </body>
 </html>
