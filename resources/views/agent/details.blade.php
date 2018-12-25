@@ -37,20 +37,20 @@
 				</div>
 				<div class="row">
 					<tr>
+						<td><strong>Designation:</strong></td>
+						<td>{{$agent->designation}}</td>
+					</tr>
+				</div>
+				<div class="row">
+					<tr>
+						<td><strong>Company:</strong></td>
+						<td>{{$agent->company}}</td>
+					</tr>
+				</div>
+				<div class="row">
+					<tr>
 						<td><strong>Email:</strong></td>
 						<td>{{$agent->email}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Location:</strong></td>
-						<td>{{$agent->location}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Mobile:</strong></td>
-						<td>{{$agent->mobile}}</td>
 					</tr>
 				</div>
 				<div class="row">
@@ -61,8 +61,50 @@
 				</div>
 				<div class="row">
 					<tr>
+						<td><strong>State:</strong></td>
+						<td>{{$agent->state}}</td>
+					</tr>
+				</div>
+				<div class="row">
+					<tr>
+						<td><strong>District:</strong></td>
+						<td>{{$agent->district}}</td>
+					</tr>
+				</div>
+				<div class="row">
+					<tr>
+						<td><strong>City:</strong></td>
+						<td>{{$agent->location}}</td>
+					</tr>
+				</div>
+				<div class="row">
+					<tr>
 						<td><strong>Postal Code:</strong></td>
 						<td>{{$agent->postal_code}}</td>
+					</tr>
+				</div>
+				<div class="row">
+					<tr>
+						<td><strong>Mobile:</strong></td>
+						<td>{{$agent->mobile}}</td>
+					</tr>
+				</div>
+				<div class="row">
+					<tr>
+						<td><strong>Website:</strong></td>
+						<td>{{$agent->website}}</td>
+					</tr>
+				</div>
+				<div class="row">
+					<tr>
+						<td><strong>International College tie up-- 1:</strong></td>
+						<td>{{$agent->college1}}</td>
+					</tr>
+				</div>
+				<div class="row">
+					<tr>
+						<td><strong>International College tie up-- 2:</strong></td>
+						<td>{{$agent->college2}}</td>
 					</tr>
 				</div>
 				<div class="row">

@@ -36,6 +36,7 @@
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
   <!-- END Custom CSS-->
   @yield('css')
+  
 </head>
 
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar"
@@ -55,19 +56,18 @@
           <li class="nav-item d-md-none">
             <a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a>
           </li>
+          
         </ul>
       </div>
       <div class="navbar-container content">
         <div class="collapse navbar-collapse" id="navbar-mobile">
           <ul class="nav navbar-nav mr-auto float-left">
             <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu"></i></a></li>
+         
             
-            <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#"><i class="ficon ft-search"></i></a>
-              <div class="search-input">
-                <input class="input" type="text" placeholder="Explore Stack...">
-              </div>
-            </li>
+        
           </ul>
+
           <ul class="nav navbar-nav float-right">
             <li class="dropdown dropdown-user nav-item">
               <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">

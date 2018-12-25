@@ -62,8 +62,22 @@
 							<div class="row">
 	                      		<div class="col-md-6">
 									<div class="form-group">
-										<label for="location">Location</label>
-										<input type="text" name='location' class="form-control">
+										<label for="company">Company</label>
+										<input type="text" name='company' class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="designation">Designation</label>
+										<input type="text" name='designation' class="form-control">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+	                      		<div class="col-md-6">
+									<div class="form-group">
+										<label for="website">Website</label>
+										<input type="text" name='website' class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -86,8 +100,42 @@
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
+										<label for="state">State</label>
+										<input type="text" name='state' class="form-control">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+	                      		<div class="col-md-6">
+									<div class="form-group">
+										<label for="district">District</label>
+										<input type="text" name='district' class="form-control">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<label for="location">City</label>
+										<input type="text" name='location' class="form-control">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
 										<label for="postal_code">Postal Code</label>
 										<input type="text" name='postal_code' class="form-control">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+	                      		<div class="col-md-6">
+									<div class="form-group">
+										<label for="college1">International College tie up-- 1</label>
+										<input type="text" name='college1' class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="college2">International College tie up-- 2</label>
+										<input type="text" name='college2' class="form-control">
 									</div>
 								</div>
 							</div>

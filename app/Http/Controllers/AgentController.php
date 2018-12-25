@@ -47,7 +47,14 @@ class AgentController extends Controller
             'address' => 'required',
             'postal_code' => 'required',
             'id_no' =>'required',
-            'license_no' => 'required'
+            'license_no' => 'required',
+            'company' => 'required',
+            'designation' => 'required',
+            'state' => 'required',
+            'district' => 'required',
+            'website' => 'required',
+            'college1' => 'required',
+            'college2' => 'required',
         ]);
         $id_proof= $request->id_proof;
         $id_proof_new_name = time().$id_proof->getClientOriginalName();
@@ -74,6 +81,13 @@ class AgentController extends Controller
             'postal_code' => $request->postal_code,
             'license_no' =>$request->license_no,
             'id_no' => $request->id_no,
+            'company' => $request->company,
+            'designation' => $request->designation,
+            'state' => $request->state,
+            'district' => $request->district,
+            'website' => $request->website,
+            'college1' => $request->college1,
+            'college2' => $request->college2,
                     ]);
         Session::flash('success','agent created successfully');
         return redirect()->route("agents");

@@ -11,7 +11,9 @@
   <!-- END Page Level CSS-->
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
+    	
   <!-- END Custom CSS-->
+
 @endsection
 @section('content')
 	<div class="content-header text-center">
@@ -30,10 +32,19 @@
 							Name
 						</th>
 						<th>
+							Company
+						</th>
+						<th>
+							City
+						</th>
+						<th>
+							Phone
+						</th>
+						<th>
 							Email
 						</th>
 						<th>
-							Location
+							Status
 						</th>
 						<th>
 							id proof
@@ -49,9 +60,20 @@
 							<tr>
 								<th scope="row">{{$agent->id}}</th>
 								<td><a href={{route('agent.business',['id'=>$agent->id])}}>{{$agent->name}}</a></td>
-								<td>{{$agent->email}}</td>
+								<td>{{$agent->company}}</td>
 								<td>
 									{{$agent->location}}
+								</td>
+								<td>
+									{{$agent->mobile}}
+								</td>
+								<td>{{$agent->email}}</td>
+								<td>
+									@if($agent->interested == 'yes')
+										{{"Interested"}}
+									@else
+										{{"Not Interested"}}
+									@endif
 								</td>
 								<td>
 									{{$agent->id_no}}
@@ -67,6 +89,7 @@
 								<th colspan="5" class="text-center">No Agents!!</th>
 							</tr>
 						@endif
+
 					</tbody>
 				</table>
 			</div>
@@ -93,4 +116,5 @@
   <!-- END STACK JS-->
   <!-- BEGIN PAGE LEVEL JS-->
   <!-- END PAGE LEVEL JS-->
+	
 @endsection

@@ -16,6 +16,7 @@ class CreateAgentProfilesTable extends Migration
         Schema::create('agent_profiles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('company');
             $table->string('email');
             $table->string('id_proof');
             $table->string('id_no');
@@ -23,6 +24,12 @@ class CreateAgentProfilesTable extends Migration
             $table->string('license');
             $table->string('photo');
             $table->string('location');
+            $table->string('designation');
+            $table->string('website');
+            $table->string('state');
+            $table->string('district');
+            $table->string('college1');
+            $table->string('college2');
             $table->string('mobile');
             $table->string('address');
             $table->integer('postal_code');
