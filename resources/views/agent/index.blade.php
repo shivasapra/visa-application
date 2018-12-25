@@ -41,9 +41,7 @@
 						<th>
 							license
 						</th>
-						<th>
-							photo
-						</th>
+						
 					</thead>
 					<tbody>
 						@if($agents->count()>0)
@@ -56,16 +54,12 @@
 									{{$agent->location}}
 								</td>
 								<td>
-									<img class="img-responsive menu-thumbnails" src="{{asset($agent->id_proof)}}"  width="30px" height="30px"/>
 									{{$agent->id_no}}
 								</td>
 								<td>
-									<img class="img-responsive menu-thumbnails" src="{{asset($agent->license)}}"  width=30px" height="30px"/>
 									{{$agent->license_no}}
 								</td>
-								<td>
-									<img class="img-responsive menu-thumbnails" src="{{asset($agent->photo)}}"  width="30px" height="30px"/>
-								</td>
+							
 							</tr>
 							@endforeach
 						@else

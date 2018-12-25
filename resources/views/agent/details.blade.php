@@ -22,6 +22,10 @@
           <div class="col-12">
             <div class="card">
               <div class="card-content collapse show">
+              	<br>
+              	<div class="container text-center">
+                	<img class="img-responsive menu-thumbnails" src="{{asset($agent->photo)}}" height="150px" width="150px" style="border-radius:20px">
+                </div><br>
                 <div class="table-responsive">
                  <table class="table table-hover mb-0">
 			<tbody>
@@ -31,13 +35,6 @@
 						<td>{{$agent->name}}</td>
 					</tr>
 				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Photo</strong></td>
-						<td><img class="img-responsive menu-thumbnails" src="{{asset($agent->photo)}}"  width="30px" height="30px"/></td>
-					</tr>
-				</div>
-
 				<div class="row">
 					<tr>
 						<td><strong>Email:</strong></td>
@@ -82,6 +79,22 @@
 				</div>
 			</tbody>
 		</table>
+				<br>
+				<div class="row">
+					<div class="col-md-6">
+              	<div class="container text-center">
+                	<img class="img-responsive menu-thumbnails" src="{{asset($agent->id_proof)}}" height="150px" width="150px" style="border-radius:20px"><br>
+                	<strong>{{"ID"}}</strong>
+                </div>
+                </div>
+                <div class="col-md-6">
+              	<div class="container text-center">
+                	<img class="img-responsive menu-thumbnails" src="{{asset($agent->license)}}" height="150px" width="150px" style="border-radius:20px"><br>
+                	<strong>{{"License"}}</strong>
+                </div>
+                </div>
+                </div>
+                <br>
 	</div>
 	</div>
 	</div>
