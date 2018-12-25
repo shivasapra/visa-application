@@ -114,6 +114,7 @@
     
         <div class="text-center">
     <a href="{{route('summary',['id'=>$agent->id])}}" class="btn btn-info">Agent Summary</a>
+    <a href="{{route('agent.details',['id'=>$agent->id])}}" class="btn btn-info">View Profile</a>
     </div>
 
 @stop

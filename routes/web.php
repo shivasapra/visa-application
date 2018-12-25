@@ -88,6 +88,11 @@ Route::get('/', 'HomeController@index')->name('home');
 	        'uses' => 'AgentController@files',
 	        'as' => 'agent.files'
 		]);
+	Route::get('/agent/details/{id}',[
+			'uses'=> 'AgentController@details',
+			'as'=>'agent.details'
+		]);
+
 
 //leads
 	Route::get('/leads',[

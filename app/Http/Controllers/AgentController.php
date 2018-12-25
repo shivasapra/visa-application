@@ -41,7 +41,13 @@ class AgentController extends Controller
             'email' => 'required|email',
             'id_proof' => 'required',
             'photo' => 'required',
-            'license'=>'required'
+            'license'=>'required',
+            'location' => 'required',
+            'mobile' => 'required',
+            'address' => 'required',
+            'postal_code' => 'required',
+            'id_no' =>'required',
+            'license_no' => 'required'
         ]);
         $id_proof= $request->id_proof;
         $id_proof_new_name = time().$id_proof->getClientOriginalName();
@@ -62,7 +68,13 @@ class AgentController extends Controller
             'id_proof' => 'uploads/agents/'.$id_proof_new_name,
             'photo' => 'uploads/agents/'.$photo_new_name,
             'license' => 'uploads/agents/'.$license_new_name,
-        ]);
+            'location' => $request->location,
+            'mobile' => $request->mobile,
+            'address' => $request->address,
+            'postal_code' => $request->postal_code,
+            'license_no' =>$request->license_no,
+            'id_no' => $request->id_no,
+                    ]);
         Session::flash('success','agent created successfully');
         return redirect()->route("agents");
     }
@@ -158,5 +170,10 @@ class AgentController extends Controller
     {
         $agent = agentProfile::find($id);
         return view('agent.agentFiles')->with('agent',$agent);
+    }
+    public function details($id){
+        // dd($id);
+        $agent = agentProfile::find($id);
+        return view('agent.details')->with('agent',$agent);
     }
 }

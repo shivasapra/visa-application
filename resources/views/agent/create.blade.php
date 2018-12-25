@@ -44,7 +44,7 @@
 							{{csrf_field()}}
 							<!-- Step 1 -->
 	                      
-	                      <fieldset>
+	                      	<fieldset>
 	                      	<div class="row">
 	                      		<div class="col-md-6">
 									<div class="form-group">
@@ -56,6 +56,38 @@
 									<div class="form-group">
 										<label for="email">Email</label>
 										<input type="email" name='email' class="form-control">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+	                      		<div class="col-md-6">
+									<div class="form-group">
+										<label for="location">Location</label>
+										<input type="text" name='location' class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="mobile">Mobile</label>
+										<input type="text" name='mobile' class="form-control">
+									</div>
+								</div>
+							</div>
+							</fieldset>
+
+							<!-- Step 2 -->
+							<fieldset>
+								<div class="row">
+	                      		<div class="col-md-6">
+									<div class="form-group">
+										<label for="address">Address</label>
+										<input type="text" name='address' class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="postal_code">Postal Code</label>
+										<input type="text" name='postal_code' class="form-control">
 									</div>
 								</div>
 							</div>
@@ -79,6 +111,21 @@
 									</div>
 								</div>
 							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="id_no">ID No.</label>
+										<input type="text" name='id_no' class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="license_no">License No.</label>
+										<input type="text" name='license_no' class="form-control">
+									</div>
+								</div>
+							</div>
+						</fieldset>
 							<div class="form-group">
 								<div class="text-center">
 									<button class="btn btn-success" type="submit">Add Agent</button>

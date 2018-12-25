@@ -18,8 +18,14 @@ class CreateAgentProfilesTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('id_proof');
+            $table->string('id_no');
+            $table->string('license_no');
             $table->string('license');
             $table->string('photo');
+            $table->string('location');
+            $table->string('mobile');
+            $table->string('address');
+            $table->integer('postal_code');
             $table->integer('students')->default(0);
             $table->integer('contracts')->default(0);
             $table->integer('revenue')->default(0);
