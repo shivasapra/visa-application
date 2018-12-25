@@ -117,9 +117,9 @@
 							</th>
 							
 						</thead>
+							<tbody>
 						@if($visas->count()>0)
 						@foreach($visas as $visa)
-							<tbody>
 								<tr><th scope="row">{{$visa->id}}</th>
 									<td>
 										<a href="{{route('student.details',['id'=>$visa->student->id])}}">
@@ -156,13 +156,13 @@
 										@endif
 									</td>
 								</tr>
-							</tbody>
 						@endforeach
 						@else
 						<tr>
 							<th colspan="5" class="text-center">No visas!!</th>
 						</tr>
 						@endif
+							</tbody>
 				</table>
 			</div>
 			</div>
