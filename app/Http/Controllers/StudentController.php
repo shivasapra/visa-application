@@ -49,6 +49,12 @@ class StudentController extends Controller
             'gender' => 'required',
             'email' => 'required|email',
             'agent_id' =>'required',
+            'title' => 'required',
+            'first_language' => 'required',
+            'DOB' => 'required',
+            'Mobile' => 'required',
+            'address' => 'required',
+            'postal_code' => 'required',
         ]);
 
         $agent = agentProfile::find($request->agent_id);
