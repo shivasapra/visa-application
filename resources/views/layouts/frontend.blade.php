@@ -72,10 +72,16 @@
             <li class="dropdown dropdown-user nav-item">
               <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                 <span class="avatar avatar-online">
-                  <img src="{{asset('app/images/user-placeholder.jpg')}}" alt="avatar"><i></i></span>
+                  <img 
+                    @if(Auth::user()->avatar)
+                      src="{{asset(Auth::user()->avatar)}}"
+                    @else
+                      src="{{asset('app/images/user-placeholder.jpg')}}"
+                    @endif 
+                    alt="avatar"><i></i></span>
                 <span class="user-name">{{ Auth::user()->name }}</span>
               </a>
-              <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="user-profile.html"><i class="ft-user"></i> Edit Profile</a>
+              <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{route('edit.profile')}}"><i class="ft-user"></i> Edit Profile</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('home') }}"
                      onclick="event.preventDefault();

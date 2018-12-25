@@ -22,6 +22,15 @@ Route::get('/test', function () {
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/edit/profile',[
+			'uses'=> 'UserController@index',
+			'as'=>'edit.profile'
+		]);
+Route::post('/update/profile',[
+			'uses'=> 'UserController@update',
+			'as'=>'update.profile'
+		]);
+
 
 //students
 
