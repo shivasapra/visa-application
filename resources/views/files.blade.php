@@ -42,7 +42,7 @@
                     </div>
                 </div>
 
-				<div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+				        <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
                     
                     <div class="my-1 text-center">
                       <div class="card-header mb-2 pt-0">
@@ -57,7 +57,7 @@
                       </div>
                 	</div> 
                 </div>
-               	</div>
+        </div>
 				<div class="row">
                 <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
                     <div class="my-1 text-center">

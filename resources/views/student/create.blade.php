@@ -235,8 +235,6 @@
 				
 			</form>
 		</div> --}}
-
-
 @stop
 @section('js')
 	<!-- BEGIN VENDOR JS-->
