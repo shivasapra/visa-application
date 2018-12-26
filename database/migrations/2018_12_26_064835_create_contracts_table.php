@@ -19,8 +19,12 @@ class CreateContractsTable extends Migration
             $table->string('subject');
             $table->string('contract_value');
             $table->longText('description');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->string('start_date');
+            $table->string('end_date');
+            $table->string('signed')->default('no');
+            $table->string('signed_fname')->nullable();
+            $table->string('signed_lname')->nullable();
+            $table->string('signed_email')->nullable();
             $table->timestamps();
         });
     }

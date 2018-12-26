@@ -51,6 +51,14 @@ Route::post('/update/profile',[
 				'uses'=> 'ContractsController@details',
 				'as'=>'contract.details'
 			]);
+	Route::get('/contract/sign/{id}',[
+				'uses'=> 'ContractsController@sign',
+				'as'=>'contract.sign'
+			]);
+	Route::post('/contract/signed/{id}',[
+				'uses'=> 'ContractsController@signed',
+				'as'=>'contract.signed'
+			]);
 //students
 
 	Route::get('/students',[

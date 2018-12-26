@@ -42,6 +42,9 @@
                         <th>
                           End Date
                         </th>
+                        <th>
+                          Signed
+                        </th>
                       </tr>
                       </thead>
                     <tbody>
@@ -55,9 +58,15 @@
                             <td>{{'$'.$contract->contract_value}}</td>
                             <td>{{$contract->start_date}}</td>
                             <td>{{$contract->end_date}}</td>
+                           <td>
+                             @if($contract->signed == 'no')
+                              {{"Not Signed"}}
+                             @else 
+                              {{'Signed'}}
+                             @endif
+                           </td>
                             <td><a href="{{route('contract.delete',['id'=>$contract->id])}}" class="btn btn-sm btn-danger">Delete</a>
                            </td>
-                            
                         </tr>
                         @endforeach
                         @else
@@ -71,11 +80,11 @@
               </div>
             </div>
               <div class="text-center">
-          <a href="{{route('contract.create')}}" class="btn btn-sm btn-info">New Contract</a>
-        </div>
+                  <a href="{{route('contract.create')}}" class="btn btn-sm btn-info">New Contract</a>
+                  </div>
           </div>
-    </div>
-  </div>
+        </div>
+      </div>
 @endsection
 @section('js')
   <script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script>

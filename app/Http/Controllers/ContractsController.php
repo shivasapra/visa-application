@@ -123,4 +123,25 @@ class ContractsController extends Controller
         $contract = contracts::find($id);
         return view('contract.details')->with('contract',$contract);
     }
+    public function sign($id)
+    {
+        $contract = contracts::find($id);
+        return view('contract.sign')->with('contract',$contract);
+    }
+    public function signed(Request $request, $id)
+    {   
+         $this->validate($request,[
+            'signed_fname' => 'required',
+            'signed_lname' => 'required',
+            'signed_email' => 'required|email',
+        ]);
+
+        $contract = contracts::find($id);
+        $contract->signed_fname = $request->signed_fname;
+        $contract->signed_lname = $request->signed_lname;
+        $contract->signed_email = $request->signed_email;
+        $contract->signed = 'yes';
+        $contract->save();
+        return redirect()->route('contracts');
+    }
 }

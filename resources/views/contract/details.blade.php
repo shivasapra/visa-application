@@ -40,7 +40,7 @@
 				<div class="row">
 					<tr>
 						<td><strong>Contract Value:</strong></td>
-						<td>{{$contract->contract_value}}</td>
+						<td>{{"$".$contract->contract_value}}</td>
 					</tr>
 				</div>
 				<div class="row">
@@ -61,12 +61,18 @@
 						<td>{{$contract->description}}</td>
 					</tr>
 				</div>
-				
 			</tbody>
 		</table>
 	</div>
 	</div>
 	</div>
+	  <div class="text-center">
+	  	@if($contract->signed == 'yes')
+          <h4><strong>Signed by:</strong> {{$contract->signed_fname}} {{$contract->signed_lname}}({{$contract->signed_email}})</h4>
+        @else
+      		<a href="{{route('contract.sign',['id'=>$contract->id])}}" class="btn btn-sm btn-success">Sign Contract</a>
+      	@endif
+      </div>
 	</div>
 	</div>
 	</div>		
