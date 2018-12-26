@@ -42,78 +42,145 @@ Student Details
               <div class="card-content collapse show">
                 <div class="table-responsive">
                  <table class="table table-hover mb-0">
-			<tbody>
-				<div class="row">
-					<tr>
-						<td><strong>Agent:</strong></td>
-						<td>{{$student->agent->name}}</td>
-					</tr>
+					<tbody>
+						<div class="row">
+							<tr>
+								<td><strong>Agent:</strong></td>
+								<td>{{$student->agent->name}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>First Name:</strong></td>
+								<td>{{$student->first_name}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Last Name:</strong></td>
+								<td>{{$student->last_name}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Email:</strong></td>
+								<td>{{$student->email}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Title:</strong></td>
+								<td>{{$student->title}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Gender:</strong></td>
+								<td>{{$student->gender}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>First Language:</strong></td>
+								<td>{{$student->first_language}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>DOB:</strong></td>
+								<td>{{$student->DOB}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Mobile:</strong></td>
+								<td>{{$student->Mobile}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Address:</strong></td>
+								<td>{{$student->address}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Postal Code:</strong></td>
+								<td>{{$student->postal_code}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Passport No:</strong></td>
+								<td>{{$student->passport_no}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Country of origin:</strong></td>
+								<td>{{$student->passport_country}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Issued Date:</strong></td>
+								<td>{{$student->passport_issue}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Expire Date:</strong></td>
+								<td>{{$student->passport_expire}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>10th Percentage:</strong></td>
+								<td>{{$student->tenth_percentage}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>10th Passing year:</strong></td>
+								<td>{{$student->tenth_year}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>10th Board:</strong></td>
+								<td>{{$student->tenth_board}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>12th Percentage:</strong></td>
+								<td>{{$student->twelveth_percentage}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>12th Passing Year:</strong></td>
+								<td>{{$student->twelveth_year}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>12th Board:</strong></td>
+								<td>{{$student->twelveth_board}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>12th stream:</strong></td>
+								<td>{{$student->twelveth_stream}}</td>
+							</tr>
+						</div>
+
+					</tbody>
+				</table>
 				</div>
-				<div class="row">
-					<tr>
-						<td><strong>First Name:</strong></td>
-						<td>{{$student->first_name}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Last Name:</strong></td>
-						<td>{{$student->last_name}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Email:</strong></td>
-						<td>{{$student->email}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Title:</strong></td>
-						<td>{{$student->title}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Gender:</strong></td>
-						<td>{{$student->gender}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>First Language:</strong></td>
-						<td>{{$student->first_language}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>DOB:</strong></td>
-						<td>{{$student->DOB}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Mobile:</strong></td>
-						<td>{{$student->Mobile}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Address:</strong></td>
-						<td>{{$student->address}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Postal Code:</strong></td>
-						<td>{{$student->postal_code}}</td>
-					</tr>
-				</div>
-			</tbody>
-		</table>
-	</div>
-	</div>
-	</div>
+			</div>
+		</div>
 		<div class="text-center">
 			<a href="{{route('visa.details',['id'=>$student->id])}}" class="btn btn-sm btn-info">Visa Details</a>
 		</div>

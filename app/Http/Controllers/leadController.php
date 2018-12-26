@@ -150,11 +150,21 @@ class leadController extends Controller
             'Mobile' => 'required',
             'address' => 'required',
             'postal_code' => 'required',
+            'passport_no' => 'required',
+            'passport_issue' => 'required',
+            'passport_expire' => 'required',
+            'passport_country' => 'required',
+            'tenth_percentage' => 'required|integer',
+            'twelveth_percentage' => 'required|integer',
+            'tenth_year' => 'required|integer',
+            'twelveth_year' => 'required|integer',
+            'tenth_board' => 'required',
+            'twelveth_board' => 'required',
+            'twelveth_stream' => 'required'
         ]);
 
         $agent = agentProfile::find($request->agent_id);
         studentProfile::create([
-            'lead_id' => $id,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
@@ -166,6 +176,17 @@ class leadController extends Controller
             'address' => $request->address,
             'postal_code' => $request->postal_code,
             'agent_id' => $request->agent_id,
+            'passport_no' => $request->passport_no,
+            'passport_issue' => $request->passport_issue,
+            'passport_expire' => $request->passport_expire,
+            'passport_country' => $request->passport_country,
+            'tenth_percentage' => $request->tenth_percentage,
+            'twelveth_percentage' => $request->twelveth_percentage,
+            'tenth_year' => $request->tenth_year,
+            'twelveth_year' => $request->twelveth_year,
+            'tenth_board' => $request->tenth_board,
+            'twelveth_board' => $request->twelveth_board,
+            'twelveth_stream' => $request->twelveth_stream
         ]);
 
         $agent->students = $agent->students + 1;

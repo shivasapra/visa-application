@@ -133,7 +133,7 @@ Convert Lead into Student
 	                          <div class="col-md-6">
 	                            <div class="form-group">
 	                              <label for="DOB">DOB</label>
-									<input type="text" name='DOB' placeholder="dd/mm/yyyy" class="form-control">
+									<input type="date" name='DOB' class="form-control">
 	                            </div>
 	                            </div>
 	                            <div class="col-md-6">
@@ -159,6 +159,76 @@ Convert Lead into Student
 	                            </div>
 	                        	</div>
 	                        </div>
+	                        <div class="text-center"><h4>{{"Passport"}}</h4></div>
+	                        <div class="row">
+	                          <div class="col-md-6">
+	                            <label for="passport_no">Passport No.</label>
+								<input type="text"  name='passport_no' class="form-control">
+	                            </div>
+	                            <div class="col-md-6">
+	                            <div class="form-group">
+	                             <label for="passport_country">Country of origin</label>
+								 <input type="text" name='passport_country'  class="form-control">
+	                            </div>
+	                        	</div>
+	                        </div>
+	                        <div class="row">
+	                          <div class="col-md-6">
+	                            <label for="passport_issue">Issued Date</label>
+								<input type="date"  name='passport_issue' class="form-control">
+	                            </div>
+	                            <div class="col-md-6">
+	                            <div class="form-group">
+	                             <label for="passport_expire">Expire Date</label>
+								 <input type="date" name='passport_expire'  class="form-control">
+	                            </div>
+	                        	</div>
+	                        </div>
+	                       </fieldset>
+	                       <fieldset>
+	                       		<div class="text-center"><h4>{{"Education"}}</h4></div>
+	                       		<div class="row">
+		                          <div class="col-md-6">
+		                            <label for="tenth_percentage">10th Percentage</label>
+									<input type="text"  name='tenth_percentage' class="form-control">
+		                            </div>
+		                            <div class="col-md-6">
+		                            <div class="form-group">
+		                             <label for="twelveth_percentage">12th Percentage</label>
+									 <input type="text" name='twelveth_percentage'  class="form-control">
+		                            </div>
+		                        	</div>
+	                        	</div>
+	                        	<div class="row">
+		                          <div class="col-md-6">
+		                            <label for="tenth_year">10th Passing year</label>
+									<input type="text"  name='tenth_year' class="form-control">
+		                            </div>
+		                            <div class="col-md-6">
+		                            <div class="form-group">
+		                             <label for="twelveth_year">12th Passing year</label>
+									 <input type="text" name='twelveth_year'  class="form-control">
+		                            </div>
+		                        	</div>
+	                        	</div>
+	                        	<div class="row">
+		                          <div class="col-md-6">
+		                            <label for="tenth_board">10th Board</label>
+									<input type="text"  name='tenth_board' class="form-control">
+		                            </div>
+		                            <div class="col-md-3">
+		                            <div class="form-group">
+		                             <label for="twelveth_board">12th Board</label>
+									 <input type="text" name='twelveth_board'  class="form-control">
+		                            </div>
+		                        	</div>
+		                        	<div class="col-md-3">
+		                            <div class="form-group">
+		                             <label for="twelveth_stream">12th Stream</label>
+									 <input type="text" name='twelveth_stream'  class="form-control">
+		                            </div>
+		                        	</div>
+	                        	</div>
 	                       </fieldset>
 	                      	<div class="form-group">
 							<div class="text-center">

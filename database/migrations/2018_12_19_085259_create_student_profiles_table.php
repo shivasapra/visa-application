@@ -30,6 +30,17 @@ class CreateStudentProfilesTable extends Migration
             $table->integer('visa_approved')->default(0);
             $table->integer('visa_rejected')->default(0);
             $table->integer('visa_re_applied')->default(0);
+            $table->string('passport_no');
+            $table->string('passport_issue');
+            $table->string('passport_expire');
+            $table->string('passport_country');
+            $table->integer('tenth_percentage');
+            $table->integer('twelveth_percentage');
+            $table->integer('tenth_year');
+            $table->integer('twelveth_year');
+            $table->string('tenth_board');
+            $table->string('twelveth_board');
+            $table->string('twelveth_stream');
             $table->timestamps();
         });
     }
