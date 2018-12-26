@@ -45,23 +45,30 @@ class ContractsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'subject' => 'required',
-            'contract_value' => 'required',
+            'percentage' => 'required',
             'description' => 'required',
             'agent_id' =>'required',
             'start_date' => 'required',
             'end_date' => 'required',
+            'percentage_' => 'integer'
         ]);
 
         $agent = agentProfile::find($request->agent_id);
-        contracts::create([
-            'subject' => $request->subject,
-            'contract_value' => $request->contract_value,
-            'description' => $request->description,
-            'agent_id' => $request->agent_id,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
-        ]);
+        $contract = new contracts;
+        
+            if($request->percentage != 10 and $request->percentage != 15 
+                and $request->percentage != 20){
+                $contract->percentage = $request->percentage_;
+            }
+            else{
+                $contract->percentage = $request->percentage;
+            }
+            $contract->description = $request->description;
+            $contract->agent_id = $request->agent_id;
+            $contract->start_date = $request->start_date;
+            $contract->end_date = $request->end_date;
+            $contract->save();
+        
 
         $agent->contracts = $agent->contracts + 1;
         $agent->save();
@@ -88,7 +95,8 @@ class ContractsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contract = contracts::find($id);
+        return view('contract.edit')->with('contract',$contract);
     }
 
     /**
@@ -100,7 +108,29 @@ class ContractsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'percentage' => 'required',
+            'description' => 'required',
+            'agent_id' =>'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+
+        $contract = contracts::find($id);
+        if($request->percentage != 10 and $request->percentage != 15 
+                and $request->percentage != 20){
+                $contract->percentage = $request->percentage_;
+            }
+            else{
+                $contract->percentage = $request->percentage;
+            }
+        $contract->description = $request->description;
+        $contract->agent_id = $request->agent_id;
+        $contract->start_date = $request->start_date;
+        $contract->end_date = $request->end_date;
+        $contract->save();
+        Session::flash('success','contract created successfully');
+        return redirect()->route("contracts");
     }
 
     /**

@@ -24,7 +24,7 @@ New Contract
 @section('header')
     <div class="content-header row">
     <div class="content-header col-md-6 col-12 mb-1">
-      <h3 class="content-header-title"><strong>New Contract</strong></h3>
+      <h3 class="content-header-title"><strong>Edit Contract</strong></h3>
     </div>
     <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
       <div class="breadcrumb-wrapper col-12">
@@ -33,7 +33,7 @@ New Contract
           </li>
           <li class="breadcrumb-item"><a href="{{route('contracts')}}">Contracts</a>
           </li>
-          <li class="breadcrumb-item">New Contract</li>
+          <li class="breadcrumb-item">Edit Contract</li>
         </ol>
       </div>
     </div>
@@ -57,7 +57,7 @@ New Contract
 	              <div class="card">
 	                <div class="card-content collapse show">
 	                  <div class="card-body">
-	                    <form action="{{route('contract.store')}}" class="number-tab-steps wizard-circle" method="post">
+	                    <form action="{{route('update.contract',['id'=>$contract->id])}}" class="number-tab-steps wizard-circle" method="post">
 	                    	@csrf
 	                      <!-- Step 1 -->
 	                      
@@ -67,9 +67,7 @@ New Contract
 	                            	<div class="form-group">
 									<label for="agent_id">Select agent</label><br>
 									<select name="agent_id" class="form-control" >
-										@foreach( $agents as $agent)
-										 <option value="{{$agent->id}}">{{$agent->name}}</option>
-										@endforeach
+										<option value="{{$contract->agent->id}}">{{$contract->agent->name}}</option>
 									</select>
 								</div>
 	                            </div>
@@ -78,17 +76,21 @@ New Contract
 	                          	<div class="col-md-6">
 	                          	<div class="form-group">
 	                          		<label for="percentage">Percentage</label><br>
-									<input type="radio" name='percentage' value="10">10 % <br>
-									<input type="radio" name='percentage' value="15">15 % <br>
-									<input type="radio" name='percentage' value="20">20 %
+									<input type="radio" name='percentage' value="10" {{($contract->percentage == 10)?"checked":" "}}>10 % <br>
+									<input type="radio" name='percentage' value="15" {{($contract->percentage == 15)?"checked":" "}}>15 % <br>
+									<input type="radio" name='percentage' value="20" {{($contract->percentage == 20)?"checked":" "}}>20 %
 									<br>
-									<input type="radio" name='percentage'>Other:<input type="text" name='percentage_' class="form-control">
+									<input type="radio" name='percentage' {{($contract->percentage != 10 and $contract->percentage != 15 and $contract->percentage != 20)?"checked":" "}}>Other:<input type="text" name='percentage_' 
+										@if($contract->percentage != 10 and $contract->percentage != 15 and $contract->percentage != 20)
+											value="{{$contract->percentage}}" 
+										@endif
+										class="form-control">
 							  	</div>
 							  	</div>
 	                            <div class="col-md-6">
 	                            	<div class="form-group">
 									<label for="description">Description</label><br>
-									<textarea name="description" id="description" rows="6"  class="form-control"></textarea>
+									<textarea value="{{$contract->description}}" name="description" id="description" rows="6"  class="form-control"></textarea>
 								</div>
 	                            </div>
 	                        </div>
@@ -96,13 +98,13 @@ New Contract
 		                        <div class="col-md-6">
 		                            <div class="form-group">
 		                            <label for="start_date">Start Date</label>
-		                            <input type="date" name="start_date" class="form-control" placeholder="dd/mm/yyyy">
+		                            <input type="date" name="start_date" class="form-control" placeholder="dd/mm/yyyy" value="{{$contract->start_date}}">
 		                        </div>
 		                    </div>
 		                        <div class="col-md-6">
 		                            <div class="form-group">
 		                              <label for="end_date">End Date</label><br>
-									  <input type="date" name='end_date' class="form-control" placeholder="dd/mm/yyyy">
+									  <input type="date" name='end_date' class="form-control" placeholder="dd/mm/yyyy" value="{{$contract->end_date}}">
 		                            </div>
 		                        </div>
 	                        </div>
@@ -111,7 +113,7 @@ New Contract
 	                      </fieldset>
 	                      	<div class="form-group">
 							<div class="text-center">
-								<button class="btn btn-success" type="submit">Add Contract</button>
+								<button class="btn btn-success" type="submit">Update Contract</button>
 							</div>
 							</div>
 	                    </form>

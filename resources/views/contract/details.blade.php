@@ -51,14 +51,8 @@ Contract Details
 				</div>
 				<div class="row">
 					<tr>
-						<td><strong>Subject:</strong></td>
-						<td>{{$contract->subject}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Contract Value:</strong></td>
-						<td>{{"$".$contract->contract_value}}</td>
+						<td><strong>Percentage:</strong></td>
+						<td>{{$contract->percentage."%"}}</td>
 					</tr>
 				</div>
 				<div class="row">

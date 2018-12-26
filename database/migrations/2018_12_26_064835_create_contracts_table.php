@@ -16,8 +16,7 @@ class CreateContractsTable extends Migration
         Schema::create('contracts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('agent_id');
-            $table->string('subject');
-            $table->string('contract_value');
+            $table->integer('percentage');
             $table->longText('description');
             $table->string('start_date');
             $table->string('end_date');

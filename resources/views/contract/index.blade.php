@@ -45,13 +45,10 @@ Contracts
                       <tr>
                         <th>#</th>
                         <th>
-                          Subject
-                        </th>
-                        <th>
                           Agent
                         </th>
                         <th>
-                          Contract value
+                          Percentage
                         </th>
                         <th>
                           Start Date
@@ -62,6 +59,9 @@ Contracts
                         <th>
                           Signed
                         </th>
+                        <th>
+                          Action
+                        </th>
                       </tr>
                       </thead>
                     <tbody>
@@ -69,10 +69,8 @@ Contracts
                         @foreach($contracts as $contract)
                           <tr>
                             <th scope="row">{{$contract->id}}</th>
-                            <td><a href="{{route('contract.details',['id'=>$contract->id])}}">{{$contract->subject}}</a>
-                            </td>
-                            <td>{{$contract->agent->name}}</td>
-                            <td>{{'$'.$contract->contract_value}}</td>
+                            <td>{{$contract->agent->name}}</a></td>
+                            <td>{{$contract->percentage."%"}}</td>
                             <td>{{$contract->start_date}}</td>
                             <td>{{$contract->end_date}}</td>
                            <td>
@@ -82,7 +80,10 @@ Contracts
                               <div class="success">{{'Signed'}}</div>
                              @endif
                            </td>
-                            <td><a href="{{route('contract.delete',['id'=>$contract->id])}}" class="btn btn-sm btn-danger">Delete</a>
+                            <td>
+                              <a href="{{route('contract.delete',['id'=>$contract->id])}}" class="btn btn-sm btn-danger">Delete</a>
+                              <a href="{{route('contract.details',['id'=>$contract->id])}}" class="btn btn-sm btn-success">view</a>
+                              <a href="{{route('contract.edit',['id'=>$contract->id])}}" class="btn btn-sm btn-info">Edit</a>
                            </td>
                         </tr>
                         @endforeach
