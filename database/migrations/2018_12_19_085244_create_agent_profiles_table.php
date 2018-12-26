@@ -38,7 +38,8 @@ class CreateAgentProfilesTable extends Migration
             $table->integer('revenue')->default(0);
             $table->integer('commission')->default(0);
             $table->integer('active_c')->default(0);
-            $table->integer('expired_c')->default(0);   //c=contracts
+            $table->integer('expired_c')->default(0);
+            $table->integer('signed_c')->default(0);   //c=contracts
             $table->integer('about_to_expired_c')->default(0);
             $table->integer('added_c')->default(0);
             $table->integer('declined_c')->default(0);

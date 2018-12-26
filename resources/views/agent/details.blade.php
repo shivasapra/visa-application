@@ -61,7 +61,7 @@
 				</div>
 				<div class="row">
 					<tr>
-						<td><strong>State:</strong></td>
+						<td><strong>State/UT:</strong></td>
 						<td>{{$agent->state}}</td>
 					</tr>
 				</div>

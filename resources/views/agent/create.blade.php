@@ -100,7 +100,7 @@
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="state">State</label>
+										<label for="state">State/UT</label>
 										<input type="text" name='state' class="form-control">
 									</div>
 								</div>

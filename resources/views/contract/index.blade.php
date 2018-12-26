@@ -62,7 +62,7 @@
                              @if($contract->signed == 'no')
                               {{"Not Signed"}}
                              @else 
-                              {{'Signed'}}
+                              <div class="success">{{'Signed'}}</div>
                              @endif
                            </td>
                             <td><a href="{{route('contract.delete',['id'=>$contract->id])}}" class="btn btn-sm btn-danger">Delete</a>
