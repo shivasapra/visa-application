@@ -62,18 +62,7 @@ Agent Summary
 							</div>
 							<div class="row">
 								<tr>
-									<td><strong>Refused:</strong></td>
-									<td>
-										<input type="radio" name="refused" value="yes" 
-										{{($agent->refused == 'yes')?"checked":" "}}>Yes
-										<input type="radio" name="refused" value="no"
-										{{($agent->refused == 'no')?"checked":" "}}>No
-									</td>
-								</tr>
-							</div>
-							<div class="row">
-								<tr>
-									<td><strong>Proposal Sent:</strong></td>
+									<td><strong>Proposal sent/Document received:</strong></td>
 									<td>
 										<input type="radio" name="proposal_sent" value="yes" 
 										{{($agent->proposal_sent == 'yes')?"checked":" "}}>Yes
@@ -84,34 +73,36 @@ Agent Summary
 							</div>
 							<div class="row">
 								<tr>
-									<td><strong>Document Sent:</strong></td>
+									<td><strong>Agreement sent to Agent:</strong></td>
 									<td>
-										<input type="radio" name="document_sent" value="yes" 
-										{{($agent->document_sent == 'yes')?"checked":" "}}>Yes
-										<input type="radio" name="document_sent" value="no"
-										{{($agent->document_sent == 'no')?"checked":" "}}>No
+										<input type="radio" name="agreement_sent" value="yes" 
+										{{($agent->agreement_sent == 'yes')?"checked":" "}}>Yes
+										<input type="radio" name="agreement_sent" value="no"
+										{{($agent->agreement_sent == 'no')?"checked":" "}}>No
 									</td>
 								</tr>
 							</div>
 							<div class="row">
 								<tr>
-									<td><strong>Agreement:</strong></td>
+									<td><strong>Agreement signed by Agent:</strong></td>
 									<td>
-										<input type="radio" name="agreement" value="yes" 
-										{{($agent->agreement == 'yes')?"checked":" "}}>Yes
-										<input type="radio" name="agreement" value="no"
-										{{($agent->agreement == 'no')?"checked":" "}}>No
+										<input type="radio" name="agreement_signed_agent" value="yes" 
+										{{($agent->agreement_signed_agent == 'yes')?"checked":" "}}>Yes
+										<input type="radio" name="agreement_signed_agent" value="no"
+										{{($agent->agreement_signed_agent == 'no')?"checked":" "}}>No
+									<input type="date" name="agreement_signed_date"
+										value="{{$agent->agreement_signed_date}}">
 									</td>
 								</tr>
 							</div>
 							<div class="row">
 								<tr>
-									<td><strong>Certification:</strong></td>
+									<td><strong>Agreement signed by college:</strong></td>
 									<td>
-										<input type="radio" name="certification" value="yes" 
-										{{($agent->certification == 'yes')?"checked":" "}}>Yes
-										<input type="radio" name="certification" value="no"
-										{{($agent->certification == 'no')?"checked":" "}}>No
+										<input type="radio" name="agreement_signed_college" value="yes" 
+										{{($agent->agreement_signed_college == 'yes')?"checked":" "}}>Yes
+										<input type="radio" name="agreement_signed_college" value="no"
+										{{($agent->agreement_signed_college == 'no')?"checked":" "}}>No
 									</td>
 								</tr>
 							</div>

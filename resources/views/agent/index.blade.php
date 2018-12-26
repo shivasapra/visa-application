@@ -18,10 +18,26 @@ Agents
   <!-- END Custom CSS-->
 
 @endsection
-@section('content')
-	<div class="content-header text-center">
+@section('header')
+    <div class="content-header row">
+	<div class="content-header col-md-6 col-12 mb-1">
     	<h3 class="content-header-title"><strong>Agents</strong></h3>
     </div>
+	  <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
+	    <div class="breadcrumb-wrapper col-12">
+	      <ol class="breadcrumb">
+	        <li class="breadcrumb-item"><a href="">Home</a>
+	        </li>
+	        <li class="breadcrumb-item"><a href="">Page</a>
+	        </li>
+	        <li class="breadcrumb-item active">Form Wizard
+	        </li>
+	      </ol>
+	    </div>
+	  </div>
+	</div>
+@stop
+	@section('content')
 	<div class="content-body">
 		<div class="row">
           <div class="col-12">

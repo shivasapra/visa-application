@@ -170,11 +170,11 @@ class AgentController extends Controller
     public function updateSummary(Request $request, $id){
         $agent = agentProfile::find($id);
         $agent->interested = $request->interested;
-        $agent->refused = $request->refused;
         $agent->proposal_sent = $request->proposal_sent;
-        $agent->document_sent = $request->document_sent;
-        $agent->agreement = $request->agreement;
-        $agent->certification = $request->certification;
+        $agent->agreement_signed_agent = $request->agreement_signed_agent;
+        $agent->agreement_sent = $request->agreement_sent;
+        $agent->agreement_signed_college = $request->agreement_signed_college;
+        $agent->agreement_signed_date = $request->agreement_signed_date;
         $agent->save();
         Session::flash('success','Summary updated successfully');
         return redirect()->route('agents');

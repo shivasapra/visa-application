@@ -154,7 +154,7 @@
 
   <div class="app-content content">
     <div class="content-wrapper">
-      
+      @yield('header')
       <div class="content-body">
         @yield('content')
       </div>
