@@ -21,6 +21,26 @@ Sign Contract
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
   <!-- END Custom CSS-->
 @endsection
+@section('header')
+    <div class="content-header row">
+    <div class="content-header col-md-6 col-12 mb-1">
+      <h3 class="content-header-title"><strong>Sign Contract</strong></h3>
+    </div>
+    <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
+      <div class="breadcrumb-wrapper col-12">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a>
+          </li>
+          <li class="breadcrumb-item"><a href="{{route('contracts')}}">Contracts</a>
+          </li>
+          <li class="breadcrumb-item"><a href="{{route('contract.details',['id'=>$contract->id])}}">Details</a>
+          </li>
+          <li class="breadcrumb-item">Sign contract</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+@stop
 @section('content')
 	@if(count($errors)>0)
 		<ul class="list-group">
@@ -31,9 +51,6 @@ Sign Contract
 			@endforeach
 		</ul>
 	@endif
-	<div class="content-header text-center">
-    	<h3 class="content-header-title"><strong>Sign Contract:</strong> {{$contract->subject}} </h3>
-    </div>
     <div class="content-body">
 	    <section id="number-tabs">
 	              <div class="card">
