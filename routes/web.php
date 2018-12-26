@@ -30,8 +30,27 @@ Route::post('/update/profile',[
 			'uses'=> 'UserController@update',
 			'as'=>'update.profile'
 		]);
-
-
+//contracts
+	Route::get('/contracts',[
+				'uses'=> 'ContractsController@index',
+				'as'=>'contracts'
+			]);
+	Route::get('/contract/create',[
+				'uses'=> 'ContractsController@create',
+				'as'=>'contract.create'
+			]);
+	Route::post('/contract/store',[
+				'uses'=> 'ContractsController@store',
+				'as'=>'contract.store'
+			]);
+	Route::get('/contract/delete/{id}',[
+				'uses'=> 'ContractsController@destroy',
+				'as'=>'contract.delete'
+			]);
+	Route::get('/contract/details/{id}',[
+				'uses'=> 'ContractsController@details',
+				'as'=>'contract.details'
+			]);
 //students
 
 	Route::get('/students',[

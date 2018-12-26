@@ -11,6 +11,8 @@
   <title>Dashboard</title>
   <link rel="apple-touch-icon" href="{{asset('app/front/app-assets/images/ico/apple-icon-120.png')}}">
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('app/front/app-assets/images/ico/favicon.ico')}}">
+  <link href="{{ asset('/css/toastr.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{asset('app/front/https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i')}}"
   rel="stylesheet">
   <!-- BEGIN VENDOR CSS-->
@@ -123,6 +125,11 @@
           Students</a>
         </li>
         <li class="menu-item">
+          <a href="{{route('contracts')}}" aria-expanded="false"><i class="fa fa-file menu-icon"></i>
+
+          Contracts</a>
+        </li>
+        <li class="menu-item">
           <a href="{{route('files.progress')}}" aria-expanded="false">
           <i class="fa fa-tachometer menu-icon"></i>
           File Progress  </a>
@@ -179,6 +186,16 @@
   <!-- END STACK JS-->
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="{{asset("app/front/app-assets/js/scripts/pages/dashboard-fitness.js")}}" type="text/javascript"></script>
+  <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="{{ asset('/js/toastr.min.js') }}"></script>
+  <script>
+        @if(Session::has('success'))
+            toastr.success("{{Session::get('success')}}")
+        @endif
+        @if(Session::has('info'))
+            toastr.info("{{Session::get('info')}}")
+        @endif
+  </script>
   <!-- END PAGE LEVEL JS-->
   @yield('js')
 

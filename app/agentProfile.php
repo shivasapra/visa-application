@@ -21,4 +21,8 @@ class agentProfile extends Model
 	{
 		return $this->hasMany('App\leads');	
 	}
+	public function contract()
+	{
+		return $this->hasMany('App\contracts');	
+	}
 }

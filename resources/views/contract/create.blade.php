@@ -19,7 +19,6 @@
   <!-- END Custom CSS-->
 @endsection
 @section('content')
-	
 	@if(count($errors)>0)
 		<ul class="list-group">
 			@foreach($errors->all() as $error)
@@ -29,11 +28,8 @@
 			@endforeach
 		</ul>
 	@endif
-
-
-
 	<div class="content-header text-center">
-    	<h3 class="content-header-title">Apply for visa</h3>
+    	<h3 class="content-header-title">New Contract</h3>
     </div>
     <div class="content-body">
 	    <section id="number-tabs">
@@ -42,41 +38,73 @@
 	              <div class="card">
 	                <div class="card-content collapse show">
 	                  <div class="card-body">
-	                    <form action="{{route('visa.store')}}" class="number-tab-steps wizard-circle" method="post">
+	                    <form action="{{route('contract.store')}}" class="number-tab-steps wizard-circle" method="post">
 	                    	@csrf
-	                    	<fieldset>
+	                      <!-- Step 1 -->
+	                      
+	                      <fieldset>
 	                      	<div class="row">
 	                            <div class="col-md-12">
-							<div class="form-group">
-								<label for="student_id">Student</label><br>
-							<select name="student_id" class="form-control" >
-								 <option value="{{$student->id}}">{{$student->first_name}}</option>
-							</select>
-							</div>
-							<div class="form-group">
-								<label for="travel_to">Travel To:</label>
-								<input type="text" name='travel_to' class="form-control">
-							</div>
-							</div>
+	                            	<div class="form-group">
+									<label for="agent_id">Select agent</label><br>
+									<select name="agent_id" class="form-control" >
+										@foreach( $agents as $agent)
+										 <option value="{{$agent->id}}">{{$agent->name}}</option>
+										@endforeach
+									</select>
+								</div>
+	                            </div>
 	                        </div>
-	                        	           
+	                        <div class="row">
+	                            <div class="col-md-6">
+	                            <div class="form-group">
+									<label for="subject">Subject</label>
+									<input type="text" name='subject' class="form-control">
+								</div>
+	                          	</div>
+	                          	<div class="col-md-6">
+	                          	<div class="form-group">
+	                          		<label for="contract_value">Contract Value</label>
+									<input type="text" name='contract_value' class="form-control" placeholder="In USD">
+							  	</div>
+							  	</div>
+	                        </div>
+	                        <div class="row">
+		                        <div class="col-md-6">
+		                            <div class="form-group">
+		                            <label for="start_date">Start Date</label>
+									<input type="text" name='start_date' class="form-control" placeholder="dd/mm/yyyy">
+		                            </div>
+		                        </div>
+		                        <div class="col-md-6">
+		                            <div class="form-group">
+		                              <label for="end_date">End Date</label><br>
+									  <input type="text" name='end_date' class="form-control" placeholder="dd/mm/yyyy">
+		                            </div>
+		                        </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="col-md-12">
+	                            	<div class="form-group">
+									<label for="description">Description</label><br>
+									<textarea name="description" id="description" rows="4"  class="form-control"></textarea>
+								</div>
+	                            </div>
+	                        </div>    
 	                      </fieldset>
-							<div class="form-group">
+	                      	<div class="form-group">
 							<div class="text-center">
-								<button class="btn btn-success" type="submit">Apply</button>
+								<button class="btn btn-success" type="submit">Add Contract</button>
 							</div>
 							</div>
-						</form>
-							</div>
-						</div>
-					</div>
-							
-				</div>
-			</div>
-		</section>
-	</div>
-
-
+	                    </form>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	    </section>
+    </div>
 @stop
 @section('js')
 	<!-- BEGIN VENDOR JS-->
