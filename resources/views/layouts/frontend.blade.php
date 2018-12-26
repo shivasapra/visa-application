@@ -8,11 +8,11 @@
   <meta name="description" content="Stack admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
   <meta name="keywords" content="admin template, stack admin template, dashboard template, flat admin template, responsive admin template, web app">
   <meta name="author" content="PIXINVENT">
-  <title>Dashboard</title>
+  <title>@yield('title')</title>
   <link rel="apple-touch-icon" href="{{asset('app/front/app-assets/images/ico/apple-icon-120.png')}}">
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('app/front/app-assets/images/ico/favicon.ico')}}">
   <link href="{{ asset('/css/toastr.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
   <link href="{{asset('app/front/https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i')}}"
   rel="stylesheet">
   <!-- BEGIN VENDOR CSS-->
@@ -50,7 +50,7 @@
         <ul class="nav navbar-nav flex-row">
           <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
           <li class="nav-item">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{route('home')}}">
               <img class="brand-logo" alt="stack admin logo" src="{{asset('app/front/app-assets/images/logo/stack-logo.png')}}">
               <h2 class="brand-text">Visa Application</h2>
             </a>
@@ -186,7 +186,7 @@
   <!-- END STACK JS-->
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="{{asset("app/front/app-assets/js/scripts/pages/dashboard-fitness.js")}}" type="text/javascript"></script>
-  <script src="{{ asset('/js/app.js') }}"></script>
+  {{-- <script src="{{ asset('/js/app.js') }}"></script> --}}
     <script src="{{ asset('/js/toastr.min.js') }}"></script>
   <script>
         @if(Session::has('success'))

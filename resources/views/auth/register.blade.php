@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <title>
-     - Authentication
+     Visa apllication - Register
   </title>
   <link href="{{asset('/css/reset.min.css?v=2.1.1')}}" rel="stylesheet">
   <!-- Bootstrap -->

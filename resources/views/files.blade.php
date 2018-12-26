@@ -1,4 +1,7 @@
 @extends('layouts.frontend')
+@section('title')
+File Progress
+@stop
 @section('content')
 	
 	<div class="content-header text-center">

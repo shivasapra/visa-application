@@ -1,4 +1,7 @@
 @extends("layouts.frontend")
+@section('title')
+Agent's Students
+@stop
 @section('css')
 	<link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/vendors.css")}}">
   <!-- END VENDOR CSS-->

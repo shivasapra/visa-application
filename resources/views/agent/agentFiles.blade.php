@@ -1,4 +1,7 @@
 @extends('layouts.frontend')
+@section('title')
+Agent Files
+@stop
 @section('content')
 	<div class="content-header text-center">
     <h3 class="content-header-title"><strong> Files under "{{$agent->name}}"</strong></h3>

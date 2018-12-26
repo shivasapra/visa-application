@@ -1,4 +1,7 @@
 @extends('layouts.frontend')
+@section('title')
+Create Agent
+@stop
 @section('css')
 	<!-- BEGIN VENDOR CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/vendors.css")}}">

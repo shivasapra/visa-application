@@ -1,4 +1,7 @@
 @extends('layouts.frontend')
+@section('title')
+Agent Business
+@stop
 @section('content')
 	<div class="content-header text-center">
     <h3 class="content-header-title"><strong>Agent Business -> {{$agent->name}}</strong></h3>
