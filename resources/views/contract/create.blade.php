@@ -73,13 +73,13 @@
 		                        <div class="col-md-6">
 		                            <div class="form-group">
 		                            <label for="start_date">Start Date</label>
-									<input type="text" name='start_date' class="form-control" placeholder="dd/mm/yyyy">
-		                            </div>
+		                            <input type="date" name="start_date" class="form-control" placeholder="dd/mm/yyyy">
 		                        </div>
+		                    </div>
 		                        <div class="col-md-6">
 		                            <div class="form-group">
 		                              <label for="end_date">End Date</label><br>
-									  <input type="text" name='end_date' class="form-control" placeholder="dd/mm/yyyy">
+									  <input type="date" name='end_date' class="form-control" placeholder="dd/mm/yyyy">
 		                            </div>
 		                        </div>
 	                        </div>
