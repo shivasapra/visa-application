@@ -33,10 +33,26 @@ Agent Summary
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
   <!-- END Custom CSS-->
 @endsection
-@section('content')
-	<div class="content-header text-center">
-    	<h3 class="content-header-title"><strong>{{$agent->name}}'s</strong> Summary:</h3>
+@section('header')
+    <div class="content-header row">
+    <div class="content-header col-md-6 col-12 mb-1">
+      <h3 class="content-header-title"><strong>{{$agent->name}}'s</strong> Summary:</h3>
     </div>
+    <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
+      <div class="breadcrumb-wrapper col-12">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a>
+          </li>
+          <li class="breadcrumb-item"><a href="{{route('agents')}}">Agents</a>
+          </li>
+          <li class="breadcrumb-item"><a href="{{route('agent.business',['id'=>$agent->id])}}">Agent Buisness</a></li>
+          <li class="breadcrumb-item">Agent Summary</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+@stop
+@section('content')
 	
 	<div class="content-body">
 		<div class="row">

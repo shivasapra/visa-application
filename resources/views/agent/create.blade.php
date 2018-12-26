@@ -21,6 +21,24 @@ Create Agent
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
   <!-- END Custom CSS-->
 @endsection
+@section('header')
+    <div class="content-header row">
+	<div class="content-header col-md-6 col-12 mb-1">
+    	<h3 class="content-header-title">Create Agent</h3>
+    </div>
+	  <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
+	    <div class="breadcrumb-wrapper col-12">
+	      <ol class="breadcrumb">
+	        <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a>
+	        </li>
+	        <li class="breadcrumb-item"><a href="{{route('agents')}}">Agents</a>
+	        </li>
+	        <li class="breadcrumb-item">Add Agent</li>
+	      </ol>
+	    </div>
+	  </div>
+	</div>
+@stop
 @section('content')
 	
 	@if(count($errors)>0)
@@ -32,10 +50,6 @@ Create Agent
 			@endforeach
 		</ul>
 	@endif
-		
-	<div class="content-header text-center">
-    	<h3 class="content-header-title">Create Agent</h3>
-    </div>
 		<div class="content-body">
 	    <section id="number-tabs">
 	          <div class="row">

@@ -2,6 +2,7 @@
 @section('title')
 Create Lead
 @stop
+
 @section('css')
 	<!-- BEGIN VENDOR CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/vendors.css")}}">
@@ -21,6 +22,24 @@ Create Lead
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
   <!-- END Custom CSS-->
 @endsection
+@section('header')
+    <div class="content-header row">
+	<div class="content-header col-md-6 col-12 mb-1">
+    	<h3 class="content-header-title">Create New lead</h3>
+    </div>
+	  <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
+	    <div class="breadcrumb-wrapper col-12">
+	      <ol class="breadcrumb">
+	        <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a>
+	        </li>
+	        <li class="breadcrumb-item"><a href="{{route('leads')}}">leads</a>
+	        </li>
+	        <li class="breadcrumb-item">Create lead</li>
+	      </ol>
+	    </div>
+	  </div>
+	</div>
+@stop
 @section('content')
 	
 	@if(count($errors)>0)
@@ -32,9 +51,6 @@ Create Lead
 			@endforeach
 		</ul>
 	@endif
-	<div class="content-header text-center">
-    	<h3 class="content-header-title">Create New lead</h3>
-    </div>
     <div class="content-body">
 	    <section id="number-tabs">
 	          <div class="row">

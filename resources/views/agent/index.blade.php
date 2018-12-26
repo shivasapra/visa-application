@@ -26,11 +26,9 @@ Agents
 	  <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
 	    <div class="breadcrumb-wrapper col-12">
 	      <ol class="breadcrumb">
-	        <li class="breadcrumb-item"><a href="">Home</a>
+	        <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a>
 	        </li>
-	        <li class="breadcrumb-item"><a href="">Page</a>
-	        </li>
-	        <li class="breadcrumb-item active">Form Wizard
+	        <li class="breadcrumb-item">Agents
 	        </li>
 	      </ol>
 	    </div>
