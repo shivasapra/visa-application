@@ -25,7 +25,8 @@ class CreateStudentProfilesTable extends Migration
             $table->string('Mobile');
             $table->string('address');
             $table->integer('postal_code');
-            $table->integer('agent_id');
+            $table->integer('agent_id')->nullable();
+            $table->integer('social_id')->nullable();
             $table->integer('lead_id')->nullable();
             $table->integer('visa_approved')->default(0);
             $table->integer('visa_rejected')->default(0);

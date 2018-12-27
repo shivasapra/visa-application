@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\studentProfile;
 use App\agentProfile;
 use Session;
+use App\social;
 class StudentController extends Controller
 {
     /**
@@ -24,15 +25,16 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        $agents= agentProfile::all();
+    {   $agents = agentProfile::all();
+        
         if($agents->count()==0)
            {
 
-            Session::flash('info','You must have some agents to create a student');
+            Session::flash('info','You must have one agent to create a student');
             return redirect()->back();
            }
-        return view('student.create')->with('agents',agentProfile::all());
+        return view('student.create')->with('agents',agentProfile::all())
+                                    ->with('socials',social::all());
     }
 
     /**

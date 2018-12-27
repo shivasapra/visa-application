@@ -18,4 +18,8 @@ class leads extends Model
     {
     	return $this->belongsTo('App\studentProfile');
     }
+    public function social()
+    {
+        return $this->belongsTo('App\social');
+    }
 }

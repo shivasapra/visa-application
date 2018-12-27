@@ -25,12 +25,12 @@ class leadController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        $agents= agentProfile::all();
-        if($agents->count()==0)
+    {
+        $agents = agentProfile::all();
+       if($agents->count()==0)
            {
 
-            Session::flash('info','You must have some agents to create a lead');
+            Session::flash('info','You must have one agent to create a lead');
             return redirect()->back();
            }
 

@@ -16,6 +16,11 @@ class studentProfile extends Model
     {
     	return $this->belongsTo('App\agentProfile');
     }
+    public function social()
+    {
+        return $this->belongsTo('App\social');
+    }
+
     public function lead()
     {
     	return $this->belongsTo('App\leads');

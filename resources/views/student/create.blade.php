@@ -63,17 +63,18 @@ Add Student
 	                      
 	                      <fieldset>
 	                      	<div class="row">
-	                            <div class="col-md-12">
-	                            	<div class="form-group">
-									<label for="agent_id">Select agent</label><br>
-									<select name="agent_id" class="form-control" >
-										@foreach( $agents as $agent)
-										 <option value="{{$agent->id}}">{{$agent->name}}</option>
-										@endforeach
-									</select>
-								</div>
+	                          <div class="col-md-12">
+	                          	<div class="form-group">
+	                              <label for="agent_id">Select Agent :</label>
+	                              <select class="custom-select form-control" id="eventType1"
+	                              name="agent_id">
+	                              	@foreach( $agents as $agent)
+									 <option value="{{$agent->id}}">{{$agent->name}}</option>
+									@endforeach
+	                              </select>
 	                            </div>
 	                        </div>
+	                    </div>
 	                        <div class="row">
 	                            <div class="col-md-6">
 	                            <div class="form-group">
@@ -112,7 +113,7 @@ Add Student
 	                      
 	                      <fieldset>
 	                        <div class="row">
-	                          <div class="col-md-6">
+	                          <div class="col-md-12">
 	                            <div class="form-group">
 	                              <label for="gender">Gender</label><br>
 									<select name="gender" class="form-control" >
@@ -347,5 +348,28 @@ Add Student
   <!-- END STACK JS-->
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="{{asset("app/front/app-assets/js/scripts/forms/wizard-steps.js")}}" type="text/javascript"></script>
+  {{-- <script>
+
+  	var series = [
+  				@foreach($agents as $agent)
+				{name: 'agent', product: '{{$agent->name}}'},
+				@endforeach
+				@foreach($socials as $social)
+				{name: 'social', product: 'facebook'},
+				@endforeach
+				]
+
+	$(".company").change(function(){
+	    var company = $(this).val();
+	    var options =  '<option value=""><strong>Products</strong></option>'; //create your "title" option
+	    $(series).each(function(index, value){ //loop through your elements
+	        if(value.name == company){ //check the company
+	            options += '<option value="'+value.product+'">'+value.product+'</option>'; //add the option element as a string
+	        }
+	    });
+
+	    $('.product').html(options); //replace the selection's html with the new options
+	});
+  </script> --}}
   <!-- END PAGE LEVEL JS-->
 @endsection
