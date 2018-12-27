@@ -146,8 +146,9 @@ class AgentController extends Controller
 
     }
     public function studentList($id)
-    {   $student = new studentProfile;
-        $students = $student->take(1000000000000000)->where('agent_id',$id)->get();
+    {   
+        // $student = new studentProfile;
+        $students = studentProfile::take(10000000000000)->where('agent_id',$id)->get();
         $agent = agentProfile::find($id);
 
         // dd($students);

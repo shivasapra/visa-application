@@ -113,7 +113,7 @@ Add Student
 	                      
 	                      <fieldset>
 	                        <div class="row">
-	                          <div class="col-md-12">
+	                          <div class="col-md-6">
 	                            <div class="form-group">
 	                              <label for="gender">Gender</label><br>
 									<select name="gender" class="form-control" >

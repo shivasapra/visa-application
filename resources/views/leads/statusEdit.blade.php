@@ -44,7 +44,6 @@ Edit Lead Status
                   <table class="table table-hover mb-0">
                     <thead>
                       <tr>
-                        <th>#</th>
                         <th>
 							First Name
 						</th>
@@ -61,7 +60,6 @@ Edit Lead Status
                     </thead>
                     <tbody>
                     	<tr>
-                    	<th scope="row">{{$lead->id}}</th>
 						<td>{{$lead->student_fname}}</td>
 						<td>{{$lead->student_lname}}</td>
 						<td>{{$lead->email}}</td>

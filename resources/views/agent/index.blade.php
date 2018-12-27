@@ -44,7 +44,7 @@ Agents
                 <div class="table-responsive">
 				<table class="table table-hover mb-0">
 					<thead>
-						<th>#</th>
+						<th>Sno.</th>
 						<th>
 							Name
 						</th>
@@ -73,9 +73,10 @@ Agents
 					</thead>
 					<tbody>
 						@if($agents->count()>0)
+						<?php $i = 1;?>
 							@foreach($agents as $agent)
 							<tr>
-								<th scope="row">{{$agent->id}}</th>
+								<th scope="row">{{$i++}}</th>
 								<td><a href={{route('agent.business',['id'=>$agent->id])}}>{{$agent->name}}</a></td>
 								<td>{{$agent->company}}</td>
 								<td>

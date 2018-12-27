@@ -44,7 +44,7 @@ Agent's Students
 				<div class="table-responsive">
 				<table class="table table-hover mb-0">
 					<thead>
-						<th>#</th>
+						<th>Sno.</th>
 						<th>
 							First Name
 						</th>
@@ -61,8 +61,9 @@ Agent's Students
 					</thead>
 					<tbody>
 						@if($students->count()>0)
+						<?php $i = 1;?>
 							@foreach($students as $student)
-							<tr><th scope="row">{{$student->id}}</th>
+							<tr><th scope="row">{{$i++}}</th>
 								<td><a href="{{route('student.details',['id'=>$student->id])}}">
 									{{$student->first_name}}</a>
 								</td>

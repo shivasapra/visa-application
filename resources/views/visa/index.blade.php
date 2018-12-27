@@ -118,7 +118,7 @@ Visa
 				<div class="table-responsive">
                  <table class="table table-hover mb-0">
 						<thead>
-							<th>#</th>
+							<th>Sno.</th>
 							<th>
 								Student Name
 							</th>
@@ -135,8 +135,9 @@ Visa
 						</thead>
 							<tbody>
 						@if($visas->count()>0)
+						<?php $i = 1;?>
 						@foreach($visas as $visa)
-								<tr><th scope="row">{{$visa->id}}</th>
+								<tr><th scope="row">{{$i++}}</th>
 									<td>
 										<a href="{{route('student.details',['id'=>$visa->student->id])}}">
 											{{$visa->student->first_name}} {{$visa->student->last_name}}

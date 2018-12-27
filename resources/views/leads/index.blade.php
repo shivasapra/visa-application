@@ -43,7 +43,7 @@ Leads
                   <table class="table table-hover mb-0">
                     <thead>
                       <tr>
-                        <th>#</th>
+                        <th>Sno.</th>
                         <th>
 							First Name
 						</th>
@@ -60,9 +60,10 @@ Leads
                     </thead>
                     <tbody>
                     	@if($leads->count()>0)
+                    	<?php $i = 1;?>
 							@foreach($leads as $lead)
 		                      <tr>
-		                        <th scope="row">{{$lead->id}}</th>
+		                        <th scope="row">{{$i++}}</th>
 		                        <td>{{$lead->student_fname}}</td>
 								<td>{{$lead->student_lname}}</td>
 								<td>{{$lead->email}}</td>

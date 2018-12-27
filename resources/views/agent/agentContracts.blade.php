@@ -87,7 +87,7 @@ Agent Contracts
                <table class="table table-hover mb-0">
                   <thead>
                     <tr>
-                      <th>#</th>
+                      <th>Sno.</th>
                       <th>
                         Agent
                       </th>
@@ -110,9 +110,10 @@ Agent Contracts
                     </thead>
                   <tbody>
                     @if($contracts->count()>0)
+                    <?php $i = 1;?>
                       @foreach($contracts as $contract)
                         <tr>
-                          <th scope="row">{{$contract->id}}</th>
+                          <th scope="row">{{$i++}}</th>
                           <td>{{$contract->agent->name}}</a></td>
                           <td>{{$contract->percentage."%"}}</td>
                           <td>{{$contract->start_date}}</td>
