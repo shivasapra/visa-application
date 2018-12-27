@@ -50,7 +50,7 @@ class ContractsController extends Controller
             'agent_id' =>'required',
             'start_date' => 'required',
             'end_date' => 'required',
-            'percentage_' => 'integer'
+            
         ]);
 
         $agent = agentProfile::find($request->agent_id);

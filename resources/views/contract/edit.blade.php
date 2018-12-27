@@ -76,9 +76,9 @@ New Contract
 	                          	<div class="col-md-6">
 	                          	<div class="form-group">
 	                          		<label for="percentage">Percentage</label><br>
-									<input type="radio" name='percentage' value="10" {{($contract->percentage == 10)?"checked":" "}}>10 % <br>
-									<input type="radio" name='percentage' value="15" {{($contract->percentage == 15)?"checked":" "}}>15 % <br>
-									<input type="radio" name='percentage' value="20" {{($contract->percentage == 20)?"checked":" "}}>20 %
+									<input type="radio" name='percentage' value=10 {{($contract->percentage == 10)?"checked":" "}}>10 % <br>
+									<input type="radio" name='percentage' value=15 {{($contract->percentage == 15)?"checked":" "}}>15 % <br>
+									<input type="radio" name='percentage' value=20 {{($contract->percentage == 20)?"checked":" "}}>20 %
 									<br>
 									<input type="radio" name='percentage' {{($contract->percentage != 10 and $contract->percentage != 15 and $contract->percentage != 20)?"checked":" "}}>Other:<input type="text" name='percentage_' 
 										@if($contract->percentage != 10 and $contract->percentage != 15 and $contract->percentage != 20)

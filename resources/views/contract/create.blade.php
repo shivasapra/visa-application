@@ -78,9 +78,9 @@ New Contract
 	                          	<div class="col-md-6">
 	                          	<div class="form-group">
 	                          		<label for="percentage">Percentage</label><br>
-									<input type="radio" name='percentage' value="10">10 % <br>
-									<input type="radio" name='percentage' value="15">15 % <br>
-									<input type="radio" name='percentage' value="20">20 %
+									<input type="radio" name='percentage' value=10>10 % <br>
+									<input type="radio" name='percentage' value=15>15 % <br>
+									<input type="radio" name='percentage' value=20>20 %
 									<br>
 									<input type="radio" name='percentage'>Other:<input type="text" name='percentage_' class="form-control">
 							  	</div>
