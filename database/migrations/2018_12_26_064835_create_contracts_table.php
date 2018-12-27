@@ -21,6 +21,8 @@ class CreateContractsTable extends Migration
             $table->string('start_date');
             $table->string('end_date');
             $table->string('signed')->default('no');
+            $table->string('expired')->default('no');
+            $table->string('declined')->default('no');
             $table->string('signed_fname')->nullable();
             $table->string('signed_lname')->nullable();
             $table->string('signed_email')->nullable();

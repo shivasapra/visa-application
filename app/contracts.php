@@ -8,7 +8,7 @@ class contracts extends Model
 {
     protected $fillable = ['agent_id','percentage','description',
     					'start_date','end_date','signed','signed_fname','signed_lname',
-    					'signed_email'];
+    					'signed_email','expired','declined'];
 
     public function agent()
 	{

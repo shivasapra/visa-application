@@ -174,6 +174,18 @@ class ContractsController extends Controller
         $contract->signed_email = $request->signed_email;
         $contract->signed = 'yes';
         $contract->save();
+        $contract->agent->signed_c = $contract->agent->signed_c + 1;
+        $contract->agent->save();
         return redirect()->route('contracts');
+    }
+    public function decline($id)
+    {
+        $contract = contracts::find($id);
+        $contract->declined = 'yes';
+        $contract->save();
+        $contract->agent->active_c = $contract->agent->active_c - 1;
+        $contract->agent->declined_c = $contract->agent->declined_c + 1;
+        $contract->agent->save();
+        return view('contract.details')->with('contract',$contract);
     }
 }
