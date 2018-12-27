@@ -163,8 +163,9 @@
   <!-- ////////////////////////////////////////////////////////////////////////////-->
   <footer class="footer footer-static footer-light navbar-border">
     <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
-      <span class="float-md-right d-block d-md-inline-block d-none d-lg-block">Designed and Developed by <a href="https://www.himsoftsolution.com"><img src="{{asset('images/himsoft.jpg')}}" alt="" height="20px" width="20px" style="border-radius: 50px">Him Soft Solution Chandigarh</a></span>
+      <span class="float-md-right d-block d-md-inline-block d-none d-lg-block">Designed and Developed by <a href="https://www.himsoftsolution.com">Him Soft Solution Chandigarh</a></span>
     </p>
+    {{-- <img src="{{asset('images/himsoft.jpg')}}" alt="" height="20px" width="20px" style="border-radius: 50px"> --}}
   </footer>
   <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBDkKetQwosod2SZ7ZGCpxuJdxY3kxo5Po"
   type="text/javascript"></script>
