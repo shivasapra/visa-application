@@ -27,11 +27,9 @@ Agent Contracts
           <div class="col-12">
             <div class="card">
               <div class="card-content collapse show">
-            <div class="row">
-
-                <div class="col-xl-2 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
-                    <div class="my-1 text-center">
-                        
+              <div class="row">
+                <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                    <div class="my-1 text-center">  
                       <div class="card-header mb-2 pt-0">
                         <h5 class="success">Active Contracts</h5>
                         <h3 class="font-large-2 text-bold-200">{{$agent->active_c}}
@@ -39,34 +37,9 @@ Agent Contracts
                       </div>
                     </div>
                 </div>
-
                 
-
-                        <div class="col-xl-2 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
-                    
-                    <div class="my-1 text-center">
-                       
-                      <div class="card-header mb-2 pt-0">
-                        <h5 class="warning">About to expired</h5>
-                        <h3 class="font-large-2 text-bold-200">{{$agent->about_to_expired_c}}</h3>
-                      </div>
-                      </div> 
-                </div>
-            
-        		
                 
-
-                <div class="col-xl-2 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
-                    <div class="my-1 text-center">
-                        
-                      <div class="card-header mb-2 pt-0">
-                        <h5 class="info">Recently Added</h5>
-                        <h3 class="font-large-2 text-bold-200">{{$agent->added_c}}
-                        </h3>
-                      </div>
-                      </div>
-                </div>
-                <div class="col-xl-2 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
                     <div class="my-1 text-center">
                         
                       <div class="card-header mb-2 pt-0">
@@ -76,7 +49,7 @@ Agent Contracts
                       </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
                     <div class="my-1 text-center">
                         
                       <div class="card-header mb-2 pt-0">
@@ -87,7 +60,7 @@ Agent Contracts
                       
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
                     <div class="my-1 text-center">
                         
                       <div class="card-header mb-2 pt-0">
@@ -104,6 +77,75 @@ Agent Contracts
         </div>
     </div>
     </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-content collapse show">
+            <div class="row">
+              <div class="table-responsive">
+               <table class="table table-hover mb-0">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>
+                        Agent
+                      </th>
+                      <th>
+                        Percentage
+                      </th>
+                      <th>
+                        Start Date
+                      </th>
+                      <th>
+                        End Date
+                      </th>
+                      <th>
+                        Signed
+                      </th>
+                      <th>
+                        Action
+                      </th>
+                    </tr>
+                    </thead>
+                  <tbody>
+                    @if($contracts->count()>0)
+                      @foreach($contracts as $contract)
+                        <tr>
+                          <th scope="row">{{$contract->id}}</th>
+                          <td>{{$contract->agent->name}}</a></td>
+                          <td>{{$contract->percentage."%"}}</td>
+                          <td>{{$contract->start_date}}</td>
+                          <td>{{$contract->end_date}}</td>
+                         <td>
+                           @if($contract->signed == 'no')
+                            {{"Not Signed"}}
+                           @else 
+                            <div class="success">{{'Signed'}}</div>
+                           @endif
+                         </td>
+                          <td>
+                            <a href="{{route('contract.delete',['id'=>$contract->id])}}" class="btn btn-sm btn-danger">Delete</a>
+                            <a href="{{route('contract.details',['id'=>$contract->id])}}" class="btn btn-sm btn-success">view</a>
+                            <a href="{{route('contract.edit',['id'=>$contract->id])}}" class="btn btn-sm btn-info">Edit</a>
+                         </td>
+                      </tr>
+                      @endforeach
+                      @else
+                        <tr>
+                          <th colspan="5" class="text-center">No Contracts!!</th>
+                        </tr>
+                      @endif
+                  </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
     </div>
 
 	</div>

@@ -186,6 +186,7 @@ Visa
 	</div>
 </div>
 </div>
+</div>
 @stop
 @section('js')
 	<script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script>

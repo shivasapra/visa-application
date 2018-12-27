@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\agentProfile;
 use App\studentProfile;
 use Session;
+use App\contracts;
 class AgentController extends Controller
 {
     /**
@@ -146,7 +147,7 @@ class AgentController extends Controller
     }
     public function studentList($id)
     {   $student = new studentProfile;
-        $students = $student->take(10)->where('agent_id',$id)->get();
+        $students = $student->take(1000000000000000)->where('agent_id',$id)->get();
         $agent = agentProfile::find($id);
 
         // dd($students);
@@ -157,8 +158,10 @@ class AgentController extends Controller
     public function contracts($id)
     {
         $agent = agentProfile::find($id);
+        $contracts = contracts::take(10000000000000)->where('agent_id',$id)->get();
 
-        return view('agent.agentContracts')->with('agent',$agent);
+        return view('agent.agentContracts')->with('contracts',$contracts)
+                                            ->with('agent',$agent);
     }
 
     public function summary($id)

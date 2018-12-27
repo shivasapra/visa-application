@@ -71,6 +71,8 @@ class ContractsController extends Controller
         
 
         $agent->contracts = $agent->contracts + 1;
+        $agent->active_c = 
+        $agent->active_c = $agent->active_c +1;
         $agent->save();
         Session::flash('success','contract created successfully');
         return redirect()->route("contracts");
