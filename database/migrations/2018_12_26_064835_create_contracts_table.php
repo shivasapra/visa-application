@@ -20,6 +20,7 @@ class CreateContractsTable extends Migration
             $table->longText('description');
             $table->string('start_date');
             $table->string('end_date');
+            $table->string('active')->default('no');
             $table->string('signed')->default('no');
             $table->string('expired')->default('no');
             $table->string('declined')->default('no');

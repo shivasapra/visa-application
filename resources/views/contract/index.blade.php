@@ -110,7 +110,7 @@ Contracts
                         End Date
                       </th>
                       <th>
-                        Signed
+                        Status
                       </th>
                       <th>
                         Action
@@ -127,10 +127,16 @@ Contracts
                           <td>{{$contract->start_date}}</td>
                           <td>{{$contract->end_date}}</td>
                          <td>
-                           @if($contract->signed == 'no')
-                            {{"Not Signed"}}
-                           @else 
-                            <div class="success">{{'Signed'}}</div>
+                           @if($contract->active == 'yes')
+                            @if($contract->signed == 'no')
+                              <div class="info">{{"Active"}}</div>
+                            @else
+                              <div class="success">{{"Signed"}}</div>
+                            @endif
+                           @elseif($contract->declined == 'yes')
+                            <div class="danger">{{'Declined'}}</div>
+                           @elseif($contract->expired == 'yes')
+                            <div class="danger">{{"Expired"}}</div>
                            @endif
                          </td>
                           <td>

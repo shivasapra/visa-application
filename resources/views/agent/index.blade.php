@@ -87,9 +87,9 @@ Agents
 								<td>{{$agent->email}}</td>
 								<td>
 									@if($agent->interested == 'yes')
-										{{"Interested"}}
+										<div class="success">{{"Interested"}}</div>
 									@else
-										{{"Not Interested"}}
+										<div class="warning">{{"Not Interested"}}</div>
 									@endif
 								</td>
 								<td>

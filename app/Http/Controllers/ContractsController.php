@@ -67,6 +67,7 @@ class ContractsController extends Controller
             $contract->agent_id = $request->agent_id;
             $contract->start_date = $request->start_date;
             $contract->end_date = $request->end_date;
+            $contract->active = 'yes';
             $contract->save();
         
 
@@ -144,6 +145,25 @@ class ContractsController extends Controller
     public function destroy($id)
     {
         $contract = contracts::find($id);
+        if ($contract->signed == 'yes') {
+            if ($contract->expired == 'yes') {
+                $contract->agent->expired_c = $contract->agent->expired_c - 1;
+                $contract->agent->signed_c = $contract->agent->signed_c - 1;
+            }
+            else{
+                $contract->agent->signed_c = $contract->agent->signed_c - 1;
+                $contract->agent->active_c = $contract->agent->active_c - 1;
+            }
+        }
+        elseif ($contract->active == 'yes') {
+            $contract->agent->active_c = $contract->agent->active_c - 1;
+        }
+        elseif ($contract->declined == 'yes' ) {
+            $contract->agent->declined_c = $contract->agent->declined_c - 1;
+        }
+        elseif ($contract->expired == 'yes' ) {
+            $contract->agent->expired_c = $contract->agent->expired_c - 1;
+        }
         $contract->agent->contracts = $contract->agent->contracts - 1;
         $contract->agent->save();
         $contract->forceDelete();
@@ -182,6 +202,7 @@ class ContractsController extends Controller
     {
         $contract = contracts::find($id);
         $contract->declined = 'yes';
+        $contract->active = 'no';
         $contract->save();
         $contract->agent->active_c = $contract->agent->active_c - 1;
         $contract->agent->declined_c = $contract->agent->declined_c + 1;
