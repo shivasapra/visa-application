@@ -15,8 +15,16 @@ class ContractsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('contract.index')->with('contracts',contracts::all());
+    {   
+        $active = contracts::take(100000000000)->where('active','yes')->get();
+        $signed = contracts::take(100000000000)->where('signed','yes')->get();
+        $expired = contracts::take(100000000000)->where('expired','yes')->get();
+        $declined = contracts::take(100000000000)->where('declined','yes')->get();
+        return view('contract.index')->with('contracts',contracts::all())
+                                    ->with('active',$active)
+                                    ->with('signed',$signed)
+                                    ->with('expired',$expired)
+                                    ->with('declined',$declined);
     }
 
     /**

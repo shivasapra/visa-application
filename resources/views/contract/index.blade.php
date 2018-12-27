@@ -44,7 +44,7 @@ Contracts
                     <div class="my-1 text-center">  
                       <div class="card-header mb-2 pt-0">
                         <h5 class="success">Active Contracts</h5>
-                        <h3 class="font-large-2 text-bold-200">0
+                        <h3 class="font-large-2 text-bold-200">{{$active->count()}}
                         </h3>
                       </div>
                     </div>
@@ -56,7 +56,7 @@ Contracts
                         
                       <div class="card-header mb-2 pt-0">
                         <h5 class="danger">Expired Contracts</h5>
-                        <h3 class="font-large-2 text-bold-200">0
+                        <h3 class="font-large-2 text-bold-200">{{$expired->count()}}
                         </h3>
                       </div>
                     </div>
@@ -66,7 +66,7 @@ Contracts
                         
                       <div class="card-header mb-2 pt-0">
                         <h5 class="danger">Declined contracts</h5>
-                        <h3 class="font-large-2 text-bold-200">0
+                        <h3 class="font-large-2 text-bold-200">{{$declined->count()}}
                         </h3>
                       </div>
                       
@@ -77,7 +77,7 @@ Contracts
                         
                       <div class="card-header mb-2 pt-0">
                         <h5 class="success">Signed Contracts</h5>
-                        <h3 class="font-large-2 text-bold-200">0
+                        <h3 class="font-large-2 text-bold-200">{{$signed->count()}}
                         </h3>
                       </div>
                     </div>
