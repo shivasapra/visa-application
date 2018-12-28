@@ -84,7 +84,7 @@ New Contract
 										@if($contract->percentage != 10 and $contract->percentage != 15 and $contract->percentage != 20)
 											value="{{$contract->percentage}}" 
 										@endif
-										class="form-control">
+										class="form-control" placeholder="eg. 10">
 							  	</div>
 							  	</div>
 	                            <div class="col-md-6">

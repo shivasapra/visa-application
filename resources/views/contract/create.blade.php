@@ -82,7 +82,7 @@ New Contract
 									<input type="radio" name='percentage' value=15>15 % <br>
 									<input type="radio" name='percentage' value=20>20 %
 									<br>
-									<input type="radio" name='percentage'>Other:<input type="text" name='percentage_' class="form-control">
+									<input type="radio" name='percentage'>Other:<input type="text" name='percentage_' class="form-control" placeholder="eg. 10">
 							  	</div>
 							  	</div>
 	                            <div class="col-md-6">

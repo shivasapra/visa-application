@@ -80,7 +80,7 @@ Create Agent
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="mobile">Mobile</label>
-										<input type="text" name='mobile' class="form-control">
+										<input type="text" name='mobile' maxlength="10" minlength="10" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -156,7 +156,7 @@ Create Agent
 									</div>
 								</div>
 							</div>
-							<div class="row">
+							{{-- <div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="id_proof">Id Proof</label>
@@ -175,7 +175,7 @@ Create Agent
 										<input type="file" name='photo' class="form-control">
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">

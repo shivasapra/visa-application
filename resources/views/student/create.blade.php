@@ -139,7 +139,7 @@ Add Student
 	                            <div class="col-md-6">
 	                            <div class="form-group">
 	                             <label for="Mobile">Moblie</label>
-								<input type="text"  name='Mobile' class="form-control">
+								<input type="text" maxlength="10" minlength="10" name='Mobile' class="form-control">
 	                            </div>
 	                        	</div>
 	                        </div>
@@ -190,12 +190,12 @@ Add Student
 	                       		<div class="row">
 		                          <div class="col-md-6">
 		                            <label for="tenth_percentage">10th Percentage</label>
-									<input type="text"  name='tenth_percentage' class="form-control">
+									<input type="text"  name='tenth_percentage' class="form-control" placeholder="eg. 90">
 		                            </div>
 		                            <div class="col-md-6">
 		                            <div class="form-group">
 		                             <label for="twelveth_percentage">12th Percentage</label>
-									 <input type="text" name='twelveth_percentage'  class="form-control">
+									 <input type="text" name='twelveth_percentage'  class="form-control" placeholder="eg. 90">
 		                            </div>
 		                        	</div>
 	                        	</div>

@@ -40,9 +40,9 @@ class AgentController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required|email',
-            'id_proof' => 'required',
-            'photo' => 'required',
-            'license'=>'required',
+            // 'id_proof' => 'required',
+            // 'photo' => 'required',
+            // 'license'=>'required',
             'location' => 'required',
             'mobile' => 'required',
             'address' => 'required',
@@ -57,25 +57,25 @@ class AgentController extends Controller
             'college1' => 'required',
             'college2' => 'required',
         ]);
-        $id_proof= $request->id_proof;
-        $id_proof_new_name = time().$id_proof->getClientOriginalName();
-        $id_proof->move('uploads/agents',$id_proof_new_name);
+        // $id_proof= $request->id_proof;
+        // $id_proof_new_name = time().$id_proof->getClientOriginalName();
+        // $id_proof->move('uploads/agents',$id_proof_new_name);
         
-        $photo= $request->photo;
-        $photo_new_name = time().$photo->getClientOriginalName();
-        $photo->move('uploads/agents',$photo_new_name);
+        // $photo= $request->photo;
+        // $photo_new_name = time().$photo->getClientOriginalName();
+        // $photo->move('uploads/agents',$photo_new_name);
 
-        $license= $request->license;
-        $license_new_name = time().$license->getClientOriginalName();
-        $license->move('uploads/agents',$license_new_name);
+        // $license= $request->license;
+        // $license_new_name = time().$license->getClientOriginalName();
+        // $license->move('uploads/agents',$license_new_name);
         
         
          agentProfile::create([
             'name' => $request->name,
             'email' => $request->email,
-            'id_proof' => 'uploads/agents/'.$id_proof_new_name,
-            'photo' => 'uploads/agents/'.$photo_new_name,
-            'license' => 'uploads/agents/'.$license_new_name,
+            // 'id_proof' => 'uploads/agents/'.$id_proof_new_name,
+            // 'photo' => 'uploads/agents/'.$photo_new_name,
+            // 'license' => 'uploads/agents/'.$license_new_name,
             'location' => $request->location,
             'mobile' => $request->mobile,
             'address' => $request->address,

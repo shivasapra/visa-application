@@ -100,7 +100,7 @@ Create Lead
 		                           <div class="col-md-6">
 		                            <div class="form-group">
 		                              <label for="mobile">Mobile :</label>
-		                              <input type="text" class="form-control" name="Mobile">
+		                              <input type="text" maxlength="10" minlength="10" class="form-control" name="Mobile">
 		                            </div>
 		                           </div>
 	                          </div>

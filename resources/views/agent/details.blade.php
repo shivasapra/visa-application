@@ -41,10 +41,10 @@ Agent Details
           <div class="col-12">
             <div class="card">
               <div class="card-content collapse show">
-              	<br>
-              	<div class="container text-center">
+              	{{-- <br> --}}
+              	{{-- <div class="container text-center">
                 	<img class="img-responsive menu-thumbnails" src="{{asset($agent->photo)}}" height="150px" width="150px" style="border-radius:20px">
-                </div><br>
+                </div><br> --}}
                 <div class="table-responsive">
                  <table class="table table-hover mb-0">
 			<tbody>
@@ -140,7 +140,7 @@ Agent Details
 				</div>
 			</tbody>
 		</table>
-				<br>
+				{{-- <br>
 				<div class="row">
 					<div class="col-md-6">
               	<div class="container text-center">
@@ -155,7 +155,7 @@ Agent Details
                 </div>
                 </div>
                 </div>
-                <br>
+                <br> --}}
 	</div>
 	</div>
 	</div>

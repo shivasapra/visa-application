@@ -136,7 +136,7 @@ Student Details
 						<div class="row">
 							<tr>
 								<td><strong>10th Percentage:</strong></td>
-								<td>{{$student->tenth_percentage}}</td>
+								<td>{{$student->tenth_percentage."%"}}</td>
 							</tr>
 						</div>
 						<div class="row">
@@ -154,7 +154,7 @@ Student Details
 						<div class="row">
 							<tr>
 								<td><strong>12th Percentage:</strong></td>
-								<td>{{$student->twelveth_percentage}}</td>
+								<td>{{$student->twelveth_percentage."%"}}</td>
 							</tr>
 						</div>
 						<div class="row">

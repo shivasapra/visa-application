@@ -18,11 +18,11 @@ class CreateAgentProfilesTable extends Migration
             $table->string('name');
             $table->string('company');
             $table->string('email');
-            $table->string('id_proof');
+            $table->string('id_proof')->nullable();
             $table->string('id_no');
             $table->string('license_no');
-            $table->string('license');
-            $table->string('photo');
+            $table->string('license')->nullable();
+            $table->string('photo')->nullable();
             $table->string('location');
             $table->string('designation');
             $table->string('website');
