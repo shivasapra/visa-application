@@ -35,6 +35,7 @@ class StudentController extends Controller
             return redirect()->back();
            }
            $dt = Carbon::now();
+           $dt->timezone('Asia/Kolkata');
            $date_today = $dt->toDateString();
            // dd($date_today);
         return view('student.create')->with('agents',agentProfile::all())

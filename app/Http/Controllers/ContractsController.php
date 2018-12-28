@@ -51,7 +51,10 @@ class ContractsController extends Controller
             return redirect()->back();
            }
            $dt = Carbon::now();
+           $dt->timezone('Asia/Kolkata');
+           // dd($dt);
         $date_today = $dt->toDateString();
+        // dd($date_today);
         return view('contract.create')->with('agents',agentProfile::all())
                                         ->with('date_today',$date_today);
     }

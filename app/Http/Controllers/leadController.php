@@ -134,6 +134,7 @@ class leadController extends Controller
     public function studentAdd($id){
         $lead = leads::find($id);
         $dt = Carbon::now();
+        $dt->timezone('Asia/Kolkata');
         $date_today = $dt->toDateString();
         return view('leads.studentAdd')->with('lead',$lead)
                                     ->with('date_today',$date_today);
