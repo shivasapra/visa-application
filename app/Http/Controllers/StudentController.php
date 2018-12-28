@@ -148,17 +148,17 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $student = studentProfile::find($id);
-        $student->agent->students = $student->agent->students - 1;
-        $student->agent->save();
-        $student->lead->status=0;
-        $student->lead->save();
-        $student->forceDelete();
-        Session::flash('success','Student Deleted!');
-        return redirect()->route('students');
-    }
+    // public function destroy($id)
+    // {
+    //     $student = studentProfile::find($id);
+    //     $student->agent->students = $student->agent->students - 1;
+    //     $student->agent->save();
+    //     $student->lead->status=0;
+    //     $student->lead->save();
+    //     $student->forceDelete();
+    //     Session::flash('success','Student Deleted!');
+    //     return redirect()->route('students');
+    // }
     public function details($id){
         // dd($id);
         $student = studentProfile::find($id);

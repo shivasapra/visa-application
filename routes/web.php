@@ -85,10 +85,10 @@ Route::post('/update/profile',[
 			'uses'=> 'StudentController@store',
 			'as'=>'students.store'
 		]);
-	Route::get('/student/delete/{id}',[
-			'uses'=> 'StudentController@destroy',
-			'as'=>'student.delete'
-		]);
+	// Route::get('/student/delete/{id}',[
+	// 		'uses'=> 'StudentController@destroy',
+	// 		'as'=>'student.delete'
+	// 	]);
 	Route::get('/student/details/{id}',[
 			'uses'=> 'StudentController@details',
 			'as'=>'student.details'
@@ -140,7 +140,14 @@ Route::post('/update/profile',[
 			'uses'=> 'AgentController@details',
 			'as'=>'agent.details'
 		]);
-
+	Route::get('/agent/edit/{id}',[
+			'uses'=> 'AgentController@edit',
+			'as'=>'edit.agent'
+		]);
+	Route::post('/agent/update/{id}',[
+			'uses'=> 'AgentController@update',
+			'as'=>'update.agent'
+		]);
 
 //leads
 	Route::get('/leads',[

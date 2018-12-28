@@ -70,7 +70,7 @@ Students
 								<td>{{$student->last_name}}</td>
 								<td>{{$student->email}}</td>
 								<td>{{$student->gender}}</td>
-								<td><a href="{{route('student.delete',['id'=>$student->id])}}" class="btn btn-sm btn-danger">Delete</a>
+								<td>{{-- <a href="{{route('student.delete',['id'=>$student->id])}}" class="btn btn-sm btn-danger">Delete</a> --}}
 								<a href="{{route('visa.create',['id'=>$student->id])}}" class="btn btn-sm btn-success">Apply for visa</a></td>
 								
 							</tr>

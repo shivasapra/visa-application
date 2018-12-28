@@ -112,8 +112,9 @@ class AgentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        $agent = agentProfile::find($id);
+        return view('agent.edit')->with('agent',$agent);
     }
 
     /**
@@ -124,8 +125,63 @@ class AgentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        $agent = agentProfile::find($id);
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required|email',
+            // 'id_proof' => 'required',
+            // 'photo' => 'required',
+            // 'license'=>'required',
+            'location' => 'required',
+            'mobile' => 'required',
+            'address' => 'required',
+            'postal_code' => 'required',
+            'id_no' =>'required',
+            'license_no' => 'required',
+            'company' => 'required',
+            'designation' => 'required',
+            'state' => 'required',
+            'district' => 'required',
+            'website' => 'required',
+            'college1' => 'required',
+            'college2' => 'required',
+        ]);
+        // $id_proof= $request->id_proof;
+        // $id_proof_new_name = time().$id_proof->getClientOriginalName();
+        // $id_proof->move('uploads/agents',$id_proof_new_name);
+        
+        // $photo= $request->photo;
+        // $photo_new_name = time().$photo->getClientOriginalName();
+        // $photo->move('uploads/agents',$photo_new_name);
+
+        // $license= $request->license;
+        // $license_new_name = time().$license->getClientOriginalName();
+        // $license->move('uploads/agents',$license_new_name);
+        
+        
+         
+            $agent->name = $request->name;
+            $agent->email = $request->email;
+            // 'id_proof' => 'uploads/agents/'.$id_proof_new_name,
+            // 'photo' => 'uploads/agents/'.$photo_new_name,
+            // 'license' => 'uploads/agents/'.$license_new_name,
+            $agent->location = $request->location;
+            $agent->mobile = $request->mobile;
+            $agent->address = $request->address;
+            $agent->postal_code = $request->postal_code;
+            $agent->license_no = $request->license_no;
+            $agent->id_no = $request->id_no;
+            $agent->company = $request->company;
+            $agent->designation = $request->designation;
+            $agent->state = $request->state;
+            $agent->district = $request->district;
+            $agent->website = $request->website;
+            $agent->college1 = $request->college1;
+            $agent->college2 = $request->college2;
+            $agent->save();      
+        Session::flash('success','agent update successfully');
+        return redirect()->back()->with('agent',$agent);
     }
 
     /**

@@ -162,6 +162,9 @@ Agent Details
 	</div>
 	</div>
 	</div>		
+	<div class="text-center">
+    <a href="{{route('edit.agent',['id'=>$agent->id])}}" class="btn btn-info">Edit Profile</a>
+    </div>
 @stop
 @section('js')
 	<script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script>
