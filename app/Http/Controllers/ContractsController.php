@@ -23,12 +23,11 @@ class ContractsController extends Controller
         $expired = contracts::take(100000000000)->where('expired','yes')->get();
         $declined = contracts::take(100000000000)->where('declined','yes')->get();
         $dt = Carbon::now();
-        // $date_today = $dt->toDateString();
-        // foreach ($contracts as $contract) {
-        //     if ($contract->end_date <= $date_today) {
-        //         $contract->expired = 'yes';
-        //     }
-        // }
+        $dt->timezone('Asia/Kolkata');
+        $date_today = $dt->toDateString();
+        // $i = 0;
+        
+        // dd($i);
         return view('contract.index')->with('contracts',$contracts)
                                     ->with('active',$active)
                                     ->with('signed',$signed)

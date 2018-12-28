@@ -81,15 +81,15 @@ Contract Details
 	  <div class="text-center">
       @if($contract->declined == 'no' and $contract->expired == 'no')
   	  	@if($contract->signed == 'yes')
-            <h4><strong>Signed by:</strong> {{$contract->signed_fname}} {{$contract->signed_lname}}({{$contract->signed_email}})</h4>
+            <h4><div class="success"><strong>Signed by:</strong> {{$contract->signed_fname}} {{$contract->signed_lname}}({{$contract->signed_email}})</div></h4>
           @else
         		<a href="{{route('contract.sign',['id'=>$contract->id])}}" class="btn btn-sm btn-success">Sign Contract</a>
             <a href="{{route('contract.decline',['id'=>$contract->id])}}" class="btn btn-sm btn-success">Decline</a>
         	@endif
         @elseif($contract->declined == 'yes')
-          <h4>{{'Contract Declined'}}</h4>
+          <h4><div class="danger">{{'Contract Declined'}}</div></h4>
         @elseif($contract->expired == 'yes')
-          <h4>{{"Contract expired"}}</h4>
+          <h4><div class="danger">{{"Contract expired"}}</div></h4>
           @if($contract->signed == 'yes')
             <h4><strong>Signed by:</strong> {{$contract->signed_fname}} {{$contract->signed_lname}}({{$contract->signed_email}})</h4>
           @endif
