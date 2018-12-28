@@ -140,6 +140,22 @@ Route::post('/update/profile',[
 	        'uses' => 'AgentController@contracts',
 	        'as' => 'agent.contracts'
 		]);
+	Route::get('/agent/contracts/active/{id}',[
+	        'uses' => 'AgentController@active_c',
+	        'as' => 'active_c'
+		]);
+	Route::get('/agent/contracts/expired/{id}',[
+	        'uses' => 'AgentController@expired_c',
+	        'as' => 'expired_c'
+		]);
+	Route::get('/agent/contracts/declined/{id}',[
+	        'uses' => 'AgentController@declined_c',
+	        'as' => 'declined_c'
+		]);
+	Route::get('/agent/contracts/signed/{id}',[
+	        'uses' => 'AgentController@signed_c',
+	        'as' => 'signed_c'
+		]);
 	Route::get('/agent/summary/{id}',[
 	        'uses' => 'AgentController@summary',
 	        'as' => 'summary'

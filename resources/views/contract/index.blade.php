@@ -45,7 +45,7 @@ Contracts
                     <div class="my-1 text-center">  
                       <div class="card-header mb-2 pt-0">
                         <h5 class="info">Total Contracts</h5>
-                        <h3 class="font-large-2 text-bold-200">{{$contracts->count()}}
+                        <h3 class="font-large-2 text-bold-200">{{$active->count() + $expired->count() + $declined->count()}}
                         </h3>
                       </div>
                     </div>

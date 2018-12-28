@@ -29,6 +29,18 @@ Agent Contracts
               <div class="card-content collapse show">
               <div class="row">
                 <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                    <a href="{{route('agent.contracts',['id'=>$agent->id])}}"> 
+                    <div class="my-1 text-center"> 
+                      <div class="card-header mb-2 pt-0">
+                        <h5 class="info">Total Contracts</h5>
+                        <h3 class="font-large-2 text-bold-200">{{$total}}
+                        </h3>
+                      </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                  <a href="{{route('active_c',['id'=>$agent->id])}}">
                     <div class="my-1 text-center">  
                       <div class="card-header mb-2 pt-0">
                         <h5 class="success">Active Contracts</h5>
@@ -36,10 +48,12 @@ Agent Contracts
                         </h3>
                       </div>
                     </div>
+                  </a>
                 </div>
                 
                 
-                <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                <div class="col-xl-2 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                  <a href="{{route('expired_c',['id'=>$agent->id])}}">
                     <div class="my-1 text-center">
                         
                       <div class="card-header mb-2 pt-0">
@@ -48,8 +62,10 @@ Agent Contracts
                         </h3>
                       </div>
                     </div>
+                  </a>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                <div class="col-xl-2 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                  <a href="{{route('declined_c',['id'=>$agent->id])}}">
                     <div class="my-1 text-center">
                         
                       <div class="card-header mb-2 pt-0">
@@ -59,8 +75,10 @@ Agent Contracts
                       </div>
                       
                     </div>
+                  </a>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                <div class="col-xl-2 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                  <a href="{{route('signed_c',['id'=>$agent->id])}}">
                     <div class="my-1 text-center">
                         
                       <div class="card-header mb-2 pt-0">
@@ -69,6 +87,7 @@ Agent Contracts
                         </h3>
                       </div>
                     </div>
+                  </a>
                 </div>
               </div>
                 

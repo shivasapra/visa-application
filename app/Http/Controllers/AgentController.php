@@ -204,7 +204,7 @@ class AgentController extends Controller
     public function studentList($id)
     {   
         // $student = new studentProfile;
-        $students = studentProfile::take(10000000000000)->where('agent_id',$id)->get();
+        $students = studentProfile::where('agent_id',$id)->get();
         $agent = agentProfile::find($id);
 
         // dd($students);
@@ -215,10 +215,51 @@ class AgentController extends Controller
     public function contracts($id)
     {
         $agent = agentProfile::find($id);
-        $contracts = contracts::take(10000000000000)->where('agent_id',$id)->get();
-
+        $contracts = contracts::where('agent_id',$id)->get();
+        $total = $contracts->count();
         return view('agent.agentContracts')->with('contracts',$contracts)
-                                            ->with('agent',$agent);
+                                            ->with('agent',$agent)
+                                            ->with('total',$total);
+    }
+    public function active_c($id)
+    {
+        $agent = agentProfile::find($id);
+        $contracts = contracts::where('agent_id',$id)->get();
+        $active = contracts::where('agent_id',$id)->where('active','yes')->get();
+        $total = $contracts->count();
+        return view('agent.agentContracts')->with('contracts',$active)
+                                            ->with('agent',$agent)
+                                            ->with('total',$total);
+    }
+    public function expired_c($id)
+    {
+        $agent = agentProfile::find($id);
+        $contracts = contracts::where('agent_id',$id)->get();
+        $expired = contracts::where('agent_id',$id)->where('expired','yes')->get();
+        $total = $contracts->count();
+        return view('agent.agentContracts')->with('contracts',$expired)
+                                            ->with('agent',$agent)
+                                            ->with('total',$total);
+    }
+    public function declined_c($id)
+    {
+        $agent = agentProfile::find($id);
+        $contracts = contracts::where('agent_id',$id)->get();
+        $declined = contracts::where('agent_id',$id)->where('declined','yes')->get();
+        $total = $contracts->count();
+        return view('agent.agentContracts')->with('contracts',$declined)
+                                            ->with('agent',$agent)
+                                            ->with('total',$total);
+    }
+    public function signed_c($id)
+    {
+        $agent = agentProfile::find($id);
+        $contracts = contracts::where('agent_id',$id)->get();
+        $signed = contracts::where('agent_id',$id)->where('signed','yes')->get();
+        $total = $contracts->count();
+        return view('agent.agentContracts')->with('contracts',$signed)
+                                            ->with('agent',$agent)
+                                            ->with('total',$total);
     }
 
     public function summary($id)
