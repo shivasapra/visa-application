@@ -66,7 +66,7 @@ New Contract
 	                            <div class="col-md-12">
 	                            	<div class="form-group">
 									<label for="agent_id">Select agent</label><br>
-									<select name="agent_id" class="form-control" >
+									<select name="agent_id" required class="form-control" >
 										@foreach( $agents as $agent)
 										 <option value="{{$agent->id}}">{{$agent->name}}</option>
 										@endforeach
@@ -78,17 +78,17 @@ New Contract
 	                          	<div class="col-md-6">
 	                          	<div class="form-group">
 	                          		<label for="percentage">Percentage</label><br>
-									<input type="radio" name='percentage' value=10>10 % <br>
-									<input type="radio" name='percentage' value=15>15 % <br>
-									<input type="radio" name='percentage' value=20>20 %
+									<input type="radio" name='percentage'  required value=10>10 % <br>
+									<input type="radio" name='percentage' required value=15>15 % <br>
+									<input type="radio" name='percentage' required value=20>20 %
 									<br>
-									<input type="radio" name='percentage'>Other:<input type="text" name='percentage_' class="form-control" placeholder="eg. 10">
+									<input type="radio" name='percentage' required>Other:<input type="text" name='percentage_' class="form-control" placeholder="eg. 10">
 							  	</div>
 							  	</div>
 	                            <div class="col-md-6">
 	                            	<div class="form-group">
-									<label for="description">Description</label><br>
-									<textarea name="description" id="description" rows="6"  class="form-control"></textarea>
+									<label for="description" required>Description</label><br>
+									<textarea name="description" required id="description" rows="6"  class="form-control"></textarea>
 								</div>
 	                            </div>
 	                        </div>
@@ -96,13 +96,13 @@ New Contract
 		                        <div class="col-md-6">
 		                            <div class="form-group">
 		                            <label for="start_date">Start Date</label>
-		                            <input type="date" name="start_date" class="form-control" placeholder="dd/mm/yyyy">
+		                            <input type="date" name="start_date" required class="form-control" placeholder="dd/mm/yyyy">
 		                        </div>
 		                    </div>
 		                        <div class="col-md-6">
 		                            <div class="form-group">
 		                              <label for="end_date">End Date</label><br>
-									  <input type="date" name='end_date' class="form-control" placeholder="dd/mm/yyyy">
+									  <input type="date" name='end_date' required class="form-control" placeholder="dd/mm/yyyy">
 		                            </div>
 		                        </div>
 	                        </div>

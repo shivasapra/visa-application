@@ -65,14 +65,14 @@ Sign Contract
 	                            <div class="col-md-6">
 	                            <div class="form-group">
 									<label for="signed_fname">First Name</label>
-									<input type="text" name='signed_fname' class="form-control">
+									<input type="text" name='signed_fname' required class="form-control">
 								</div>
 	                          	</div>
 	                          
 	                          	<div class="col-md-6">
 	                          	<div class="form-group">
 	                          		<label for="signed_lname">Last Name</label>
-									<input type="text" name='signed_lname' class="form-control">
+									<input type="text" name='signed_lname' required class="form-control">
 							  	</div>
 							  	</div>
 	                        </div>
@@ -80,7 +80,7 @@ Sign Contract
 		                        <div class="col-md-12">
 		                            <div class="form-group">
 		                            <label for="signed_email">Email</label>
-									<input type="email" name='signed_email' class="form-control">
+									<input type="email" name='signed_email' required class="form-control">
 		                            </div>
 		                        </div>
 	                        </div>

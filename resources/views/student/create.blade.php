@@ -67,7 +67,7 @@ Add Student
 	                          	<div class="form-group">
 	                              <label for="agent_id">Select Agent :</label>
 	                              <select class="custom-select form-control" id="eventType1"
-	                              name="agent_id">
+	                              name="agent_id" required>
 	                              	@foreach( $agents as $agent)
 									 <option value="{{$agent->id}}">{{$agent->name}}</option>
 									@endforeach
@@ -78,28 +78,28 @@ Add Student
 	                        <div class="row">
 	                            <div class="col-md-6">
 	                            <div class="form-group">
-									<label for="first_name">First name</label>
-									<input type="text" name='first_name' class="form-control">
+									<label for="first_name" >First name</label>
+									<input type="text" name='first_name' required class="form-control">
 								</div>
 	                          	</div>
 	                          	<div class="col-md-6">
 	                          	<div class="form-group">
-	                          		<label for="last_name">Last name</label>
-									<input type="text" name='last_name' class="form-control">
+	                          		<label for="last_name" >Last name</label>
+									<input type="text" name='last_name' required class="form-control">
 							  	</div>
 							  	</div>
 	                        </div>
 	                        <div class="row">
 		                        <div class="col-md-6">
 		                            <div class="form-group">
-		                            <label for="email">Email</label>
-									<input type="email" name='email' class="form-control">
+		                            <label for="email" >Email</label>
+									<input type="email" name='email' required class="form-control">
 		                            </div>
 		                        </div>
 		                        <div class="col-md-6">
 		                            <div class="form-group">
-		                              <label for="title">Title</label><br>
-										<select name="title" class="form-control" >
+		                              <label for="title" >Title</label><br>
+										<select name="title" required class="form-control" >
 										<option value="Mr." >Mr.</option>
 										<option value="Mrs." >Mrs.</option>
 										<option value="Miss" >Miss</option>
@@ -115,8 +115,8 @@ Add Student
 	                        <div class="row">
 	                          <div class="col-md-6">
 	                            <div class="form-group">
-	                              <label for="gender">Gender</label><br>
-									<select name="gender" class="form-control" >
+	                              <label for="gender" >Gender</label><br>
+									<select name="gender" required class="form-control" >
 									 <option value="male" >Male</option>
 									 <option value="female" >Female</option>
 								</select>
@@ -124,8 +124,8 @@ Add Student
 	                            </div>
 	                            <div class="col-md-6">
 	                            <div class="form-group">
-	                             <label for="first_language">First Language</label>
-								<input type="text" name='first_language' class="form-control">
+	                             <label for="first_language" >First Language</label>
+								<input type="text" name='first_language' required class="form-control">
 	                            </div>
 	                        	</div>
 	                        </div>
@@ -133,13 +133,13 @@ Add Student
 	                          <div class="col-md-6">
 	                            <div class="form-group">
 	                              <label for="DOB">DOB</label>
-									<input type="date" name='DOB' class="form-control">
+									<input type="date" name='DOB' required class="form-control">
 	                            </div>
 	                            </div>
 	                            <div class="col-md-6">
 	                            <div class="form-group">
 	                             <label for="Mobile">Moblie</label>
-								<input type="text" maxlength="10" minlength="10" name='Mobile' class="form-control">
+								<input type="text" maxlength="10" minlength="10" name='Mobile' required class="form-control">
 	                            </div>
 	                        	</div>
 	                        </div>
@@ -149,13 +149,13 @@ Add Student
 	                      <fieldset>
 	                        <div class="row">
 	                          <div class="col-md-6">
-	                            <label for="address">address</label>
-								<input type="text"  name='address' class="form-control">
+	                            <label for="address" >address</label>
+								<input type="text"  name='address' required class="form-control">
 	                            </div>
 	                            <div class="col-md-6">
 	                            <div class="form-group">
 	                             <label for="postal_code">Postal code</label>
-								 <input type="text" name='postal_code'  class="form-control">
+								 <input type="text" name='postal_code' required  class="form-control">
 	                            </div>
 	                        	</div>
 	                        </div>
@@ -163,24 +163,24 @@ Add Student
 	                        <div class="row">
 	                          <div class="col-md-6">
 	                            <label for="passport_no">Passport No.</label>
-								<input type="text"  name='passport_no' class="form-control">
+								<input type="text"  name='passport_no' required class="form-control">
 	                            </div>
 	                            <div class="col-md-6">
 	                            <div class="form-group">
 	                             <label for="passport_country">Country of origin</label>
-								 <input type="text" name='passport_country'  class="form-control">
+								 <input type="text" name='passport_country' required  class="form-control">
 	                            </div>
 	                        	</div>
 	                        </div>
 	                        <div class="row">
 	                          <div class="col-md-6">
 	                            <label for="passport_issue">Issued Date</label>
-								<input type="date"  name='passport_issue' class="form-control">
+								<input type="date"  name='passport_issue' required class="form-control">
 	                            </div>
 	                            <div class="col-md-6">
 	                            <div class="form-group">
 	                             <label for="passport_expire">Expire Date</label>
-								 <input type="date" name='passport_expire'  class="form-control">
+								 <input type="date" name='passport_expire' required  class="form-control">
 	                            </div>
 	                        	</div>
 	                        </div>
@@ -190,42 +190,42 @@ Add Student
 	                       		<div class="row">
 		                          <div class="col-md-6">
 		                            <label for="tenth_percentage">10th Percentage</label>
-									<input type="text"  name='tenth_percentage' class="form-control" placeholder="eg. 90">
+									<input type="text"  name='tenth_percentage' required class="form-control" placeholder="eg. 90">
 		                            </div>
 		                            <div class="col-md-6">
 		                            <div class="form-group">
 		                             <label for="twelveth_percentage">12th Percentage</label>
-									 <input type="text" name='twelveth_percentage'  class="form-control" placeholder="eg. 90">
+									 <input type="text" name='twelveth_percentage' required  class="form-control" placeholder="eg. 90">
 		                            </div>
 		                        	</div>
 	                        	</div>
 	                        	<div class="row">
 		                          <div class="col-md-6">
 		                            <label for="tenth_year">10th Passing year</label>
-									<input type="text"  name='tenth_year' class="form-control">
+									<input type="text"  name='tenth_year' required class="form-control">
 		                            </div>
 		                            <div class="col-md-6">
 		                            <div class="form-group">
 		                             <label for="twelveth_year">12th Passing year</label>
-									 <input type="text" name='twelveth_year'  class="form-control">
+									 <input type="text" name='twelveth_year' required  class="form-control">
 		                            </div>
 		                        	</div>
 	                        	</div>
 	                        	<div class="row">
 		                          <div class="col-md-6">
 		                            <label for="tenth_board">10th Board</label>
-									<input type="text"  name='tenth_board' class="form-control">
+									<input type="text"  name='tenth_board' required class="form-control">
 		                            </div>
 		                            <div class="col-md-3">
 		                            <div class="form-group">
 		                             <label for="twelveth_board">12th Board</label>
-									 <input type="text" name='twelveth_board'  class="form-control">
+									 <input type="text" name='twelveth_board' required  class="form-control">
 		                            </div>
 		                        	</div>
 		                        	<div class="col-md-3">
 		                            <div class="form-group">
 		                             <label for="twelveth_stream">12th Stream</label>
-									 <input type="text" name='twelveth_stream'  class="form-control">
+									 <input type="text" name='twelveth_stream' required  class="form-control">
 		                            </div>
 		                        	</div>
 	                        	</div>

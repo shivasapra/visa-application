@@ -66,13 +66,13 @@ Create Agent
 	                      		<div class="col-md-6">
 									<div class="form-group">
 										<label for="name">Name</label>
-										<input type="text" name='name' class="form-control">
+										<input type="text" name='name' required class="form-control">
 									</div>
 								</div>
 	                      		<div class="col-md-6">
 									<div class="form-group">
 										<label for="company">Company</label>
-										<input type="text" name='company' class="form-control">
+										<input type="text" name='company' required class="form-control">
 									</div>
 								</div>
 							</div>
@@ -80,13 +80,13 @@ Create Agent
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="mobile">Mobile</label>
-										<input type="text" name='mobile' maxlength="10" minlength="10" class="form-control">
+										<input type="text" name='mobile' required maxlength="10" minlength="10" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="designation">Designation</label>
-										<input type="text" name='designation' class="form-control">
+										<input type="text" name='designation' required class="form-control">
 									</div>
 								</div>
 							</div>
@@ -94,13 +94,13 @@ Create Agent
 	                      		<div class="col-md-6">
 									<div class="form-group">
 										<label for="website">Website</label>
-										<input type="text" name='website' class="form-control">
+										<input type="text" name='website' required class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="email">Email</label>
-										<input type="email" name='email' class="form-control">
+										<input type="email" name='email' required class="form-control">
 									</div>
 								</div>
 							</div>
@@ -112,13 +112,13 @@ Create Agent
 	                      		<div class="col-md-6">
 									<div class="form-group">
 										<label for="address">Address</label>
-										<input type="text" name='address' class="form-control">
+										<input type="text" name='address' required class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="state">State/UT</label>
-										<input type="text" name='state' class="form-control">
+										<input type="text" name='state' required class="form-control">
 									</div>
 								</div>
 							</div>
@@ -126,19 +126,19 @@ Create Agent
 	                      		<div class="col-md-6">
 									<div class="form-group">
 										<label for="district">District</label>
-										<input type="text" name='district' class="form-control">
+										<input type="text" name='district' required class="form-control">
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
 										<label for="location">City</label>
-										<input type="text" name='location' class="form-control">
+										<input type="text" name='location' required class="form-control">
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
 										<label for="postal_code">Postal Code</label>
-										<input type="text" name='postal_code' class="form-control">
+										<input type="text" name='postal_code' required class="form-control">
 									</div>
 								</div>
 							</div>
@@ -146,13 +146,13 @@ Create Agent
 	                      		<div class="col-md-6">
 									<div class="form-group">
 										<label for="college1">International College tie up-- 1</label>
-										<input type="text" name='college1' class="form-control">
+										<input type="text" name='college1' required class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="college2">International College tie up-- 2</label>
-										<input type="text" name='college2' class="form-control">
+										<input type="text" name='college2' required class="form-control">
 									</div>
 								</div>
 							</div>
@@ -180,13 +180,13 @@ Create Agent
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="id_no">ID No.</label>
-										<input type="text" name='id_no' class="form-control">
+										<input type="text" name='id_no' required class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="license_no">License No.</label>
-										<input type="text" name='license_no' class="form-control">
+										<input type="text" name='license_no' required class="form-control">
 									</div>
 								</div>
 							</div>

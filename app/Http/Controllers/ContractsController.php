@@ -51,14 +51,19 @@ class ContractsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        if($request->percentage != 10 and $request->percentage != 15 
+                and $request->percentage != 20){
+                $this->validate($request,[
+                    'percentage_'=>'required|integer',
+                ]);
+            }
         $this->validate($request,[
             'percentage' => 'required',
             'description' => 'required',
             'agent_id' =>'required',
             'start_date' => 'required',
             'end_date' => 'required',
-            
         ]);
 
         $agent = agentProfile::find($request->agent_id);
@@ -118,7 +123,13 @@ class ContractsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
+        if($request->percentage != 10 and $request->percentage != 15 
+                and $request->percentage != 20){
+                $this->validate($request,[
+                    'percentage_'=>'required|integer',
+                ]);
+            }
         $this->validate($request,[
             'percentage' => 'required',
             'description' => 'required',
