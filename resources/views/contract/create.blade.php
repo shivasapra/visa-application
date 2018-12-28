@@ -96,13 +96,13 @@ New Contract
 		                        <div class="col-md-6">
 		                            <div class="form-group">
 		                            <label for="start_date">Start Date</label>
-		                            <input type="date" name="start_date" required class="form-control" placeholder="dd/mm/yyyy">
+		                            <input type="date" name="start_date" min="{{$date_today}}" required class="form-control" placeholder="dd/mm/yyyy">
 		                        </div>
 		                    </div>
 		                        <div class="col-md-6">
 		                            <div class="form-group">
 		                              <label for="end_date">End Date</label><br>
-									  <input type="date" name='end_date' required class="form-control" placeholder="dd/mm/yyyy">
+									  <input type="date" name='end_date' required class="form-control" placeholder="dd/mm/yyyy" min="{{$date_today}}">
 		                            </div>
 		                        </div>
 	                        </div>

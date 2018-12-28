@@ -7,6 +7,7 @@ use App\leads;
 use App\agentProfile;
 use App\studentProfile;
 use Session;
+use Carbon\Carbon;
 class leadController extends Controller
 {
     /**
@@ -132,7 +133,10 @@ class leadController extends Controller
 
     public function studentAdd($id){
         $lead = leads::find($id);
-        return view('leads.studentAdd')->with('lead',$lead);
+        $dt = Carbon::now();
+        $date_today = $dt->toDateString();
+        return view('leads.studentAdd')->with('lead',$lead)
+                                    ->with('date_today',$date_today);
     }
 
 
@@ -196,6 +200,7 @@ class leadController extends Controller
         $lead->status = 2;
         $lead->save();
         Session::flash('success','lead converted! to student');
+
         return redirect()->route("students");
     }
     public function detailsLead($id){

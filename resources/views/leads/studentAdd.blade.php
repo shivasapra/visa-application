@@ -133,7 +133,7 @@ Convert Lead into Student
 	                          <div class="col-md-6">
 	                            <div class="form-group">
 	                              <label for="DOB">DOB</label>
-									<input type="date" name='DOB' required class="form-control">
+									<input type="date" name='DOB' max="{{$date_today}}" required class="form-control">
 	                            </div>
 	                            </div>
 	                            <div class="col-md-6">

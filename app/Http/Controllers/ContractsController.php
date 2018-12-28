@@ -7,6 +7,7 @@ use App\contracts;
 use App\agentProfile;
 use App\studentProfile;
 use Session;
+use Carbon\carbon;
 class ContractsController extends Controller
 {
     /**
@@ -41,7 +42,10 @@ class ContractsController extends Controller
             Session::flash('info','You must have some agents to create a student');
             return redirect()->back();
            }
-        return view('contract.create')->with('agents',agentProfile::all());
+           $dt = Carbon::now();
+        $date_today = $dt->toDateString();
+        return view('contract.create')->with('agents',agentProfile::all())
+                                        ->with('date_today',$date_today);
     }
 
     /**

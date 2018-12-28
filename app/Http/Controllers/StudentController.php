@@ -7,6 +7,7 @@ use App\studentProfile;
 use App\agentProfile;
 use Session;
 use App\social;
+use Carbon\Carbon;
 class StudentController extends Controller
 {
     /**
@@ -33,8 +34,12 @@ class StudentController extends Controller
             Session::flash('info','You must have one agent to create a student');
             return redirect()->back();
            }
+           $dt = Carbon::now();
+           $date_today = $dt->toDateString();
+           // dd($date_today);
         return view('student.create')->with('agents',agentProfile::all())
-                                    ->with('socials',social::all());
+                                    ->with('socials',social::all())
+                                    ->with('date_today',$date_today);
     }
 
     /**
