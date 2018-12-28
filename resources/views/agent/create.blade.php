@@ -69,18 +69,18 @@ Create Agent
 										<input type="text" name='name' class="form-control">
 									</div>
 								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="email">Email</label>
-										<input type="email" name='email' class="form-control">
-									</div>
-								</div>
-							</div>
-							<div class="row">
 	                      		<div class="col-md-6">
 									<div class="form-group">
 										<label for="company">Company</label>
 										<input type="text" name='company' class="form-control">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="mobile">Mobile</label>
+										<input type="text" name='mobile' class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -99,8 +99,8 @@ Create Agent
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="mobile">Mobile</label>
-										<input type="text" name='mobile' class="form-control">
+										<label for="email">Email</label>
+										<input type="email" name='email' class="form-control">
 									</div>
 								</div>
 							</div>

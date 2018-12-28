@@ -165,6 +165,7 @@ class leadController extends Controller
 
         $agent = agentProfile::find($request->agent_id);
         studentProfile::create([
+            'lead_id' => $id,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
