@@ -17,11 +17,19 @@ class ContractsController extends Controller
      */
     public function index()
     {   
+        $contracts = contracts::all();
         $active = contracts::take(100000000000)->where('active','yes')->get();
         $signed = contracts::take(100000000000)->where('signed','yes')->get();
         $expired = contracts::take(100000000000)->where('expired','yes')->get();
         $declined = contracts::take(100000000000)->where('declined','yes')->get();
-        return view('contract.index')->with('contracts',contracts::all())
+        $dt = Carbon::now();
+        // $date_today = $dt->toDateString();
+        // foreach ($contracts as $contract) {
+        //     if ($contract->end_date <= $date_today) {
+        //         $contract->expired = 'yes';
+        //     }
+        // }
+        return view('contract.index')->with('contracts',$contracts)
                                     ->with('active',$active)
                                     ->with('signed',$signed)
                                     ->with('expired',$expired)
@@ -232,4 +240,60 @@ class ContractsController extends Controller
         $contract->agent->save();
         return view('contract.details')->with('contract',$contract);
     }
+    public function active(){
+        $contracts = contracts::all();
+        $active = contracts::take(100000000000)->where('active','yes')->get();
+        $signed = contracts::take(100000000000)->where('signed','yes')->get();
+        $expired = contracts::take(100000000000)->where('expired','yes')->get();
+        $declined = contracts::take(100000000000)->where('declined','yes')->get();
+        $active_contracts = contracts::where('active','yes')->get();
+        // dd();
+        return view('contract.index')->with('contracts',$active_contracts)
+                                    ->with('active',$active)
+                                    ->with('signed',$signed)
+                                    ->with('expired',$expired)
+                                    ->with('declined',$declined);
+    }
+    public function expired(){
+        $contracts = contracts::all();
+        $active = contracts::take(100000000000)->where('active','yes')->get();
+        $signed = contracts::take(100000000000)->where('signed','yes')->get();
+        $expired = contracts::take(100000000000)->where('expired','yes')->get();
+        $declined = contracts::take(100000000000)->where('declined','yes')->get();
+        $expired_contracts = contracts::where('expired','yes')->get();
+        // dd();
+        return view('contract.index')->with('contracts',$expired_contracts)
+                                    ->with('active',$active)
+                                    ->with('signed',$signed)
+                                    ->with('expired',$expired)
+                                    ->with('declined',$declined);
+    }
+    public function declined(){
+        $contracts = contracts::all();
+        $active = contracts::take(100000000000)->where('active','yes')->get();
+        $signed = contracts::take(100000000000)->where('signed','yes')->get();
+        $expired = contracts::take(100000000000)->where('expired','yes')->get();
+        $declined = contracts::take(100000000000)->where('declined','yes')->get();
+        $declined_contracts = contracts::where('declined','yes')->get();
+        // dd();
+        return view('contract.index')->with('contracts',$declined_contracts)
+                                    ->with('active',$active)
+                                    ->with('signed',$signed)
+                                    ->with('expired',$expired)
+                                    ->with('declined',$declined);
+    }
+    public function signed_c(){
+        $contracts = contracts::all();
+        $active = contracts::take(100000000000)->where('active','yes')->get();
+        $signed = contracts::take(100000000000)->where('signed','yes')->get();
+        $expired = contracts::take(100000000000)->where('expired','yes')->get();
+        $declined = contracts::take(100000000000)->where('declined','yes')->get();
+        $signed_contracts = contracts::where('signed','yes')->get();
+        // dd();
+        return view('contract.index')->with('contracts',$signed_contracts)
+                                    ->with('active',$active)
+                                    ->with('signed',$signed)
+                                    ->with('expired',$expired)
+                                    ->with('declined',$declined);
+    }            
 }

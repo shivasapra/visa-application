@@ -71,6 +71,22 @@ Route::post('/update/profile',[
 				'uses'=> 'ContractsController@decline',
 				'as'=>'contract.decline'
 			]);
+	Route::get('/active/contracts/',[
+				'uses'=> 'ContractsController@active',
+				'as'=>'active.contracts'
+			]);
+	Route::get('/declined/contracts/',[
+				'uses'=> 'ContractsController@declined',
+				'as'=>'declined.contracts'
+			]);
+	Route::get('/expired/contracts/',[
+				'uses'=> 'ContractsController@expired',
+				'as'=>'expired.contracts'
+			]);
+	Route::get('/signed/contracts/',[
+				'uses'=> 'ContractsController@signed_c',
+				'as'=>'signed.contracts'
+			]);
 //students
 
 	Route::get('/students',[
