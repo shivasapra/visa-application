@@ -272,10 +272,19 @@ class AgentController extends Controller
         $agent = agentProfile::find($id);
         $agent->interested = $request->interested;
         $agent->proposal_sent = $request->proposal_sent;
+        $agent->document_received = $request->document_received;
+        
         $agent->agreement_signed_agent = $request->agreement_signed_agent;
+        $agent->agreement_signed_agent_date = $request->agreement_signed_agent_date;
+
         $agent->agreement_sent = $request->agreement_sent;
+        $agent->agreement_sent_date = $request->agreement_sent_date;
+
         $agent->agreement_signed_college = $request->agreement_signed_college;
-        $agent->agreement_signed_date = $request->agreement_signed_date;
+        $agent->agreement_signed_college_date = $request->agreement_signed_college_date;
+
+        $agent->certificate_issued = $request->certificate_issued;
+        $agent->certificate_issued_date = $request->certificate_issued_date;
         $agent->save();
         Session::flash('success','Summary updated successfully');
         return redirect()->route('agents');

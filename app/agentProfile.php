@@ -10,8 +10,10 @@ class agentProfile extends Model
         'name', 'email', 'id_proof', 'license', 'photo','students', 'contracts',
 		'revenue','commission','active_c','expired_c','signed_c',
 		'declined_c','interested','proposal_sent','agreement_signed_agent','agreement_sent',
-		'agreement_signed_college','agreement_signed_date','location','mobile','postal_code','address','id_no','license_no',
-		'company','designation', 'state', 'district', 'website', 'college1', 'college2'
+		'agreement_signed_college','location','mobile','postal_code','address','id_no','license_no',
+		'company','designation', 'state', 'district', 'website', 'college1', 'college2','document_received','certificate_issued','certificate_issued_date',
+			'agreement_sent_date','agreement_signed_agent_date',
+			'agreement_signed_college_date'
     ];
 
     public function student()

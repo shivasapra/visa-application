@@ -43,11 +43,23 @@ class CreateAgentProfilesTable extends Migration
             
             $table->integer('declined_c')->default(0);
             $table->string('interested')->default('no');
+
             $table->string('proposal_sent')->default('no');
+            $table->string('document_received')->default('no');
+
+            $table->string('certificate_issued')->default('no');
+            $table->string('certificate_issued_date')->nullable();
+
             $table->string('agreement_sent')->default('no');
+            $table->string('agreement_sent_date')->nullable();
+
             $table->string('agreement_signed_agent')->default('no');
+            $table->string('agreement_signed_agent_date')->nullable();
+
             $table->string('agreement_signed_college')->default('no');
-            $table->string('agreement_signed_date')->nullable();
+            $table->string('agreement_signed_college_date')->nullable();
+
+            
             $table->integer('total_files')->default(0);
             $table->integer('files_not_started')->default(0);
             $table->integer('files_in_process')->default(0);
