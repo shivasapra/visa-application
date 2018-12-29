@@ -74,34 +74,43 @@ class StudentController extends Controller
             'tenth_board' => 'required',
             'twelveth_board' => 'required',
             'twelveth_stream' => 'required',
+            'test' =>'required',
+            'test_date' =>'required',
         ]);
 
         $agent = agentProfile::find($request->agent_id);
-        studentProfile::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'gender' => $request->gender,
-            'title' => $request->title,
-            'first_language' => $request->first_language,
-            'DOB' => $request->DOB,
-            'Mobile' => $request->Mobile,
-            'address' => $request->address,
-            'postal_code' => $request->postal_code,
-            'agent_id' => $request->agent_id,
-            'passport_no' => $request->passport_no,
-            'passport_issue' => $request->passport_issue,
-            'passport_expire' => $request->passport_expire,
-            'passport_country' => $request->passport_country,
-            'tenth_percentage' => $request->tenth_percentage,
-            'twelveth_percentage' => $request->twelveth_percentage,
-            'tenth_year' => $request->tenth_year,
-            'twelveth_year' => $request->twelveth_year,
-            'tenth_board' => $request->tenth_board,
-            'twelveth_board' => $request->twelveth_board,
-            'twelveth_stream' => $request->twelveth_stream,
-
-        ]);
+        $student = new studentProfile;
+            $student->first_name = $request->first_name;
+            $student->last_name = $request->last_name;
+            $student->email = $request->email;
+            $student->gender = $request->gender;
+            $student->title = $request->title;
+            $student->first_language = $request->first_language;
+            $student->DOB = $request->DOB;
+            $student->Mobile = $request->Mobile;
+            $student->address = $request->address;
+            $student->postal_code = $request->postal_code;
+            $student->agent_id = $request->agent_id;
+            $student->passport_no = $request->passport_no;
+            $student->passport_issue = $request->passport_issue;
+            $student->passport_expire = $request->passport_expire;
+            $student->passport_country = $request->passport_country;
+            $student->tenth_percentage = $request->tenth_percentage;
+            $student->twelveth_percentage = $request->twelveth_percentage;
+            $student->tenth_year = $request->tenth_year;
+            $student->twelveth_year = $request->twelveth_year;
+            $student->tenth_board = $request->tenth_board;
+            $student->twelveth_board = $request->twelveth_board;
+            $student->twelveth_stream = $request->twelveth_stream;
+            $student->test = $request->test;
+            $student->test_date = $request->test_date;
+            if($request->has('test_remarks')){
+                $student->test_remarks = $request->test_remarks;
+            }
+            if($request->has('test_score')){
+                $student->test_score = $request->test_score;
+            }
+        $student->save();
 
         $agent->students = $agent->students + 1;
         $agent->save();

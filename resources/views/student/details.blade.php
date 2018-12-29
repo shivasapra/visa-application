@@ -117,7 +117,7 @@ Student Details
 						</div>
 						<div class="row">
 							<tr>
-								<td><strong>Country of origin:</strong></td>
+								<td><strong>Place of issue:</strong></td>
 								<td>{{$student->passport_country}}</td>
 							</tr>
 						</div>
@@ -175,7 +175,38 @@ Student Details
 								<td>{{$student->twelveth_stream}}</td>
 							</tr>
 						</div>
-
+						<div class="row">
+							<tr>
+								<td><strong>English Language Test:</strong></td>
+								<td>{{$student->test}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Test Date:</strong></td>
+								<td>{{$student->test_date}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Test Remarks:</strong></td>
+								@if($student->test_remarks != null)
+									<td>{{$student->test_remarks}}</td>
+								@else
+									<td>{{"N/A"}}</td>
+								@endif
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Test Score:</strong></td>
+								@if($student->test_score != null)
+									<td>{{$student->test_score}}</td>
+								@else
+									<td>{{"N/A"}}</td>
+								@endif
+							</tr>
+						</div>
 					</tbody>
 				</table>
 				</div>

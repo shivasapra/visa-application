@@ -167,7 +167,7 @@ Add Student
 	                            </div>
 	                            <div class="col-md-6">
 	                            <div class="form-group">
-	                             <label for="passport_country">Country of origin</label>
+	                             <label for="passport_country">Place of issue</label>
 								 <input type="text" name='passport_country' required  class="form-control">
 	                            </div>
 	                        	</div>
@@ -226,6 +226,33 @@ Add Student
 		                            <div class="form-group">
 		                             <label for="twelveth_stream">12th Stream</label>
 									 <input type="text" name='twelveth_stream' required  class="form-control">
+		                            </div>
+		                        	</div>
+	                        	</div>
+	                       </fieldset>
+	                       <fieldset>
+	                        	<div class="text-center"><h4>{{"Language Test"}}</h4></div>
+	                       		<div class="row">
+		                          <div class="col-md-6">
+		                            <label for="test">English language Test</label>
+									<input type="text"  name='test' required class="form-control">
+		                            </div>
+		                            <div class="col-md-6">
+		                            <div class="form-group">
+		                             <label for="test_date">Test Date</label>
+									 <input type="date" name='test_date' required class="form-control">
+		                            </div>
+		                        	</div>
+	                        	</div>
+	                        	<div class="row">
+		                          <div class="col-md-6">
+		                            <label for="test_remarks">Remarks</label>
+									<input type="text"  name='test_remarks' class="form-control">
+		                            </div>
+		                            <div class="col-md-6">
+		                            <div class="form-group">
+		                             <label for="test_score">Test Score</label>
+									 <input type="text" name='test_score' class="form-control">
 		                            </div>
 		                        	</div>
 	                        	</div>
