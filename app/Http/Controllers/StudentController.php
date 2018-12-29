@@ -136,8 +136,14 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        // $agents = agentProfile::all();
+        $student = studentProfile::find($id);
+        $dt = Carbon::now();
+        $dt->timezone('Asia/Kolkata');
+        $date_today = $dt->toDateString();
+        return view('student.edit')->with('student',$student)
+                                    ->with('date_today',$date_today);
     }
 
     /**
@@ -149,7 +155,70 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'gender' => 'required',
+            'email' => 'required|email',
+            'agent_id' =>'required',
+            'title' => 'required',
+            'first_language' => 'required',
+            'DOB' => 'required',
+            'Mobile' => 'required',
+            'address' => 'required',
+            'postal_code' => 'required',
+            'passport_no' => 'required',
+            'passport_issue' => 'required',
+            'passport_expire' => 'required',
+            'passport_country' => 'required',
+            'tenth_percentage' => 'required|integer',
+            'twelveth_percentage' => 'required|integer',
+            'tenth_year' => 'required|integer',
+            'twelveth_year' => 'required|integer',
+            'tenth_board' => 'required',
+            'twelveth_board' => 'required',
+            'twelveth_stream' => 'required',
+            'test' =>'required',
+            'test_date' =>'required',
+        ]);
+
+        
+        $student = studentProfile::find($id);
+            $student->first_name = $request->first_name;
+            $student->last_name = $request->last_name;
+            $student->email = $request->email;
+            $student->gender = $request->gender;
+            $student->title = $request->title;
+            $student->first_language = $request->first_language;
+            $student->DOB = $request->DOB;
+            $student->Mobile = $request->Mobile;
+            $student->address = $request->address;
+            $student->postal_code = $request->postal_code;
+            $student->agent_id = $request->agent_id;
+            $student->passport_no = $request->passport_no;
+            $student->passport_issue = $request->passport_issue;
+            $student->passport_expire = $request->passport_expire;
+            $student->passport_country = $request->passport_country;
+            $student->tenth_percentage = $request->tenth_percentage;
+            $student->twelveth_percentage = $request->twelveth_percentage;
+            $student->tenth_year = $request->tenth_year;
+            $student->twelveth_year = $request->twelveth_year;
+            $student->tenth_board = $request->tenth_board;
+            $student->twelveth_board = $request->twelveth_board;
+            $student->twelveth_stream = $request->twelveth_stream;
+            $student->test = $request->test;
+            $student->test_date = $request->test_date;
+            if($request->has('test_remarks')){
+                $student->test_remarks = $request->test_remarks;
+            }
+            if($request->has('test_score')){
+                $student->test_score = $request->test_score;
+            }
+        $student->save();
+
+       
+        Session::flash('success','student updated successfully');
+        return view('student.details')->with('student',$student);
     }
 
     /**

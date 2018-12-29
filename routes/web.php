@@ -109,6 +109,14 @@ Route::post('/update/profile',[
 			'uses'=> 'StudentController@details',
 			'as'=>'student.details'
 		]);
+	Route::get('/student/edit/{id}',[
+			'uses'=> 'StudentController@edit',
+			'as'=>'student.edit'
+		]);
+	Route::post('/student/update/{id}',[
+			'uses'=> 'StudentController@update',
+			'as'=>'student.update'
+		]);
 
 
 

@@ -214,6 +214,7 @@ Student Details
 		</div>
 		<div class="text-center">
 			<a href="{{route('visa.details',['id'=>$student->id])}}" class="btn btn-sm btn-info">Visa Details</a>
+			<a href="{{route('student.edit',['id'=>$student->id])}}" class="btn btn-sm btn-info">Edit student Profile Details</a>
 		</div>
 		{{-- <div class="col-md-4" >
     <select class="company">
