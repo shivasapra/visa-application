@@ -38,6 +38,7 @@ return array(
     'App\\User' => $baseDir . '/app/User.php',
     'App\\agentProfile' => $baseDir . '/app/agentProfile.php',
     'App\\contracts' => $baseDir . '/app/contracts.php',
+    'App\\identity' => $baseDir . '/app/identity.php',
     'App\\leads' => $baseDir . '/app/leads.php',
     'App\\social' => $baseDir . '/app/social.php',
     'App\\studentProfile' => $baseDir . '/app/studentProfile.php',

@@ -1,0 +1,324 @@
+[33mcommit c08044644260f2baeac6827c4157101fedd1e9c3[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31mjarvis/master[m[33m)[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Sat Dec 29 16:21:07 2018 +0530
+
+    agent summary updated
+
+[33mcommit f51cef27684a834fd6e5fcdec5227c7f840bb19d[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Sat Dec 29 15:39:28 2018 +0530
+
+    New - Student edit
+
+[33mcommit ec430bcb84c7f19b5c1412d239767c56ac0bb025[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Sat Dec 29 15:09:25 2018 +0530
+
+    Student model updated
+
+[33mcommit 507af4025f16018029dee846d8f30f318dddc571[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Sat Dec 29 03:32:33 2018 +0530
+
+    new - contracts expired
+
+[33mcommit ddcf9320ca8c98acb6da5bb7dea1bc742f749ecf[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Sat Dec 29 02:50:18 2018 +0530
+
+    minor date fixes
+
+[33mcommit e73e967c08c42a605021e65937238b5f28b02bcc[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Sat Dec 29 02:28:11 2018 +0530
+
+    agent contracts improved
+
+[33mcommit 0ae71555d70e34917e5f3568301474511d72f28d[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Sat Dec 29 01:57:46 2018 +0530
+
+    contracts improved
+
+[33mcommit d5fd13b02bfeeaf811c3c4da87a3668ffa2205b4[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Fri Dec 28 17:59:12 2018 +0530
+
+    Agent edit functionality
+
+[33mcommit 14e03af38a8256ca08828dadb57de2ea22ceaf91[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Fri Dec 28 17:33:36 2018 +0530
+
+    date field validated
+
+[33mcommit e4da1fe8c7d6a9fcd662deb3b51efe9c3db843a0[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Fri Dec 28 16:29:15 2018 +0530
+
+    required fieds
+
+[33mcommit 9e41995f4553d52062f0d84ce5f060dcb6c20a2b[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Fri Dec 28 15:51:48 2018 +0530
+
+    agent photos field removed
+
+[33mcommit 3ca624365c3a7bba8afd2b108c712fd3d27d5a4c[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Fri Dec 28 15:23:08 2018 +0530
+
+    processe error fixed
+
+[33mcommit 8cda795cb34b22683a55867cba175457a3e86291[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Fri Dec 28 01:16:53 2018 +0530
+
+    bug fixes
+
+[33mcommit 780bfa80d6267451a3ec247234626891c53a8f7a[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Fri Dec 28 00:47:41 2018 +0530
+
+    agent contract 4
+
+[33mcommit eb1c1ed3d66d68955d41b1a93cd8fa47a69ac652[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Fri Dec 28 00:35:44 2018 +0530
+
+    agent contract 3
+
+[33mcommit 036e18b2f6e7d36f01fda7b48407bd6cae70585c[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Thu Dec 27 23:58:34 2018 +0530
+
+    agent contract 2
+
+[33mcommit 311e81db4bf5c3cbbf82024d6137a3eb071fa358[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Thu Dec 27 20:40:24 2018 +0530
+
+    agent contracts 1
+
+[33mcommit 2621f84a63107bd2faeada3b15cdb6629480d335[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Thu Dec 27 19:40:42 2018 +0530
+
+    contract fixes
+
+[33mcommit 9b87985f87f9414959648196a86e5966859cfec6[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Thu Dec 27 13:04:24 2018 +0530
+
+    footer without logo
+
+[33mcommit abe8bff487e295078e6500840059d5353070f7de[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Thu Dec 27 13:03:37 2018 +0530
+
+    footer with logo
+
+[33mcommit 90c18b274e8c134a43c955346148ec3db3a4cde6[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Thu Dec 27 02:21:50 2018 +0530
+
+    student schema updated
+
+[33mcommit d3120dab846cce77253f673bc4b77d4c817008b1[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Thu Dec 27 01:02:59 2018 +0530
+
+    contract feature updated
+
+[33mcommit 60f09f03ef8034f40c16d7b089b593f4ea1d3b4a[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Wed Dec 26 23:42:20 2018 +0530
+
+    back functionality 2
+
+[33mcommit 54e2f44e3a47661c65d6241813b37c967fd23908[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Wed Dec 26 23:36:07 2018 +0530
+
+    Back functionalty 1
+
+[33mcommit cab14c1de7e4c3fc29b146252ae282e2e0128944[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Wed Dec 26 18:31:58 2018 +0530
+
+    agent summary updated
+
+[33mcommit 6f9fb6fd0a6179e3888cbdc574435325a970ae34[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Wed Dec 26 17:46:17 2018 +0530
+
+    Bug fixes
+
+[33mcommit 8a2ee80831057ff3a6f6fa65bb0ae22dc59843f6[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Wed Dec 26 17:18:04 2018 +0530
+
+    agent changes
+
+[33mcommit 0a9afc6c811c6463914f6d924703252cbd52ccc7[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Wed Dec 26 15:55:03 2018 +0530
+
+    date picker added
+
+[33mcommit d8e83f62a327e5025fd101dcbde43887441ecb29[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Wed Dec 26 15:41:09 2018 +0530
+
+    Contracts feature improved
+
+[33mcommit 01a9fd79ebd932db7290e8caa7b56bd81b454866[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Wed Dec 26 14:48:39 2018 +0530
+
+    new feature - contracts
+
+[33mcommit 4123f4d75c553080e69d519ce90c85484ec50a99[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Wed Dec 26 01:34:48 2018 +0530
+
+    agent modified
+
+[33mcommit e78bb85dac543976643c01aacc987ab1292f5f2c[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Tue Dec 25 19:43:14 2018 +0530
+
+    agent details layout updated
+
+[33mcommit 4dc798ebac69192874d0a2f0280e5deac4bf2c75[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Tue Dec 25 19:15:18 2018 +0530
+
+    User profile
+
+[33mcommit a532142e2bb1aaf109d62904173c0419c2b299b0[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Tue Dec 25 17:47:45 2018 +0530
+
+    agent updated
+
+[33mcommit 4fcaa332e2103561303332c4a16d684e7e2b7e0a[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Tue Dec 25 16:57:54 2018 +0530
+
+    Validation
+
+[33mcommit 13d8b623db0a5eb106a3ec82720474ce34b69318[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Tue Dec 25 15:37:32 2018 +0530
+
+    removed vendor from .gitignore
+
+[33mcommit 63c3b430953cfc7ced05fcca89e8f6e476d54d03[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Tue Dec 25 15:31:59 2018 +0530
+
+    frontend - agent 3
+
+[33mcommit ff0c875034d790dec28406ca1067e8e9707e470a[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Tue Dec 25 14:42:33 2018 +0530
+
+    frontend - agent 2
+
+[33mcommit 04f6d055b39ef3a51189af4a00c00fc9c6038008[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Tue Dec 25 14:06:21 2018 +0530
+
+    frontend -- agent1
+
+[33mcommit bc52dee10f6093e0ea9f358dda57dc971ba9c849[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Tue Dec 25 12:52:26 2018 +0530
+
+    Frontend - files
+
+[33mcommit 30165e46589b0c67b883c09eda064d12e3b05a64[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Tue Dec 25 02:35:54 2018 +0530
+
+    Frontend - Visa views
+
+[33mcommit 5a24fb30da7fb08701eea575d2ffda9c2d91726b[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Tue Dec 25 01:51:50 2018 +0530
+
+    Frontend - Student views
+
+[33mcommit c104544d323d196d44588e40f786cefe9f2224c7[m
+Merge: 69bed0f d53e20f
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Tue Dec 25 01:23:27 2018 +0530
+
+    Merge branch 'master' of https://github.com/vin33t/visa_application
+
+[33mcommit 69bed0fb2b6656d09e371a2a2720db5f330c6f9b[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Tue Dec 25 01:00:27 2018 +0530
+
+    Frontend - Lead views
+
+[33mcommit 920eb6a91c2569a9458eb9af6d712e9273443315[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Mon Dec 24 15:13:52 2018 +0530
+
+    Frontend layout
+
+[33mcommit bc1589ae666c0eb281e30783c0b127bf13944efc[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Mon Dec 24 03:13:50 2018 +0530
+
+    Dashboard with frontend
+
+[33mcommit 9b6d0604d64b498a80d30e3e592d5f0f877f4c4c[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Mon Dec 24 01:36:34 2018 +0530
+
+    layout for frontend :)
+
+[33mcommit 0d9c8e75c79478869fc1d404e9207f1797ee8768[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Sun Dec 23 23:43:37 2018 +0530
+
+    Authentication Frontend
+
+[33mcommit d53e20f973a8647da26e55d659a24a4c9e1a8fd1[m
+Author: Vineet Chauhan <vineet.chd09@gmail.com>
+Date:   Sun Dec 23 23:12:17 2018 +0530
+
+    Launched on Heroku
+
+[33mcommit 429719d0a36ea0873be248dbad24737892eab6d0[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Sun Dec 23 12:19:36 2018 +0530
+
+    visa feature enhanced
+
+[33mcommit aeb6d5beb5dad911e16ead653657854aa05778b1[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Sun Dec 23 00:26:04 2018 +0530
+
+    visa issue fixed
+
+[33mcommit e93a3c9a45f73c33202c483fd126c8ed6aaaf223[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Sat Dec 22 17:10:58 2018 +0530
+
+    visa display and status change
+
+[33mcommit a74ac5900471ded342b5c05f1f35fdbe1f00498c[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Sat Dec 22 14:45:00 2018 +0530
+
+    New - student's visa
+
+[33mcommit 105f895685d87f470eaf6cf48042e7a27482e06d[m
+Author: shiva <ashishsapra7@gmail.com>
+Date:   Fri Dec 21 16:06:27 2018 +0530
+
+    New - File progress status

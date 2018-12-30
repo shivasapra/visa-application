@@ -50,163 +50,235 @@ Create Agent
 			@endforeach
 		</ul>
 	@endif
-		<div class="content-body">
+	<div class="content-body">
 	    <section id="number-tabs">
+				<form action="{{route('agent.store')}}" method='post' enctype="multipart/form-data">
+					{{csrf_field()}}
 	          <div class="row">
-	            <div class="col-12">
+	            <div class="col-8">
 	              <div class="card">
 	                <div class="card-content collapse show">
 	                  <div class="card-body">
-						<form action="{{route('agent.store')}}" method='post' enctype="multipart/form-data">
-							{{csrf_field()}}
-							<!-- Step 1 -->
-	                      
-	                      	<fieldset>
-	                      	<div class="row">
-	                      		<div class="col-md-6">
-									<div class="form-group">
-										<label for="name">Name</label>
-										<input type="text" name='name' required class="form-control">
-									</div>
-								</div>
-	                      		<div class="col-md-6">
-									<div class="form-group">
-										<label for="company">Company</label>
-										<input type="text" name='company' required class="form-control">
-									</div>
+                      	<fieldset>
+                      	<div class="row">
+                      		<div class="col-md-6">
+								<div class="form-group">
+									<label for="name">Name</label>
+									<input type="text" name='name' required class="form-control">
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="mobile">Mobile</label>
-										<input type="text" name='mobile' required maxlength="10" minlength="10" class="form-control">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="designation">Designation</label>
-										<input type="text" name='designation' required class="form-control">
-									</div>
+                      		<div class="col-md-6">
+								<div class="form-group">
+									<label for="company">Company</label>
+									<input type="text" name='company' required class="form-control">
 								</div>
 							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="mobile">Mobile</label>
+									<input type="text" name='mobile' required maxlength="10" minlength="10" class="form-control">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="designation">Designation</label>
+									<input type="text" name='designation' required class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+                      		<div class="col-md-6">
+								<div class="form-group">
+									<label for="website">Website</label>
+									<input type="text" name='website' required class="form-control">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="email">Email</label>
+									<input type="email" name='email' required class="form-control">
+								</div>
+							</div>
+						</div>
+						</fieldset>
+
+						<!-- Step 2 -->
+						<fieldset>
 							<div class="row">
-	                      		<div class="col-md-6">
-									<div class="form-group">
-										<label for="website">Website</label>
-										<input type="text" name='website' required class="form-control">
-									</div>
+                      		<div class="col-md-6">
+								<div class="form-group">
+									<label for="address">Address</label>
+									<input type="text" name='address' required class="form-control">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="state">State/UT</label>
+									<input type="text" name='state' required class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+                      		<div class="col-md-6">
+								<div class="form-group">
+									<label for="district">District</label>
+									<input type="text" name='district' required class="form-control">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="location">City</label>
+									<input type="text" name='location' required class="form-control">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="postal_code">Postal Code</label>
+									<input type="text" name='postal_code' required class="form-control">
+								</div>
+							</div>
+						</div>
+						
+						{{-- <div class="row">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="id_proof">Id Proof</label>
+									<input type="file" name='id_proof' class="form-control">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="license">License</label>
+									<input type="file" name='license' class="form-control">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="photo">photo</label>
+									<input type="file" name='photo' class="form-control">
+								</div>
+							</div>
+						</div> --}}
+						</fieldset>
+						</div>
+		      	    </div>
+	              </div>
+	              <div class="form-group">
+					<div class="text-center">
+						<button class="btn btn-success" type="submit">Update</button>
+					</div>
+				</div>	
+	            </div>
+
+	          
+	            <div class="col-4">
+	              <div class="card">
+	                <div class="card-content collapse show">
+	                  <div class="card-body">
+							<fieldset>
+								<div class="text-center"><h4>{{"Identity"}}</h4></div>
+								<div class="row">
+								<div class="col-md-6">
+								<div class="form-group">
+									<label for="id_name[]">ID Name:</label>
+									<input type="text" name="id_name[]" class="form-control">
+									<div id="id_name"></div>
+								</div>
 								</div>
 								<div class="col-md-6">
-									<div class="form-group">
-										<label for="email">Email</label>
-										<input type="email" name='email' required class="form-control">
+								<div class="form-group">
+									<label for="id_no[]">ID No.</label>
+									<input type="text" name="id_no[]" class="form-control">
+									<div id="id_no"></div>
+								</div>
+								</div>
+								</div>
+									<div class="text-center">
+										<button class="btn btn-success btn-sm" type="button" id="addid">Add Id</button>
 									</div>
+									<div class="row">
+										<div class="form-group">
+								<tr>
+									<td><br><strong>Photos Received:</strong></td>
+									<td>
+										<input type="radio" name="photos_received" value="yes">Yes
+										<input type="radio" name="photos_received" value="no">No
+									</td>
+								</tr>
 								</div>
 							</div>
 							</fieldset>
-
-							<!-- Step 2 -->
-							<fieldset>
-								<div class="row">
-	                      		<div class="col-md-6">
-									<div class="form-group">
-										<label for="address">Address</label>
-										<input type="text" name='address' required class="form-control">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="state">State/UT</label>
-										<input type="text" name='state' required class="form-control">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-	                      		<div class="col-md-6">
-									<div class="form-group">
-										<label for="district">District</label>
-										<input type="text" name='district' required class="form-control">
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="location">City</label>
-										<input type="text" name='location' required class="form-control">
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="postal_code">Postal Code</label>
-										<input type="text" name='postal_code' required class="form-control">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-	                      		<div class="col-md-6">
-									<div class="form-group">
-										<label for="college1">International College tie up-- 1</label>
-										<input type="text" name='college1' required class="form-control">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="college2">International College tie up-- 2</label>
-										<input type="text" name='college2' required class="form-control">
-									</div>
-								</div>
-							</div>
-							{{-- <div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="id_proof">Id Proof</label>
-										<input type="file" name='id_proof' class="form-control">
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="license">License</label>
-										<input type="file" name='license' class="form-control">
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="photo">photo</label>
-										<input type="file" name='photo' class="form-control">
-									</div>
-								</div>
-							</div> --}}
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="id_no">ID No.</label>
-										<input type="text" name='id_no' required class="form-control">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="license_no">License No.</label>
-										<input type="text" name='license_no' required class="form-control">
-									</div>
-								</div>
-							</div>
-						</fieldset>
-							<div class="form-group">
-								<div class="text-center">
-									<button class="btn btn-success" type="submit">Add Agent</button>
-								</div>
-							</div>	
-						</form>
+						</div>
 					</div>
-		      	    </div>
-	              </div>
-	            </div>
-	          </div>
+				</div>
+			
+				            <div class="card">
+				                <div class="card-content collapse show">
+				                  <div class="card-body">
+										<fieldset>
+												
+												
+											<div class="text-center"><h4>{{"Reference"}}</h4></div>
+											<div class="row">
+											<div class="col-md-6" >
+												<div class="form-group">
+													<div class="">
+													<button class="btn btn-info btn-sm" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded='true' 
+													aria-controls="collapse1">Reference 1</button></div><br>
+													<div class="collapse" id="collapse1">
+														<label for="reference1_name">Name</label>
+														<input type="text" name='reference1_name'  class="form-control" ><br>
+														<label for="reference1_phone">Mobile</label>
+														<input type="text" name='reference1_phone'  class="form-control" ><br>
+														<label for="reference1_email">Email</label>
+														<input type="email" name='reference1_email' class="form-control" ><br>
+														<label for="reference1_contact">Contact Person</label>
+														<input type="text" name='reference1_contact' class="form-control" ><br>
+														<label for="reference1_website">Website</label>
+														<input type="text" name='reference1_website' class="form-control" >
+													</div>
+												</div>
+											</div>
+
+											<div class="col-md-6" >
+											<div class="form-group">
+												<div class="">
+												<button class="btn btn-warning btn-sm" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded='true' 
+												aria-controls="collapse2">Reference 2</button></div><br>
+												<div class="collapse" id="collapse2">
+													<label for="reference2_name">Name</label>
+													<input type="text" name='reference2_name' class="form-control" ><br>
+													<label for="reference2_phone">Mobile</label>
+													<input type="text" name='reference2_phone' class="form-control" ><br>
+													<label for="reference2_email">Email</label>
+													<input type="email" name='reference2_email' class="form-control" ><br>
+													<label for="reference2_contact">Contact Person</label>
+													<input type="text" name='reference2_contact' class="form-control" ><br>
+													<label for="reference2_website">Website</label>
+													<input type="text" name='reference2_website' class="form-control" >
+												</div>
+											</div>
+											
+											</div>
+											
+											</div>
+										</fieldset>
+									</div>
+								</div>
+							</div>
+				
+			</div>
+		</div>
+						
+				</form>
 	    </section>
     </div>
 		
 @stop
 @section('js')
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<!-- BEGIN VENDOR JS-->
   <script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script>
   <!-- BEGIN VENDOR JS-->
@@ -229,4 +301,18 @@ Create Agent
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="{{asset("app/front/app-assets/js/scripts/forms/wizard-steps.js")}}" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
+  <script type="text/javascript">
+	$(document).ready(function(){
+    $("#addid").click(function(){
+    	var name = '<label for="id_name[]">ID Name:</label><input type="text" 					name="id_name[]" class="form-control">';
+        $("#id_name").append(name);   
+        });
+    });
+    $(document).ready(function(){
+    $("#addid").click(function(){
+    	var no = '<label for="id_no[]">ID No.</label><input type="text" name="id_no[]" 			class="form-control">';
+        $("#id_no").append(no);         
+        });
+    });
+	</script>
 @endsection

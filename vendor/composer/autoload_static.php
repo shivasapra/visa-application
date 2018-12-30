@@ -452,6 +452,7 @@ class ComposerStaticInitc966b6c11b27b00da4b8de851e28ac1b
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\agentProfile' => __DIR__ . '/../..' . '/app/agentProfile.php',
         'App\\contracts' => __DIR__ . '/../..' . '/app/contracts.php',
+        'App\\identity' => __DIR__ . '/../..' . '/app/identity.php',
         'App\\leads' => __DIR__ . '/../..' . '/app/leads.php',
         'App\\social' => __DIR__ . '/../..' . '/app/social.php',
         'App\\studentProfile' => __DIR__ . '/../..' . '/app/studentProfile.php',

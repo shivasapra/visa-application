@@ -38,7 +38,7 @@ Agent Details
 @section('content')
 	<div class="content-body">
 		<div class="row">
-          <div class="col-12">
+          <div class="col-8">
             <div class="card">
               <div class="card-content collapse show">
               	{{-- <br> --}}
@@ -46,122 +46,116 @@ Agent Details
                 	<img class="img-responsive menu-thumbnails" src="{{asset($agent->photo)}}" height="150px" width="150px" style="border-radius:20px">
                 </div><br> --}}
                 <div class="table-responsive">
-                 <table class="table table-hover mb-0">
-			<tbody>
-				<div class="row">
-					<tr>
-						<td><strong>Name:</strong></td>
-						<td>{{$agent->name}}</td>
-					</tr>
+			        <table class="table table-hover mb-0">
+						<tbody>
+							<div class="row">
+								<tr>
+									<td><strong>Name:</strong></td>
+									<td>{{$agent->name}}</td>
+								</tr>
+							</div>
+							<div class="row">
+								<tr>
+									<td><strong>Designation:</strong></td>
+									<td>{{$agent->designation}}</td>
+								</tr>
+							</div>
+							<div class="row">
+								<tr>
+									<td><strong>Company:</strong></td>
+									<td>{{$agent->company}}</td>
+								</tr>
+							</div>
+							<div class="row">
+								<tr>
+									<td><strong>Email:</strong></td>
+									<td>{{$agent->email}}</td>
+								</tr>
+							</div>
+							<div class="row">
+								<tr>
+									<td><strong>Address:</strong></td>
+									<td>{{$agent->address}}</td>
+								</tr>
+							</div>
+							<div class="row">
+								<tr>
+									<td><strong>State/UT:</strong></td>
+									<td>{{$agent->state}}</td>
+								</tr>
+							</div>
+							<div class="row">
+								<tr>
+									<td><strong>District:</strong></td>
+									<td>{{$agent->district}}</td>
+								</tr>
+							</div>
+							<div class="row">
+								<tr>
+									<td><strong>City:</strong></td>
+									<td>{{$agent->location}}</td>
+								</tr>
+							</div>
+							<div class="row">
+								<tr>
+									<td><strong>Postal Code:</strong></td>
+									<td>{{$agent->postal_code}}</td>
+								</tr>
+							</div>
+							<div class="row">
+								<tr>
+									<td><strong>Mobile:</strong></td>
+									<td>{{$agent->mobile}}</td>
+								</tr>
+							</div>
+							<div class="row">
+								<tr>
+									<td><strong>Website:</strong></td>
+									<td>{{$agent->website}}</td>
+								</tr>
+							</div>
+							
+							<div class="row">
+								<tr>
+									<td><strong>Photos Received:</strong></td>
+									<td>{{$agent->photos_received}}</td>
+								</tr>
+							</div>
+							</tbody>
+					</table>
 				</div>
-				<div class="row">
+			</div>
+			</div>
+			</div>
+			
+          <div class="col-4">
+            <div class="card">
+            	<div class="text-center"><h4>{{"Identity"}}</h4></div>
+              <div class="card-content collapse show">
+				<div class="table-responsive">
+			    <table class="table table-hover mb-0">
+			    	<thead>
+			    		<th>{{"Id Name:"}}</th>
+			    		<th>{{"Id No:"}}</th>
+			    	</thead>
+			    <tbody>
+				@foreach($identity as $identit)
+				
 					<tr>
-						<td><strong>Designation:</strong></td>
-						<td>{{$agent->designation}}</td>
+						<td><strong>{{$identit->id_name}}</strong></td>
+						<td>{{$identit->id_no}}</td>
 					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Company:</strong></td>
-						<td>{{$agent->company}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Email:</strong></td>
-						<td>{{$agent->email}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Address:</strong></td>
-						<td>{{$agent->address}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>State/UT:</strong></td>
-						<td>{{$agent->state}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>District:</strong></td>
-						<td>{{$agent->district}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>City:</strong></td>
-						<td>{{$agent->location}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Postal Code:</strong></td>
-						<td>{{$agent->postal_code}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Mobile:</strong></td>
-						<td>{{$agent->mobile}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>Website:</strong></td>
-						<td>{{$agent->website}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>International College tie up-- 1:</strong></td>
-						<td>{{$agent->college1}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>International College tie up-- 2:</strong></td>
-						<td>{{$agent->college2}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>ID No.</strong></td>
-						<td>{{$agent->id_no}}</td>
-					</tr>
-				</div>
-				<div class="row">
-					<tr>
-						<td><strong>License No:</strong></td>
-						<td>{{$agent->license_no}}</td>
-					</tr>
-				</div>
+				
+				@endforeach
 			</tbody>
 		</table>
-				{{-- <br>
-				<div class="row">
-					<div class="col-md-6">
-              	<div class="container text-center">
-                	<img class="img-responsive menu-thumbnails" src="{{asset($agent->id_proof)}}" height="150px" width="150px" style="border-radius:20px"><br>
-                	<strong>{{"ID"}}</strong>
-                </div>
-                </div>
-                <div class="col-md-6">
-              	<div class="container text-center">
-                	<img class="img-responsive menu-thumbnails" src="{{asset($agent->license)}}" height="150px" width="150px" style="border-radius:20px"><br>
-                	<strong>{{"License"}}</strong>
-                </div>
-                </div>
-                </div>
-                <br> --}}
 	</div>
+			</div>
+			</div>
+			</div>
+		</div>
 	</div>
-	</div>
-	</div>
-	</div>
-	</div>		
+			
 	<div class="text-center">
     <a href="{{route('edit.agent',['id'=>$agent->id])}}" class="btn btn-info">Edit Profile</a>
     </div>

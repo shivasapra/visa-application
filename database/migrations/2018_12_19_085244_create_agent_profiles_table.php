@@ -19,8 +19,7 @@ class CreateAgentProfilesTable extends Migration
             $table->string('company');
             $table->string('email');
             $table->string('id_proof')->nullable();
-            $table->string('id_no');
-            $table->string('license_no');
+            $table->string('photos_received')->default('no');
             $table->string('license')->nullable();
             $table->string('photo')->nullable();
             $table->string('location');
@@ -28,8 +27,19 @@ class CreateAgentProfilesTable extends Migration
             $table->string('website');
             $table->string('state');
             $table->string('district');
-            $table->string('college1');
-            $table->string('college2');
+            
+            $table->string('reference1_name')->nullable();
+            $table->string('reference1_phone')->nullable();
+            $table->string('reference1_email')->nullable();
+            $table->string('reference1_contact')->nullable();
+            $table->string('reference1_website')->nullable();
+
+            $table->string('reference2_name')->nullable();
+            $table->string('reference2_phone')->nullable();
+            $table->string('reference2_email')->nullable();
+            $table->string('reference2_contact')->nullable();
+            $table->string('reference2_website')->nullable();
+            
             $table->string('mobile');
             $table->string('address');
             $table->integer('postal_code');

@@ -7,6 +7,7 @@ use App\agentProfile;
 use App\studentProfile;
 use Session;
 use App\contracts;
+use App\identity;
 class AgentController extends Controller
 {
     /**
@@ -47,15 +48,17 @@ class AgentController extends Controller
             'mobile' => 'required',
             'address' => 'required',
             'postal_code' => 'required',
-            'id_no' =>'required',
-            'license_no' => 'required',
+            
             'company' => 'required',
             'designation' => 'required',
             'state' => 'required',
             'district' => 'required',
             'website' => 'required',
-            'college1' => 'required',
-            'college2' => 'required',
+            'photos_received' => 'required',
+            'id_name' => 'required',
+            'id_no' => 'required',
+            
+            
         ]);
         // $id_proof= $request->id_proof;
         // $id_proof_new_name = time().$id_proof->getClientOriginalName();
@@ -68,28 +71,74 @@ class AgentController extends Controller
         // $license= $request->license;
         // $license_new_name = time().$license->getClientOriginalName();
         // $license->move('uploads/agents',$license_new_name);
-        
-        
-         agentProfile::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            $agent = new agentProfile;
+            $agent->name = $request->name;
+            $agent->email = $request->email;
             // 'id_proof' => 'uploads/agents/'.$id_proof_new_name,
             // 'photo' => 'uploads/agents/'.$photo_new_name,
             // 'license' => 'uploads/agents/'.$license_new_name,
-            'location' => $request->location,
-            'mobile' => $request->mobile,
-            'address' => $request->address,
-            'postal_code' => $request->postal_code,
-            'license_no' =>$request->license_no,
-            'id_no' => $request->id_no,
-            'company' => $request->company,
-            'designation' => $request->designation,
-            'state' => $request->state,
-            'district' => $request->district,
-            'website' => $request->website,
-            'college1' => $request->college1,
-            'college2' => $request->college2,
-                    ]);
+            $agent->location = $request->location;
+            $agent->mobile = $request->mobile;
+            $agent->address = $request->address;
+            $agent->postal_code = $request->postal_code;
+            
+            $agent->company = $request->company;
+            $agent->designation = $request->designation;
+            $agent->state = $request->state;
+            $agent->district = $request->district;
+            $agent->website = $request->website;
+            $agent->photos_received = $request->photos_received;
+            if($request->has('reference1_name'))
+            {
+                $agent->reference1_name = $request->reference1_name;
+            }
+            if($request->has('reference1_phone'))
+            {
+                $agent->reference1_phone = $request->reference1_phone;
+            }
+            if($request->has('reference1_email'))
+            {
+                $agent->reference1_email = $request->reference1_email;
+            }
+            if($request->has('reference1_contact'))
+            {
+                $agent->reference1_contact = $request->reference1_contact;
+            }
+            if($request->has('reference1_website'))
+            {
+                $agent->reference1_website = $request->reference1_website;
+            }
+            if($request->has('reference2_name'))
+            {
+                $agent->reference2_name = $request->reference2_name;
+            }
+            if($request->has('reference2_phone'))
+            {
+                $agent->reference2_phone = $request->reference2_phone;
+            }
+            if($request->has('reference2_email'))
+            {
+                $agent->reference2_email = $request->reference2_email;
+            }
+            if($request->has('reference2_contact'))
+            {
+                $agent->reference2_contact = $request->reference2_contact;
+            }
+            if($request->has('reference1_website'))
+            {
+                $agent->reference2_website = $request->reference2_website;
+            }
+
+            $agent->save();
+            // dd($request->id_name->pluck('id_name'));
+            // dd('name');
+            foreach ($request->id_name as $id_name) {
+                $identity = new identity;
+                $identity->agent_id = $agent->id;
+                $identity->id_name = $id_name;
+                $identity->save();
+            }
+            
         Session::flash('success','agent created successfully');
         return redirect()->route("agents");
     }
@@ -114,7 +163,9 @@ class AgentController extends Controller
     public function edit($id)
     {   
         $agent = agentProfile::find($id);
-        return view('agent.edit')->with('agent',$agent);
+        $identity = identity::where('agent_id',$id)->get();
+        return view('agent.edit')->with('agent',$agent)
+                                ->with('identity',$identity);
     }
 
     /**
@@ -137,15 +188,18 @@ class AgentController extends Controller
             'mobile' => 'required',
             'address' => 'required',
             'postal_code' => 'required',
-            'id_no' =>'required',
-            'license_no' => 'required',
+            
             'company' => 'required',
             'designation' => 'required',
             'state' => 'required',
             'district' => 'required',
             'website' => 'required',
-            'college1' => 'required',
-            'college2' => 'required',
+            'photos_received' => 'required',
+            'id_name' => 'required',
+            'id_no' => 'required',
+            
+            
+
         ]);
         // $id_proof= $request->id_proof;
         // $id_proof_new_name = time().$id_proof->getClientOriginalName();
@@ -170,16 +224,62 @@ class AgentController extends Controller
             $agent->mobile = $request->mobile;
             $agent->address = $request->address;
             $agent->postal_code = $request->postal_code;
-            $agent->license_no = $request->license_no;
-            $agent->id_no = $request->id_no;
+            
             $agent->company = $request->company;
             $agent->designation = $request->designation;
             $agent->state = $request->state;
             $agent->district = $request->district;
             $agent->website = $request->website;
-            $agent->college1 = $request->college1;
-            $agent->college2 = $request->college2;
-            $agent->save();      
+            $agent->photos_received = $request->photos_received;
+            if($request->has('reference1_name'))
+            {
+                $agent->reference1_name = $request->reference1_name;
+            }
+            if($request->has('reference1_phone'))
+            {
+                $agent->reference1_phone = $request->reference1_phone;
+            }
+            if($request->has('reference1_email'))
+            {
+                $agent->reference1_email = $request->reference1_email;
+            }
+            if($request->has('reference1_contact'))
+            {
+                $agent->reference1_contact = $request->reference1_contact;
+            }
+            if($request->has('reference1_website'))
+            {
+                $agent->reference1_website = $request->reference1_website;
+            }
+            if($request->has('reference2_name'))
+            {
+                $agent->reference2_name = $request->reference2_name;
+            }
+            if($request->has('reference2_phone'))
+            {
+                $agent->reference2_phone = $request->reference2_phone;
+            }
+            if($request->has('reference2_email'))
+            {
+                $agent->reference2_email = $request->reference2_email;
+            }
+            if($request->has('reference2_contact'))
+            {
+                $agent->reference2_contact = $request->reference2_contact;
+            }
+            if($request->has('reference2_website'))
+            {
+                $agent->reference2_website = $request->reference2_website;
+            }
+            
+            $agent->save(); 
+            foreach ($request->id_name as $id_name) {
+                $identity = new identity;
+                $identity->agent_id = $agent->id;
+                $identity->id_name = $id_name;
+                $identity->save();
+            } 
+
         Session::flash('success','agent update successfully');
         return redirect()->back()->with('agent',$agent);
     }
@@ -298,6 +398,8 @@ class AgentController extends Controller
     public function details($id){
         // dd($id);
         $agent = agentProfile::find($id);
-        return view('agent.details')->with('agent',$agent);
+        $identity = identity::where('agent_id',$id)->get();
+        return view('agent.details')->with('agent',$agent)
+                                    ->with('identity',$identity);
     }
 }

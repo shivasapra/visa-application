@@ -63,12 +63,7 @@ Agents
 						<th>
 							Status
 						</th>
-						<th>
-							id proof
-						</th>
-						<th>
-							license
-						</th>
+						
 						
 					</thead>
 					<tbody>
@@ -105,12 +100,7 @@ Agents
 										<div class="warning">{{"Not Interested"}}</div>
 									@endif
 								</td>
-								<td>
-									{{$agent->id_no}}
-								</td>
-								<td>
-									{{$agent->license_no}}
-								</td>
+								
 							
 							</tr>
 							@endforeach
