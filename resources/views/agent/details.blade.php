@@ -126,11 +126,12 @@ Agent Details
 				</div>
 			</div>
 			</div>
+			<div class="text-center">
+    <a href="{{route('edit.agent',['id'=>$agent->id])}}" class="btn btn-info">Edit Profile</a>
+    </div>
 			</div>
-			
           <div class="col-4">
             <div class="card">
-            	<div class="text-center"><h4>{{"Identity"}}</h4></div>
               <div class="card-content collapse show">
 				<div class="table-responsive">
 			    <table class="table table-hover mb-0">
@@ -139,6 +140,7 @@ Agent Details
 			    		<th>{{"Id No:"}}</th>
 			    	</thead>
 			    <tbody>
+            	<div class="text-center"><h4>{{"Identity"}}</h4></div>
 				@foreach($identity as $identit)
 				
 					<tr>
@@ -147,18 +149,98 @@ Agent Details
 					</tr>
 				
 				@endforeach
-			</tbody>
-		</table>
-	</div>
+				</tbody>
+				</table>
+				</div>
+			</div>
+			</div>
+				<div class="card">
+              <div class="card-content collapse show">
+				<div class="table-responsive">
+			    <table class="table table-hover mb-0">
+			    <tbody>
+				@if($agent->reference1_name)
+            	<div class="text-center"><h4>{{"Reference1"}}</h4></div>
+					<tr>
+						<td><strong>Name:</strong></td>
+						<td>{{$agent->reference1_name}}</td>
+					</tr>
+				@endif
+				@if($agent->reference1_mobile)
+					<tr>
+						<td><strong>Mobile:</strong></td>
+						<td>{{$agent->reference1_mobile}}</td>
+					</tr>
+				@endif
+				@if($agent->reference1_email)
+					<tr>
+						<td><strong>Email:</strong></td>
+						<td>{{$agent->reference1_email}}</td>
+					</tr>
+				@endif
+				@if($agent->reference1_contact)
+					<tr>
+						<td><strong>Contact Person:</strong></td>
+						<td>{{$agent->reference1_contact}}</td>
+					</tr>
+				@endif
+				@if($agent->reference1_website)
+					<tr>
+						<td><strong>Website:</strong></td>
+						<td>{{$agent->reference1_website}}</td>
+					</tr>
+				@endif
+				</tbody>
+				</table>
+				</div>
+			</div>
+			</div>
+			<div class="card">
+              <div class="card-content collapse show">
+				<div class="table-responsive">
+			    <table class="table table-hover mb-0">
+			    <tbody>
+				@if($agent->reference2_name)
+            	<div class="text-center"><h4>{{"Reference2"}}</h4></div>
+					<tr>
+						<td><strong>Name:</strong></td>
+						<td>{{$agent->reference2_name}}</td>
+					</tr>
+				@endif
+				@if($agent->reference2_mobile)
+					<tr>
+						<td><strong>Mobile:</strong></td>
+						<td>{{$agent->reference2_mobile}}</td>
+					</tr>
+				@endif
+				@if($agent->reference2_email)
+					<tr>
+						<td><strong>Email:</strong></td>
+						<td>{{$agent->reference2_email}}</td>
+					</tr>
+				@endif
+				@if($agent->reference2_contact)
+					<tr>
+						<td><strong>Contact Person:</strong></td>
+						<td>{{$agent->reference2_contact}}</td>
+					</tr>
+				@endif
+				@if($agent->reference2_website)
+					<tr>
+						<td><strong>Website:</strong></td>
+						<td>{{$agent->reference2_website}}</td>
+					</tr>
+				@endif
+				</tbody>
+				</table>
+				</div>
 			</div>
 			</div>
 			</div>
 		</div>
 	</div>
 			
-	<div class="text-center">
-    <a href="{{route('edit.agent',['id'=>$agent->id])}}" class="btn btn-info">Edit Profile</a>
-    </div>
+	
 @stop
 @section('js')
 	<script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script>

@@ -132,12 +132,15 @@ class AgentController extends Controller
             $agent->save();
             // dd($request->id_name->pluck('id_name'));
             // dd('name');
-            foreach ($request->id_name as $id_name) {
+            $array = array_combine($request->id_name, $request->id_no);
+            foreach($array as $id_name => $id_no ) {
                 $identity = new identity;
                 $identity->agent_id = $agent->id;
                 $identity->id_name = $id_name;
+                $identity->id_no = $id_no;
                 $identity->save();
             }
+            
             
         Session::flash('success','agent created successfully');
         return redirect()->route("agents");
@@ -273,12 +276,14 @@ class AgentController extends Controller
             }
             
             $agent->save(); 
-            foreach ($request->id_name as $id_name) {
+            $array = array_combine($request->id_name, $request->id_no);
+            foreach($array as $id_name => $id_no ) {
                 $identity = new identity;
                 $identity->agent_id = $agent->id;
                 $identity->id_name = $id_name;
+                $identity->id_no = $id_no;
                 $identity->save();
-            } 
+            }
 
         Session::flash('success','agent update successfully');
         return redirect()->back()->with('agent',$agent);
