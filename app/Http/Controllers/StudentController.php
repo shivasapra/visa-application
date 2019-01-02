@@ -26,14 +26,7 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   $agents = agentProfile::all();
-        
-        if($agents->count()==0)
-           {
-
-            Session::flash('info','You must have one agent to create a student');
-            return redirect()->back();
-           }
+    {   
            $dt = Carbon::now();
            $dt->timezone('Asia/Kolkata');
            $date_today = $dt->toDateString();
@@ -86,6 +79,9 @@ class StudentController extends Controller
         }
         if ($request->source == 'social') {
             $student->social_id = $request->idd;
+        }
+        if ($request->source == 'third_party') {
+            $student->third_party = $request->third_party;
         }
             $student->first_name = $request->first_name;
             $student->last_name = $request->last_name;
@@ -193,6 +189,9 @@ class StudentController extends Controller
         }
         if ($request->social_id) {
             $student->social_id = $request->idd;
+        }
+        if ($request->source == 'third_party') {
+            $student->third_party = $request->third_party;
         }
             $student->agent_id = $request->agent_id;
             $student->first_name = $request->first_name;

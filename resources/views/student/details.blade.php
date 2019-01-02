@@ -50,6 +50,8 @@ Student Details
 								<td>{{$student->agent->name}}</td>
 								@elseif($student->social_id)
 								<td>{{$student->social->social}}</td>
+								@elseif($student->third_party)
+								<td>{{$student->third_party}}</td>
 								@endif
 							</tr>
 						</div>

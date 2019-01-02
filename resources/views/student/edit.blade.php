@@ -73,6 +73,8 @@ Edit Student
 									<option value="{{$student->agent->id}}">{{$student->agent->name}}
 									@elseif($student->social_id)
 									<option value="{{$student->social->id}}">{{$student->social->social}}
+									@elseif($student->third_party)
+									<option value="{{$student->third_party}}">{{$student->third_party}}
 									@endif
 	                              </select>
 	                            </div>

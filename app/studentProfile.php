@@ -10,7 +10,7 @@ class studentProfile extends Model
         'first_name', 'last_name', 'email', 'title', 'gender', 'first_language', 'DOB',
         'Mobile', 'address', 'postal_code', 'agent_id','lead_id','passport_no','passport_issue','social_id',
         'passport_expire','passport_country','tenth_percentage','twelveth_percentage','tenth_year','twelveth_year','tenth_board',
-        'twelveth_board','twelveth_stream','test','test_date','test_remarks','test_score',      
+        'twelveth_board','twelveth_stream','test','test_date','test_remarks','test_score','third_party'    
     ];
     public function agent()
     {

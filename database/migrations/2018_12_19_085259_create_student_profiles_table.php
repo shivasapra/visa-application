@@ -28,6 +28,7 @@ class CreateStudentProfilesTable extends Migration
             $table->integer('agent_id')->nullable();
             $table->integer('social_id')->nullable();
             $table->integer('lead_id')->nullable();
+            $table->string('third_party')->nullable();
             $table->integer('visa_approved')->default(0);
             $table->integer('visa_rejected')->default(0);
             $table->integer('visa_re_applied')->default(0);

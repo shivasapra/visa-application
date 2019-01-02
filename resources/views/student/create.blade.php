@@ -68,20 +68,15 @@ Add Student
 	                          		<label for="source">Source</label>
 	                              <select class="custom-select form-control" id="first"
 	                              name="source" required>
+	                              <option value=""></option>
 									<option value="social">{{'Social'}}</option>
 									<option value="agent">{{'Agent'}}</option>
+									<option value="third_party">{{'Third Party'}}</option>
 	                              </select>
 	                            </div>
 	                        </div>
 	                        <div class="col-md-6" >
-	                          	<div class="form-group" >
-	                          		<label for="idd">Select</label>
-	                              <select class="custom-select form-control"
-	                              name="idd" required id="second">
-	                              	@foreach($socials as $social)
-	                              		<option value="{{$social->id}}">{{$social->social}}</option>
-	                              	@endforeach
-	                              </select> 
+	                          	<div class="form-group" id="third">
 	                            </div>
 	                        </div>
 	                    </div>
@@ -395,9 +390,11 @@ Add Student
 	    	if (source == 'agent')
 		    	{
 		    		var options = "";
-		    	@foreach($agents as $agent)
-		    		options = options + "<option value='{{$agent->id}}'>{{$agent->name}}</option>";
-		    	@endforeach
+			    	@foreach($agents as $agent)
+			    		options = options + "<option value='{{$agent->id}}'>{{$agent->name}}</option>";
+			    	@endforeach
+		    		var select = '<label for="idd">Select Agent</label><select class="custom-select form-control" name="idd" required >'+options+'</select>'
+        		$("#third").html(select);
 		    }
 	    	if(source == 'social')
 		    	{
@@ -405,8 +402,14 @@ Add Student
 		    	@foreach($socials as $social)
 		    		options = options + "<option value='{{$social->id}}'>{{$social->social}}</option>";
 		    	@endforeach
+		    	var select = '<label for="idd">Select Social</label><select class="custom-select form-control" name="idd" required >'+options+'</select>'
+		    	$("#third").html(select);
 		    }
-	        $("#second").html(options);
+	        if (source == 'third_party')
+	        	{
+	        		var input = '<label for="third_party">Enter name</label><input type="text" name="third_party" required  class="form-control">';
+	        		$("#third").html(input);
+	        	}
 		    });
 		});
 		
