@@ -66,10 +66,14 @@ Edit Student
 	                      	<div class="row">
 	                          <div class="col-md-12">
 	                          	<div class="form-group">
-	                              <label for="agent_id">Select Agent :</label>
+	                              <label for="agent_id">Source:</label>
 	                              <select class="custom-select form-control" id="eventType1"
-	                              name="agent_id" required>
-									 <option value="{{$student->agent->id}}">{{$student->agent->name}}
+	                              name="idd" required>
+	                                @if($student->agent_id)
+									<option value="{{$student->agent->id}}">{{$student->agent->name}}
+									@elseif($student->social_id)
+									<option value="{{$student->social->id}}">{{$student->social->social}}
+									@endif
 	                              </select>
 	                            </div>
 	                        </div>

@@ -188,6 +188,13 @@ class StudentController extends Controller
 
         
         $student = studentProfile::find($id);
+        if ($student->agent_id) {
+            $student->agent_id = $request->idd;
+        }
+        if ($request->social_id) {
+            $student->social_id = $request->idd;
+        }
+            $student->agent_id = $request->agent_id;
             $student->first_name = $request->first_name;
             $student->last_name = $request->last_name;
             $student->email = $request->email;
@@ -198,7 +205,6 @@ class StudentController extends Controller
             $student->Mobile = $request->Mobile;
             $student->address = $request->address;
             $student->postal_code = $request->postal_code;
-            $student->agent_id = $request->agent_id;
             $student->passport_no = $request->passport_no;
             $student->passport_issue = $request->passport_issue;
             $student->passport_expire = $request->passport_expire;
