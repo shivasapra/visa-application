@@ -52,16 +52,15 @@ Add Student
 
     <div class="content-body">
 	    <section id="number-tabs">
-	          <div class="row">
-	            <div class="col-12">
+            <form action="{{route('students.store')}}" class="number-tab-steps wizard-circle" method="post">
+            	@csrf
+	        <div class="row">
+	            <div class="col-8">
 	              <div class="card">
 	                <div class="card-content collapse show">
 	                  <div class="card-body">
-	                    <form action="{{route('students.store')}}" class="number-tab-steps wizard-circle" method="post">
-	                    	@csrf
 	                      <!-- Step 1 -->
-	                      
-	                      <fieldset>
+	                    <fieldset>
 	                      	<div class="row">
 	                          <div class="col-md-6">
 	                          	<div class="form-group">
@@ -79,7 +78,7 @@ Add Student
 	                          	<div class="form-group" id="third">
 	                            </div>
 	                        </div>
-	                    </div>
+	                    	</div>
 	                        <div class="row">
 	                            <div class="col-md-6">
 	                            <div class="form-group">
@@ -111,19 +110,15 @@ Add Student
 									    </select>
 		                            </div>
 		                        </div>
-	                        </div>
-	                        	           
-	                      </fieldset>
-	                      <!-- Step 2 -->
-	                      
-	                      <fieldset>
+	                        </div>   	           
+	                    
 	                        <div class="row">
 	                          <div class="col-md-6">
 	                            <div class="form-group">
-	                              <label for="gender" >Gender</label><br>
-									<select name="gender" required class="form-control" >
-									 <option value="male" >Male</option>
-									 <option value="female" >Female</option>
+	                            <label for="gender" >Gender</label><br>
+								<select name="gender" required class="form-control" >
+								 <option value="male" >Male</option>
+								 <option value="female" >Female</option>
 								</select>
 	                            </div>
 	                            </div>
@@ -148,10 +143,6 @@ Add Student
 	                            </div>
 	                        	</div>
 	                        </div>
-	                      </fieldset>
-
-	                      <!-- Step 3 -->
-	                      <fieldset>
 	                        <div class="row">
 	                          <div class="col-md-6">
 	                            <label for="address" >address</label>
@@ -164,117 +155,156 @@ Add Student
 	                            </div>
 	                        	</div>
 	                        </div>
-	                        <div class="text-center"><h4>{{"Passport"}}</h4></div>
-	                        <div class="row">
-	                          <div class="col-md-6">
-	                            <label for="passport_no">Passport No.</label>
-								<input type="text"  name='passport_no' required class="form-control">
-	                            </div>
-	                            <div class="col-md-6">
-	                            <div class="form-group">
-	                             <label for="passport_country">Place of issue</label>
-								 <input type="text" name='passport_country' required  class="form-control">
-	                            </div>
-	                        	</div>
-	                        </div>
-	                        <div class="row">
-	                          <div class="col-md-6">
-	                            <label for="passport_issue">Issued Date</label>
-								<input type="date"  name='passport_issue' required class="form-control">
-	                            </div>
-	                            <div class="col-md-6">
-	                            <div class="form-group">
-	                             <label for="passport_expire">Expire Date</label>
-								 <input type="date" name='passport_expire' required  class="form-control">
-	                            </div>
-	                        	</div>
-	                        </div>
-	                       </fieldset>
-	                       <fieldset>
-	                       		<div class="text-center"><h4>{{"Education"}}</h4></div>
-	                       		<div class="row">
-		                          <div class="col-md-6">
-		                            <label for="tenth_percentage">10th Percentage</label>
-									<input type="text"  name='tenth_percentage' required class="form-control" placeholder="eg. 90">
-		                            </div>
-		                            <div class="col-md-6">
-		                            <div class="form-group">
-		                             <label for="twelveth_percentage">12th Percentage</label>
-									 <input type="text" name='twelveth_percentage' required  class="form-control" placeholder="eg. 90">
-		                            </div>
-		                        	</div>
-	                        	</div>
-	                        	<div class="row">
-		                          <div class="col-md-6">
-		                            <label for="tenth_year">10th Passing year</label>
-									<input type="text"  name='tenth_year' required class="form-control">
-		                            </div>
-		                            <div class="col-md-6">
-		                            <div class="form-group">
-		                             <label for="twelveth_year">12th Passing year</label>
-									 <input type="text" name='twelveth_year' required  class="form-control">
-		                            </div>
-		                        	</div>
-	                        	</div>
-	                        	<div class="row">
-		                          <div class="col-md-6">
-		                            <label for="tenth_board">10th Board</label>
-									<input type="text"  name='tenth_board' required class="form-control">
-		                            </div>
-		                            <div class="col-md-3">
-		                            <div class="form-group">
-		                             <label for="twelveth_board">12th Board</label>
-									 <input type="text" name='twelveth_board' required  class="form-control">
-		                            </div>
-		                        	</div>
-		                        	<div class="col-md-3">
-		                            <div class="form-group">
-		                             <label for="twelveth_stream">12th Stream</label>
-									 <input type="text" name='twelveth_stream' required  class="form-control">
-		                            </div>
-		                        	</div>
-	                        	</div>
-	                       </fieldset>
-	                       <fieldset>
-	                        	<div class="text-center"><h4>{{"Language Test"}}</h4></div>
-	                       		<div class="row">
-		                          <div class="col-md-6">
-		                            <label for="test">English language Test</label>
-									<input type="text"  name='test' required class="form-control">
-		                            </div>
-		                            <div class="col-md-6">
-		                            <div class="form-group">
-		                             <label for="test_date">Test Date</label>
-									 <input type="date" name='test_date' required class="form-control">
-		                            </div>
-		                        	</div>
-	                        	</div>
-	                        	<div class="row">
-		                          <div class="col-md-6">
-		                            <label for="test_remarks">Remarks</label>
-									<input type="text"  name='test_remarks' class="form-control">
-		                            </div>
-		                            <div class="col-md-6">
-		                            <div class="form-group">
-		                             <label for="test_score">Test Score</label>
-									 <input type="text" name='test_score' class="form-control">
-		                            </div>
-		                        	</div>
-	                        	</div>
-	                       </fieldset>
-	                      	<div class="form-group">
-							<div class="text-center">
-								<button class="btn btn-success" type="submit">Add student</button>
-							</div>
-							</div>
-	                    </form>
+	                    </fieldset>
 	                  </div>
 	                </div>
 	              </div>
+	            
+	          
+	                      <!-- Step 2 -->
+		            <div class="card">
+		                <div class="card-content collapse show">
+		                  <div class="card-body">
+		                    <fieldset>
+		                        	<div class="text-center"><h4>{{"Language Test"}}</h4></div>
+		                       		<div class="row">
+			                          <div class="col-md-6">
+			                            <label for="test">English language Test</label>
+										<input type="text"  name='test' required class="form-control">
+			                            </div>
+			                            <div class="col-md-6">
+			                            <div class="form-group">
+			                             <label for="test_date">Test Date</label>
+										 <input type="date" name='test_date' required class="form-control">
+			                            </div>
+			                        	</div>
+		                        	</div>
+		                        	<div class="row">
+			                          <div class="col-md-6">
+			                            <label for="test_remarks">Remarks</label>
+										<input type="text"  name='test_remarks' class="form-control">
+			                            </div>
+			                            <div class="col-md-6">
+			                            <div class="form-group">
+			                             <label for="test_score">Test Score</label>
+										 <input type="text" name='test_score' class="form-control">
+			                            </div>
+			                        	</div>
+		                        	</div>
+		                    </fieldset>
+		                    </div>
+		                </div>
+		            </div>
+	            <div class="text-center">
+              	<div class="form-group">
+					<button class="btn btn-success text" type="submit">Add student</button>
+				</div>
+				</div>
 	            </div>
-	          </div>
-	    </section>
-    </div>
+	            
+	          
+	                      <!-- Step 3 -->
+	          
+		            <div class="col-4">
+		              <div class="card">
+		                <div class="card-content collapse show">
+		                  <div class="card-body">
+		                    <fieldset>
+		                       		<div class="text-center"><h4>{{"Education"}}</h4></div>
+		                       		<div class="row">
+			                          <div class="col-md-6">
+			                            <label for="tenth_percentage">10th Percentage</label>
+										<input type="text"  name='tenth_percentage' required class="form-control" placeholder="eg. 90">
+			                            </div>
+			                            <div class="col-md-6">
+			                            <div class="form-group">
+			                             <label for="twelveth_percentage">12th Percentage</label>
+										 <input type="text" name='twelveth_percentage' required  class="form-control" placeholder="eg. 90">
+			                            </div>
+			                        	</div>
+		                        	</div>
+		                        	<div class="row">
+			                          <div class="col-md-6">
+			                            <label for="tenth_year">10th Passing year</label>
+										<input type="text"  name='tenth_year' required class="form-control">
+			                            </div>
+			                            <div class="col-md-6">
+			                            <div class="form-group">
+			                             <label for="twelveth_year">12th Passing year</label>
+										 <input type="text" name='twelveth_year' required  class="form-control">
+			                            </div>
+			                        	</div>
+		                        	</div>
+		                        	<div class="row">
+			                          <div class="col-md-6">
+			                            <label for="tenth_board">10th Board</label>
+										<input type="text"  name='tenth_board' required class="form-control">
+			                            </div>
+			                            <div class="col-md-6">
+			                            <div class="form-group">
+			                             <label for="twelveth_board">12th Board</label>
+										 <input type="text" name='twelveth_board' required  class="form-control">
+			                            </div>
+			                        	</div>
+			                        	<div class="col-md-12">
+			                            <div class="form-group">
+			                             <label for="twelveth_stream">12th Stream</label>
+										 <input type="text" name='twelveth_stream' required  class="form-control">
+			                            </div>
+			                        	</div>
+		                        	</div>
+		                    </fieldset>
+		                  </div>
+		                </div>
+		              </div>
+		            
+		            
+		          
+		                      <!-- Step 4 -->
+		              <div class="card">
+		                <div class="card-content collapse show">
+		                  <div class="card-body">
+		                    <fieldset>
+		                        <div class="text-center"><h4>{{"Passport"}}</h4></div>
+		                        <div class="row">
+		                          <div class="col-md-6">
+		                            <label for="passport_no">Passport No.</label>
+									<input type="text"  name='passport_no' required class="form-control">
+		                            </div>
+		                            <div class="col-md-6">
+		                            <div class="form-group">
+		                             <label for="passport_country">Place of issue</label>
+									 <input type="text" name='passport_country' required  class="form-control">
+		                            </div>
+		                        	</div>
+		                        </div>
+		                        <div class="row">
+		                          <div class="col-md-12">
+		                          	<div class="form-group">
+		                            <label for="passport_issue">Issued Date</label>
+									<input type="date"  name='passport_issue' required class="form-control">
+		                            </div>
+		                            </div>
+		                        </div>
+		                        <div class="row">
+		                            <div class="col-md-12">
+		                            <div class="form-group">
+		                             <label for="passport_expire">Expire Date</label>
+									 <input type="date" name='passport_expire' required  class="form-control">
+		                            </div>
+		                        	</div>
+		                        </div>
+		                    </fieldset>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+				
+			</div>
+		</form>
+	</section>
+</div>
+
 
 
 	{{-- @if(count($errors)>0)
