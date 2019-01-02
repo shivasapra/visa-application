@@ -14,6 +14,9 @@ use App\agentProfile;
 Route::get('/test', function () {
     return view('layouts.test');
 });
+// Route::get('/hihi', function () {
+//     return view('student.getlist');
+// })->name('hihi');
 
 // Route::get('/', function () {
 //     return view('welcome');

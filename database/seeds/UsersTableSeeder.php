@@ -17,5 +17,18 @@ class UsersTableSeeder extends Seeder
         	'password' => bcrypt('password'),
             'admin' => 1
         ]);
+
+        $social = App\social::create([
+            'social' => 'Facebook'
+        ]);
+        $social = App\social::create([
+            'social' => 'Youtube'
+        ]);
+        $social = App\social::create([
+            'social' => 'Twitter'
+        ]);
+        $social = App\social::create([
+            'social' => 'Instagram'
+        ]);
     }
 }

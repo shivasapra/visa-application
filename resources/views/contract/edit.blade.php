@@ -90,7 +90,7 @@ New Contract
 	                            <div class="col-md-6">
 	                            	<div class="form-group">
 									<label for="description">Description</label><br>
-									<textarea value="{{$contract->description}}" name="description" required id="description" rows="6"  class="form-control"></textarea>
+									<textarea name="description" required id="description" rows="6"  class="form-control">{{$contract->description}}</textarea>
 								</div>
 	                            </div>
 	                        </div>

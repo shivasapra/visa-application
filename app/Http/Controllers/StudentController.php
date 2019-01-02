@@ -56,7 +56,6 @@ class StudentController extends Controller
             'last_name' => 'required',
             'gender' => 'required',
             'email' => 'required|email',
-            'agent_id' =>'required',
             'title' => 'required',
             'first_language' => 'required',
             'DOB' => 'required',
@@ -78,8 +77,16 @@ class StudentController extends Controller
             'test_date' =>'required',
         ]);
 
-        $agent = agentProfile::find($request->agent_id);
         $student = new studentProfile;
+        if ($request->source == 'agent') {
+            $student->agent_id = $request->idd;
+            $agent = agentProfile::find($request->idd);
+            $agent->students = $agent->students + 1;
+            $agent->save();
+        }
+        if ($request->source == 'social') {
+            $student->social_id = $request->idd;
+        }
             $student->first_name = $request->first_name;
             $student->last_name = $request->last_name;
             $student->email = $request->email;
@@ -90,7 +97,6 @@ class StudentController extends Controller
             $student->Mobile = $request->Mobile;
             $student->address = $request->address;
             $student->postal_code = $request->postal_code;
-            $student->agent_id = $request->agent_id;
             $student->passport_no = $request->passport_no;
             $student->passport_issue = $request->passport_issue;
             $student->passport_expire = $request->passport_expire;
@@ -112,8 +118,7 @@ class StudentController extends Controller
             }
         $student->save();
 
-        $agent->students = $agent->students + 1;
-        $agent->save();
+        
         Session::flash('success','student created successfully');
         return redirect()->route("students");
     }
@@ -160,7 +165,6 @@ class StudentController extends Controller
             'last_name' => 'required',
             'gender' => 'required',
             'email' => 'required|email',
-            'agent_id' =>'required',
             'title' => 'required',
             'first_language' => 'required',
             'DOB' => 'required',

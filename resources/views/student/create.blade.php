@@ -63,15 +63,25 @@ Add Student
 	                      
 	                      <fieldset>
 	                      	<div class="row">
-	                          <div class="col-md-12">
+	                          <div class="col-md-6">
 	                          	<div class="form-group">
-	                              <label for="agent_id">Select Agent :</label>
-	                              <select class="custom-select form-control" id="eventType1"
-	                              name="agent_id" required>
-	                              	@foreach( $agents as $agent)
-									 <option value="{{$agent->id}}">{{$agent->name}}</option>
-									@endforeach
+	                          		<label for="source">Source</label>
+	                              <select class="custom-select form-control" id="first"
+	                              name="source" required>
+									<option value="social">{{'Social'}}</option>
+									<option value="agent">{{'Agent'}}</option>
 	                              </select>
+	                            </div>
+	                        </div>
+	                        <div class="col-md-6" >
+	                          	<div class="form-group" >
+	                          		<label for="idd">Select</label>
+	                              <select class="custom-select form-control"
+	                              name="idd" required id="second">
+	                              	@foreach($socials as $social)
+	                              		<option value="{{$social->id}}">{{$social->social}}</option>
+	                              	@endforeach
+	                              </select> 
 	                            </div>
 	                        </div>
 	                    </div>
@@ -375,28 +385,30 @@ Add Student
   <!-- END STACK JS-->
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="{{asset("app/front/app-assets/js/scripts/forms/wizard-steps.js")}}" type="text/javascript"></script>
-  {{-- <script>
-
-  	var series = [
-  				@foreach($agents as $agent)
-				{name: 'agent', product: '{{$agent->name}}'},
-				@endforeach
-				@foreach($socials as $social)
-				{name: 'social', product: 'facebook'},
-				@endforeach
-				]
-
-	$(".company").change(function(){
-	    var company = $(this).val();
-	    var options =  '<option value=""><strong>Products</strong></option>'; //create your "title" option
-	    $(series).each(function(index, value){ //loop through your elements
-	        if(value.name == company){ //check the company
-	            options += '<option value="'+value.product+'">'+value.product+'</option>'; //add the option element as a string
-	        }
-	    });
-
-	    $('.product').html(options); //replace the selection's html with the new options
-	});
-  </script> --}}
   <!-- END PAGE LEVEL JS-->
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+	    $('#first').on('change', function(){
+	    	var source = this.value;
+	    	if (source == 'agent')
+		    	{
+		    		var options = "";
+		    	@foreach($agents as $agent)
+		    		options = options + "<option value='{{$agent->id}}'>{{$agent->name}}</option>";
+		    	@endforeach
+		    }
+	    	if(source == 'social')
+		    	{
+		    		var options = "";
+		    	@foreach($socials as $social)
+		    		options = options + "<option value='{{$social->id}}'>{{$social->social}}</option>";
+		    	@endforeach
+		    }
+	        $("#second").html(options);
+		    });
+		});
+		
+	</script>
 @endsection

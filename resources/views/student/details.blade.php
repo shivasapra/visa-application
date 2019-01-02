@@ -45,8 +45,12 @@ Student Details
 					<tbody>
 						<div class="row">
 							<tr>
-								<td><strong>Agent:</strong></td>
+								<td><strong>Source:</strong></td>
+								@if($student->agent_id)
 								<td>{{$student->agent->name}}</td>
+								@elseif($student->social_id)
+								<td>{{$student->social->social}}</td>
+								@endif
 							</tr>
 						</div>
 						<div class="row">
