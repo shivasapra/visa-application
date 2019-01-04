@@ -49,7 +49,8 @@ class HomeController extends Controller
         }
         // dd($i);
         return view('home')->with('agents',agentProfile::all())->with('students',studentProfile::all())
-                            ->with('leads',leads::all());
+                            ->with('leads',leads::all())
+                            ->with('contracts',contracts::all());
     }
 }
 

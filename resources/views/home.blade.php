@@ -5,68 +5,68 @@ Dashboard
 @section('css')
 @endsection
 @section('content')
-
     <div class="row">
-          <div class="col-12">
+          <div class="col-xl-3 col-lg-6 col-12">
             <div class="card">
               <div class="card-content">
-                <div class="row">
-                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
-                    <a href="{{route('agents')}}">
-                      <div class="my-1 text-center">
-                      <div class="card-header mb-2 pt-0">
-                        <h5 class="primary">Total Agents</h5>
-                        <h3 class="font-large-2 text-bold-200">{{$agents->count()}}</h3>
-                      </div>
-                      <div class="card-content">
-                        <input type="text" value="65" class="knob hide-value responsive angle-offset" data-angleOffset="40"
-                        data-thickness=".15" data-linecap="round" data-width="130"
-                        data-height="130" data-inputColor="#BABFC7" data-readOnly="true"
-                        data-fgColor="#00B5B8" data-knob-icon="icon-trophy">
-                      </div>
-                    </div>
-                  </a>
+                <div class="media align-items-stretch">
+                  <div class="p-2 text-center bg-primary bg-darken-2">
+                    <i class="font-large-2 white fa fa-user-o menu-icon"></i>
                   </div>
-                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
-                    <a href="{{route('leads')}}"> 
-                    <div class="my-1 text-center">
-                      <div class="card-header mb-2 pt-0">
-                        <h5 class="warning">Total leads</h5>
-                        <h3 class="font-large-2 text-bold-200">{{$leads->count()}}
-                          
-                        </h3>
-                      </div>
-                      <div class="card-content">
-                        <input type="text" value="81" class="knob hide-value responsive angle-offset" data-angleOffset="20"
-                        data-thickness=".15" data-linecap="round" data-width="130"
-                        data-height="130" data-inputColor="#BABFC7" data-readOnly="true"
-                        data-fgColor="#FFA87D" data-knob-icon="icon-energy">
-                      </div>
-                    </div>
-                  </a>
-                  </div>
-                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
-                    <a href="{{route('students')}}">
-                    <div class="my-1 text-center">
-                      <div class="card-header mb-2 pt-0">
-                        <h5 class="danger">Total students</h5>
-                        <h3 class="font-large-2 text-bold-200">{{$students->count()}}
-                        </h3>
-                      </div>
-                      <div class="card-content">
-                        <input type="text" value="70" class="knob hide-value responsive angle-offset" data-angleOffset="0"
-                        data-thickness=".15" data-linecap="round" data-width="130"
-                        data-height="130" data-inputColor="#BABFC7" data-readOnly="true"
-                        data-fgColor="#FF7588" data-knob-icon="icon-pointer">
-                      </div>
-                    </div>
-                  </a>
+                  <div class="p-2 bg-gradient-x-primary white media-body">
+                    <h5>Agents</h5>
+                    <h5 class="text-bold-400 mb-0">{{$agents->count()}}</h5>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+          <div class="col-xl-3 col-lg-6 col-12">
+            <div class="card">
+              <div class="card-content">
+                <div class="media align-items-stretch">
+                  <div class="p-2 text-center bg-danger bg-darken-2">
+                    <i class="font-large-2 white fa fa-tty menu-icon"></i>
+                  </div>
+                  <div class="p-2 bg-gradient-x-danger white media-body">
+                    <h5>Leads</h5>
+                    <h5 class="text-bold-400 mb-0">{{$leads->count()}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12">
+            <div class="card">
+              <div class="card-content">
+                <div class="media align-items-stretch">
+                  <div class="p-2 text-center bg-warning bg-darken-2">
+                    <i class="font-large-2 white fa fa-user-o menu-icon"></i>
+                  </div>
+                  <div class="p-2 bg-gradient-x-warning white media-body">
+                    <h5>Students</h5>
+                    <h5 class="text-bold-400 mb-0">{{$students->count()}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12">
+            <div class="card">
+              <div class="card-content">
+                <div class="media align-items-stretch">
+                  <div class="p-2 text-center bg-success bg-darken-2">
+                    <i class="font-large-2 white fa fa-file menu-icon"></i>
+                  </div>
+                  <div class="p-2 bg-gradient-x-success white media-body">
+                    <h5>Contracts</h5>
+                    <h5 class="text-bold-400 mb-0">{{$contracts->count()}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
 @endsection
 @section('js')
 @endsection
