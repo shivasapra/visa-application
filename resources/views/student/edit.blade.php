@@ -53,33 +53,52 @@ Edit Student
 
     <div class="content-body">
 	    <section id="number-tabs">
+            <form action="{{route('student.update',['id'=>$student->id])}}" class="number-tab-steps wizard-circle" method="post">
+            	@csrf
 	          <div class="row">
-	            <div class="col-12">
+	            <div class="col-8">
 	              <div class="card">
 	                <div class="card-content collapse show">
 	                  <div class="card-body">
-	                    <form action="{{route('student.update',['id'=>$student->id])}}" class="number-tab-steps wizard-circle" method="post">
-	                    	@csrf
 	                      <!-- Step 1 -->
 	                      
-	                      <fieldset>
+	                    <fieldset>
 	                      	<div class="row">
-	                          <div class="col-md-12">
+	                          <div class="col-md-6">
 	                          	<div class="form-group">
-	                              <label for="agent_id">Source:</label>
-	                              <select class="custom-select form-control" id="eventType1"
-	                              name="idd" required>
-	                                @if($student->agent_id)
-									<option value="{{$student->agent->id}}">{{$student->agent->name}}
-									@elseif($student->social_id)
-									<option value="{{$student->social->id}}">{{$student->social->social}}
-									@elseif($student->third_party)
-									<option value="{{$student->third_party}}">{{$student->third_party}}
-									@endif
+	                          		<label for="source">Source</label>
+	                              <select class="custom-select form-control" id="first"
+	                              name="source" required>
+                                @if($student->agent_id)
+									<option value="agent">{{'agent'}}</option>
+								@elseif($student->social_id)
+									<option value="social">{{'social'}}</option>
+								@elseif($student->third_party)
+									<option value="third_party">{{'Third Party'}}</option>
+								@endif
 	                              </select>
 	                            </div>
 	                        </div>
-	                    </div>
+	                        <div class="col-md-6" >
+	                          	<div class="form-group" id="third">
+	                          	@if($student->agent_id or $student->social_id)
+	                          	<label for="idd">Select</label>
+                          		<select class="custom-select form-control" id="first"
+	                              name="idd" required>
+								@if($student->agent_id)
+									<option value="{{$student->agent->id}}">{{$student->agent->name}}</option>
+								@elseif($student->social_id)
+									<option value="{{$student->social->id}}">{{$student->social->social}}</option>
+								@endif
+								</select>
+								@endif
+								@if($student->third_party)
+								<label for="third_party">Name</label>
+								<input type="text" name="third_party" required value="{{$student->third_party}}" class="form-control">
+								@endif
+	                            </div>
+	                        </div>
+	                    	</div>
 	                        <div class="row">
 	                            <div class="col-md-6">
 	                            <div class="form-group">
@@ -111,12 +130,9 @@ Edit Student
 									    </select>
 		                            </div>
 		                        </div>
-	                        </div>
-	                        	           
-	                      </fieldset>
-	                      <!-- Step 2 -->
-	                      
-	                      <fieldset>
+	                        </div>	           
+	                    </fieldset>
+	                    <fieldset>
 	                        <div class="row">
 	                          <div class="col-md-6">
 	                            <div class="form-group">
@@ -148,10 +164,6 @@ Edit Student
 	                            </div>
 	                        	</div>
 	                        </div>
-	                      </fieldset>
-
-	                      <!-- Step 3 -->
-	                      <fieldset>
 	                        <div class="row">
 	                          <div class="col-md-6">
 	                            <label for="address">address</label>
@@ -164,33 +176,59 @@ Edit Student
 	                            </div>
 	                        	</div>
 	                        </div>
-	                        <div class="text-center"><h4>{{"Passport"}}</h4></div>
-	                        <div class="row">
-	                          <div class="col-md-6">
-	                            <label for="passport_no">Passport No.</label>
-								<input type="text"  name='passport_no' required class="form-control" value="{{$student->passport_no}}">
-	                            </div>
-	                            <div class="col-md-6">
-	                            <div class="form-group">
-	                             <label for="passport_country">Place of issue</label>
-								 <input type="text" name='passport_country' required  class="form-control" value="{{$student->passport_country}}">
-	                            </div>
+	                    </fieldset>
+	                </div>
+	            </div>
+	        </div>
+	                      <!-- Step 2 -->
+	                <div class="card">
+	                <div class="card-content collapse show">
+	                  <div class="card-body">
+	                    <fieldset>
+	                        	<div class="text-center"><h4>{{"Language Test"}}</h4></div>
+	                       		<div class="row">
+		                          <div class="col-md-6">
+		                            <label for="test">English language Test</label>
+									<input type="text"  name='test' required class="form-control" value="{{$student->test}}">
+		                            </div>
+		                            <div class="col-md-6">
+		                            <div class="form-group">
+		                             <label for="test_date">Test Date</label>
+									 <input type="date" name='test_date' required class="form-control" value="{{$student->test_date}}">
+		                            </div>
+		                        	</div>
 	                        	</div>
-	                        </div>
-	                        <div class="row">
-	                          <div class="col-md-6">
-	                            <label for="passport_issue">Issued Date</label>
-								<input type="date"  name='passport_issue' required class="form-control" value="{{$student->passport_issue}}">
-	                            </div>
-	                            <div class="col-md-6">
-	                            <div class="form-group">
-	                             <label for="passport_expire">Expire Date</label>
-								 <input type="date" name='passport_expire' required  class="form-control" value="{{$student->passport_expire}}">
-	                            </div>
+	                        	<div class="row">
+		                          <div class="col-md-6">
+		                            <label for="test_remarks">Remarks</label>
+									<input type="text"  name='test_remarks' class="form-control" value="{{$student->test_remarks}}">
+		                            </div>
+		                            <div class="col-md-6">
+		                            <div class="form-group">
+		                             <label for="test_score">Test Score</label>
+									 <input type="text" name='test_score' class="form-control" value="{{$student->test_score}}">
+		                            </div>
+		                        	</div>
 	                        	</div>
-	                        </div>
-	                       </fieldset>
-	                       <fieldset>
+	                    </fieldset>
+	                    
+	                </div>
+	            </div>
+	        </div>
+	        <div class="form-group">
+			<div class="text-center">
+				<button class="btn btn-success" type="submit">Update</button>
+			</div>
+			</div>
+		</div>
+
+	                      <!-- Step 3 -->
+	                <div class="col-4">
+		              <div class="card">
+		                <div class="card-content collapse show">
+		                  <div class="card-body">
+	                    
+	                    <fieldset>
 	                       		<div class="text-center"><h4>{{"Education"}}</h4></div>
 	                       		<div class="row">
 		                          <div class="col-md-6">
@@ -221,58 +259,65 @@ Edit Student
 		                            <label for="tenth_board">10th Board</label>
 									<input type="text"  name='tenth_board' required class="form-control" value="{{$student->tenth_board}}">
 		                            </div>
-		                            <div class="col-md-3">
+		                            <div class="col-md-6">
 		                            <div class="form-group">
 		                             <label for="twelveth_board">12th Board</label>
 									 <input type="text" name='twelveth_board' required  class="form-control" value="{{$student->twelveth_board}}">
 		                            </div>
 		                        	</div>
-		                        	<div class="col-md-3">
+	                        	</div>
+	                        	<div class="row">
+		                        	<div class="col-md-12">
 		                            <div class="form-group">
 		                             <label for="twelveth_stream">12th Stream</label>
 									 <input type="text" name='twelveth_stream' required  class="form-control" value="{{$student->twelveth_stream}}">
 		                            </div>
 		                        	</div>
-	                        	</div>
-	                       </fieldset>
-	                       <fieldset>
-	                        	<div class="text-center"><h4>{{"Language Test"}}</h4></div>
-	                       		<div class="row">
-		                          <div class="col-md-6">
-		                            <label for="test">English language Test</label>
-									<input type="text"  name='test' required class="form-control" value="{{$student->test}}">
-		                            </div>
-		                            <div class="col-md-6">
-		                            <div class="form-group">
-		                             <label for="test_date">Test Date</label>
-									 <input type="date" name='test_date' required class="form-control" value="{{$student->test_date}}">
-		                            </div>
 		                        	</div>
+	                    </fieldset>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="card">
+		                <div class="card-content collapse show">
+		                  <div class="card-body">
+	                    <fieldset>
+	                        <div class="text-center"><h4>{{"Passport"}}</h4></div>
+	                        <div class="row">
+	                          <div class="col-md-6">
+	                            <label for="passport_no">Passport No.</label>
+								<input type="text"  name='passport_no' required class="form-control" value="{{$student->passport_no}}">
+	                            </div>
+	                            <div class="col-md-6">
+	                            <div class="form-group">
+	                             <label for="passport_country">Place of issue</label>
+								 <input type="text" name='passport_country' required  class="form-control" value="{{$student->passport_country}}">
+	                            </div>
 	                        	</div>
-	                        	<div class="row">
-		                          <div class="col-md-6">
-		                            <label for="test_remarks">Remarks</label>
-									<input type="text"  name='test_remarks' class="form-control" value="{{$student->test_remarks}}">
-		                            </div>
-		                            <div class="col-md-6">
-		                            <div class="form-group">
-		                             <label for="test_score">Test Score</label>
-									 <input type="text" name='test_score' class="form-control" value="{{$student->test_score}}">
-		                            </div>
-		                        	</div>
+	                        </div>
+	                        <div class="row">
+	                          <div class="col-md-12">
+	                          	<div class="form-group">
+	                            <label for="passport_issue">Issued Date</label>
+								<input type="date"  name='passport_issue' required class="form-control" value="{{$student->passport_issue}}">
+	                            </div>
+	                        </div>
+	                        </div>
+	                        <div class="row">
+	                            <div class="col-md-12">
+	                            <div class="form-group">
+	                             <label for="passport_expire">Expire Date</label>
+								 <input type="date" name='passport_expire' required  class="form-control" value="{{$student->passport_expire}}">
+	                            </div>
 	                        	</div>
-	                       </fieldset>
-	                      	<div class="form-group">
-							<div class="text-center">
-								<button class="btn btn-success" type="submit">Update</button>
-							</div>
-							</div>
-	                    </form>
+	                        </div>
+	                    </fieldset>
+	                      	
 	                  </div>
 	                </div>
 	              </div>
-	            </div>
-	          </div>
+	            
+            </form>
 	    </section>
     </div>
 

@@ -64,18 +64,23 @@ Create Lead
 	                      
 	                      <fieldset>
 	                        <div class="row">
-	                          <div class="col-md-12">
+	                          <div class="col-md-6">
 	                          	<div class="form-group">
-	                              <label for="agent_id">Select Agent :</label>
-	                              <select class="custom-select form-control" id="eventType1"
-	                              name="agent_id">
-	                              	@foreach( $agents as $agent)
-									 <option value="{{$agent->id}}">{{$agent->name}}</option>
-									@endforeach
+	                          		<label for="source">Source</label>
+	                              <select class="custom-select form-control" id="first"
+	                              name="source" required>
+	                              <option value=""></option>
+									<option value="social">{{'Social'}}</option>
+									<option value="agent">{{'Agent'}}</option>
+									<option value="third_party">{{'Third Party'}}</option>
 	                              </select>
 	                            </div>
 	                        </div>
-	                    </div>
+	                        <div class="col-md-6" >
+	                          	<div class="form-group" id="third">
+	                            </div>
+	                        </div>
+	                    	</div>
 	                        <div class="row">
 	                            <div class="col-md-6">
 	                            <div class="form-group">
@@ -223,4 +228,38 @@ Create Lead
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="{{asset("app/front/app-assets/js/scripts/forms/wizard-steps.js")}}" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+	    $('#first').on('change', function(){
+	    	var source = this.value;
+	    	if (source == 'agent')
+		    	{
+		    		var options = "";
+			    	@foreach($agents as $agent)
+			    		options = options + "<option value='{{$agent->id}}'>{{$agent->name}}</option>";
+			    	@endforeach
+		    		var select = '<label for="idd">Select Agent</label><select class="custom-select form-control" name="idd" required >'+options+'</select>'
+        		$("#third").html(select);
+		    }
+	    	if(source == 'social')
+		    	{
+		    		var options = "";
+		    	@foreach($socials as $social)
+		    		options = options + "<option value='{{$social->id}}'>{{$social->social}}</option>";
+		    	@endforeach
+		    	var select = '<label for="idd">Select Social</label><select class="custom-select form-control" name="idd" required >'+options+'</select>'
+		    	$("#third").html(select);
+		    }
+	        if (source == 'third_party')
+	        	{
+	        		var input = '<label for="third_party">Enter name</label><input type="text" name="third_party" required  class="form-control">';
+	        		$("#third").html(input);
+	        	}
+		    });
+		});
+		
+	</script>
 @endsection

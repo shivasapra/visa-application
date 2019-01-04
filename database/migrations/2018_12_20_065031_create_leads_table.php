@@ -17,6 +17,7 @@ class CreateLeadsTable extends Migration
             $table->increments('id');
             $table->integer('agent_id')->nullable();
             $table->integer('social_id')->nullable();
+            $table->string('third_party')->nullable();
             $table->string('student_fname');
             $table->string('student_lname');
             $table->string('email');

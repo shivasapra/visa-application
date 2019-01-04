@@ -48,8 +48,8 @@ class HomeController extends Controller
             }
         }
         $agent_five = agentProfile::orderBy('created_at','desc')->take(5)->get();
-        $lead_ten = leads::orderBy('created_at','desc')->take(10)->get();
-        $student_ten = studentProfile::orderBy('created_at','desc')->take(10)->get();
+        $lead_ten = leads::orderBy('created_at','desc')->take(5)->get();
+        $student_ten = studentProfile::orderBy('created_at','desc')->take(5)->get();
         // dd($lead_ten);
         // dd($i);
         return view('home')->with('agents',agentProfile::all())->with('students',studentProfile::all())

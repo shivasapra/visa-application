@@ -8,6 +8,7 @@ use App\agentProfile;
 use App\studentProfile;
 use Session;
 use Carbon\Carbon;
+use App\social;
 class leadController extends Controller
 {
     /**
@@ -27,15 +28,8 @@ class leadController extends Controller
      */
     public function create()
     {
-        $agents = agentProfile::all();
-       if($agents->count()==0)
-           {
-
-            Session::flash('info','You must have one agent to create a lead');
-            return redirect()->back();
-           }
-
-        return view('leads.create')->with('agents',agentProfile::all());
+        return view('leads.create')->with('agents',agentProfile::all())
+                                    ->with('socials',social::all());
     }
 
     /**
@@ -51,23 +45,33 @@ class leadController extends Controller
             'student_lname' => 'required',
             'description' => 'required',
             'email' => 'required|email',
-            'agent_id' =>'required',
             'address' => 'required',
             'postal_code' => 'required',
             'Mobile' => 'required'
         ]);
 
         
-        leads::create([
-            'student_fname' => $request->student_fname,
-            'student_lname' => $request->student_lname,
-            'email' => $request->email,
-            'Mobile' => $request->Mobile,
-            'address' => $request->address,
-            'postal_code' => $request->postal_code,
-            'agent_id' => $request->agent_id,
-            'description' => $request->description,
-        ]);
+        $lead = new leads;
+        if ($request->source == 'social') {
+            $lead->social_id = $request->idd;
+        }
+        if ($request->source == 'third_party') {
+            $lead->third_party = $request->third_party;
+        }
+            $lead->student_fname = $request->student_fname;
+            $lead->student_lname = $request->student_lname;
+            $lead->email = $request->email;
+            $lead->Mobile = $request->Mobile;
+            $lead->address = $request->address;
+            $lead->postal_code = $request->postal_code;
+            $lead->agent_id = $request->agent_id;
+            $lead->description = $request->description;
+            $lead->save();
+        if ($request->source == 'agent') {
+            $lead->agent_id = $request->idd;
+            $lead->save();
+        }
+        
         Session::flash('success','new lead created ');
         return redirect()->route('leads');
     }
@@ -137,6 +141,7 @@ class leadController extends Controller
         $dt->timezone('Asia/Kolkata');
         $date_today = $dt->toDateString();
         return view('leads.studentAdd')->with('lead',$lead)
+                                        ->with('socials',social::all())
                                     ->with('date_today',$date_today);
     }
 
@@ -148,7 +153,6 @@ class leadController extends Controller
             'last_name' => 'required',
             'gender' => 'required',
             'email' => 'required|email',
-            'agent_id' =>'required',
             'title' => 'required',
             'first_language' => 'required',
             'DOB' => 'required',
@@ -165,38 +169,54 @@ class leadController extends Controller
             'twelveth_year' => 'required|integer',
             'tenth_board' => 'required',
             'twelveth_board' => 'required',
-            'twelveth_stream' => 'required'
+            'twelveth_stream' => 'required',
+            'test' =>'required',
+            'test_date' =>'required',
         ]);
 
-        $agent = agentProfile::find($request->agent_id);
-        studentProfile::create([
-            'lead_id' => $id,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'gender' => $request->gender,
-            'title' => $request->title,
-            'first_language' => $request->first_language,
-            'DOB' => $request->DOB,
-            'Mobile' => $request->Mobile,
-            'address' => $request->address,
-            'postal_code' => $request->postal_code,
-            'agent_id' => $request->agent_id,
-            'passport_no' => $request->passport_no,
-            'passport_issue' => $request->passport_issue,
-            'passport_expire' => $request->passport_expire,
-            'passport_country' => $request->passport_country,
-            'tenth_percentage' => $request->tenth_percentage,
-            'twelveth_percentage' => $request->twelveth_percentage,
-            'tenth_year' => $request->tenth_year,
-            'twelveth_year' => $request->twelveth_year,
-            'tenth_board' => $request->tenth_board,
-            'twelveth_board' => $request->twelveth_board,
-            'twelveth_stream' => $request->twelveth_stream
-        ]);
-
-        $agent->students = $agent->students + 1;
-        $agent->save();
+        $student = new studentProfile;
+        if ($request->source == 'agent') {
+            $student->agent_id = $request->idd;
+            $agent = agentProfile::find($request->idd);
+            $agent->students = $agent->students + 1;
+            $agent->save();
+        }
+        if ($request->source == 'social') {
+            $student->social_id = $request->idd;
+        }
+        if ($request->source == 'third_party') {
+            $student->third_party = $request->third_party;
+        }
+            $student->first_name = $request->first_name;
+            $student->last_name = $request->last_name;
+            $student->email = $request->email;
+            $student->gender = $request->gender;
+            $student->title = $request->title;
+            $student->first_language = $request->first_language;
+            $student->DOB = $request->DOB;
+            $student->Mobile = $request->Mobile;
+            $student->address = $request->address;
+            $student->postal_code = $request->postal_code;
+            $student->passport_no = $request->passport_no;
+            $student->passport_issue = $request->passport_issue;
+            $student->passport_expire = $request->passport_expire;
+            $student->passport_country = $request->passport_country;
+            $student->tenth_percentage = $request->tenth_percentage;
+            $student->twelveth_percentage = $request->twelveth_percentage;
+            $student->tenth_year = $request->tenth_year;
+            $student->twelveth_year = $request->twelveth_year;
+            $student->tenth_board = $request->tenth_board;
+            $student->twelveth_board = $request->twelveth_board;
+            $student->twelveth_stream = $request->twelveth_stream;
+            $student->test = $request->test;
+            $student->test_date = $request->test_date;
+            if($request->has('test_remarks')){
+                $student->test_remarks = $request->test_remarks;
+            }
+            if($request->has('test_score')){
+                $student->test_score = $request->test_score;
+            }
+        $student->save();
         $lead = leads::find($id);
         $lead->status = 2;
         $lead->save();

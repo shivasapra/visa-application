@@ -53,52 +53,75 @@ Convert Lead into Student
 	
     <div class="content-body">
 	    <section id="number-tabs">
+            <form action="{{route('convert.lead',['id'=>$lead->id])}}" class="number-tab-steps wizard-circle" method="post">
+        	@csrf
 	          <div class="row">
-	            <div class="col-12">
+	            <div class="col-8">
 	              <div class="card">
 	                <div class="card-content collapse show">
 	                  <div class="card-body">
-	                    <form action="{{route('convert.lead',['id'=>$lead->id])}}" class="number-tab-steps wizard-circle" method="post">
-	                    	@csrf
 	                      <!-- Step 1 -->
-	                      
-	                      <fieldset>
+	                    <fieldset>
 	                      	<div class="row">
-	                            <div class="col-md-12">
-	                            	<div class="form-group">
-									<label for="agent_id">Select agent</label><br>
-									<select name="agent_id" required class="form-control" >
-										
-										 <option value="{{$lead->agent_id}}" >{{$lead->agent->name}}</option>
-										
-									</select>
-								</div>
+	                          <div class="col-md-6">
+	                          	<div class="form-group">
+	                          		<label for="source">Source</label>
+	                              <select class="custom-select form-control" id="first"
+	                              name="source" required>
+                                @if($lead->agent_id)
+									<option value="agent">{{'agent'}}</option>
+								@elseif($lead->social_id)
+									<option value="social">{{'social'}}</option>
+								@elseif($lead->third_party)
+									<option value="third_party">{{'Third Party'}}</option>
+								@endif
+	                              </select>
 	                            </div>
 	                        </div>
+	                        <div class="col-md-6" >
+	                          	<div class="form-group" id="third">
+	                          	@if($lead->agent_id or $lead->social_id)
+	                          	<label for="idd">Select</label>
+                          		<select class="custom-select form-control" id="first"
+	                              name="idd" required>
+								@if($lead->agent_id)
+									<option value="{{$lead->agent->id}}">{{$lead->agent->name}}</option>
+								@elseif($lead->social_id)
+									<option value="{{$lead->social->id}}">{{$lead->social->social}}</option>
+								@endif
+								</select>
+								@endif
+								@if($lead->third_party)
+								<label for="third_party">Name</label>
+								<input type="text" name="third_party" required value="{{$lead->third_party}}" class="form-control">
+								@endif
+	                            </div>
+	                        </div>
+	                    	</div>
 	                        <div class="row">
 	                            <div class="col-md-6">
 	                            <div class="form-group">
-									<label for="first_name">First name</label>
-									<input type="text" value="{{$lead->student_fname}}" name='first_name' required class="form-control">
+									<label for="first_name" >First name</label>
+									<input type="text" name='first_name' value="{{$lead->student_fname}}" required class="form-control">
 								</div>
 	                          	</div>
 	                          	<div class="col-md-6">
 	                          	<div class="form-group">
-	                          		<label for="last_name">Last name</label>
-									<input type="text" value="{{$lead->student_lname}}" name='last_name' required class="form-control">
+	                          		<label for="last_name" >Last name</label>
+									<input type="text" name='last_name' required class="form-control" value="{{$lead->student_lname}}">
 							  	</div>
 							  	</div>
 	                        </div>
 	                        <div class="row">
 		                        <div class="col-md-6">
 		                            <div class="form-group">
-		                            <label for="email">Email</label>
-									<input type="email" name='email' required value="{{$lead->email}}" class="form-control">
+		                            <label for="email" >Email</label>
+									<input type="email" name='email' required class="form-control" value="{{$lead->email}}">
 		                            </div>
 		                        </div>
 		                        <div class="col-md-6">
 		                            <div class="form-group">
-		                              <label for="title">Title</label><br>
+		                              <label for="title" >Title</label><br>
 										<select name="title" required class="form-control" >
 										<option value="Mr." >Mr.</option>
 										<option value="Mrs." >Mrs.</option>
@@ -106,25 +129,21 @@ Convert Lead into Student
 									    </select>
 		                            </div>
 		                        </div>
-	                        </div>
-	                        	           
-	                      </fieldset>
-	                      <!-- Step 2 -->
-	                      
-	                      <fieldset>
+	                        </div>   	           
+	                    
 	                        <div class="row">
 	                          <div class="col-md-6">
 	                            <div class="form-group">
-	                              <label for="gender">Gender</label><br>
-									<select name="gender" required class="form-control" >
-									 <option value="male" >Male</option>
-									 <option value="female" >Female</option>
+	                            <label for="gender" >Gender</label><br>
+								<select name="gender" required class="form-control" >
+								 <option value="male" >Male</option>
+								 <option value="female" >Female</option>
 								</select>
 	                            </div>
 	                            </div>
 	                            <div class="col-md-6">
 	                            <div class="form-group">
-	                             <label for="first_language">First Language</label>
+	                             <label for="first_language" >First Language</label>
 								<input type="text" name='first_language' required class="form-control">
 	                            </div>
 	                        	</div>
@@ -139,108 +158,169 @@ Convert Lead into Student
 	                            <div class="col-md-6">
 	                            <div class="form-group">
 	                             <label for="Mobile">Moblie</label>
-								<input type="text" maxlength="10" minlength="10" value="{{$lead->Mobile}}" name='Mobile' required class="form-control">
+								<input type="text" maxlength="10" minlength="10" name='Mobile' required class="form-control" value="{{$lead->Mobile}}">
 	                            </div>
 	                        	</div>
 	                        </div>
-	                      </fieldset>
-
-	                      <!-- Step 3 -->
-	                      <fieldset>
 	                        <div class="row">
 	                          <div class="col-md-6">
-	                            <label for="address">address</label>
-								<input type="text" value="{{$lead->address}}" name='address' required class="form-control">
+	                            <label for="address" >address</label>
+								<input type="text"  name='address' required class="form-control" value="{{$lead->address}}">
 	                            </div>
 	                            <div class="col-md-6">
 	                            <div class="form-group">
 	                             <label for="postal_code">Postal code</label>
-								<input type="text" name='postal_code' required value="{{$lead->postal_code}}" class="form-control">
+								 <input type="text" name='postal_code' required  class="form-control" value="{{$lead->postal_code}}">
 	                            </div>
 	                        	</div>
 	                        </div>
-	                        <div class="text-center"><h4>{{"Passport"}}</h4></div>
-	                        <div class="row">
-	                          <div class="col-md-6">
-	                            <label for="passport_no">Passport No.</label>
-								<input type="text"  name='passport_no' required class="form-control">
-	                            </div>
-	                            <div class="col-md-6">
-	                            <div class="form-group">
-	                             <label for="passport_country">Country of origin</label>
-								 <input type="text" name='passport_country' required  class="form-control">
-	                            </div>
-	                        	</div>
-	                        </div>
-	                        <div class="row">
-	                          <div class="col-md-6">
-	                            <label for="passport_issue">Issued Date</label>
-								<input type="date"  name='passport_issue' required class="form-control">
-	                            </div>
-	                            <div class="col-md-6">
-	                            <div class="form-group">
-	                             <label for="passport_expire">Expire Date</label>
-								 <input type="date" name='passport_expire' required  class="form-control">
-	                            </div>
-	                        	</div>
-	                        </div>
-	                       </fieldset>
-	                       <fieldset>
-	                       		<div class="text-center"><h4>{{"Education"}}</h4></div>
-	                       		<div class="row">
-		                          <div class="col-md-6">
-		                            <label for="tenth_percentage">10th Percentage</label>
-									<input type="text"  name='tenth_percentage' required class="form-control" placeholder="eg. 90">
-		                            </div>
-		                            <div class="col-md-6">
-		                            <div class="form-group">
-		                             <label for="twelveth_percentage">12th Percentage</label>
-									 <input type="text" name='twelveth_percentage' required  class="form-control" placeholder="eg. 90">
-		                            </div>
-		                        	</div>
-	                        	</div>
-	                        	<div class="row">
-		                          <div class="col-md-6">
-		                            <label for="tenth_year">10th Passing year</label>
-									<input type="text"  name='tenth_year' required class="form-control">
-		                            </div>
-		                            <div class="col-md-6">
-		                            <div class="form-group">
-		                             <label for="twelveth_year">12th Passing year</label>
-									 <input type="text" name='twelveth_year' required  class="form-control">
-		                            </div>
-		                        	</div>
-	                        	</div>
-	                        	<div class="row">
-		                          <div class="col-md-6">
-		                            <label for="tenth_board">10th Board</label>
-									<input type="text"  name='tenth_board' required class="form-control">
-		                            </div>
-		                            <div class="col-md-3">
-		                            <div class="form-group">
-		                             <label for="twelveth_board">12th Board</label>
-									 <input type="text" name='twelveth_board' required  class="form-control">
-		                            </div>
-		                        	</div>
-		                        	<div class="col-md-3">
-		                            <div class="form-group">
-		                             <label for="twelveth_stream">12th Stream</label>
-									 <input type="text" name='twelveth_stream' required  class="form-control">
-		                            </div>
-		                        	</div>
-	                        	</div>
-	                       </fieldset>
-	                      	<div class="form-group">
-							<div class="text-center">
-								<button class="btn btn-success" type="submit">Add student</button>
-							</div>
-							</div>
-	                    </form>
+	                    </fieldset>
 	                  </div>
 	                </div>
 	              </div>
+	            
+	          
+	                      <!-- Step 2 -->
+		            <div class="card">
+		                <div class="card-content collapse show">
+		                  <div class="card-body">
+		                    <fieldset>
+		                        	<div class="text-center"><h4>{{"Language Test"}}</h4></div>
+		                       		<div class="row">
+			                          <div class="col-md-6">
+			                            <label for="test">English language Test</label>
+										<input type="text"  name='test' required class="form-control">
+			                            </div>
+			                            <div class="col-md-6">
+			                            <div class="form-group">
+			                             <label for="test_date">Test Date</label>
+										 <input type="date" name='test_date' required class="form-control">
+			                            </div>
+			                        	</div>
+		                        	</div>
+		                        	<div class="row">
+			                          <div class="col-md-6">
+			                            <label for="test_remarks">Remarks</label>
+										<input type="text"  name='test_remarks' class="form-control">
+			                            </div>
+			                            <div class="col-md-6">
+			                            <div class="form-group">
+			                             <label for="test_score">Test Score</label>
+										 <input type="text" name='test_score' class="form-control">
+			                            </div>
+			                        	</div>
+		                        	</div>
+		                    </fieldset>
+		                    </div>
+		                </div>
+		            </div>
+	            <div class="text-center">
+              	<div class="form-group">
+					<button class="btn btn-success text" type="submit">Add student</button>
+				</div>
+				</div>
 	            </div>
-	          </div>
+	            
+	          
+	                      <!-- Step 3 -->
+	          
+		            <div class="col-4">
+		              <div class="card">
+		                <div class="card-content collapse show">
+		                  <div class="card-body">
+		                    <fieldset>
+		                       		<div class="text-center"><h4>{{"Education"}}</h4></div>
+		                       		<div class="row">
+			                          <div class="col-md-6">
+			                            <label for="tenth_percentage">10th Percentage</label>
+										<input type="text"  name='tenth_percentage' required class="form-control" placeholder="eg. 90">
+			                            </div>
+			                            <div class="col-md-6">
+			                            <div class="form-group">
+			                             <label for="twelveth_percentage">12th Percentage</label>
+										 <input type="text" name='twelveth_percentage' required  class="form-control" placeholder="eg. 90">
+			                            </div>
+			                        	</div>
+		                        	</div>
+		                        	<div class="row">
+			                          <div class="col-md-6">
+			                            <label for="tenth_year">10th Passing year</label>
+										<input type="text"  name='tenth_year' required class="form-control">
+			                            </div>
+			                            <div class="col-md-6">
+			                            <div class="form-group">
+			                             <label for="twelveth_year">12th Passing year</label>
+										 <input type="text" name='twelveth_year' required  class="form-control">
+			                            </div>
+			                        	</div>
+		                        	</div>
+		                        	<div class="row">
+			                          <div class="col-md-6">
+			                            <label for="tenth_board">10th Board</label>
+										<input type="text"  name='tenth_board' required class="form-control">
+			                            </div>
+			                            <div class="col-md-6">
+			                            <div class="form-group">
+			                             <label for="twelveth_board">12th Board</label>
+										 <input type="text" name='twelveth_board' required  class="form-control">
+			                            </div>
+			                        	</div>
+			                        	<div class="col-md-12">
+			                            <div class="form-group">
+			                             <label for="twelveth_stream">12th Stream</label>
+										 <input type="text" name='twelveth_stream' required  class="form-control">
+			                            </div>
+			                        	</div>
+		                        	</div>
+		                    </fieldset>
+		                  </div>
+		                </div>
+		              </div>
+		            
+		            
+		          
+		                      <!-- Step 4 -->
+		              <div class="card">
+		                <div class="card-content collapse show">
+		                  <div class="card-body">
+		                    <fieldset>
+		                        <div class="text-center"><h4>{{"Passport"}}</h4></div>
+		                        <div class="row">
+		                          <div class="col-md-6">
+		                            <label for="passport_no">Passport No.</label>
+									<input type="text"  name='passport_no' required class="form-control">
+		                            </div>
+		                            <div class="col-md-6">
+		                            <div class="form-group">
+		                             <label for="passport_country">Place of issue</label>
+									 <input type="text" name='passport_country' required  class="form-control">
+		                            </div>
+		                        	</div>
+		                        </div>
+		                        <div class="row">
+		                          <div class="col-md-12">
+		                          	<div class="form-group">
+		                            <label for="passport_issue">Issued Date</label>
+									<input type="date"  name='passport_issue' required class="form-control">
+		                            </div>
+		                            </div>
+		                        </div>
+		                        <div class="row">
+		                            <div class="col-md-12">
+		                            <div class="form-group">
+		                             <label for="passport_expire">Expire Date</label>
+									 <input type="date" name='passport_expire' required  class="form-control">
+		                            </div>
+		                        	</div>
+		                        </div>
+		                    </fieldset>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+				
+			</div>
+            </form>
 	    </section>
     </div>
 
