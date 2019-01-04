@@ -76,7 +76,7 @@ Dashboard
           </div>
     </div>
     <div class="row">
-      <div class="col-xl-3 col-lg-12 col-md-12">
+      <div class="col-xl-4 col-lg-12 col-md-12">
             <div class="card">
               <div class="card-header">
                 <h2 class="card-title"><strong>Agents</strong></h2>
@@ -90,16 +90,22 @@ Dashboard
               <div class="card-content">
                 <div id="friends-activity" class="media-list ">
                   @if($agent_five->count()>0)
+                  <?php $i=1; ?>
                   @foreach($agent_five as $agent)
                   <div class="media border-0">
+                    <div class="media-left pr-1">
+                      <strong>{{$i++."."}}</strong>
+                    </div>
                     <div class="media-body w-100">
                       <h5 class="list-group-item-heading"><strong>{{$agent->name}}</strong>
+
                       </h5>
                       <p class="list-group-item-text mb-0">
                         <a href="{{route('studentList',['id'=>$agent->id])}}"><span class="btn btn-sm btn-info">Students</span></a>
                         <a href="{{route('summary',['id'=>$agent->id])}}"><span class="btn btn-sm btn-success">Summary</span></a>
                         <a href="{{route('agent.contracts',['id'=>$agent->id])}}"><span class="btn btn-sm btn-warning">Contracts</span></a>
                       </p>
+                        <span class="font-small-2 float-right">{{$agent->created_at->toDateString()}}</span>
                       <hr>
                     </div>
                   </div>
@@ -109,7 +115,7 @@ Dashboard
               </div>
             </div>
       </div>
-      <div class="col-xl-3 col-lg-12 col-md-12">
+      <div class="col-xl-4 col-lg-12 col-md-12">
             <div class="card">
               <div class="card-header">
                 <h2 class="card-title"><strong>Leads</strong></h2>
@@ -123,8 +129,12 @@ Dashboard
               <div class="card-content">
                 <div id="friends-activity" class="media-list">
                   @if($lead_ten->count()>0)
+                  <?php $i=1; ?>
                   @foreach($lead_ten as $lead)
                   <div class="media border-0">
+                    <div class="media-left pr-1">
+                      <strong>{{$i++."."}}</strong>
+                    </div>
                     <div class="media-body w-100">
                       <h5 class="list-group-item-heading"><strong>{{$lead->student_fname. " ". $lead->student_lname}}
                       @if($lead->status == 2)
@@ -132,6 +142,10 @@ Dashboard
                       @endif
                       </strong>
                       </h5>
+                      <p class="list-group-item-text mb-0">
+                        
+                      </p>
+                      <span class="font-small-2 float-right">{{$lead->created_at->toDateString()}}</span>
                       <hr>
                     </div>
                   </div>
@@ -141,7 +155,7 @@ Dashboard
               </div>
             </div>
       </div>
-      <div class="col-xl-3 col-lg-12 col-md-12">
+      <div class="col-xl-4 col-lg-12 col-md-12">
             <div class="card">
               <div class="card-header">
                 <h2 class="card-title"><strong>Students</strong></h2>
@@ -155,13 +169,21 @@ Dashboard
               <div class="card-content">
                 <div id="friends-activity" class="media-list">
                   @if($students_ten->count()>0)
+                  <?php $i=1; ?>
                   @foreach($students_ten as $student)
                   <div class="media border-0">
+                    <div class="media-left pr-1">
+                      <strong>{{$i++."."}}</strong>
+                    </div>
                     <div class="media-body w-100">
                       <h5 class="list-group-item-heading"><strong>{{$student->first_name. " ". $student->last_name}}
                       </strong>
-                      <a href="{{route('student.details',['id'=>$student->id])}}" class="btn btn-info btn-sm">View</a>
                       </h5>
+                      <p class="list-group-item-text mb-0">
+                        
+                      <a href="{{route('student.details',['id'=>$student->id])}}" class="btn btn-info btn-sm">View</a>
+                      </p>
+                      <span class="font-small-2 float-right">{{$student->created_at->toDateString()}}</span>
                       <hr>
                     </div>
                   </div>
