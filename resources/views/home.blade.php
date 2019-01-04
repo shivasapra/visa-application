@@ -7,6 +7,7 @@ Dashboard
 @section('content')
     <div class="row">
           <div class="col-xl-3 col-lg-6 col-12">
+            <a href="{{route('agents')}}">
             <div class="card">
               <div class="card-content">
                 <div class="media align-items-stretch">
@@ -20,8 +21,10 @@ Dashboard
                 </div>
               </div>
             </div>
+            </a>
           </div>
           <div class="col-xl-3 col-lg-6 col-12">
+            <a href="{{route('leads')}}">
             <div class="card">
               <div class="card-content">
                 <div class="media align-items-stretch">
@@ -35,8 +38,10 @@ Dashboard
                 </div>
               </div>
             </div>
+          </a>
           </div>
           <div class="col-xl-3 col-lg-6 col-12">
+            <a href="{{route('students')}}">
             <div class="card">
               <div class="card-content">
                 <div class="media align-items-stretch">
@@ -50,8 +55,10 @@ Dashboard
                 </div>
               </div>
             </div>
+          </a>
           </div>
           <div class="col-xl-3 col-lg-6 col-12">
+            <a href="{{route('contracts')}}">
             <div class="card">
               <div class="card-content">
                 <div class="media align-items-stretch">
@@ -65,7 +72,105 @@ Dashboard
                 </div>
               </div>
             </div>
+          </a>
           </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-3 col-lg-12 col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title"><strong>Agents</strong></h2>
+                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-content">
+                <div id="friends-activity" class="media-list ">
+                  @if($agent_five->count()>0)
+                  @foreach($agent_five as $agent)
+                  <div class="media border-0">
+                    <div class="media-body w-100">
+                      <h5 class="list-group-item-heading"><strong>{{$agent->name}}</strong>
+                      </h5>
+                      <p class="list-group-item-text mb-0">
+                        <a href="{{route('studentList',['id'=>$agent->id])}}"><span class="btn btn-sm btn-info">Students</span></a>
+                        <a href="{{route('summary',['id'=>$agent->id])}}"><span class="btn btn-sm btn-success">Summary</span></a>
+                        <a href="{{route('agent.contracts',['id'=>$agent->id])}}"><span class="btn btn-sm btn-warning">Contracts</span></a>
+                      </p>
+                      <hr>
+                    </div>
+                  </div>
+                  @endforeach
+                  @endif
+                </div>
+              </div>
+            </div>
+      </div>
+      <div class="col-xl-3 col-lg-12 col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title"><strong>Leads</strong></h2>
+                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-content">
+                <div id="friends-activity" class="media-list">
+                  @if($lead_ten->count()>0)
+                  @foreach($lead_ten as $lead)
+                  <div class="media border-0">
+                    <div class="media-body w-100">
+                      <h5 class="list-group-item-heading"><strong>{{$lead->student_fname. " ". $lead->student_lname}}
+                      @if($lead->status == 2)
+                      <span class="success">{{'(Processed)'}}</span>
+                      @endif
+                      </strong>
+                      </h5>
+                      <hr>
+                    </div>
+                  </div>
+                  @endforeach
+                  @endif
+                </div>
+              </div>
+            </div>
+      </div>
+      <div class="col-xl-3 col-lg-12 col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title"><strong>Students</strong></h2>
+                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-content">
+                <div id="friends-activity" class="media-list">
+                  @if($students_ten->count()>0)
+                  @foreach($students_ten as $student)
+                  <div class="media border-0">
+                    <div class="media-body w-100">
+                      <h5 class="list-group-item-heading"><strong>{{$student->first_name. " ". $student->last_name}}
+                      </strong>
+                      <a href="{{route('student.details',['id'=>$student->id])}}" class="btn btn-info btn-sm">View</a>
+                      </h5>
+                      <hr>
+                    </div>
+                  </div>
+                  @endforeach
+                  @endif
+                </div>
+              </div>
+            </div>
+      </div>
     </div>
 @endsection
 @section('js')
