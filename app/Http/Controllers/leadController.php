@@ -186,7 +186,8 @@ class leadController extends Controller
         }
         if ($request->source == 'third_party') {
             $student->third_party = $request->third_party;
-        }
+        }   
+            $student->lead_id = $id;
             $student->first_name = $request->first_name;
             $student->last_name = $request->last_name;
             $student->email = $request->email;
@@ -226,7 +227,7 @@ class leadController extends Controller
     }
     public function detailsLead($id){
         $lead = leads::find($id);
-        $student = studentProfile::take(1)->where('lead_id',$id)->get();
+        $student = studentProfile::where('lead_id',$id)->get();
         // dd($student);
         $student_id = $student[0]['id'];
         return redirect()->route('student.details',['id'=>$student_id]);
