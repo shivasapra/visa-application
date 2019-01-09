@@ -69,18 +69,19 @@ Edit Agent
 									<input type="text" name='name' value="{{$agent->name}}" required class="form-control">
 								</div>
 							</div>
-                      		<div class="col-md-6">
+							<div class="col-md-6">
 								<div class="form-group">
-									<label for="company">Company</label>
-									<input type="text" name='company' value="{{$agent->company}}" required class="form-control">
+									<label for="email">Email</label>
+									<input type="email" name='email' value="{{$agent->email}}" required class="form-control">
 								</div>
 							</div>
+                      		
 						</div>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="mobile">Mobile</label>
-									<input type="text" name='mobile' value="{{$agent->mobile}}" required maxlength="10" minlength="10" class="form-control">
+									<label for="company">Company</label>
+									<input type="text" name='company' value="{{$agent->company}}" required class="form-control">
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -99,8 +100,8 @@ Edit Agent
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="email">Email</label>
-									<input type="email" name='email' value="{{$agent->email}}" required class="form-control">
+									<label for="mobile">Mobile</label>
+									<input type="text" name='mobile' value="{{$agent->mobile}}" required maxlength="10" minlength="10" class="form-control">
 								</div>
 							</div>
 						</div>

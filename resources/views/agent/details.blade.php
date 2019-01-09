@@ -56,8 +56,8 @@ Agent Details
 							</div>
 							<div class="row">
 								<tr>
-									<td><strong>Designation:</strong></td>
-									<td>{{$agent->designation}}</td>
+									<td><strong>Email:</strong></td>
+									<td>{{$agent->email}}</td>
 								</tr>
 							</div>
 							<div class="row">
@@ -68,8 +68,8 @@ Agent Details
 							</div>
 							<div class="row">
 								<tr>
-									<td><strong>Email:</strong></td>
-									<td>{{$agent->email}}</td>
+									<td><strong>Designation:</strong></td>
+									<td>{{$agent->designation}}</td>
 								</tr>
 							</div>
 							<div class="row">
