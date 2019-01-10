@@ -47,12 +47,16 @@ Agent Business
                       <div class="card-header mb-2 pt-0">
                         <h5 class="info">Contract Status</h5><br>
                         <h4>
-                          @if($contracts[0]->active == 'yes')
-                          <span class="text-info">Active</span>
-                          @elseif($contracts[0]->expired == 'yes')
-                          <span class="text-danger">Expired</span>
-                          @elseif($contracts[0]->declined == 'yes')
-                          <span class="text-danger">Declined</span>
+                          @if($contracts->count()>0)
+                            @if($contracts[0]->active == 'yes')
+                            <span class="text-info">Active</span>
+                            @elseif($contracts[0]->expired == 'yes')
+                            <span class="text-danger">Expired</span>
+                            @elseif($contracts[0]->declined == 'yes')
+                            <span class="text-danger">Declined</span>
+                            @endif
+                          @else
+                            <span class="text-primary">No Contracts</span>
                           @endif
                         </h4>
                       </div>

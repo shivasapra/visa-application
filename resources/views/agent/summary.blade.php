@@ -114,7 +114,7 @@ Agent Summary
 										{{($agent->agreement_sent == 'yes')?"disabled":" "}}>No
 										<span id="sentdate">
 										@if($agent->agreement_sent == 'yes')
-										<input type="date" name="agreement_sent_date" value="{{$agent->agreement_sent_date}}" required>
+										<input type="date" name="agreement_sent_date" value="{{$agent->agreement_sent_date}}" required readonly>
 										@endif
 										</span>
 									</td>
@@ -132,7 +132,11 @@ Agent Summary
 										<span id="signedagentdate">
 										@if($agent->agreement_signed_agent == 'yes')
 										<input type="date" name="agreement_signed_agent_date" value="{{$agent->agreement_signed_agent_date}}" required>
+										@if($contracts->count()>0)
+										<button class="btn btn-sm btn-info" disabled>Contract Created</button>
+										@else
 										<a href="{{route('contract.store',['id'=>$agent->id])}}" class="btn btn-sm btn-success {{($agent->agreement_sent == 'no')?"disabled":" "}}" >Click to create contract</a>
+										@endif
 										@endif
 										</span>
 									
@@ -229,7 +233,7 @@ Agent Summary
   <script type="text/javascript">
 		$(document).ready(function(){
 	    $("#yessent").click(function(){
-	    	var date = '<input type="date" name="agreement_sent_date" value="{{$agent->agrement_sent_date}}" required>';
+	    	var date = '<input type="date" name="agreement_sent_date" value="{{$agent->agreement_sent_date}}" required {{($agent->agreement_sent == 'yes')?"readonly":" "}}>';
 	        $("#sentdate").html(date);   
 	        });
 	    });
@@ -242,7 +246,7 @@ Agent Summary
 
 	    $(document).ready(function(){
 	    $("#yessignedagent").click(function(){
-	    	var date = '<input type="date" name="agreement_signed_agent_date" value="{{$agent->agrement_signed_agent_date}}" required>';
+	    	var date = '<input type="date" name="agreement_signed_agent_date" value="{{$agent->agreement_signed_agent_date}}" required {{($agent->agreement_signed_agent == 'yes')?"readonly":" "}}>';
 	        $("#signedagentdate").html(date);   
 	        });
 	    });
@@ -255,7 +259,7 @@ Agent Summary
 
 	    $(document).ready(function(){
 	    $("#yessignedclg").click(function(){
-	    	var date = '<input type="date" name="agreement_signed_college_date" value="{{$agent->agrement_signed_college_date}}" required>';
+	    	var date = '<input type="date" name="agreement_signed_college_date" value="{{$agent->agreement_signed_college_date}}" required {{($agent->agreement_signed_college == 'yes')?"readonly":" "}}>';
 	        $("#signedclgdate").html(date);   
 	        });
 	    });
@@ -268,7 +272,7 @@ Agent Summary
 
 	    $(document).ready(function(){
 	    $("#yescrt").click(function(){
-	    	var date = '<input type="date" name="certificate_issued_date" value="{{$agent->certificate_issued_date}}" required>';
+	    	var date = '<input type="date" name="certificate_issued_date" value="{{$agent->certificate_issued_date}}" required {{($agent->certificate_issued == 'yes')?"readonly":" "}}>';
 	        $("#crtdate").html(date);   
 	        });
 	    });

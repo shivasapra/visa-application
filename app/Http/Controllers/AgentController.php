@@ -374,7 +374,9 @@ class AgentController extends Controller
     public function summary($id)
     {   
         $agent = agentProfile::find($id);
-        return view('agent.summary')->with('agent',$agent);
+        $contracts = contracts::where('agent_id',$id)->get();
+        return view('agent.summary')->with('agent',$agent)
+                                    ->with('contracts',$contracts);
     }
 
     public function updateSummary(Request $request, $id){

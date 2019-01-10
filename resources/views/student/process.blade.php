@@ -119,7 +119,7 @@ Process
 									{{($student->LOA == 'yes')?"disabled":" "}}>No
 									<span id="LOAdate">
 										@if($student->LOA == 'yes')
-										<input type="date" name="Loa_date" value="{{$student->Loa_date}}" required>
+										<input type="date" name="Loa_date" value="{{$student->Loa_date}}" required readonly>
 										@endif
 									</span>
 								</td>
@@ -167,7 +167,7 @@ Process
 									{{($student->file_submission == 'yes')?"disabled":" "}}>No
 									<span id="submissiondate">
 										@if($student->file_submission == 'yes')
-										<input type="date" name="submission_date" value="{{$student->submission_date}}" required>
+										<input type="date" name="submission_date" value="{{$student->submission_date}}" required readonly>
 										@endif
 									</span>
 								</td>
@@ -187,7 +187,7 @@ Process
 									>No
 									<span id="approveddate">
 										@if($student->file_approved == 'yes')
-										<input type="date" name="approved_date" value="{{$student->approved_date}}" required>
+										<input type="date" name="approved_date" value="{{$student->approved_date}}" required readonly>
 										@endif
 									</span>
 								</td>
@@ -205,7 +205,7 @@ Process
 									{{($student->file_declined == 'no')?"checked":" "}}{{($student->file_declined == 'yes')?"disabled":" "}}>No
 									<span id="declineddate">
 										@if($student->file_declined == 'yes' and $student->refund == 'no')
-										<input type="date" name="declined_date" value="{{$student->declined_date}}" required>&nbsp;
+										<input type="date" name="declined_date" value="{{$student->declined_date}}" required readonly>&nbsp;
 										<a href="{{route('reapply',['id'=>$student->id])}}" class="btn btn-sm btn-success">Re-Apply</a>
 										@endif
 									</span>
@@ -223,7 +223,7 @@ Process
 									>No
 									<span id="refunddate">
 										@if($student->refund == 'yes')
-										<input type="date" name="refund_date" value="{{$student->refund_date}}" required>
+										<input type="date" name="refund_date" value="{{$student->refund_date}}" required readonly>
 										@endif
 									</span>
 								</td>	
@@ -356,7 +356,7 @@ Process
 	<script type="text/javascript">
 		$(document).ready(function(){
 	    $("#yesLOA").click(function(){
-	    	var date = '<input type="date" name="Loa_date" value="{{$student->Loa_date}}" required>';
+	    	var date = '<input type="date" name="Loa_date" value="{{$student->Loa_date}}" required {{($student->LOA == 'yes')?"readonly":" "}}>';
 	        $("#LOAdate").html(date);   
 	        });
 	    });
@@ -368,7 +368,7 @@ Process
 	    });
 	    $(document).ready(function(){
 	    $("#yessubmission").click(function(){
-	    	var date = '<input type="date" name="submission_date" value="{{$student->submission_date}}" required>';
+	    	var date = '<input type="date" name="submission_date" value="{{$student->submission_date}}" required {{($student->file_submission == 'yes')?"readonly":" "}}>';
 	        $("#submissiondate").html(date);   
 	        });
 	    });
@@ -379,7 +379,7 @@ Process
 	        });
 	    });$(document).ready(function(){
 	    $("#yesapproved").click(function(){
-	    	var date = '<input type="date" value="{{$student->approved_date}}" name="approved_date" required>';
+	    	var date = '<input type="date" value="{{$student->approved_date}}" name="approved_date" required {{($student->file_approved == 'yes')?"readonly":" "}}>';
 	        $("#approveddate").html(date);   
 	        });
 	    });
@@ -391,7 +391,7 @@ Process
 	    });
 	    $(document).ready(function(){
 	    $("#yesdeclined").click(function(){
-	    	var date = '<input type="date" value="{{$student->declined_date}}" name="declined_date" required> &nbsp;';
+	    	var date = '<input type="date" value="{{$student->declined_date}}" name="declined_date" required {{($student->declined == 'yes')?"readonly":" "}}> &nbsp;';
 	        $("#declineddate").html(date);   
 	        });
 	    });
@@ -403,7 +403,7 @@ Process
 	    });
 	    $(document).ready(function(){
 	    $("#yesrefund").click(function(){
-	    	var date = '<input type="date" value="{{$student->refund_date}}" name="refund_date" required> &nbsp;';
+	    	var date = '<input type="date" value="{{$student->refund_date}}" name="refund_date" required {{($student->refund == 'yes')?"readonly":" "}}> &nbsp;';
 	        $("#refunddate").html(date);   
 	        });
 	    });
