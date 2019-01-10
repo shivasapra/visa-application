@@ -65,8 +65,8 @@ Process
 						</div>
 					</div>
 					<div class="row ">
-						<table class="table table-striped">
-						<tr>
+						<table class="table table-striped" id="target">
+						<tr >
 							<td><strong>Ist installment:</strong></td>
 							<td><input type="text" name='st_ins_1' value="{{$student->st_ins_1}}"></td>
 							<td><input type="text" name='st_ins_2' value="{{$student->st_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
@@ -74,17 +74,17 @@ Process
 									{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
 								@endif
 							</td>
-							<td><input type="text" name='st_ins_3' value="{{$student->st_ins_3}}"></td>
+							<td><input type="text" name='st_ins_3' readonly value="{{$student->st_ins_3}}"></td>
 						</tr>
 						<tr>
 							<td><strong>IInd installment:</strong></td>
 							<td><input type="text" name='nd_ins_1' value="{{$student->nd_ins_1}}"></td>
-							<td><input type="text" name='nd_ins_2' value="{{$student->nd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
+							<td><input type="text" id='nd_ins_2' name='nd_ins_2' value="{{$student->nd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
 								@if($student->agent_id != null)
 								{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
 								@endif
 							</td>
-							<td><input type="text" name='nd_ins_3' value="{{$student->nd_ins_3}}"></td>
+							<td><input type="text" id='nd_ins_3' name='nd_ins_3' value="{{$student->nd_ins_3}}" readonly></td>
 						</tr>
 						<tr>
 							<td><strong>IIIrd installment:</strong></td>
@@ -94,7 +94,7 @@ Process
 								{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
 								@endif
 							</td>
-							<td><input type="text" name='rd_ins_3' value="{{$student->rd_ins_3}}"></td>
+							<td><input type="text" id='rd_ins_3' name='rd_ins_3' value="{{$student->rd_ins_3}}"></td>
 						</tr>
 						</table>
 					</div>            	
@@ -378,6 +378,28 @@ Process
 	        $("#declineddate").html(date);   
 	        });
 	    });
+	   //  $(document).ready(function(){
+    // 		$("target1").hover(function(){
+	   //  	var cal =  document.getElementsById("#st_ins_2").value * 
+	   //  	var final = cal/100;
+	   //  	document.getElementsById("#st_ins_3").value = final;
+    // });
+    // });
+	   $(document).ready(function(){
+    	$("#target").hover(function(){
+    		document.getElementsByName("st_ins_3")[0].value =(document.getElementsByName("st_ins_2")[0].value * {{$student->agent->percentage}})/100;
+    	});
+    	});
+	   $(document).ready(function(){
+    	$("#target").hover(function(){
+    		document.getElementsByName("nd_ins_3")[0].value =(document.getElementsByName("nd_ins_2")[0].value * {{$student->agent->percentage}})/100;
+    	});
+    	});
+	    $(document).ready(function(){
+    	$("#target").hover(function(){
+    		document.getElementsByName("rd_ins_3")[0].value =(document.getElementsByName("rd_ins_2")[0].value * {{$student->agent->percentage}})/100;
+    	});
+    	});
 	</script>
 					
 	  
