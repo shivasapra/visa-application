@@ -106,15 +106,17 @@ Agent Summary
 								<tr>
 									<td><strong>Agreement sent to Agent:</strong></td>
 									<td>
-										<input type="radio" name="agreement_sent" value="yes" 
+										<input type="radio" id="yessent" name="agreement_sent" value="yes" 
 										{{($agent->agreement_sent == 'yes')?"checked":" "}}
 										{{($agent->document_received == 'no')?"disabled":" "}}>Yes
-										<input type="radio" name="agreement_sent" value="no"
+										<input type="radio" id="nosent" name="agreement_sent" value="no"
 										{{($agent->agreement_sent == 'no')?"checked":" "}}
 										{{($agent->agreement_sent == 'yes')?"disabled":" "}}>No
-										<input type="date" name="agreement_sent_date" required 
-										value="{{$agent->agreement_sent_date}}"
-										{{($agent->document_received == 'no')?"disabled":" "}}>
+										<span id="sentdate">
+										@if($agent->agreement_sent == 'yes')
+										<input type="date" name="agreement_sent_date" value="{{$agent->agreement_sent_date}}" required>
+										@endif
+										</span>
 									</td>
 								</tr>
 							</div>
@@ -122,15 +124,18 @@ Agent Summary
 								<tr>
 									<td><strong>Agreement signed by Agent:</strong></td>
 									<td>
-										<input type="radio" name="agreement_signed_agent" value="yes" 
+										<input type="radio" id="yessignedagent" name="agreement_signed_agent" value="yes" 
 										{{($agent->agreement_signed_agent == 'yes')?"checked":" "}}
 										{{($agent->agreement_sent == 'no')?"disabled":" "}}>Yes
-										<input type="radio" name="agreement_signed_agent" value="no"
+										<input type="radio" id="nosignedagent" name="agreement_signed_agent" value="no"
 										{{($agent->agreement_signed_agent == 'no')?"checked":" "}}{{($agent->agreement_signed_agent == 'yes')?"disabled":" "}}>No
-									<input type="date" name="agreement_signed_agent_date" required
-										value="{{$agent->agreement_signed_agent_date}}" required 
-										{{($agent->agreement_sent == 'no')?"disabled":" "}}>
+										<span id="signedagentdate">
+										@if($agent->agreement_signed_agent == 'yes')
+										<input type="date" name="agreement_signed_agent_date" value="{{$agent->agreement_signed_agent_date}}" required>
 										<a href="{{route('contract.store',['id'=>$agent->id])}}" class="btn btn-sm btn-success {{($agent->agreement_sent == 'no')?"disabled":" "}}" >Click to create contract</a>
+										@endif
+										</span>
+									
 									</td>
 								</tr>
 							</div>
@@ -138,14 +143,16 @@ Agent Summary
 								<tr>
 									<td><strong>Agreement signed by college:</strong></td>
 									<td>
-										<input type="radio" name="agreement_signed_college" value="yes" 
+										<input type="radio" id="yessignedclg" name="agreement_signed_college" value="yes" 
 										{{($agent->agreement_signed_college == 'yes')?"checked":" "}}
 										{{($agent->agreement_signed_agent == 'no')?"disabled":" "}}>Yes
-										<input type="radio" name="agreement_signed_college" value="no"
+										<input type="radio" id="nosignedclg" name="agreement_signed_college" value="no"
 										{{($agent->agreement_signed_college == 'no')?"checked":" "}}{{($agent->agreement_signed_college == 'yes')?"disabled":" "}}>No
-										<input type="date" name="agreement_signed_college_date"
-										value="{{$agent->agreement_signed_college_date}}" required
-										{{($agent->agreement_signed_agent == 'no')?"disabled":" "}}>
+										<span id="signedclgdate">
+										@if($agent->agreement_signed_college == 'yes')
+										<input type="date" name="agreement_signed_college_date" value="{{$agent->agreement_signed_college_date}}" required>
+										@endif
+										</span>
 									</td>
 								</tr>
 							</div>
@@ -153,14 +160,16 @@ Agent Summary
 								<tr>
 									<td><strong>certificate issued:</strong></td>
 									<td>
-										<input type="radio" name="certificate_issued" value="yes" 
+										<input type="radio" id="yescrt" name="certificate_issued" value="yes" 
 										{{($agent->certificate_issued == 'yes')?"checked":" "}}
 										{{($agent->agreement_signed_college == 'no')?"disabled":" "}}>Yes
-										<input type="radio" name="certificate_issued" value="no"
+										<input type="radio" id="nocrt" name="certificate_issued" value="no"
 										{{($agent->certificate_issued == 'no')?"checked":" "}}{{($agent->certificate_issued == 'yes')?"disabled":" "}}>No
-										<input type="date" name="certificate_issued_date" required
-										value="{{$agent->certificate_issued_date}}"
-										{{($agent->agreement_signed_college == 'no')?"disabled":" "}}>
+										<span id="crtdate">
+										@if($agent->certificate_issued == 'yes')
+										<input type="date" name="certificate_issued_date" value="{{$agent->certificate_issued_date}}" required>
+										@endif
+										</span>
 									</td>
 								</tr>
 							</div>
@@ -216,4 +225,58 @@ Agent Summary
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="{{asset("app/front/app-assets/js/scripts/forms/wizard-steps.js")}}" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript">
+		$(document).ready(function(){
+	    $("#yessent").click(function(){
+	    	var date = '<input type="date" name="agreement_sent_date" value="{{$agent->agrement_sent_date}}" required>';
+	        $("#sentdate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#nosent").click(function(){
+	    	var date = '';
+	        $("#sentdate").html(date);   
+	        });
+	    });
+
+	    $(document).ready(function(){
+	    $("#yessignedagent").click(function(){
+	    	var date = '<input type="date" name="agreement_signed_agent_date" value="{{$agent->agrement_signed_agent_date}}" required>';
+	        $("#signedagentdate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#nosignedagent").click(function(){
+	    	var date = '';
+	        $("#signedagentdate").html(date);   
+	        });
+	    });
+
+	    $(document).ready(function(){
+	    $("#yessignedclg").click(function(){
+	    	var date = '<input type="date" name="agreement_signed_college_date" value="{{$agent->agrement_signed_college_date}}" required>';
+	        $("#signedclgdate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#nosignedclg").click(function(){
+	    	var date = '';
+	        $("#signedclgdate").html(date);   
+	        });
+	    });
+
+	    $(document).ready(function(){
+	    $("#yescrt").click(function(){
+	    	var date = '<input type="date" name="certificate_issued_date" value="{{$agent->certificate_issued_date}}" required>';
+	        $("#crtdate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#nocrt").click(function(){
+	    	var date = '';
+	        $("#crtdate").html(date);   
+	        });
+	    });
+	</script>
 @endsection
