@@ -16,7 +16,7 @@ class agentProfile extends Model
 			'agreement_signed_college_date','reference1_name','reference1_phone',
 			'reference1_email','reference1_contact','reference1_website',
 			'reference2_name','reference2_phone','reference2_email',
-			'reference2_contact','reference2_website','photos_received'
+			'reference2_contact','reference2_website','photos_received','percentage'
     ];
 
     public function student()

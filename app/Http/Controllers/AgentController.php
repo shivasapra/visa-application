@@ -57,6 +57,7 @@ class AgentController extends Controller
             'photos_received' => 'required',
             'id_name' => 'required',
             'id_no' => 'required',
+            'percentage' =>'required'
             
             
         ]);
@@ -81,7 +82,7 @@ class AgentController extends Controller
             $agent->mobile = $request->mobile;
             $agent->address = $request->address;
             $agent->postal_code = $request->postal_code;
-            
+            $agent->percentage = $request->percentage;
             $agent->company = $request->company;
             $agent->designation = $request->designation;
             $agent->state = $request->state;
@@ -200,6 +201,7 @@ class AgentController extends Controller
             'photos_received' => 'required',
             'id_name' => 'required',
             'id_no' => 'required',
+            'percentage' =>'required'
             
             
 
@@ -227,7 +229,7 @@ class AgentController extends Controller
             $agent->mobile = $request->mobile;
             $agent->address = $request->address;
             $agent->postal_code = $request->postal_code;
-            
+            $agent->percentage = $request->percentage;
             $agent->company = $request->company;
             $agent->designation = $request->designation;
             $agent->state = $request->state;

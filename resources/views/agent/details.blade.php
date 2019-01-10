@@ -110,6 +110,12 @@ Agent Details
 							</div>
 							<div class="row">
 								<tr>
+									<td><strong>Percentage:</strong></td>
+									<td>{{$agent->percentage}}</td>
+								</tr>
+							</div>
+							<div class="row">
+								<tr>
 									<td><strong>Website:</strong></td>
 									<td>{{$agent->website}}</td>
 								</tr>

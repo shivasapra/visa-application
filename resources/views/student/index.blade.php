@@ -71,7 +71,7 @@ Students
 								<td>{{$student->email}}</td>
 								<td>{{$student->gender}}</td>
 								<td>{{-- <a href="{{route('student.delete',['id'=>$student->id])}}" class="btn btn-sm btn-danger">Delete</a> --}}
-								<a href="{{route('visa.create',['id'=>$student->id])}}" class="btn btn-sm btn-success">Apply for visa</a></td>
+								<a href="{{route('process',['id'=>$student->id])}}" class="btn btn-sm btn-success">Start Process</a></td>
 								
 							</tr>
 							@endforeach

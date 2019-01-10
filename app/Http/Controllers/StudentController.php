@@ -252,4 +252,9 @@ class StudentController extends Controller
         $student = studentProfile::find($id);
         return view('student.details')->with('student',$student);
     }
+
+    public function process($id){
+        $student = studentProfile::find($id);
+        return view('student.process')->with('student',$student);
+    }
 }
