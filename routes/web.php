@@ -128,6 +128,10 @@ Route::post('/update/profile',[
 			'uses'=> 'StudentController@processUpdate',
 			'as'=>'process.update'
 		]);
+	Route::get('/reapply/{id}',[
+			'uses'=> 'StudentController@reapply',
+			'as'=>'reapply'
+		]);
 
 
 

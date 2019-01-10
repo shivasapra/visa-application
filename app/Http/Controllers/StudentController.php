@@ -311,4 +311,19 @@ class StudentController extends Controller
         $student->save();
         return redirect()->route('process',['id'=>$id]);
     }
+    public function reapply($id){
+        $student = studentProfile::find($id);
+        $student->LOA = 'no';
+        $student->Loa_date = null;
+        $student->file_processing = 'no';
+        $student->file_processed= 'no';
+        $student->file_submission = 'no';
+        $student->submission_date = null;
+        $student->file_approved = 'no';
+        $student->approved_date = null;
+        $student->file_declined = 'no';
+        $student->declined_date = null;
+        $student->save();
+        return redirect()->route('process',['id'=>$id]);
+    }
 }

@@ -115,7 +115,8 @@ Process
 									<input id="yesLOA" type="radio" name="LOA" value="yes"  
 									{{($student->LOA == 'yes')?"checked":" "}}>Yes
 									<input id="noLOA" type="radio" name="LOA" value="no"
-									{{($student->LOA == 'no')?"checked":" "}}>No
+									{{($student->LOA == 'no')?"checked":" "}}
+									{{($student->LOA == 'yes')?"disabled":" "}}>No
 									<span id="LOAdate">
 										@if($student->LOA == 'yes')
 										<input type="date" name="Loa_date" value="{{$student->Loa_date}}" required>
@@ -132,7 +133,8 @@ Process
 									{{($student->file_processing == 'yes')?"checked":" "}}
 									{{($student->LOA == 'no')?"disabled":" "}}>Yes
 									<input type="radio" name="file_processing" value="no"
-									{{($student->file_processing == 'no')?"checked":" "}}>No
+									{{($student->file_processing == 'no')?"checked":" "}}
+									{{($student->file_processing == 'yes')?"disabled":" "}}>No
 								</td>
 							</tr>
 						</div>
@@ -144,7 +146,8 @@ Process
 									{{($student->file_processed == 'yes')?"checked":" "}}
 									{{($student->file_processing == 'no')?"disabled":" "}}>Yes
 									<input type="radio" name="file_processed" value="no"
-									{{($student->file_processed == 'no')?"checked":" "}}>No
+									{{($student->file_processed == 'no')?"checked":" "}}
+									{{($student->file_processed == 'yes')?"disabled":" "}}>No
 								</td>
 							</tr>
 						</div>
@@ -156,7 +159,8 @@ Process
 									{{($student->file_submission == 'yes')?"checked":" "}}
 									{{($student->file_processed == 'no')?"disabled":" "}}>Yes
 									<input type="radio" id="nosubmission" name="file_submission" value="no"
-									{{($student->file_submission == 'no')?"checked":" "}}>No
+									{{($student->file_submission == 'no')?"checked":" "}}
+									{{($student->file_submission == 'yes')?"disabled":" "}}>No
 									<span id="submissiondate">
 										@if($student->file_submission == 'yes')
 										<input type="date" name="submission_date" value="{{$student->submission_date}}" required>
@@ -173,7 +177,9 @@ Process
 									{{($student->file_approved == 'yes')?"checked":" "}}
 									{{($student->file_submission == 'no')?"disabled":" "}}>Yes
 									<input type="radio" id="noapproved" name="file_approved" value="no"
-									{{($student->file_approved == 'no')?"checked":" "}}>No
+									{{($student->file_approved == 'no')?"checked":" "}}
+									{{($student->file_approved == 'yes')?"disabled":" "}}
+									>No
 									<span id="approveddate">
 										@if($student->file_approved == 'yes')
 										<input type="date" name="approved_date" value="{{$student->approved_date}}" required>
@@ -191,10 +197,11 @@ Process
 									{{($student->LOA == 'no')?"disabled":" "}}
 									{{($student->file_approved == 'yes')?"disabled":" "}}>Yes
 									<input type="radio" id="nodeclined" name="file_declined" value="no"
-									{{($student->file_declined == 'no')?"checked":" "}}>No
+									{{($student->file_declined == 'no')?"checked":" "}}{{($student->file_declined == 'yes')?"disabled":" "}}>No
 									<span id="declineddate">
 										@if($student->file_declined == 'yes')
-										<input type="date" name="declined_date" value="{{$student->declined_date}}" required>
+										<input type="date" name="declined_date" value="{{$student->declined_date}}" required>&nbsp;
+										<a href="{{route('reapply',['id'=>$student->id])}}" class="btn btn-sm btn-success">Re-Apply</a>
 										@endif
 									</span>
 								</td>
@@ -297,6 +304,7 @@ Process
 				
 			</form>
 		</div> --}}
+
 @stop
 @section('js')
 	<!-- BEGIN VENDOR JS-->
@@ -360,7 +368,7 @@ Process
 	    });
 	    $(document).ready(function(){
 	    $("#yesdeclined").click(function(){
-	    	var date = '<input type="date" value="{{$student->declined_date}}" name="declined_date" required>';
+	    	var date = '<input type="date" value="{{$student->declined_date}}" name="declined_date" required> &nbsp;<a href="{{route('reapply',['id'=>$student->id])}}" class="btn btn-sm btn-success">Re-Apply</a> ';
 	        $("#declineddate").html(date);   
 	        });
 	    });
