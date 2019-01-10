@@ -233,7 +233,7 @@ class ContractsController extends Controller
         $contract->agent->active_c = $contract->agent->active_c - 1;
         $contract->agent->declined_c = $contract->agent->declined_c + 1;
         $contract->agent->save();
-        return view('contract.details')->with('contract',$contract);
+        return redirect()->route('contracts');
     }
     public function active(){
         $contracts = contracts::all();
