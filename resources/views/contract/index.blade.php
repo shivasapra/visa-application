@@ -64,7 +64,7 @@ Contracts
                 </div>
                 
                 
-                <div class="col-xl-2 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
                   <a href="{{route('expired.contracts')}}">
                     <div class="my-1 text-center">
                         
@@ -76,7 +76,7 @@ Contracts
                     </div>
                   </a>
                 </div>
-                <div class="col-xl-2 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
                   <a href="{{route('declined.contracts')}}">
                     <div class="my-1 text-center">
                         
@@ -89,18 +89,7 @@ Contracts
                     </div>
                   </a>
                 </div>
-                <div class="col-xl-2 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
-                  <a href="{{route('signed.contracts')}}">
-                    <div class="my-1 text-center">
-                        
-                      <div class="card-header mb-2 pt-0">
-                        <h5 class="success">Signed Contracts</h5>
-                        <h3 class="font-large-2 text-bold-200">{{$signed->count()}}
-                        </h3>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+                
               </div>
               </div>
             </div>
@@ -161,8 +150,6 @@ Contracts
                          </td>
                           <td>
                             <a href="{{route('contract.delete',['id'=>$contract->id])}}" class="btn btn-sm btn-danger">Delete</a>
-                            <a href="{{route('contract.details',['id'=>$contract->id])}}" class="btn btn-sm btn-success">view</a>
-                            <a href="{{route('contract.edit',['id'=>$contract->id])}}" class="btn btn-sm btn-info">Edit</a>
                          </td>
                       </tr>
                       @endforeach
@@ -177,9 +164,6 @@ Contracts
             </div>
           </div>
         </div>
-            <div class="text-center">
-                <a href="{{route('contract.create')}}" class="btn btn-sm btn-info">New Contract</a>
-                </div>
           </div>
         </div>
         </div>

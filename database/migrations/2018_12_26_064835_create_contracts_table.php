@@ -15,11 +15,11 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('agent_id');
-            $table->integer('percentage');
-            $table->longText('description');
-            $table->string('start_date');
-            $table->string('end_date');
+            $table->integer('agent_id')->nullable();
+            $table->integer('percentage')->nullable();
+            $table->longText('description')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->string('active')->default('no');
             $table->string('signed')->default('no');
             $table->string('expired')->default('no');

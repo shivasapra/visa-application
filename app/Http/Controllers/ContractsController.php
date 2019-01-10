@@ -64,42 +64,35 @@ class ContractsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {   
-        if($request->percentage != 10 and $request->percentage != 15 
-                and $request->percentage != 20){
-                $this->validate($request,[
-                    'percentage_'=>'required|integer',
-                ]);
-            }
-        $this->validate($request,[
-            'percentage' => 'required',
-            'description' => 'required',
-            'agent_id' =>'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
-        ]);
+        // if($request->percentage != 10 and $request->percentage != 15 
+        //         and $request->percentage != 20){
+        //         $this->validate($request,[
+        //             'percentage_'=>'required|integer',
+        //         ]);
+        //     }
+        // $this->validate($request,[
+        //     'percentage' => 'required',
+        //     'description' => 'required',
+        //     'agent_id' =>'required',
+        //     'start_date' => 'required',
+        //     'end_date' => 'required',
+        // ]);
 
-        $agent = agentProfile::find($request->agent_id);
+        // $agent = agentProfile::find($request->agent_id);
         $contract = new contracts;
-        
-            if($request->percentage != 10 and $request->percentage != 15 
-                and $request->percentage != 20){
-                $contract->percentage = $request->percentage_;
-            }
-            else{
-                $contract->percentage = $request->percentage;
-            }
-            $contract->description = $request->description;
-            $contract->agent_id = $request->agent_id;
-            $contract->start_date = $request->start_date;
-            $contract->end_date = $request->end_date;
+        $agent = agentProfile::find($id);
+            $contract->agent_id = $agent->id;
+            $contract->start_date = $agent->agreement_signed_agent_date;
+            $end_date = (substr($agent->agreement_signed_agent_date,0,4)+1).(substr($agent->agreement_signed_agent_date,4));
+            $contract->end_date = $end_date;
+            $contract->percentage = $agent->percentage;
             $contract->active = 'yes';
             $contract->save();
         
 
-        $agent->contracts = $agent->contracts + 1;
-        $agent->active_c = 
+        $agent->contracts = $agent->contracts + 1; 
         $agent->active_c = $agent->active_c +1;
         $agent->save();
         Session::flash('success','contract created successfully');

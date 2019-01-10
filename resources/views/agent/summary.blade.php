@@ -127,6 +127,7 @@ Agent Summary
 									<input type="date" name="agreement_signed_agent_date" required
 										value="{{$agent->agreement_signed_agent_date}}" required 
 										{{($agent->agreement_sent == 'no')?"disabled":" "}}>
+										<a href="{{route('contract.store',['id'=>$agent->id])}}" class="btn btn-sm btn-success {{($agent->agreement_sent == 'no')?"disabled":" "}}" >Click to create contract</a>
 									</td>
 								</tr>
 							</div>

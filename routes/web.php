@@ -42,7 +42,7 @@ Route::post('/update/profile',[
 				'uses'=> 'ContractsController@create',
 				'as'=>'contract.create'
 			]);
-	Route::post('/contract/store',[
+	Route::get('/contract/store/{id}',[
 				'uses'=> 'ContractsController@store',
 				'as'=>'contract.store'
 			]);

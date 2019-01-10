@@ -394,7 +394,7 @@ class AgentController extends Controller
         $agent->certificate_issued_date = $request->certificate_issued_date;
         $agent->save();
         Session::flash('success','Summary updated successfully');
-        return redirect()->route('agents');
+        return redirect()->route('summary',['id'=>$agent->id]);
 
     }
     public function files($id)

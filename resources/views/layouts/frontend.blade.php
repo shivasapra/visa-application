@@ -129,25 +129,6 @@
 
           Contracts</a>
         </li>
-        <li class="menu-item">
-          <a href="{{route('files.progress')}}" aria-expanded="false">
-          <i class="fa fa-tachometer menu-icon"></i>
-          File Progress  </a>
-        </li>
-        <li class="menu-item">
-          <a href="{{route('visa.index')}}" aria-expanded="false">
-          <i class="fa fa-tachometer menu-icon"></i>
-          Visa Status </a>
-        </li>
-        <li class="menu-item">
-          <a href="" aria-expanded="false">
-          <i class="fa fa-tachometer menu-icon"></i>
-          Offer letter status </a>
-        </li>
-        <li class="menu-item">
-          <a href="" aria-expanded="false"><i class="fa fa-folder-open-o menu-icon"></i>
-          Accepted Letter</a>
-        </li>
       </ul>
     </div>
   </div>
