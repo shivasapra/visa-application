@@ -131,7 +131,8 @@ Process
 								<td>
 									<input type="radio" name="file_processing" value="yes"
 									{{($student->file_processing == 'yes')?"checked":" "}}
-									{{($student->LOA == 'no')?"disabled":" "}}>Yes
+									{{($student->LOA == 'no')?"disabled":" "}}
+									{{($student->file_declined == 'yes')?"disabled":" "}}>Yes
 									<input type="radio" name="file_processing" value="no"
 									{{($student->file_processing == 'no')?"checked":" "}}
 									{{($student->file_processing == 'yes')?"disabled":" "}}>No
@@ -144,7 +145,8 @@ Process
 								<td>
 									<input type="radio" name="file_processed" value="yes"
 									{{($student->file_processed == 'yes')?"checked":" "}}
-									{{($student->file_processing == 'no')?"disabled":" "}}>Yes
+									{{($student->file_processing == 'no')?"disabled":" "}}
+									{{($student->file_declined == 'yes')?"disabled":" "}}>Yes
 									<input type="radio" name="file_processed" value="no"
 									{{($student->file_processed == 'no')?"checked":" "}}
 									{{($student->file_processed == 'yes')?"disabled":" "}}>No
@@ -157,7 +159,8 @@ Process
 								<td>
 									<input id="yessubmission" type="radio" name="file_submission" value="yes"
 									{{($student->file_submission == 'yes')?"checked":" "}}
-									{{($student->file_processed == 'no')?"disabled":" "}}>Yes
+									{{($student->file_processed == 'no')?"disabled":" "}}
+									{{($student->file_declined == 'yes')?"disabled":" "}}>Yes
 									<input type="radio" id="nosubmission" name="file_submission" value="no"
 									{{($student->file_submission == 'no')?"checked":" "}}
 									{{($student->file_submission == 'yes')?"disabled":" "}}>No
@@ -175,7 +178,8 @@ Process
 								<td>
 									<input id="yesapproved" type="radio" name="file_approved" value="yes"
 									{{($student->file_approved == 'yes')?"checked":" "}}
-									{{($student->file_submission == 'no')?"disabled":" "}}>Yes
+									{{($student->file_submission == 'no')?"disabled":" "}}
+									{{($student->file_declined == 'yes')?"disabled":" "}}>Yes
 									<input type="radio" id="noapproved" name="file_approved" value="no"
 									{{($student->file_approved == 'no')?"checked":" "}}
 									{{($student->file_approved == 'yes')?"disabled":" "}}
@@ -206,6 +210,24 @@ Process
 									</span>
 								</td>
 							</tr>
+							@if($student->file_declined == 'yes')
+								<tr>
+									<td><strong>Refund:</strong></td>
+								<td>
+									<input id="yesrefund" type="radio" name="refund" value="yes"
+									{{($student->refund == 'yes')?"checked":" "}}>Yes
+									<input type="radio" id="norefund" name="refund" value="no"
+									{{($student->refund == 'no')?"checked":" "}}
+									{{($student->refund == 'yes')?"disabled":" "}}
+									>No
+									<span id="refunddate">
+										@if($student->refund == 'yes')
+										<input type="date" name="refund_date" value="{{$student->refund_date}}" required>
+										@endif
+									</span>
+								</td>	
+								</tr>
+							@endif
 						</div>   
 					</tbody>
 					</table>
@@ -368,7 +390,7 @@ Process
 	    });
 	    $(document).ready(function(){
 	    $("#yesdeclined").click(function(){
-	    	var date = '<input type="date" value="{{$student->declined_date}}" name="declined_date" required> &nbsp;<a href="{{route('reapply',['id'=>$student->id])}}" class="btn btn-sm btn-success">Re-Apply</a> ';
+	    	var date = '<input type="date" value="{{$student->declined_date}}" name="declined_date" required> &nbsp;';
 	        $("#declineddate").html(date);   
 	        });
 	    });
@@ -376,6 +398,18 @@ Process
 	    $("#nodeclined").click(function(){
 	    	var date = '';
 	        $("#declineddate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#yesrefund").click(function(){
+	    	var date = '<input type="date" value="{{$student->refund_date}}" name="refund_date" required> &nbsp;';
+	        $("#refunddate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#norefund").click(function(){
+	    	var date = '';
+	        $("#refunddate").html(date);   
 	        });
 	    });
 	   //  $(document).ready(function(){

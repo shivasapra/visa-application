@@ -308,6 +308,11 @@ class StudentController extends Controller
         if ($request->declined_date != null) {
             $student->declined_date = $request->declined_date;
         }
+        if ($request->refund != null){
+        $student->refund = $request->refund;}
+        if ($request->refund_date != null) {
+            $student->refund_date = $request->refund_date;
+        }
         $student->save();
         return redirect()->route('process',['id'=>$id]);
     }
