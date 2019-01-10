@@ -43,13 +43,20 @@ Agent Business
 
                 <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
                     <div class="my-1 text-center">
-                        <a href="{{route('agent.contracts',['id'=>$agent->id])}}" style="text-decoration: none;">
+                        
                       <div class="card-header mb-2 pt-0">
-                        <h5 class="danger">Total Contracts</h5>
-                        <h3 class="font-large-2 text-bold-200">{{$agent->contracts}}
-                        </h3>
+                        <h5 class="info">Contract Status</h5><br>
+                        <h4>
+                          @if($contracts[0]->active == 'yes')
+                          <span class="text-info">Active</span>
+                          @elseif($contracts[0]->expired == 'yes')
+                          <span class="text-danger">Expired</span>
+                          @elseif($contracts[0]->declined == 'yes')
+                          <span class="text-danger">Declined</span>
+                          @endif
+                        </h4>
                       </div>
-                  </a>
+                  
                     </div>
                 </div>
 

@@ -305,7 +305,9 @@ class AgentController extends Controller
     public function business($id)
     {   
         $agent = agentProfile::find($id);
-        return view('agent.business')->with('agent',$agent);
+        $contracts = contracts::where('agent_id',$id)->get();
+        return view('agent.business')->with('agent',$agent)
+                                    ->with('contracts',$contracts);
 
     }
     public function studentList($id)
