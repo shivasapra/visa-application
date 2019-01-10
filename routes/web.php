@@ -124,6 +124,10 @@ Route::post('/update/profile',[
 			'uses'=> 'StudentController@process',
 			'as'=>'process'
 		]);
+	Route::post('/process/update/{id}',[
+			'uses'=> 'StudentController@processUpdate',
+			'as'=>'process.update'
+		]);
 
 
 

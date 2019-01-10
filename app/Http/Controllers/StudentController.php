@@ -257,4 +257,58 @@ class StudentController extends Controller
         $student = studentProfile::find($id);
         return view('student.process')->with('student',$student);
     }
+    public function processUpdate(Request $request, $id){
+        $student = studentProfile::find($id);
+        if ($request->tuition_fee != null) {
+            $student->tuition_fee = $request->tuition_fee;
+        }
+        if ($request->st_ins_1 != null) {
+            $student->st_ins_1 = $request->st_ins_1;
+        }
+        if ($request->st_ins_2 != null) {
+            $student->st_ins_2 = $request->st_ins_2;
+        }
+        if ($request->st_ins_3 != null) {
+            $student->st_ins_3 = $request->st_ins_3;
+        }
+        if ($request->nd_ins_1 != null) {
+            $student->nd_ins_1 = $request->nd_ins_1;
+        }
+        if ($request->nd_ins_2 != null) {
+            $student->nd_ins_2 = $request->nd_ins_2;
+        }
+        if ($request->nd_ins_3 != null) {
+            $student->nd_ins_3 = $request->nd_ins_3;
+        }
+        if ($request->rd_ins_1 != null) {
+            $student->rd_ins_1 = $request->rd_ins_1;
+        }
+        if ($request->rd_ins_2 != null) {
+            $student->rd_ins_2 = $request->rd_ins_2;
+        }
+        if ($request->rd_ins_3 != null) {
+            $student->rd_ins_3 = $request->rd_ins_3;
+        }
+
+        $student->LOA = $request->LOA;
+        if ($request->Loa_date != null) {
+            $student->Loa_date = $request->Loa_date;
+        }
+        $student->file_processing = $request->file_processing;
+        $student->file_processed = $request->file_processed;
+        $student->file_submission = $request->file_submission;
+        if ($request->submission_date != null) {
+            $student->submission_date = $request->submission_date;
+        }
+        $student->file_approved = $request->file_approved;
+        if ($request->approved_date != null) {
+            $student->approved_date = $request->approved_date;
+        }
+         $student->file_declined = $request->file_declined;
+        if ($request->declined_date != null) {
+            $student->declined_date = $request->declined_date;
+        }
+        $student->save();
+        return redirect()->route('process',['id'=>$id]);
+    }
 }

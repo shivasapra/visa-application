@@ -51,7 +51,8 @@ Process
 	@endif
 
     <div class="content-body">
-	   <form action="{{route('process.update',['id'=>$student->id])}}">
+	   <form action="{{route('process.update',['id'=>$student->id])}}" method="post">
+	   	@csrf
 	        <div class="card">
 	            <div class="card-content collapse show">
 	              <div class="card-body">
@@ -67,33 +68,33 @@ Process
 						<table class="table table-striped">
 						<tr>
 							<td><strong>Ist installment:</strong></td>
-							<td><input type="text" name='st_ins_1' required value="{{$student->st_ins_1}}"></td>
-							<td><input type="text" name='st_ins_2' required value="{{$student->st_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
+							<td><input type="text" name='st_ins_1' value="{{$student->st_ins_1}}"></td>
+							<td><input type="text" name='st_ins_2' value="{{$student->st_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
 								@if($student->agent_id != null)
 									{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
 								@endif
 							</td>
-							<td><input type="text" name='st_ins_3' required value="{{$student->st_ins_3}}"></td>
+							<td><input type="text" name='st_ins_3' value="{{$student->st_ins_3}}"></td>
 						</tr>
 						<tr>
 							<td><strong>IInd installment:</strong></td>
-							<td><input type="text" name='nd_ins_1' required value="{{$student->nd_ins_1}}"></td>
-							<td><input type="text" name='nd_ins_2' required value="{{$student->nd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
+							<td><input type="text" name='nd_ins_1' value="{{$student->nd_ins_1}}"></td>
+							<td><input type="text" name='nd_ins_2' value="{{$student->nd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
 								@if($student->agent_id != null)
 								{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
 								@endif
 							</td>
-							<td><input type="text" name='nd_ins_3' required value="{{$student->nd_ins_3}}"></td>
+							<td><input type="text" name='nd_ins_3' value="{{$student->nd_ins_3}}"></td>
 						</tr>
 						<tr>
 							<td><strong>IIIrd installment:</strong></td>
-							<td><input type="text" name='rd_ins_1' required value="{{$student->rd_ins_1}}"></td>
-							<td><input type="text" name='rd_ins_2' required value="{{$student->rd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
+							<td><input type="text" name='rd_ins_1' value="{{$student->rd_ins_1}}"></td>
+							<td><input type="text" name='rd_ins_2' value="{{$student->rd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
 								@if($student->agent_id != null)
 								{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
 								@endif
 							</td>
-							<td><input type="text" name='rd_ins_3' required value="{{$student->rd_ins_3}}"></td>
+							<td><input type="text" name='rd_ins_3' value="{{$student->rd_ins_3}}"></td>
 						</tr>
 						</table>
 					</div>            	
@@ -115,7 +116,11 @@ Process
 									{{($student->LOA == 'yes')?"checked":" "}}>Yes
 									<input id="noLOA" type="radio" name="LOA" value="no"
 									{{($student->LOA == 'no')?"checked":" "}}>No
-									<span id="LOAdate"></span>
+									<span id="LOAdate">
+										@if($student->LOA == 'yes')
+										<input type="date" name="Loa_date" value="{{$student->Loa_date}}" required>
+										@endif
+									</span>
 								</td>
 							</tr>
 						</div>
@@ -152,7 +157,11 @@ Process
 									{{($student->file_processed == 'no')?"disabled":" "}}>Yes
 									<input type="radio" id="nosubmission" name="file_submission" value="no"
 									{{($student->file_submission == 'no')?"checked":" "}}>No
-									<span id="submissiondate"></span>
+									<span id="submissiondate">
+										@if($student->file_submission == 'yes')
+										<input type="date" name="submission_date" value="{{$student->submission_date}}" required>
+										@endif
+									</span>
 								</td>
 							</tr>
 						</div>
@@ -165,7 +174,11 @@ Process
 									{{($student->file_submission == 'no')?"disabled":" "}}>Yes
 									<input type="radio" id="noapproved" name="file_approved" value="no"
 									{{($student->file_approved == 'no')?"checked":" "}}>No
-									<span id="approveddate"></span>
+									<span id="approveddate">
+										@if($student->file_approved == 'yes')
+										<input type="date" name="approved_date" value="{{$student->approved_date}}" required>
+										@endif
+									</span>
 								</td>
 							</tr>
 						</div>  
@@ -179,7 +192,11 @@ Process
 									{{($student->file_approved == 'yes')?"disabled":" "}}>Yes
 									<input type="radio" id="nodeclined" name="file_declined" value="no"
 									{{($student->file_declined == 'no')?"checked":" "}}>No
-									<span id="declineddate"></span>
+									<span id="declineddate">
+										@if($student->file_declined == 'yes')
+										<input type="date" name="declined_date" value="{{$student->declined_date}}" required>
+										@endif
+									</span>
 								</td>
 							</tr>
 						</div>   
@@ -308,7 +325,7 @@ Process
 	<script type="text/javascript">
 		$(document).ready(function(){
 	    $("#yesLOA").click(function(){
-	    	var date = '<input type="date" name="LOA_date" required>';
+	    	var date = '<input type="date" name="Loa_date" value="{{$student->Loa_date}}" required>';
 	        $("#LOAdate").html(date);   
 	        });
 	    });
@@ -320,7 +337,7 @@ Process
 	    });
 	    $(document).ready(function(){
 	    $("#yessubmission").click(function(){
-	    	var date = '<input type="date" name="submission_date" required>';
+	    	var date = '<input type="date" name="submission_date" value="{{$student->submission_date}}" required>';
 	        $("#submissiondate").html(date);   
 	        });
 	    });
@@ -331,7 +348,7 @@ Process
 	        });
 	    });$(document).ready(function(){
 	    $("#yesapproved").click(function(){
-	    	var date = '<input type="date" name="approved_date" required>';
+	    	var date = '<input type="date" value="{{$student->approved_date}}" name="approved_date" required>';
 	        $("#approveddate").html(date);   
 	        });
 	    });
@@ -343,7 +360,7 @@ Process
 	    });
 	    $(document).ready(function(){
 	    $("#yesdeclined").click(function(){
-	    	var date = '<input type="date" name="declined_date" required>';
+	    	var date = '<input type="date" value="{{$student->declined_date}}" name="declined_date" required>';
 	        $("#declineddate").html(date);   
 	        });
 	    });
