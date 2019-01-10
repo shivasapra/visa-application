@@ -58,8 +58,8 @@ Process
                 <div class="row">
                 	<div class="col-md-6">
                 	<div class="form-group">
-					<label for="" ><strong>Tuition Fee:</strong></label>
-					<input type="text" name='' required class="form-control">
+					<label for="tuition_fee" ><strong>Tuition Fee:</strong></label>
+					<input type="text" name='tuition_fee' required class="form-control" value="{{$student->tuition_fee}}">
 					</div>
 					</div>
 				</div>
@@ -67,33 +67,33 @@ Process
 					<table class="table table-striped">
 					<tr>
 						<td><strong>Ist installment:</strong></td>
-						<td><input type="text" name='' required></td>
-						<td><input type="text" name='' required>&nbsp;&nbsp;&nbsp;&nbsp;
+						<td><input type="text" name='st_ins_1' required value="{{$student->st_ins_1}}"></td>
+						<td><input type="text" name='st_ins_2' required value="{{$student->st_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
 							@if($student->agent_id != null)
 								{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
 							@endif
 						</td>
-						<td><input type="text" name='' required></td>
+						<td><input type="text" name='st_ins_3' required value="{{$student->st_ins_3}}"></td>
 					</tr>
 					<tr>
 						<td><strong>IInd installment:</strong></td>
-						<td><input type="text" name='' required></td>
-						<td><input type="text" name='' required>&nbsp;&nbsp;&nbsp;&nbsp;
+						<td><input type="text" name='nd_ins_1' required value="{{$student->nd_ins_1}}"></td>
+						<td><input type="text" name='nd_ins_2' required value="{{$student->nd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
 							@if($student->agent_id != null)
 							{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
 							@endif
 						</td>
-						<td><input type="text" name='' required></td>
+						<td><input type="text" name='nd_ins_3' required value="{{$student->nd_ins_3}}"></td>
 					</tr>
 					<tr>
 						<td><strong>IIIrd installment:</strong></td>
-						<td><input type="text" name='' required></td>
-						<td><input type="text" name='' required>&nbsp;&nbsp;&nbsp;&nbsp;
+						<td><input type="text" name='rd_ins_1' required value="{{$student->rd_ins_1}}"></td>
+						<td><input type="text" name='rd_ins_2' required value="{{$student->rd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
 							@if($student->agent_id != null)
 							{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
 							@endif
 						</td>
-						<td><input type="text" name='' required></td>
+						<td><input type="text" name='rd_ins_3' required value="{{$student->rd_ins_3}}"></td>
 					</tr>
 					</table>
 				</div>            	
@@ -111,9 +111,11 @@ Process
 						<tr>
 							<td><strong>LOA:</strong></td>
 							<td>
-								<input type="radio" name="" value="yes">Yes
-								<input type="radio" name="" value="no">No
-								<input type="date" name="" required>
+								<input type="radio" name="LOA" value="yes"
+								{{($student->LOA == 'yes')?"checked":" "}}>Yes
+								<input type="radio" name="LOA" value="no"
+								{{($student->LOA == 'no')?"checked":" "}}>No
+								<input type="date" name="LOA_date" required>
 							</td>
 						</tr>
 					</div>
@@ -121,8 +123,11 @@ Process
 						<tr>
 							<td><strong>Processing:</strong></td>
 							<td>
-								<input type="radio" name="" value="yes">Yes
-								<input type="radio" name="" value="no">No
+								<input type="radio" name="file_processing" value="yes"
+								{{($student->file_processing == 'yes')?"checked":" "}}
+								{{($student->LOA == 'no')?"disabled":" "}}>Yes
+								<input type="radio" name="file_processing" value="no"
+								{{($student->file_processing == 'no')?"checked":" "}}>No
 							</td>
 						</tr>
 					</div>
@@ -130,8 +135,11 @@ Process
 						<tr>
 							<td><strong>Processed:</strong></td>
 							<td>
-								<input type="radio" name="" value="yes">Yes
-								<input type="radio" name="" value="no">No
+								<input type="radio" name="file_processed" value="yes"
+								{{($student->file_processed == 'yes')?"checked":" "}}
+								{{($student->file_processing == 'no')?"disabled":" "}}>Yes
+								<input type="radio" name="file_processed" value="no"
+								{{($student->file_processed == 'no')?"checked":" "}}>No
 							</td>
 						</tr>
 					</div>
@@ -139,9 +147,12 @@ Process
 						<tr>
 							<td><strong>Submission:</strong></td>
 							<td>
-								<input type="radio" name="" value="yes">Yes
-								<input type="radio" name="" value="no">No
-								<input type="date" name="" required>
+								<input type="radio" name="file_submission" value="yes"
+								{{($student->file_submission == 'yes')?"checked":" "}}
+								{{($student->file_processed == 'no')?"disabled":" "}}>Yes
+								<input type="radio" name="file_submission" value="no"
+								{{($student->file_submission == 'no')?"checked":" "}}>No
+								<input type="date" name="submission_date" required>
 							</td>
 						</tr>
 					</div>
@@ -149,9 +160,12 @@ Process
 						<tr>
 							<td><strong>Approved:</strong></td>
 							<td>
-								<input type="radio" name="" value="yes">Yes
-								<input type="radio" name="" value="no">No
-								<input type="date" name="" required>
+								<input type="radio" name="file_approved" value="yes"
+								{{($student->file_approved == 'yes')?"checked":" "}}
+								{{($student->file_submission == 'no')?"disabled":" "}}>Yes
+								<input type="radio" name="file_approved" value="no"
+								{{($student->file_approved == 'no')?"checked":" "}}>No
+								<input type="date" name="approved_date" required>
 							</td>
 						</tr>
 					</div>  
@@ -159,9 +173,13 @@ Process
 						<tr>
 							<td><strong>Declined:</strong></td>
 							<td>
-								<input type="radio" name="" value="yes">Yes
-								<input type="radio" name="" value="no">No
-								<input type="date" name="" required>
+								<input type="radio" name="file_declined" value="yes"
+								{{($student->file_declined == 'yes')?"checked":" "}}
+								{{($student->LOA == 'no')?"disabled":" "}}
+								{{($student->file_approved == 'yes')?"disabled":" "}}>Yes
+								<input type="radio" name="file_declined" value="no"
+								{{($student->file_declined == 'no')?"checked":" "}}>No
+								<input type="date" name="declined_date" required>
 							</td>
 						</tr>
 					</div>   

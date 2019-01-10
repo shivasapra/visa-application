@@ -61,15 +61,15 @@ class CreateStudentProfilesTable extends Migration
             $table->string('reapply')->default('no');
             $table->string('refund')->default('no');
             $table->string('refund_date')->nullable();
-            $table->string('1st_ins_1')->nullable();
-            $table->string('1st_ins_2')->nullable();
-            $table->string('1st_ins_3')->nullable();
-            $table->string('2nd_ins_1')->nullable();
-            $table->string('2nd_ins_2')->nullable();
-            $table->string('2nd_ins_3')->nullable();
-            $table->string('3rd_ins_1')->nullable();
-            $table->string('3rd_ins_2')->nullable();
-            $table->string('3rd_ins_3')->nullable();
+            $table->string('st_ins_1')->nullable();
+            $table->string('st_ins_2')->nullable();
+            $table->string('st_ins_3')->nullable();
+            $table->string('nd_ins_1')->nullable();
+            $table->string('nd_ins_2')->nullable();
+            $table->string('nd_ins_3')->nullable();
+            $table->string('rd_ins_1')->nullable();
+            $table->string('rd_ins_2')->nullable();
+            $table->string('rd_ins_3')->nullable();
             $table->timestamps();
         });
     }
