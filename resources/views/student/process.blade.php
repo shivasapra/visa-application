@@ -51,146 +51,152 @@ Process
 	@endif
 
     <div class="content-body">
-	    
-        <div class="card">
-            <div class="card-content collapse show">
-              <div class="card-body">
-                <div class="row">
-                	<div class="col-md-6">
-                	<div class="form-group">
-					<label for="tuition_fee" ><strong>Tuition Fee:</strong></label>
-					<input type="text" name='tuition_fee' required class="form-control" value="{{$student->tuition_fee}}">
+	   <form action="{{route('process.update',['id'=>$student->id])}}">
+	        <div class="card">
+	            <div class="card-content collapse show">
+	              <div class="card-body">
+	                <div class="row">
+	                	<div class="col-md-6">
+	                	<div class="form-group">
+						<label for="tuition_fee" ><strong>Tuition Fee:</strong></label>
+						<input type="text" name='tuition_fee' required class="form-control" value="{{$student->tuition_fee}}">
+						</div>
+						</div>
 					</div>
-					</div>
-				</div>
-				<div class="row ">
-					<table class="table table-striped">
-					<tr>
-						<td><strong>Ist installment:</strong></td>
-						<td><input type="text" name='st_ins_1' required value="{{$student->st_ins_1}}"></td>
-						<td><input type="text" name='st_ins_2' required value="{{$student->st_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
-							@if($student->agent_id != null)
+					<div class="row ">
+						<table class="table table-striped">
+						<tr>
+							<td><strong>Ist installment:</strong></td>
+							<td><input type="text" name='st_ins_1' required value="{{$student->st_ins_1}}"></td>
+							<td><input type="text" name='st_ins_2' required value="{{$student->st_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
+								@if($student->agent_id != null)
+									{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
+								@endif
+							</td>
+							<td><input type="text" name='st_ins_3' required value="{{$student->st_ins_3}}"></td>
+						</tr>
+						<tr>
+							<td><strong>IInd installment:</strong></td>
+							<td><input type="text" name='nd_ins_1' required value="{{$student->nd_ins_1}}"></td>
+							<td><input type="text" name='nd_ins_2' required value="{{$student->nd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
+								@if($student->agent_id != null)
 								{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
-							@endif
-						</td>
-						<td><input type="text" name='st_ins_3' required value="{{$student->st_ins_3}}"></td>
-					</tr>
-					<tr>
-						<td><strong>IInd installment:</strong></td>
-						<td><input type="text" name='nd_ins_1' required value="{{$student->nd_ins_1}}"></td>
-						<td><input type="text" name='nd_ins_2' required value="{{$student->nd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
-							@if($student->agent_id != null)
-							{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
-							@endif
-						</td>
-						<td><input type="text" name='nd_ins_3' required value="{{$student->nd_ins_3}}"></td>
-					</tr>
-					<tr>
-						<td><strong>IIIrd installment:</strong></td>
-						<td><input type="text" name='rd_ins_1' required value="{{$student->rd_ins_1}}"></td>
-						<td><input type="text" name='rd_ins_2' required value="{{$student->rd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
-							@if($student->agent_id != null)
-							{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
-							@endif
-						</td>
-						<td><input type="text" name='rd_ins_3' required value="{{$student->rd_ins_3}}"></td>
-					</tr>
+								@endif
+							</td>
+							<td><input type="text" name='nd_ins_3' required value="{{$student->nd_ins_3}}"></td>
+						</tr>
+						<tr>
+							<td><strong>IIIrd installment:</strong></td>
+							<td><input type="text" name='rd_ins_1' required value="{{$student->rd_ins_1}}"></td>
+							<td><input type="text" name='rd_ins_2' required value="{{$student->rd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
+								@if($student->agent_id != null)
+								{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
+								@endif
+							</td>
+							<td><input type="text" name='rd_ins_3' required value="{{$student->rd_ins_3}}"></td>
+						</tr>
+						</table>
+					</div>            	
+	              </div>
+	            </div>
+	        </div>
+			
+			<div class="card">
+	            <div class="card-content collapse show">
+	              <div class="card-body">
+	                <div class="table-responsive">
+	             	<table class="table table-hover mb-0">
+					<tbody>
+						<div class="row">
+							<tr>
+								<td><strong>LOA:</strong></td>
+								<td>
+									<input id="yesLOA" type="radio" name="LOA" value="yes"  
+									{{($student->LOA == 'yes')?"checked":" "}}>Yes
+									<input id="noLOA" type="radio" name="LOA" value="no"
+									{{($student->LOA == 'no')?"checked":" "}}>No
+									<span id="LOAdate"></span>
+								</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Processing:</strong></td>
+								<td>
+									<input type="radio" name="file_processing" value="yes"
+									{{($student->file_processing == 'yes')?"checked":" "}}
+									{{($student->LOA == 'no')?"disabled":" "}}>Yes
+									<input type="radio" name="file_processing" value="no"
+									{{($student->file_processing == 'no')?"checked":" "}}>No
+								</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Processed:</strong></td>
+								<td>
+									<input type="radio" name="file_processed" value="yes"
+									{{($student->file_processed == 'yes')?"checked":" "}}
+									{{($student->file_processing == 'no')?"disabled":" "}}>Yes
+									<input type="radio" name="file_processed" value="no"
+									{{($student->file_processed == 'no')?"checked":" "}}>No
+								</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Submission:</strong></td>
+								<td>
+									<input id="yessubmission" type="radio" name="file_submission" value="yes"
+									{{($student->file_submission == 'yes')?"checked":" "}}
+									{{($student->file_processed == 'no')?"disabled":" "}}>Yes
+									<input type="radio" id="nosubmission" name="file_submission" value="no"
+									{{($student->file_submission == 'no')?"checked":" "}}>No
+									<span id="submissiondate"></span>
+								</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Approved:</strong></td>
+								<td>
+									<input id="yesapproved" type="radio" name="file_approved" value="yes"
+									{{($student->file_approved == 'yes')?"checked":" "}}
+									{{($student->file_submission == 'no')?"disabled":" "}}>Yes
+									<input type="radio" id="noapproved" name="file_approved" value="no"
+									{{($student->file_approved == 'no')?"checked":" "}}>No
+									<span id="approveddate"></span>
+								</td>
+							</tr>
+						</div>  
+						<div class="row">
+							<tr>
+								<td><strong>Declined:</strong></td>
+								<td>
+									<input type="radio" id="yesdeclined" name="file_declined" value="yes"
+									{{($student->file_declined == 'yes')?"checked":" "}}
+									{{($student->LOA == 'no')?"disabled":" "}}
+									{{($student->file_approved == 'yes')?"disabled":" "}}>Yes
+									<input type="radio" id="nodeclined" name="file_declined" value="no"
+									{{($student->file_declined == 'no')?"checked":" "}}>No
+									<span id="declineddate"></span>
+								</td>
+							</tr>
+						</div>   
+					</tbody>
 					</table>
-				</div>            	
-              </div>
-            </div>
-        </div>
-		
-		<div class="card">
-            <div class="card-content collapse show">
-              <div class="card-body">
-                <div class="table-responsive">
-             	<table class="table table-hover mb-0">
-				<tbody>
-					<div class="row">
-						<tr>
-							<td><strong>LOA:</strong></td>
-							<td>
-								<input type="radio" name="LOA" value="yes"
-								{{($student->LOA == 'yes')?"checked":" "}}>Yes
-								<input type="radio" name="LOA" value="no"
-								{{($student->LOA == 'no')?"checked":" "}}>No
-								<input type="date" name="LOA_date" required>
-							</td>
-						</tr>
-					</div>
-					<div class="row">
-						<tr>
-							<td><strong>Processing:</strong></td>
-							<td>
-								<input type="radio" name="file_processing" value="yes"
-								{{($student->file_processing == 'yes')?"checked":" "}}
-								{{($student->LOA == 'no')?"disabled":" "}}>Yes
-								<input type="radio" name="file_processing" value="no"
-								{{($student->file_processing == 'no')?"checked":" "}}>No
-							</td>
-						</tr>
-					</div>
-					<div class="row">
-						<tr>
-							<td><strong>Processed:</strong></td>
-							<td>
-								<input type="radio" name="file_processed" value="yes"
-								{{($student->file_processed == 'yes')?"checked":" "}}
-								{{($student->file_processing == 'no')?"disabled":" "}}>Yes
-								<input type="radio" name="file_processed" value="no"
-								{{($student->file_processed == 'no')?"checked":" "}}>No
-							</td>
-						</tr>
-					</div>
-					<div class="row">
-						<tr>
-							<td><strong>Submission:</strong></td>
-							<td>
-								<input type="radio" name="file_submission" value="yes"
-								{{($student->file_submission == 'yes')?"checked":" "}}
-								{{($student->file_processed == 'no')?"disabled":" "}}>Yes
-								<input type="radio" name="file_submission" value="no"
-								{{($student->file_submission == 'no')?"checked":" "}}>No
-								<input type="date" name="submission_date" required>
-							</td>
-						</tr>
-					</div>
-					<div class="row">
-						<tr>
-							<td><strong>Approved:</strong></td>
-							<td>
-								<input type="radio" name="file_approved" value="yes"
-								{{($student->file_approved == 'yes')?"checked":" "}}
-								{{($student->file_submission == 'no')?"disabled":" "}}>Yes
-								<input type="radio" name="file_approved" value="no"
-								{{($student->file_approved == 'no')?"checked":" "}}>No
-								<input type="date" name="approved_date" required>
-							</td>
-						</tr>
-					</div>  
-					<div class="row">
-						<tr>
-							<td><strong>Declined:</strong></td>
-							<td>
-								<input type="radio" name="file_declined" value="yes"
-								{{($student->file_declined == 'yes')?"checked":" "}}
-								{{($student->LOA == 'no')?"disabled":" "}}
-								{{($student->file_approved == 'yes')?"disabled":" "}}>Yes
-								<input type="radio" name="file_declined" value="no"
-								{{($student->file_declined == 'no')?"checked":" "}}>No
-								<input type="date" name="declined_date" required>
-							</td>
-						</tr>
-					</div>   
-				</tbody>
-				</table>
-				</div>			          	
-              </div>
-            </div>
-        </div>
-
+					</div>			          	
+	              </div>
+	            </div>
+	        </div>
+	        <div class="text-center">
+	        	<div class="form-group">
+	        		<button class="btn btn-info" type="submit">Update</button>
+	        	</div>
+	        </div>
+		</form>
 	</div>
+
 
 
 
@@ -298,5 +304,56 @@ Process
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="{{asset("app/front/app-assets/js/scripts/forms/wizard-steps.js")}}" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+	    $("#yesLOA").click(function(){
+	    	var date = '<input type="date" name="LOA_date" required>';
+	        $("#LOAdate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#noLOA").click(function(){
+	    	var date = '';
+	        $("#LOAdate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#yessubmission").click(function(){
+	    	var date = '<input type="date" name="submission_date" required>';
+	        $("#submissiondate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#nosubmission").click(function(){
+	    	var date = '';
+	        $("#submissiondate").html(date);   
+	        });
+	    });$(document).ready(function(){
+	    $("#yesapproved").click(function(){
+	    	var date = '<input type="date" name="approved_date" required>';
+	        $("#approveddate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#noapproved").click(function(){
+	    	var date = '';
+	        $("#approveddate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#yesdeclined").click(function(){
+	    	var date = '<input type="date" name="declined_date" required>';
+	        $("#declineddate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#nodeclined").click(function(){
+	    	var date = '';
+	        $("#declineddate").html(date);   
+	        });
+	    });
+	</script>
+					
 	  
 @endsection
