@@ -144,9 +144,10 @@ Process
 								<td><strong>Processed:</strong></td>
 								<td>
 									<input type="radio" name="file_processed" value="yes"
+									{{($student->file_declined == 'yes')?"disabled":" "}}
 									{{($student->file_processed == 'yes')?"checked":" "}}
 									{{($student->file_processing == 'no')?"disabled":" "}}
-									{{($student->file_declined == 'yes')?"disabled":" "}}>Yes
+									>Yes
 									<input type="radio" name="file_processed" value="no"
 									{{($student->file_processed == 'no')?"checked":" "}}
 									{{($student->file_processed == 'yes')?"disabled":" "}}>No
@@ -203,7 +204,7 @@ Process
 									<input type="radio" id="nodeclined" name="file_declined" value="no"
 									{{($student->file_declined == 'no')?"checked":" "}}{{($student->file_declined == 'yes')?"disabled":" "}}>No
 									<span id="declineddate">
-										@if($student->file_declined == 'yes')
+										@if($student->file_declined == 'yes' and $student->refund == 'no')
 										<input type="date" name="declined_date" value="{{$student->declined_date}}" required>&nbsp;
 										<a href="{{route('reapply',['id'=>$student->id])}}" class="btn btn-sm btn-success">Re-Apply</a>
 										@endif
