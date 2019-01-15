@@ -184,7 +184,13 @@ Student Details
 						<div class="row">
 							<tr>
 								<td><strong>English Language Test:</strong></td>
-								<td>{{$student->test}}</td>
+								<td>{{$student->test}}
+								@if($student->listening != null)
+								<strong>({{"L: ".$student->listening}}
+								{{"R: ".$student->reading}}
+								{{"W: ".$student->writing}}
+								{{"S: ".$student->speaking}})</strong></td>
+								@endif
 							</tr>
 						</div>
 						<div class="row">
@@ -219,7 +225,7 @@ Student Details
 			</div>
 		</div>
 		<div class="text-center">
-			<a href="{{route('visa.details',['id'=>$student->id])}}" class="btn btn-sm btn-info">Visa Details</a>
+			{{-- <a href="{{route('visa.details',['id'=>$student->id])}}" class="btn btn-sm btn-info">Visa Details</a> --}}
 			<a href="{{route('student.edit',['id'=>$student->id])}}" class="btn btn-sm btn-info">Edit student Profile Details</a>
 		</div>
 		{{-- <div class="col-md-4" >
