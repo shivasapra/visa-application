@@ -71,7 +71,8 @@ class leadController extends Controller
         
             
             $lead->description = $request->description;
-        
+            $lead->interested = $request->StatuS;
+            $lead->StatuS_info = $request->StatuS_info;
         $lead->save();
         
         Session::flash('success','new lead created ');

@@ -129,10 +129,18 @@ Create Lead
 	                        </div>
 	                        </div>
 	                        <div class="row">
-	                        	<div class="col-md-12">
+	                        	<div class="col-md-8">
 	                            <div class="form-group">
 	                              <label for="description">Short Description :</label>
 	                              <textarea name="description" id="description" rows="4" class="form-control"></textarea>
+	                            </div>
+	                          </div>
+	                        	<div class="col-md-4">
+	                            <div class="form-group">
+	                            	<label for="StatuS">Status:</label><hr>
+	                              <input type="radio" value="interested" name="StatuS" required>Interested<br>
+	                              <input type="radio" id="not-button" value="Not-Interested" name="StatuS">Not Interested<span id="not-interested" required></span><br>
+	                              <input type="radio" id="follow-button" value=Follow-up" name="StatuS" required>Follow-Up <span id="follow-up"></span>	
 	                            </div>
 	                          </div>
 	                        </div>
@@ -260,6 +268,20 @@ Create Lead
 	        	}
 		    });
 		});
+
+		$(document).ready(function(){
+	    $('#not-button').click(function(){
+	    	var textbox = '<input type="text" class="form-control" name="StatuS_info" required>';
+	    	$('#not-interested').html(textbox);
+	    });
+	});
+
+		$(document).ready(function(){
+	    $('#follow-button').click(function(){
+	    	var textbox = '<input type="text" class="form-control" name="StatuS_info" required>';
+	    	$('#follow-up').html(textbox);
+	    });
+	});
 		
 	</script>
 @endsection
