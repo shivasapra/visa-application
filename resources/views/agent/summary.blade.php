@@ -54,13 +54,13 @@ Agent Summary
 @stop
 @section('content')
 	
+				<form action="{{route('summary.update',['id'=>$agent->id])}}" class="number-tab-steps wizard-circle" method="post">
 	<div class="content-body">
 		<div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-content collapse show">
 		
-				<form action="{{route('summary.update',['id'=>$agent->id])}}" class="number-tab-steps wizard-circle" method="post">
 	            	@csrf
 					<div class="table-responsive">
                  	<table class="table table-hover mb-0">
@@ -177,21 +177,32 @@ Agent Summary
 									</td>
 								</tr>
 							</div>
+
+							<div class="row">
+								<tr>
+								<div class="form-group">
+									<td><label for="percentage"><strong>Percentage</strong></label></td>
+									<div class="col-md-3">
+									<td><input type="text" name='percentage' required class="form-control" value="{{$agent->percentage}}" required></td></div>
+								</div>
+								</tr>
+							</div>
 						</tbody>
 					</table>
 					</div>
 
-					<div class="form-group">
-					<div class="text-center">
-						<button class="btn btn-success" type="submit">Save</button>
-					</div>
-					</div>
-				</form>
 			</div>
 		</div>
 	</div>
 	</div>
 	</div>
+					<div class="form-group">
+					<div class="text-center">
+						<a href="{{route('agent.business',['id'=>$agent->id])}}" class="btn btn-warning">Back</a>
+						<button class="btn btn-success" type="submit">Save</button>
+					</div>
+					</div>
+				</form>
 
 
 @stop

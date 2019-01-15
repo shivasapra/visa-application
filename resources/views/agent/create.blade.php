@@ -96,16 +96,10 @@ Create Agent
 									<input type="text" name='website' required class="form-control">
 								</div>
 							</div>
-							<div class="col-md-3">
+							<div class="col-md-6">
 								<div class="form-group">
 									<label for="mobile">Mobile</label>
 									<input type="text" name='mobile' required maxlength="10" minlength="10" class="form-control">
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="form-group">
-									<label for="percentage">Percentage</label>
-									<input type="text" name='percentage' required class="form-control">
 								</div>
 							</div>
 						</div>
