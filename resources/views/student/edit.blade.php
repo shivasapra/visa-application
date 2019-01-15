@@ -186,18 +186,30 @@ Edit Student
 	                  <div class="card-body">
 	                    <fieldset>
 	                        	<div class="text-center"><h4>{{"Language Test"}}</h4></div>
-	                       		<div class="row">
-		                          <div class="col-md-6">
-		                            <label for="test">English language Test</label>
-									<input type="text"  name='test' required class="form-control" value="{{$student->test}}">
-		                            </div>
-		                            <div class="col-md-6">
-		                            <div class="form-group">
+	                        	<div class="row">
+			                          <div class="col-md-3">
+			                            <label for="test">English language Test</label>
+										<select class="custom-select form-control" id="test"
+			                              name="test" required>
+			                              <option value="">{{'--select--'}}</option>
+											<option value="ILETS" {{($student->test == 'ILETS')?"selected":" "}}>{{'ILETS'}}</option>
+											<option value="others" {{($student->test != 'ILETS')?"selected":" "}}>{{'Others'}}</option>
+			                              </select>
+			                            </div>
+			                            <div class="col-md-6" id="target">
+			                            	@if($student->test != 'ILETS')
+			                            	<div class="form-group"><label for="othervalue">Name:</label><input type="text" name="othervalue" required class="form-control" value="{{$student->test}}"></div>
+			                            	@elseif($student->test == 'ILETS')
+			                            		<div class="form-group"><input type="text" name="listening" placeholder="listening" required class="form-control" value="{{$student->listening}}"></div><div class="form-group"><input type="text" name="reading" placeholder="reading" required class="form-control" value="{{$student->reading}}"></div><div class="form-group"><input type="text" name="writing" placeholder="writing" required class="form-control" value="{{$student->writing}}"></div><div class="form-group"><input type="text" name="speaking" placeholder="speaking" required class="form-control" value="{{$student->speaking}}"></div>
+											@endif
+			                            </div>
+			                            <div class="col-md-3">
+			                            <div class="form-group">
 		                             <label for="test_date">Test Date</label>
 									 <input type="date" name='test_date' required class="form-control" value="{{$student->test_date}}">
 		                            </div>
+			                        	</div>
 		                        	</div>
-	                        	</div>
 	                        	<div class="row">
 		                          <div class="col-md-6">
 		                            <label for="test_remarks">Remarks</label>
@@ -449,4 +461,21 @@ Edit Student
 	});
   </script> --}}
   <!-- END PAGE LEVEL JS-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script>
+  $(document).ready(function(){
+	    $('#test').on('change', function(){
+	    	var test = this.value;
+		    if (test == 'others'){
+		    	var othervalue = '<div class="form-group"><label for="othervalue">Name:</label><input type="text" name="othervalue" required class="form-control"></div>';
+		    	$('#target').html(othervalue);
+		    }
+		    if (test == 'ILETS'){
+		    	var ilets ='<div class="form-group"><input type="text" name="listening" placeholder="listening" required class="form-control"></div><div class="form-group"><input type="text" name="reading" placeholder="reading" required class="form-control"></div><div class="form-group"><input type="text" name="writing" placeholder="writing" required class="form-control"></div><div class="form-group"><input type="text" name="speaking" placeholder="speaking" required class="form-control"></div>';
+		    	$('#target').html(ilets);
+		    }
+		});
+	});
+  </script>
 @endsection
