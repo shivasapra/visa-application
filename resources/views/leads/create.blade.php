@@ -85,13 +85,13 @@ Create Lead
 	                            <div class="col-md-6">
 	                            <div class="form-group">
 	                              <label for="student_fname">First Name :</label>
-	                              <input type="text" class="form-control" name="student_fname">
+	                              <input type="text" class="form-control" name="student_fname" required>
 	                            </div>
 	                          </div>
 	                          <div class="col-md-6">
 	                            <div class="form-group">
 	                              <label for="student_lname">Last Name :</label>
-	                              <input type="text" class="form-control" name="student_lname">
+	                              <input type="text" class="form-control" name="student_lname" required>
 	                            </div>
 	                          </div>
 	                          </div>
@@ -105,7 +105,7 @@ Create Lead
 		                           <div class="col-md-6">
 		                            <div class="form-group">
 		                              <label for="mobile">Mobile :</label>
-		                              <input type="text" maxlength="10" minlength="10" class="form-control" name="Mobile">
+		                              <input type="text" maxlength="10" minlength="10" class="form-control" name="Mobile" required>
 		                            </div>
 		                           </div>
 	                          </div>

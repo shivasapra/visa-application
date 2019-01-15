@@ -20,11 +20,11 @@ class CreateLeadsTable extends Migration
             $table->string('third_party')->nullable();
             $table->string('student_fname');
             $table->string('student_lname');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('Mobile');
-            $table->string('address');
-            $table->integer('postal_code');
-            $table->string('description');
+            $table->string('address')->nullable();
+            $table->integer('postal_code')->nullable();
+            $table->string('description')->nullable();
             $table->integer('status')->default(0);
             $table->timestamps();
         });

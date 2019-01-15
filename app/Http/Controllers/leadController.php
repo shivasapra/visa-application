@@ -43,10 +43,6 @@ class leadController extends Controller
             $this->validate($request,[
             'student_fname' => 'required',
             'student_lname' => 'required',
-            'description' => 'required',
-            'email' => 'required|email',
-            'address' => 'required',
-            'postal_code' => 'required',
             'Mobile' => 'required'
         ]);
 
@@ -58,19 +54,25 @@ class leadController extends Controller
         if ($request->source == 'third_party') {
             $lead->third_party = $request->third_party;
         }
-            $lead->student_fname = $request->student_fname;
-            $lead->student_lname = $request->student_lname;
-            $lead->email = $request->email;
-            $lead->Mobile = $request->Mobile;
-            $lead->address = $request->address;
-            $lead->postal_code = $request->postal_code;
-            $lead->agent_id = $request->agent_id;
-            $lead->description = $request->description;
-            $lead->save();
         if ($request->source == 'agent') {
             $lead->agent_id = $request->idd;
-            $lead->save();
         }
+            $lead->student_fname = $request->student_fname;
+            $lead->student_lname = $request->student_lname;
+            $lead->Mobile = $request->Mobile;
+        
+                $lead->email = $request->email;
+            
+            
+            $lead->address = $request->address;
+        
+            
+            $lead->postal_code = $request->postal_code;
+        
+            
+            $lead->description = $request->description;
+        
+        $lead->save();
         
         Session::flash('success','new lead created ');
         return redirect()->route('leads');
