@@ -133,9 +133,9 @@ Agent Summary
 										@if($agent->agreement_signed_agent == 'yes')
 										<input type="date" name="agreement_signed_agent_date" value="{{$agent->agreement_signed_agent_date}}" required>
 										@if($contracts->count()>0)
-										<button class="btn btn-sm btn-info" disabled>Contract Created</button>
+										<button class="btn btn-sm btn-info" disabled hidden>Contract Created</button>
 										@else
-										<a href="{{route('contract.store',['id'=>$agent->id])}}" class="btn btn-sm btn-success {{($agent->agreement_sent == 'no')?"disabled":" "}}" >Click to create contract</a>
+										<a href="{{route('contract.store',['id'=>$agent->id])}}" class="btn btn-sm btn-success {{($agent->agreement_sent == 'no')?"disabled":" "}}" id="createContract" hidden>Click to create contract</a>
 										@endif
 										@endif
 										</span>
@@ -282,5 +282,14 @@ Agent Summary
 	        $("#crtdate").html(date);   
 	        });
 	    });
+
+	    @if($agent->agreement_signed_agent == 'yes')
+		@if($contracts->count()==0)
+		window.onload = function(){
+			document.getElementById('createContract').click();
+		}
+		@endif
+		@endif
+
 	</script>
 @endsection

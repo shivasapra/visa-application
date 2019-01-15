@@ -173,14 +173,20 @@
   <script src="{{asset("app/front/app-assets/js/scripts/pages/dashboard-fitness.js")}}" type="text/javascript"></script>
   {{-- <script src="{{ asset('/js/app.js') }}"></script> --}}
     <script src="{{ asset('/js/toastr.min.js') }}"></script>
-  <script>
+    <script>
         @if(Session::has('success'))
             toastr.success("{{Session::get('success')}}")
         @endif
         @if(Session::has('info'))
             toastr.info("{{Session::get('info')}}")
         @endif
-  </script>
+        @if(Session::has('warning'))
+            toastr.warning("{{Session::get('warning')}}")
+        @endif
+        @if(Session::has('danger'))
+            toastr.danger("{{Session::get('danger')}}")
+        @endif
+    </script>
   <!-- END PAGE LEVEL JS-->
   @yield('js')
 
