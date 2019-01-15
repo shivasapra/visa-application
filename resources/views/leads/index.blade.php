@@ -68,6 +68,7 @@ Leads
 								<td>{{$lead->student_lname}}</td>
 								<td>{{$lead->email}}</td>
 								<td>
+									<span class="text-info">{{$lead->interested}}&nbsp;</span>
 									@if($lead->status == 0)
 										Not processed
 										<a href="{{route('status.edit',['id'=>$lead->id])}}" class="btn btn-sm btn-info">Edit</a>
@@ -77,7 +78,7 @@ Leads
 											<a href="{{route('status.edit',['id'=>$lead->id])}}" class="btn btn-sm btn-info">Edit</a>
 									@else
 										<a href="{{route('details.lead',['id'=>$lead->id])}}">Processed</a>
-									@endif	
+									@endif
 								</td>
 		                      </tr>
 		                	@endforeach

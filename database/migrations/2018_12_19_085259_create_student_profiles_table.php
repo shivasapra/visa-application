@@ -44,6 +44,10 @@ class CreateStudentProfilesTable extends Migration
             $table->string('twelveth_board');
             $table->string('twelveth_stream');
             $table->string('test')->nullable();
+            $table->string('listening')->nullable();
+            $table->string('reading')->nullable();
+            $table->string('writing')->nullable();
+            $table->string('speaking')->nullable();
             $table->string('test_date')->nullable();
             $table->string('test_remarks')->nullable();
             $table->string('test_score')->nullable();

@@ -104,8 +104,17 @@ class StudentController extends Controller
             $student->tenth_board = $request->tenth_board;
             $student->twelveth_board = $request->twelveth_board;
             $student->twelveth_stream = $request->twelveth_stream;
-            $student->test = $request->test;
             $student->test_date = $request->test_date;
+            if($request->test == 'ILETS'){
+                $student->test = $request->test;
+                $student->listening = $request->listening;
+                $student->reading = $request->reading;
+                $student->writing = $request->writing;
+                $student->speaking = $request->speaking;
+            }
+            if($request->test == 'others'){
+                $student->test = $request->othervalue;
+            }
             if($request->has('test_remarks')){
                 $student->test_remarks = $request->test_remarks;
             }

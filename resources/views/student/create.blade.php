@@ -168,11 +168,17 @@ Add Student
 		                    <fieldset>
 		                        	<div class="text-center"><h4>{{"Language Test"}}</h4></div>
 		                       		<div class="row">
-			                          <div class="col-md-6">
+			                          <div class="col-md-3">
 			                            <label for="test">English language Test</label>
-										<input type="text"  name='test' required class="form-control">
+										<select class="custom-select form-control" id="test"
+			                              name="test" required>
+			                              <option value="">{{'--select--'}}</option>
+											<option value="ILETS">{{'ILETS'}}</option>
+											<option value="others">{{'Others'}}</option>
+			                              </select>
 			                            </div>
-			                            <div class="col-md-6">
+			                            <div class="col-md-6" id="target"></div>
+			                            <div class="col-md-3">
 			                            <div class="form-group">
 			                             <label for="test_date">Test Date</label>
 										 <input type="date" name='test_date' required class="form-control">
@@ -442,6 +448,20 @@ Add Student
 	        	}
 		    });
 		});
-		
+
+		$(document).ready(function(){
+	    $('#test').on('change', function(){
+	    	var test = this.value;
+		    if (test == 'others'){
+		    	var othervalue = '<div class="form-group"><label for="othervalue">Name:</label><input type="text" name="othervalue" required class="form-control"></div>';
+		    	$('#target').html(othervalue);
+		    }
+		    if (test == 'ILETS'){
+		    	var ilets ='<div class="form-group"><input type="text" name="listening" placeholder="listening" required class="form-control"></div><div class="form-group"><input type="text" name="reading" placeholder="reading" required class="form-control"></div><div class="form-group"><input type="text" name="writing" placeholder="writing" required class="form-control"></div><div class="form-group"><input type="text" name="speaking" placeholder="speaking" required class="form-control"></div>';
+		    	$('#target').html(ilets);
+		    }
+		});
+	});
+			
 	</script>
 @endsection
