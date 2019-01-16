@@ -420,6 +420,7 @@ Process
 	   //  	document.getElementsById("#st_ins_3").value = final;
     // });
     // });
+    @if($student->agent_id != null)
 	   $(document).ready(function(){
     	$("#target").hover(function(){
     		document.getElementsByName("st_ins_3")[0].value =(document.getElementsByName("st_ins_2")[0].value * {{$student->agent->percentage}})/100;
@@ -435,6 +436,7 @@ Process
     		document.getElementsByName("rd_ins_3")[0].value =(document.getElementsByName("rd_ins_2")[0].value * {{$student->agent->percentage}})/100;
     	});
     	});
+    	@endif
 	</script>
 					
 	  
