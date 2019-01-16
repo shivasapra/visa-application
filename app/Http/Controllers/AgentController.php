@@ -57,7 +57,6 @@ class AgentController extends Controller
             'photos_received' => 'required',
             'id_name' => 'required',
             'id_no' => 'required',
-            'percentage' =>'required'
             
             
         ]);
@@ -201,7 +200,6 @@ class AgentController extends Controller
             'photos_received' => 'required',
             'id_name' => 'required',
             'id_no' => 'required',
-            'percentage' =>'required'
             
             
 

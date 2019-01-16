@@ -228,15 +228,15 @@ Create Agent
 													<button class="btn btn-info btn-sm" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded='true' 
 													aria-controls="collapse1">Reference 1</button></div><br>
 													<div class="collapse" id="collapse1">
-														<label for="reference1_name">Name</label>
+														<label for="reference1_name">College Name</label>
 														<input type="text" name='reference1_name'  class="form-control" ><br>
 														<label for="reference1_phone">Mobile</label>
 														<input type="text" name='reference1_phone'  class="form-control" ><br>
 														<label for="reference1_email">Email</label>
 														<input type="email" name='reference1_email' class="form-control" ><br>
-														<label for="reference1_contact">Contact Person</label>
+														<label for="reference1_contact">Consult Person</label>
 														<input type="text" name='reference1_contact' class="form-control" ><br>
-														<label for="reference1_website">Website</label>
+														<label for="reference1_website">Country</label>
 														<input type="text" name='reference1_website' class="form-control" >
 													</div>
 												</div>
@@ -248,15 +248,15 @@ Create Agent
 												<button class="btn btn-warning btn-sm" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded='true' 
 												aria-controls="collapse2">Reference 2</button></div><br>
 												<div class="collapse" id="collapse2">
-													<label for="reference2_name">Name</label>
+													<label for="reference2_name">College Name</label>
 													<input type="text" name='reference2_name' class="form-control" ><br>
 													<label for="reference2_phone">Mobile</label>
 													<input type="text" name='reference2_phone' class="form-control" ><br>
 													<label for="reference2_email">Email</label>
 													<input type="email" name='reference2_email' class="form-control" ><br>
-													<label for="reference2_contact">Contact Person</label>
+													<label for="reference2_contact">Consult Person</label>
 													<input type="text" name='reference2_contact' class="form-control" ><br>
-													<label for="reference2_website">Website</label>
+													<label for="reference2_website">Country</label>
 													<input type="text" name='reference2_website' class="form-control" >
 												</div>
 											</div>

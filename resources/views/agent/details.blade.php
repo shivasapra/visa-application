@@ -168,14 +168,14 @@ Agent Details
 				@if($agent->reference1_name)
             	<div class="text-center"><h4>{{"Reference1"}}</h4></div>
 					<tr>
-						<td><strong>Name:</strong></td>
+						<td><strong>College Name:</strong></td>
 						<td>{{$agent->reference1_name}}</td>
 					</tr>
 				@endif
-				@if($agent->reference1_mobile)
+				@if($agent->reference1_phone)
 					<tr>
 						<td><strong>Mobile:</strong></td>
-						<td>{{$agent->reference1_mobile}}</td>
+						<td>{{$agent->reference1_phone}}</td>
 					</tr>
 				@endif
 				@if($agent->reference1_email)
@@ -186,13 +186,13 @@ Agent Details
 				@endif
 				@if($agent->reference1_contact)
 					<tr>
-						<td><strong>Contact Person:</strong></td>
+						<td><strong>Consult Person:</strong></td>
 						<td>{{$agent->reference1_contact}}</td>
 					</tr>
 				@endif
 				@if($agent->reference1_website)
 					<tr>
-						<td><strong>Website:</strong></td>
+						<td><strong>Country:</strong></td>
 						<td>{{$agent->reference1_website}}</td>
 					</tr>
 				@endif
@@ -209,14 +209,14 @@ Agent Details
 				@if($agent->reference2_name)
             	<div class="text-center"><h4>{{"Reference2"}}</h4></div>
 					<tr>
-						<td><strong>Name:</strong></td>
+						<td><strong>College Name:</strong></td>
 						<td>{{$agent->reference2_name}}</td>
 					</tr>
 				@endif
-				@if($agent->reference2_mobile)
+				@if($agent->reference2_phone)
 					<tr>
 						<td><strong>Mobile:</strong></td>
-						<td>{{$agent->reference2_mobile}}</td>
+						<td>{{$agent->reference2_phone}}</td>
 					</tr>
 				@endif
 				@if($agent->reference2_email)
@@ -227,13 +227,13 @@ Agent Details
 				@endif
 				@if($agent->reference2_contact)
 					<tr>
-						<td><strong>Contact Person:</strong></td>
+						<td><strong>Consult Person:</strong></td>
 						<td>{{$agent->reference2_contact}}</td>
 					</tr>
 				@endif
 				@if($agent->reference2_website)
 					<tr>
-						<td><strong>Website:</strong></td>
+						<td><strong>Country:</strong></td>
 						<td>{{$agent->reference2_website}}</td>
 					</tr>
 				@endif
