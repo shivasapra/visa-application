@@ -184,23 +184,21 @@ Edit Agent
 							<fieldset>
 								<div class="text-center"><h4>{{"Identity"}}</h4></div>
 								<div class="row">
-							
-								<div class="col-md-6">
+								<div class="col-md-5">
 								<div class="form-group">
 									<label for="id_name[]">ID Name:</label>
 									<input type="text" name="id_name[]" class="form-control">
-								<div id="id_name"></div>
 								</div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-5">
 								<div class="form-group">
 									<label for="id_no[]">ID No.</label>
 									<input type="text" name="id_no[]" class="form-control">
-								<div id="id_no"></div>
 								</div>
 								</div>
-							
 								</div>
+								<div id="idd"></div>
+								
 									<div class="text-center">
 										<button class="btn btn-success btn-sm" type="button" id="addid">Add Id</button><br>
 									</div>
@@ -310,18 +308,42 @@ Edit Agent
   <script src="{{asset("app/front/app-assets/js/scripts/forms/wizard-steps.js")}}" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
   <script type="text/javascript">
-	$(document).ready(function(){
-    $("#addid").click(function(){
-    	var name = '<label for="id_name[]">ID Name:</label><input type="text" 					name="id_name" class="form-control">';
-        $("#id_name").append(name);   
-        });
-    });
+	// $(document).ready(function(){
+ //    $("#addid").click(function(){
+ //    	var name = '<label for="id_name[]">ID Name:</label><input type="text" 					name="id_name[]" class="form-control">';
+ //        $("#id_name").append(name);   
+ //        });
+ //    });
+ //    $(document).ready(function(){
+ //    $("#addid").click(function(){
+ //    	var no = '<label for="id_no[]">ID No.</label><input type="text" name="id_no[]" 			class="form-control"><input type="button" class="btn btn-sm btn-danger" value="X" onclick="SomeDeleteRowFunction(this);">';
+ //        $("#id_no").append(no);         
+ //        });
+ //    });
+
+
     $(document).ready(function(){
     $("#addid").click(function(){
-    	var no = '<label for="id_no">ID No.</label><input type="text" name="id_no[]" 			class="form-control">';
-        $("#id_no").append(no);         
-        });
-    });
+    	var name = '<div class="row"><div class="col-md-5"><div class="form-group"><label for="id_name[]">ID Name:</label><input type="text" name="id_name[]" class="form-control"></div></div><div class="col-md-5"><div class="form-group"><label for="id_no[]">ID No.</label><input type="text" name="id_no[]" class="form-control"></div></div><div class="col-md-2"><div class="form-group"><label for="">Action</label><input type="button" class="btn btn-danger" value="X" onclick="SomeDeleteRowFunction(this);"></div></div></div>';
+    	$("#idd").append(name);  
+    	});
+	});
+
+
+    function SomeDeleteRowFunction(btndel) {
+    if (typeof(btndel) == "object") {
+        $(btndel).closest('.row').remove();
+    } else {
+        return false;
+    }
+}
+ //    function SomeDeleteRowFunction(btndel) {
+ //    if (typeof(btndel) == "object") {
+ //        $(btndel).closest("div").remove();
+ //    } else {
+ //        return false;
+ //    	}
+	// }
 	</script>
 
 @endsection

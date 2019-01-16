@@ -185,17 +185,16 @@ Create Agent
 								<div class="form-group">
 									<label for="id_name[]">ID Name:</label>
 									<input type="text" name="id_name[]" class="form-control">
-									<div id="id_name"></div>
 								</div>
 								</div>
 								<div class="col-md-6">
 								<div class="form-group">
 									<label for="id_no[]">ID No.</label>
 									<input type="text" name="id_no[]" class="form-control">
-									<div id="id_no"></div>
 								</div>
 								</div>
 								</div>
+								<div id="idd"></div>
 									<div class="text-center">
 										<button class="btn btn-success btn-sm" type="button" id="addid">Add Id</button>
 									</div>
@@ -305,15 +304,18 @@ Create Agent
   <script type="text/javascript">
 	$(document).ready(function(){
     $("#addid").click(function(){
-    	var name = '<label for="id_name[]">ID Name:</label><input type="text" 					name="id_name[]" class="form-control">';
-        $("#id_name").append(name);   
-        });
-    });
-    $(document).ready(function(){
-    $("#addid").click(function(){
-    	var no = '<label for="id_no[]">ID No.</label><input type="text" name="id_no[]" 			class="form-control">';
-        $("#id_no").append(no);         
-        });
-    });
+    	var name = '<div class="row"><div class="col-md-5"><div class="form-group"><label for="id_name[]">ID Name:</label><input type="text" name="id_name[]" class="form-control"></div></div><div class="col-md-5"><div class="form-group"><label for="id_no[]">ID No.</label><input type="text" name="id_no[]" class="form-control"></div></div><div class="col-md-2"><div class="form-group"><label for="">Action</label><input type="button" class="btn btn-danger" value="X" onclick="SomeDeleteRowFunction(this);"></div></div></div>';
+    	$("#idd").append(name);  
+    	});
+	});
+
+
+    function SomeDeleteRowFunction(btndel) {
+    if (typeof(btndel) == "object") {
+        $(btndel).closest('.row').remove();
+    } else {
+        return false;
+    }
+}
 	</script>
 @endsection
