@@ -181,6 +181,22 @@ Student Details
 								<td>{{$student->twelveth_stream}}</td>
 							</tr>
 						</div>
+						@if($educations->count()>0)
+						@foreach($educations as $education)
+						<div class="row">
+							<tr>
+								<td><strong>{{$education->education}} Percentage:</strong></td>
+								<td>{{$education->percentage}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>{{$education->education}} Passing Year:</strong></td>
+								<td>{{$education->passing_year}}</td>
+							</tr>
+						</div>
+						@endforeach
+						@endif
 						<div class="row">
 							<tr>
 								<td><strong>English Language Test:</strong></td>

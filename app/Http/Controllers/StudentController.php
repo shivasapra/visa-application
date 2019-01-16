@@ -288,7 +288,9 @@ class StudentController extends Controller
     public function details($id){
         // dd($id);
         $student = studentProfile::find($id);
-        return view('student.details')->with('student',$student);
+        $educations = education::where('student_id',$id)->get();
+        return view('student.details')->with('student',$student)
+                                        ->with('educations',$educations);
     }
 
     public function process($id){
