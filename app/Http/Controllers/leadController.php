@@ -9,6 +9,7 @@ use App\studentProfile;
 use Session;
 use Carbon\Carbon;
 use App\social;
+use App\education;
 class leadController extends Controller
 {
     /**
@@ -231,6 +232,16 @@ class leadController extends Controller
                 $student->test_score = $request->test_score;
             }
         $student->save();
+
+        foreach($request->education as $index => $education){
+                $neweducation = new education;
+                $neweducation->education = $education;
+                $neweducation->percentage = $request->percentage[$index];
+                $neweducation->passing_year = $request->passing_year[$index];
+                $neweducation->student_id = $student->id;
+                $neweducation->save();
+            }
+
         $lead = leads::find($id);
         $lead->status = 2;
         $lead->save();
