@@ -68,12 +68,23 @@ class CreateStudentProfilesTable extends Migration
             $table->string('st_ins_1')->nullable();
             $table->string('st_ins_2')->nullable();
             $table->string('st_ins_3')->nullable();
+            $table->string('st_ins_date')->nullable();
             $table->string('nd_ins_1')->nullable();
             $table->string('nd_ins_2')->nullable();
             $table->string('nd_ins_3')->nullable();
+            $table->string('nd_ins_date')->nullable();
             $table->string('rd_ins_1')->nullable();
             $table->string('rd_ins_2')->nullable();
             $table->string('rd_ins_3')->nullable();
+            $table->string('rd_ins_date')->nullable();
+            $table->string('application_fee')->nullable();
+            $table->string('document_received')->default('no');
+            $table->string('document_received_date')->nullable();
+            $table->string('offer_letter')->default('no');
+            $table->string('offer_letter_date')->nullable();
+            $table->string('intake_session')->nullable();
+            $table->string('submission_to_visa')->default('no');
+            $table->string('submission_to_visa_date')->nullable();
             $table->timestamps();
         });
     }

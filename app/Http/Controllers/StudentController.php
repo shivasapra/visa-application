@@ -284,6 +284,9 @@ class StudentController extends Controller
     }
     public function processUpdate(Request $request, $id){
         $student = studentProfile::find($id);
+        if ($request->application_fee != null) {
+            $student->application_fee = $request->application_fee;
+        }
         if ($request->tuition_fee != null) {
             $student->tuition_fee = $request->tuition_fee;
         }
@@ -296,6 +299,9 @@ class StudentController extends Controller
         if ($request->st_ins_3 != null) {
             $student->st_ins_3 = $request->st_ins_3;
         }
+        if ($request->st_ins_date != null) {
+            $student->st_ins_date = $request->st_ins_date;
+        }
         if ($request->nd_ins_1 != null) {
             $student->nd_ins_1 = $request->nd_ins_1;
         }
@@ -305,6 +311,9 @@ class StudentController extends Controller
         if ($request->nd_ins_3 != null) {
             $student->nd_ins_3 = $request->nd_ins_3;
         }
+        if ($request->nd_ins_date != null) {
+            $student->nd_ins_date = $request->nd_ins_date;
+        }
         if ($request->rd_ins_1 != null) {
             $student->rd_ins_1 = $request->rd_ins_1;
         }
@@ -313,6 +322,9 @@ class StudentController extends Controller
         }
         if ($request->rd_ins_3 != null) {
             $student->rd_ins_3 = $request->rd_ins_3;
+        }
+        if ($request->rd_ins_date != null) {
+            $student->rd_ins_date = $request->rd_ins_date;
         }
 
         $student->LOA = $request->LOA;
@@ -337,6 +349,27 @@ class StudentController extends Controller
         $student->refund = $request->refund;}
         if ($request->refund_date != null) {
             $student->refund_date = $request->refund_date;
+        }
+        if ($request->document_received != null){
+        $student->document_received = $request->document_received;
+    }
+        if ($request->document_received_date != null) {
+            $student->document_received_date = $request->document_received_date;
+        }
+        if ($request->offer_letter != null){
+        $student->offer_letter = $request->offer_letter;
+    }
+        if ($request->intake_session != null){
+        $student->intake_session = $request->intake_session;
+    }   
+        if ($request->submission_to_visa != null){
+        $student->submission_to_visa = $request->submission_to_visa;
+    }
+        if ($request->submission_to_visa_date != null) {
+            $student->submission_to_visa_date = $request->submission_to_visa_date;
+        }
+        if ($request->offer_letter_date != null) {
+            $student->offer_letter_date = $request->offer_letter_date;
         }
         $student->save();
         return redirect()->route('process',['id'=>$id]);

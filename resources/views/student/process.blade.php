@@ -56,6 +56,61 @@ Process
 	        <div class="card">
 	            <div class="card-content collapse show">
 	              <div class="card-body">
+	              	<div class="row">
+	                	<div class="col-md-6">
+	                	<div class="form-group">
+						<label for="application_fee" ><strong>Application Fee:</strong></label>
+						<input type="text" name='application_fee' required class="form-control" value="{{$student->application_fee}}">
+						</div>
+						</div>
+					</div>
+					<table class="table table-hover mb-0">
+						<tbody>
+							<div class="row">
+								<tr>
+									<td><strong>Document Received:</strong></td>
+									<td>
+										<input id="yesdocument_received" type="radio" name="document_received" value="yes"  
+										{{($student->document_received == 'yes')?"checked":" "}}>yes
+										<input id="nodocument_received" type="radio" name="document_received" value="no"
+										{{($student->document_received == 'no')?"checked":" "}}
+										{{($student->document_received == 'yes')?"disabled":" "}}>No
+										<span id="document_received_date">
+											@if($student->document_received == 'yes')
+											<input type="date" name="document_received_date" value="{{$student->document_received_date}}" required readonly>
+											@endif
+										</span>
+									</td>
+								</tr>
+							</div>
+
+							<div class="row">
+								<tr>
+									<td><strong>Offer Letter:</strong></td>
+									<td>
+										<input id="yesoffer_letter" type="radio" name="offer_letter" value="yes"  
+										{{($student->offer_letter == 'yes')?"checked":" "}}>yes
+										<input id="nooffer_letter" type="radio" name="offer_letter" value="no"
+										{{($student->offer_letter == 'no')?"checked":" "}}
+										{{($student->offer_letter == 'yes')?"disabled":" "}}>No
+										<span id="offer_letter_date">
+											@if($student->offer_letter == 'yes')
+											<input type="date" name="offer_letter_date" value="{{$student->offer_letter_date}}" required readonly>
+											@endif
+										</span>
+									</td>
+								</tr>
+							</div>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+				<div class="card">
+	            <div class="card-content collapse show">
+	              <div class="card-body">
 	                <div class="row">
 	                	<div class="col-md-6">
 	                	<div class="form-group">
@@ -75,6 +130,7 @@ Process
 								@endif
 							</td>
 							<td><input type="text" name='st_ins_3' readonly value="{{$student->st_ins_3}}"></td>
+							<td><input type="date" name='st_ins_date' value="{{$student->st_ins_date}}"></td>
 						</tr>
 						<tr>
 							<td><strong>IInd installment:</strong></td>
@@ -85,6 +141,7 @@ Process
 								@endif
 							</td>
 							<td><input type="text" id='nd_ins_3' name='nd_ins_3' value="{{$student->nd_ins_3}}" readonly></td>
+							<td><input type="date" name='nd_ins_date' value="{{$student->nd_ins_date}}"></td>
 						</tr>
 						<tr>
 							<td><strong>IIIrd installment:</strong></td>
@@ -95,6 +152,7 @@ Process
 								@endif
 							</td>
 							<td><input type="text" id='rd_ins_3' name='rd_ins_3' value="{{$student->rd_ins_3}}"></td>
+							<td><input type="date" name='rd_ins_date' value="{{$student->rd_ins_date}}"></td>
 						</tr>
 						</table>
 					</div>            	
@@ -113,10 +171,10 @@ Process
 								<td><strong>LOA:</strong></td>
 								<td>
 									<input id="yesLOA" type="radio" name="LOA" value="yes"  
-									{{($student->LOA == 'yes')?"checked":" "}}>Yes
+									{{($student->LOA == 'yes')?"checked":" "}}>Received
 									<input id="noLOA" type="radio" name="LOA" value="no"
 									{{($student->LOA == 'no')?"checked":" "}}
-									{{($student->LOA == 'yes')?"disabled":" "}}>No
+									{{($student->LOA == 'yes')?"disabled":" "}}>Not Received
 									<span id="LOAdate">
 										@if($student->LOA == 'yes')
 										<input type="date" name="Loa_date" value="{{$student->Loa_date}}" required readonly>
@@ -125,6 +183,33 @@ Process
 								</td>
 							</tr>
 						</div>
+						<div class="row">
+							<tr>
+								<td><strong>Intake Session:</strong></td>
+								<td>
+									<input type="text" name="intake_session" class="form-control" value="{{$student->intake_session}}">
+								</td>
+							</tr>
+						</div>
+
+						<div class="row">
+							<tr>
+								<td><strong>Submission to visa official:</strong></td>
+								<td>
+									<input id="yessub" type="radio" name="submission_to_visa" value="yes"  
+									{{($student->submission_to_visa == 'yes')?"checked":" "}}>Yes
+									<input id="nosub" type="radio" name="submission_to_visa" value="no"
+									{{($student->submission_to_visa == 'no')?"checked":" "}}
+									{{($student->submission_to_visa == 'yes')?"disabled":" "}}>No
+									<span id="subdate">
+										@if($student->submission_to_visa == 'yes')
+										<input type="date" name="submission_to_visa_date" value="{{$student->submission_to_visa_date}}" required readonly>
+										@endif
+									</span>
+								</td>
+							</tr>
+						</div>
+
 						<div class="row">
 							<tr>
 								<td><strong>Processing:</strong></td>
@@ -355,6 +440,32 @@ Process
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+	    $("#yesdocument_received").click(function(){
+	    	var date = '<input type="date" name="document_received_date" value="{{$student->document_received_date}}" required {{($student->document_received == 'yes')?"readonly":" "}}>';
+	        $("#document_received_date").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#nodocument_received").click(function(){
+	    	var date = '';
+	        $("#document_received_date").html(date);   
+	        });
+	    });
+	    
+	    $(document).ready(function(){
+	    $("#yesoffer_letter").click(function(){
+	    	var date = '<input type="date" name="offer_letter_date" value="{{$student->offer_letter_date}}" required {{($student->offer_letter == 'yes')?"readonly":" "}}>';
+	        $("#offer_letter_date").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#nooffer_letter").click(function(){
+	    	var date = '';
+	        $("#offer_letter_date").html(date);   
+	        });
+	    });
+
+		$(document).ready(function(){
 	    $("#yesLOA").click(function(){
 	    	var date = '<input type="date" name="Loa_date" value="{{$student->Loa_date}}" required {{($student->LOA == 'yes')?"readonly":" "}}>';
 	        $("#LOAdate").html(date);   
@@ -366,6 +477,21 @@ Process
 	        $("#LOAdate").html(date);   
 	        });
 	    });
+
+	    $(document).ready(function(){
+	    $("#yessub").click(function(){
+	    	var date = '<input type="date" name="submission_to_visa_date" value="{{$student->submission_to_visa_date}}" required {{($student->submission_to_visa == 'yes')?"readonly":" "}}>';
+	        $("#subdate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#nosub").click(function(){
+	    	var date = '';
+	        $("#subdate").html(date);   
+	        });
+	    });
+
+
 	    $(document).ready(function(){
 	    $("#yessubmission").click(function(){
 	    	var date = '<input type="date" name="submission_date" value="{{$student->submission_date}}" required {{($student->file_submission == 'yes')?"readonly":" "}}>';
