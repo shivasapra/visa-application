@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class social extends Model
 {
-	protected $fillable=['social'];
+	protected $fillable=['social','name'];
 
     public function student()
 	{

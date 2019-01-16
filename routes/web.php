@@ -104,6 +104,14 @@ Route::post('/update/profile',[
 			'uses'=> 'StudentController@store',
 			'as'=>'students.store'
 		]);
+	Route::get('/student/files/{id}',[
+			'uses'=> 'StudentController@files',
+			'as'=>'student.files'
+		]);
+	Route::post('/files/update/{id}',[
+			'uses'=> 'StudentController@filesUpdate',
+			'as'=>'files.update'
+		]);
 	// Route::get('/student/delete/{id}',[
 	// 		'uses'=> 'StudentController@destroy',
 	// 		'as'=>'student.delete'

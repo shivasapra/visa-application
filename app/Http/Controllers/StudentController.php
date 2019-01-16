@@ -331,25 +331,25 @@ class StudentController extends Controller
         if ($request->Loa_date != null) {
             $student->Loa_date = $request->Loa_date;
         }
-        $student->file_processing = $request->file_processing;
-        $student->file_processed = $request->file_processed;
-        $student->file_submission = $request->file_submission;
-        if ($request->submission_date != null) {
-            $student->submission_date = $request->submission_date;
-        }
-        $student->file_approved = $request->file_approved;
-        if ($request->approved_date != null) {
-            $student->approved_date = $request->approved_date;
-        }
-         $student->file_declined = $request->file_declined;
-        if ($request->declined_date != null) {
-            $student->declined_date = $request->declined_date;
-        }
-        if ($request->refund != null){
-        $student->refund = $request->refund;}
-        if ($request->refund_date != null) {
-            $student->refund_date = $request->refund_date;
-        }
+        // $student->file_processing = $request->file_processing;
+        // $student->file_processed = $request->file_processed;
+        // $student->file_submission = $request->file_submission;
+        // if ($request->submission_date != null) {
+        //     $student->submission_date = $request->submission_date;
+        // }
+        // $student->file_approved = $request->file_approved;
+        // if ($request->approved_date != null) {
+        //     $student->approved_date = $request->approved_date;
+        // }
+        //  $student->file_declined = $request->file_declined;
+        // if ($request->declined_date != null) {
+        //     $student->declined_date = $request->declined_date;
+        // }
+        // if ($request->refund != null){
+        // $student->refund = $request->refund;}
+        // if ($request->refund_date != null) {
+        //     $student->refund_date = $request->refund_date;
+        // }
         if ($request->document_received != null){
         $student->document_received = $request->document_received;
     }
@@ -388,5 +388,33 @@ class StudentController extends Controller
         $student->declined_date = null;
         $student->save();
         return redirect()->route('process',['id'=>$id]);
+    }
+    public function files($id){
+        return view('student.files')->with('student',studentProfile::find($id));
+    }
+
+    public function filesUpdate(Request $request, $id){
+        $student = studentProfile::find($id);
+        $student->file_processing = $request->file_processing;
+        $student->file_processed = $request->file_processed;
+        $student->file_submission = $request->file_submission;
+        if ($request->submission_date != null) {
+            $student->submission_date = $request->submission_date;
+        }
+        $student->file_approved = $request->file_approved;
+        if ($request->approved_date != null) {
+            $student->approved_date = $request->approved_date;
+        }
+         $student->file_declined = $request->file_declined;
+        if ($request->declined_date != null) {
+            $student->declined_date = $request->declined_date;
+        }
+        if ($request->refund != null){
+        $student->refund = $request->refund;}
+        if ($request->refund_date != null) {
+            $student->refund_date = $request->refund_date;
+        }
+        $student->save();
+        return redirect()->back();
     }
 }

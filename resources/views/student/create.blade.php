@@ -78,6 +78,10 @@ Add Student
 	                          	<div class="form-group" id="third">
 	                            </div>
 	                        </div>
+	                        {{-- <div class="col-md-3" >
+	                          	<div class="form-group" id="fourth">Here
+	                            </div>
+	                        </div> --}}
 	                    	</div>
 	                        <div class="row">
 	                            <div class="col-md-6">
@@ -438,7 +442,7 @@ Add Student
 		    	@foreach($socials as $social)
 		    		options = options + "<option value='{{$social->id}}'>{{$social->social}}</option>";
 		    	@endforeach
-		    	var select = '<label for="idd">Select Social</label><select class="custom-select form-control" name="idd" required >'+options+'</select>'
+		    	var select = '<label for="idd">Select Social</label><select class="custom-select form-control" id="soc" name="idd" required>'+options+'</select>'
 		    	$("#third").html(select);
 		    }
 	        if (source == 'third_party')
@@ -448,6 +452,16 @@ Add Student
 	        	}
 		    });
 		});
+		// $(document).ready(function(){
+	 //    $('#soc').on('change', function(){
+	 //    	// var social = this.value;
+	 //    	// if (social == 'others'){
+	 //    		var input = '<label for="other_social">Enter name</label><input type="text" name="other_social" required class="form-control">';
+	 //        		$("#fourth").html(input);
+	 //        	// }
+	 //    	});});
+		
+		
 
 		$(document).ready(function(){
 	    $('#test').on('change', function(){
@@ -462,6 +476,7 @@ Add Student
 		    }
 		});
 	});
+
 			
 	</script>
 @endsection

@@ -30,5 +30,8 @@ class UsersTableSeeder extends Seeder
         $social = App\social::create([
             'social' => 'Instagram'
         ]);
+        $social = App\social::create([
+            'social' => 'others'
+        ]);
     }
 }

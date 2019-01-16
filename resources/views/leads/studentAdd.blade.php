@@ -73,7 +73,7 @@ Convert Lead into Student
 								@elseif($lead->social_id)
 									<option value="social">{{'social'}}</option>
 								@elseif($lead->third_party)
-									<option value="third_party">{{'Third Party'}}</option>
+									<option value="third_party">{{'Other'}}</option>
 								@endif
 	                              </select>
 	                            </div>
