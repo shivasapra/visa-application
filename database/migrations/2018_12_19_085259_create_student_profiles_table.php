@@ -26,6 +26,7 @@ class CreateStudentProfilesTable extends Migration
             $table->string('address');
             $table->integer('postal_code');
             $table->integer('agent_id')->nullable();
+            $table->integer('agent_percentage')->nullable();
             $table->integer('social_id')->nullable();
             $table->integer('lead_id')->nullable();
             $table->string('third_party')->nullable();

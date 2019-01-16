@@ -126,7 +126,7 @@ Process
 							<td><input type="text" name='st_ins_1' value="{{$student->st_ins_1}}"></td>
 							<td><input type="text" name='st_ins_2' value="{{$student->st_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
 								@if($student->agent_id != null)
-									{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
+									{{'*'.$student->agent_percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
 								@endif
 							</td>
 							<td><input type="text" name='st_ins_3' readonly value="{{$student->st_ins_3}}"></td>
@@ -137,7 +137,7 @@ Process
 							<td><input type="text" name='nd_ins_1' value="{{$student->nd_ins_1}}"></td>
 							<td><input type="text" id='nd_ins_2' name='nd_ins_2' value="{{$student->nd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
 								@if($student->agent_id != null)
-								{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
+								{{'*'.$student->agent_percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
 								@endif
 							</td>
 							<td><input type="text" id='nd_ins_3' name='nd_ins_3' value="{{$student->nd_ins_3}}" readonly></td>
@@ -148,7 +148,7 @@ Process
 							<td><input type="text" name='rd_ins_1' value="{{$student->rd_ins_1}}"></td>
 							<td><input type="text" name='rd_ins_2' value="{{$student->rd_ins_2}}">&nbsp;&nbsp;&nbsp;&nbsp;
 								@if($student->agent_id != null)
-								{{'*'.$student->agent->percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
+								{{'*'.$student->agent_percentage."%"}}&nbsp;&nbsp;&nbsp;&nbsp; {{"="}}
 								@endif
 							</td>
 							<td><input type="text" id='rd_ins_3' name='rd_ins_3' value="{{$student->rd_ins_3}}"></td>

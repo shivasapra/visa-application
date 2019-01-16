@@ -73,6 +73,8 @@ class StudentController extends Controller
         $student = new studentProfile;
         if ($request->source == 'agent') {
             $student->agent_id = $request->idd;
+            // if(agentProfile::find($request->idd)->percentage !=null){
+            //     $student->agent_percentage = agentProfile::find($request->idd)->percentage;}
             $agent = agentProfile::find($request->idd);
             $agent->students = $agent->students + 1;
             $agent->save();

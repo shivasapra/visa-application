@@ -179,6 +179,7 @@ class leadController extends Controller
 
         $student = new studentProfile;
         if ($request->source == 'agent') {
+            // $student->agent_percentage = agentProfile::find($request->idd)->percentage;
             $student->agent_id = $request->idd;
             $agent = agentProfile::find($request->idd);
             $agent->students = $agent->students + 1;
