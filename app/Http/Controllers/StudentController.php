@@ -165,8 +165,10 @@ class StudentController extends Controller
         $dt = Carbon::now();
         $dt->timezone('Asia/Kolkata');
         $date_today = $dt->toDateString();
+        $educations = education::where('student_id',$id)->get();
         return view('student.edit')->with('student',$student)
-                                    ->with('date_today',$date_today);
+                                    ->with('date_today',$date_today)
+                                    ->with('educations',$educations);
     }
 
     /**
@@ -262,10 +264,32 @@ class StudentController extends Controller
                 $student->test_score = $request->test_score;
             }
         $student->save();
+        foreach($request->education as $index => $education){
+                $idd = $request->idd[$index];
+                $neweducation = education::find($idd);
+                $neweducation->education = $education;
+                $neweducation->percentage = $request->percentage[$index];
+                $neweducation->passing_year = $request->passing_year[$index];
+                $neweducation->student_id = $student->id;
+                $neweducation->save();
+            }
+
+        if($request->neweducation != null){
+           foreach($request->neweducation as $index => $education){
+                $neweducation = new education;
+                $neweducation->education = $education;
+                $neweducation->percentage = $request->newpercentage[$index];
+                $neweducation->passing_year = $request->newpassing_year[$index];
+                $neweducation->student_id = $student->id;
+                $neweducation->save();
+            } 
+        }
 
        
         Session::flash('success','student updated successfully');
-        return view('student.details')->with('student',$student);
+        $educations = education::where('student_id',$id)->get();
+        return view('student.details')->with('student',$student)
+                                        ->with('educations',$educations);
     }
 
     /**
