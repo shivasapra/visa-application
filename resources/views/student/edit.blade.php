@@ -74,7 +74,7 @@ Edit Student
 								@elseif($student->social_id)
 									<option value="social">{{'social'}}</option>
 								@elseif($student->third_party)
-									<option value="third_party">{{'Third Party'}}</option>
+									<option value="third_party">{{'Other'}}</option>
 								@endif
 	                              </select>
 	                            </div>

@@ -204,7 +204,7 @@ Create Agent
 									<td><br><strong>Photos Received:</strong></td>
 									<td>
 										<input type="radio" name="photos_received" value="yes">Yes
-										<input type="radio" name="photos_received" value="no">No
+										<input type="radio" name="photos_received" value="no" checked>No
 									</td>
 								</tr>
 								</div>

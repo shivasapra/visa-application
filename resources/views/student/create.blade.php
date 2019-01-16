@@ -70,7 +70,7 @@ Add Student
 	                              <option value=""></option>
 									<option value="social">{{'Social'}}</option>
 									<option value="agent">{{'Agent'}}</option>
-									<option value="third_party">{{'Third Party'}}</option>
+									<option value="third_party">{{'Other'}}</option>
 	                              </select>
 	                            </div>
 	                        </div>
