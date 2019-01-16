@@ -437,7 +437,9 @@ Add Student
 		    	{
 		    		var options = "";
 			    	@foreach($agents as $agent)
+			    	@if($agent->percentage != 'null')
 			    		options = options + "<option value='{{$agent->id}}'>{{$agent->name}}</option>";
+			    	@endif
 			    	@endforeach
 		    		var select = '<label for="idd">Select Agent</label><select class="custom-select form-control" name="idd" required >'+options+'</select>'
         		$("#third").html(select);

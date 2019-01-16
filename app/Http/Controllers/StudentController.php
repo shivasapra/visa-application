@@ -74,8 +74,7 @@ class StudentController extends Controller
         $student = new studentProfile;
         if ($request->source == 'agent') {
             $student->agent_id = $request->idd;
-            // if(agentProfile::find($request->idd)->percentage !=null){
-            //     $student->agent_percentage = agentProfile::find($request->idd)->percentage;}
+            $student->agent_percentage = agentProfile::find($request->idd)->percentage;
             $agent = agentProfile::find($request->idd);
             $agent->students = $agent->students + 1;
             $agent->save();
@@ -125,7 +124,7 @@ class StudentController extends Controller
                 $student->test_score = $request->test_score;
             }
             $student->save();
-
+            if($request->education != null){
             foreach($request->education as $index => $education){
                 $neweducation = new education;
                 $neweducation->education = $education;
@@ -133,7 +132,7 @@ class StudentController extends Controller
                 $neweducation->passing_year = $request->passing_year[$index];
                 $neweducation->student_id = $student->id;
                 $neweducation->save();
-            }
+            }}
 
 
         

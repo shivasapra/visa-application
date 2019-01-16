@@ -180,7 +180,7 @@ class leadController extends Controller
 
         $student = new studentProfile;
         if ($request->source == 'agent') {
-            // $student->agent_percentage = agentProfile::find($request->idd)->percentage;
+            $student->agent_percentage = agentProfile::find($request->idd)->percentage;
             $student->agent_id = $request->idd;
             $agent = agentProfile::find($request->idd);
             $agent->students = $agent->students + 1;
@@ -232,7 +232,7 @@ class leadController extends Controller
                 $student->test_score = $request->test_score;
             }
         $student->save();
-
+        if($request->education != null){
         foreach($request->education as $index => $education){
                 $neweducation = new education;
                 $neweducation->education = $education;
@@ -240,7 +240,7 @@ class leadController extends Controller
                 $neweducation->passing_year = $request->passing_year[$index];
                 $neweducation->student_id = $student->id;
                 $neweducation->save();
-            }
+            }}
 
         $lead = leads::find($id);
         $lead->status = 2;
