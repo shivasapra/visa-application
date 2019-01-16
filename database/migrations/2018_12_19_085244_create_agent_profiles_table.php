@@ -18,7 +18,7 @@ class CreateAgentProfilesTable extends Migration
             $table->string('name');
             $table->string('company');
             $table->string('email');
-            $table->string('percentage');
+            $table->string('percentage')->nullable();
             $table->string('id_proof')->nullable();
             $table->string('photos_received')->default('no');
             $table->string('license')->nullable();
