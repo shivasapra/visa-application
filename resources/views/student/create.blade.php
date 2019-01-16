@@ -268,10 +268,15 @@ Add Student
 		                </div>
 		              </div>
 		            
+		                  	<div id="education"></div>
+		                  	<div class="text-center">
+								<button class="btn btn-success btn-sm" type="button" id="addeducation">Add Education</button>
+							</div>
+		                  
 		            
 		          
 		                      <!-- Step 4 -->
-		              <div class="card">
+		              <br><div class="card">
 		                <div class="card-content collapse show">
 		                  <div class="card-body">
 		                    <fieldset>
@@ -314,7 +319,7 @@ Add Student
 		</form>
 	</section>
 </div>
-
+	
 
 
 	{{-- @if(count($errors)>0)
@@ -397,6 +402,7 @@ Add Student
 				
 			</form>
 		</div> --}}
+
 @stop
 @section('js')
 	<!-- BEGIN VENDOR JS-->
@@ -477,6 +483,12 @@ Add Student
 		});
 	});
 
+	$(document).ready(function(){
+    $("#addeducation").click(function(){
+    	var education = '<div class="card"><div class="card-content collapse show"><div class="card-body"><div class="row"><div class="col-md-12"><label for="education[]">Name:</label><input type="text"  name="education[]" required class="form-control"></div></div><div class="row"><div class="col-md-6"><label for="percentage[]">Percentage:</label><input type="text"  name="percentage[]" required class="form-control"></div><div class="col-md-6"><label for="passing_year[]">Passing Year:</label><input type="text"  name="passing_year[]" required class="form-control"></div></div></div></div></div>';
+    	$("#education").append(education);  
+    	});
+	});
 			
 	</script>
 @endsection

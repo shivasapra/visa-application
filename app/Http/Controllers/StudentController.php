@@ -8,6 +8,7 @@ use App\agentProfile;
 use Session;
 use App\social;
 use Carbon\Carbon;
+use App\education;
 class StudentController extends Controller
 {
     /**
@@ -123,7 +124,17 @@ class StudentController extends Controller
             if($request->has('test_score')){
                 $student->test_score = $request->test_score;
             }
-        $student->save();
+            $student->save();
+
+            foreach($request->education as $index => $education){
+                $neweducation = new education;
+                $neweducation->education = $education;
+                $neweducation->percentage = $request->percentage[$index];
+                $neweducation->passing_year = $request->passing_year[$index];
+                $neweducation->student_id = $student->id;
+                $neweducation->save();
+            }
+
 
         
         Session::flash('success','student created successfully');
