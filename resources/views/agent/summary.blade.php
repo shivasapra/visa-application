@@ -81,12 +81,17 @@ Agent Summary
 								<tr>
 									<td><strong>Proposal sent:</strong></td>
 									<td>
-										<input type="radio" name="proposal_sent" value="yes"
+										<input type="radio" id="yesproposalsent" name="proposal_sent" value="yes"
 										{{($agent->proposal_sent == 'yes')?"checked":" "}}
 										{{($agent->interested == 'no')?"disabled":" "}}>Yes
-										<input type="radio" name="proposal_sent" value="no"
+										<input type="radio" id="noproposalsent" name="proposal_sent" value="no"
 										{{($agent->proposal_sent == 'no')?"checked":" "}}
 										{{($agent->proposal_sent == 'yes')?"disabled":" "}}>No
+										<span id="proposalsentdate">
+										@if($agent->proposal_sent == 'yes')
+										<input type="date" name="proposal_sent_date" value="{{$agent->proposal_sent_date}}" required readonly>
+										@endif
+										</span>
 									</td>
 								</tr>
 							</div>
@@ -94,11 +99,16 @@ Agent Summary
 								<tr>
 									<td><strong>Document received:</strong></td>
 									<td>
-										<input type="radio" name="document_received" value="yes" 
+										<input type="radio" id="yesdocumentreceived" name="document_received" value="yes" 
 										{{($agent->document_received == 'yes')?"checked":" "}}
 										{{($agent->proposal_sent == 'no')?"disabled":" "}}>Yes
-										<input type="radio" name="document_received" value="no"
+										<input type="radio" id="nodocumentreceived" name="document_received" value="no"
 										{{($agent->document_received == 'no')?"checked":" "}}{{($agent->document_received == 'yes')?"disabled":" "}}>No
+										<span id="documentreceiveddate">
+										@if($agent->document_received == 'yes')
+										<input type="date" name="document_received_date" value="{{$agent->document_received_date}}" required readonly>
+										@endif
+										</span>
 									</td>
 								</tr>
 							</div>
@@ -183,7 +193,7 @@ Agent Summary
 								<div class="form-group">
 									<td><label for="percentage"><strong>Percentage</strong></label></td>
 									<div class="col-md-3">
-									<td><input type="text" name='percentage' required class="form-control" value="{{$agent->percentage}}" required></td></div>
+									<td><input type="text" name='percentage' required class="form-control" value="{{$agent->percentage}}" required {{($agent->certificate_issued == 'no')?"disabled":" "}}></td></div>
 								</div>
 								</tr>
 							</div>
@@ -242,6 +252,33 @@ Agent Summary
   <!-- END PAGE LEVEL JS-->
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script type="text/javascript">
+		
+		$(document).ready(function(){
+	    $("#yesproposalsent").click(function(){
+	    	var date = '<input type="date" name="proposal_sent_date" value="{{$agent->proposal_sent_date}}" required {{($agent->proposal_sent == 'yes')?"readonly":" "}}>';
+	        $("#proposalsentdate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#noproposalsent").click(function(){
+	    	var date = '';
+	        $("#proposalsentdate").html(date);   
+	        });
+	    });
+
+	    $(document).ready(function(){
+	    $("#yesdocumentreceived").click(function(){
+	    	var date = '<input type="date" name="document_received_date" value="{{$agent->document_received_date}}" required {{($agent->document_received == 'yes')?"readonly":" "}}>';
+	        $("#documentreceiveddate").html(date);   
+	        });
+	    });
+	    $(document).ready(function(){
+	    $("#nodocumentreceived").click(function(){
+	    	var date = '';
+	        $("#documentreceiveddate").html(date);   
+	        });
+	    });
+
 		$(document).ready(function(){
 	    $("#yessent").click(function(){
 	    	var date = '<input type="date" name="agreement_sent_date" value="{{$agent->agreement_sent_date}}" required {{($agent->agreement_sent == 'yes')?"readonly":" "}}>';

@@ -56,7 +56,10 @@ class CreateAgentProfilesTable extends Migration
             $table->string('interested')->default('no');
 
             $table->string('proposal_sent')->default('no');
+            $table->string('proposal_sent_date')->nullable();
+
             $table->string('document_received')->default('no');
+            $table->string('document_received_date')->nullable();
 
             $table->string('certificate_issued')->default('no');
             $table->string('certificate_issued_date')->nullable();

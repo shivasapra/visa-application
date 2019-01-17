@@ -379,8 +379,11 @@ class AgentController extends Controller
         $agent = agentProfile::find($id);
         $agent->interested = $request->interested;
         $agent->proposal_sent = $request->proposal_sent;
+        $agent->proposal_sent_date = $request->proposal_sent_date;
+
         $agent->document_received = $request->document_received;
-        
+        $agent->document_received_date = $request->document_received_date;
+
         $agent->agreement_signed_agent = $request->agreement_signed_agent;
         $agent->agreement_signed_agent_date = $request->agreement_signed_agent_date;
 
