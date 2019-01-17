@@ -58,7 +58,7 @@ Create Lead
 	              <div class="card">
 	                <div class="card-content collapse show">
 	                  <div class="card-body">
-	                    <form action="{{route('lead.store')}}" class="number-tab-steps wizard-circle" method="post">
+	                    <form action="{{route('lead.update',['id'=>$lead->id])}}" class="number-tab-steps wizard-circle" method="post">
 	                    	@csrf
 	                      <!-- Step 1 -->
 	                      
@@ -69,15 +69,33 @@ Create Lead
 	                          		<label for="source">Source</label>
 	                              <select class="custom-select form-control" id="first"
 	                              name="source" required>
-	                              <option value=""></option>
-									<option value="social">{{'Social'}}</option>
-									<option value="agent">{{'Agent'}}</option>
+                                @if($lead->agent_id)
+									<option value="agent">{{'agent'}}</option>
+								@elseif($lead->social_id)
+									<option value="social">{{'social'}}</option>
+								@elseif($lead->third_party)
 									<option value="third_party">{{'Other'}}</option>
+								@endif
 	                              </select>
 	                            </div>
 	                        </div>
 	                        <div class="col-md-6" >
 	                          	<div class="form-group" id="third">
+	                          	@if($lead->agent_id or $lead->social_id)
+	                          	<label for="idd">Select</label>
+                          		<select class="custom-select form-control" id="first"
+	                              name="idd" required>
+								@if($lead->agent_id)
+									<option value="{{$lead->agent->id}}">{{$lead->agent->name}}</option>
+								@elseif($lead->social_id)
+									<option value="{{$lead->social->id}}">{{$lead->social->social}}</option>
+								@endif
+								</select>
+								@endif
+								@if($lead->third_party)
+								<label for="third_party">Name</label>
+								<input type="text" name="third_party" required value="{{$lead->third_party}}" class="form-control">
+								@endif
 	                            </div>
 	                        </div>
 	                    	</div>
@@ -85,13 +103,13 @@ Create Lead
 	                            <div class="col-md-6">
 	                            <div class="form-group">
 	                              <label for="student_fname">First Name :</label>
-	                              <input type="text" class="form-control" name="student_fname" required>
+	                              <input type="text" class="form-control" name="student_fname" required value="{{$lead->student_fname}}">
 	                            </div>
 	                          </div>
 	                          <div class="col-md-6">
 	                            <div class="form-group">
 	                              <label for="student_lname">Last Name :</label>
-	                              <input type="text" class="form-control" name="student_lname" required>
+	                              <input type="text" class="form-control" name="student_lname" required value="{{$lead->student_lname}}">
 	                            </div>
 	                          </div>
 	                          </div>
@@ -99,13 +117,13 @@ Create Lead
 		                          <div class="col-md-6">
 		                            <div class="form-group">
 		                              <label for="email">Email Address :</label>
-		                              <input type="email" class="form-control" name="email">
+		                              <input type="email" class="form-control" name="email" value="{{$lead->email}}">
 		                            </div>
 		                           </div>
 		                           <div class="col-md-6">
 		                            <div class="form-group">
 		                              <label for="mobile">Mobile :</label>
-		                              <input type="text" maxlength="10" minlength="10" class="form-control" name="Mobile" required>
+		                              <input type="text" maxlength="10" minlength="10" class="form-control" name="Mobile" required value="{{$lead->Mobile}}">
 		                            </div>
 		                           </div>
 	                          </div>
@@ -118,13 +136,13 @@ Create Lead
 	                          <div class="col-md-6">
 	                            <div class="form-group">
 	                              <label for="address">Address:</label>
-	                              <input type="text" class="form-control" name="address">
+	                              <input type="text" class="form-control" name="address" value="{{$lead->address}}">
 	                            </div>
 	                            </div>
 	                            <div class="col-md-6">
 	                            <div class="form-group">
 	                              <label for="postal_code">Postal code :</label>
-	                              <input type="text" class="form-control" name="postal_code">
+	                              <input type="text" class="form-control" name="postal_code" value="{{$lead->postal_code}}">
 	                            </div>
 	                        </div>
 	                        </div>
@@ -132,22 +150,22 @@ Create Lead
 	                        	<div class="col-md-8">
 	                            <div class="form-group">
 	                              <label for="description">Short Description :</label>
-	                              <textarea name="description" id="description" rows="4" class="form-control"></textarea>
+	                              <textarea name="description" id="description" rows="4" class="form-control">{{$lead->description}}</textarea>
 	                            </div>
 	                          </div>
 	                        	<div class="col-md-4">
 	                            <div class="form-group">
 	                            	<label for="StatuS">Status:</label><hr>
-	                              <input type="radio" value="interested" name="StatuS" required>Interested<br>
-	                              <input type="radio" id="not-button" value="Not-Interested" name="StatuS">Not Interested<span id="not-interested" required></span><br>
-	                              <input type="radio" id="follow-button" value="Follow-up" name="StatuS" required>Follow-Up <span id="follow-up"></span>	
+	                              <input type="radio" value="interested" name="StatuS" required {{($lead->interested == 'interested')?"checked":""}}>Interested<br>
+	                              <input type="radio" id="not-button" value="Not-Interested" name="StatuS" {{($lead->interested == 'Not-Interested')?"checked":""}}>Not Interested<span id="not-interested" required></span><br>
+	                              <input type="radio" id="follow-button" value="Follow-up" name="StatuS" required {{($lead->interested == 'Follow-up')?"checked":""}}>Follow-Up <span id="follow-up"></span>	
 	                            </div>
 	                          </div>
 	                        </div>
 	                      </fieldset>
 	                      <div class="form-group">
 					<div class="text-center">
-						<button class="btn btn-success" type="submit">Add lead</button>
+						<button class="btn btn-success" type="submit">Update</button>
 					</div>
 				</div>
 
@@ -240,50 +258,19 @@ Create Lead
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function(){
-	    $('#first').on('change', function(){
-	    	var source = this.value;
-	    	if (source == 'agent')
-		    	{
-		    		var options = "";
-			    	@foreach($agents as $agent)
-			    	@if($agent->percentage != "null")
-			    		options = options + "<option value='{{$agent->id}}'>{{$agent->name}}</option>";
-			    	@endif
-			    	@endforeach
-		    		var select = '<label for="idd">Select Agent</label><select class="custom-select form-control" name="idd" required >'+options+'</select>'
-        		$("#third").html(select);
-		    }
-	    	if(source == 'social')
-		    	{
-		    		var options = "";
-		    	@foreach($socials as $social)
-		    		options = options + "<option value='{{$social->id}}'>{{$social->social}}</option>";
-		    	@endforeach
-		    	var select = '<label for="idd">Select Social</label><select class="custom-select form-control" name="idd" required >'+options+'</select>'
-		    	$("#third").html(select);
-		    }
-	        if (source == 'third_party')
-	        	{
-	        		var input = '<label for="third_party">Enter name</label><input type="text" name="third_party" required  class="form-control">';
-	        		$("#third").html(input);
-	        	}
-		    });
-		});
-
+		
 		$(document).ready(function(){
 	    $('#not-button').click(function(){
-	    	var textbox = '<input type="text" class="form-control" name="StatuS_info" required>';
+	    	var textbox = '<input type="text" class="form-control" name="StatuS_info" required value="{{$lead->StatuS_info}}">';
 	    	$('#not-interested').html(textbox);
 	    });
 	});
 
 		$(document).ready(function(){
 	    $('#follow-button').click(function(){
-	    	var textbox = '<input type="text" class="form-control" name="StatuS_info" required>';
+	    	var textbox = '<input type="text" class="form-control" name="StatuS_info" required value="{{$lead->StatuS_info}}">';
 	    	$('#follow-up').html(textbox);
 	    });
 	});
-		
 	</script>
 @endsection

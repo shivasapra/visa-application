@@ -245,6 +245,18 @@ Route::post('/update/profile',[
 			'uses'=> 'leadController@detailsLead',
 			'as'=>'details.lead'
 		]);
+	Route::get('lead/show/{id}',[
+			'uses'=> 'leadController@show',
+			'as'=>'lead.show'
+		]);
+	Route::get('lead/edit/{id}',[
+			'uses'=> 'leadController@edit',
+			'as'=>'lead.edit'
+		]);
+	Route::post('lead/update/{id}',[
+			'uses'=> 'leadController@update',
+			'as'=>'lead.update'
+		]);
 
 //
 	Route::get('files/progress',[

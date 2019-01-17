@@ -80,6 +80,9 @@ Leads
 										<a href="{{route('details.lead',['id'=>$lead->id])}}">Processed</a>
 									@endif
 								</td>
+								<td>
+									<a href="{{route('lead.show',['id'=>$lead->id])}}" class="btn btn-sm btn-info">View</a>
+								</td>
 		                      </tr>
 		                	@endforeach
 						@else

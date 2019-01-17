@@ -88,7 +88,7 @@ class leadController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('leads.show')->with('lead',leads::find($id));
     }
 
     /**
@@ -99,7 +99,7 @@ class leadController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('leads.edit')->with('lead',leads::find($id));
     }
 
     /**
@@ -111,7 +111,36 @@ class leadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lead = leads::find($id);
+        if ($request->source == 'social') {
+            $lead->social_id = $request->idd;
+        }
+        if ($request->source == 'third_party') {
+            $lead->third_party = $request->third_party;
+        }
+        if ($request->source == 'agent') {
+            $lead->agent_id = $request->idd;
+        }
+            $lead->student_fname = $request->student_fname;
+            $lead->student_lname = $request->student_lname;
+            $lead->Mobile = $request->Mobile;
+        
+                $lead->email = $request->email;
+            
+            
+            $lead->address = $request->address;
+        
+            
+            $lead->postal_code = $request->postal_code;
+        
+            
+            $lead->description = $request->description;
+            $lead->interested = $request->StatuS;
+            $lead->StatuS_info = $request->StatuS_info;
+        $lead->save();
+        
+        Session::flash('success','lead updated ');
+        return redirect()->route('lead.show',['id'=>$id]);
     }
 
     /**
