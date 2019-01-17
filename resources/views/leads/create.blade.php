@@ -116,17 +116,33 @@ Create Lead
 	                      <fieldset>
 	                        <div class="row">
 	                          <div class="col-md-6">
-	                            <div class="form-group">
-	                              <label for="address">Address:</label>
-	                              <input type="text" class="form-control" name="address">
-	                            </div>
+	                            <label for="address" >address</label>
+								<input type="text"  name='address' required class="form-control">
 	                            </div>
 	                            <div class="col-md-6">
-	                            <div class="form-group">
-	                              <label for="postal_code">Postal code :</label>
-	                              <input type="text" class="form-control" name="postal_code">
+	                            <label for="state" >State/UT</label>
+								<input type="text"  name='state' required class="form-control">
 	                            </div>
 	                        </div>
+	                        <div class="row">
+	                        	<div class="col-md-6">
+	                            <div class="form-group">
+	                             <label for="district">District</label>
+								 <input type="text" name='district' required  class="form-control">
+	                            </div>
+	                        	</div>
+	                        	<div class="col-md-3">
+	                            <div class="form-group">
+	                             <label for="city">City</label>
+								 <input type="text" name='city' required  class="form-control">
+	                            </div>
+	                        	</div>
+	                            <div class="col-md-3">
+	                            <div class="form-group">
+	                             <label for="postal_code">Postal code</label>
+								 <input type="text" name='postal_code' required  class="form-control">
+	                            </div>
+	                        	</div>
 	                        </div>
 	                        <div class="row">
 	                        	<div class="col-md-8">
@@ -139,8 +155,8 @@ Create Lead
 	                            <div class="form-group">
 	                            	<label for="StatuS">Status:</label><hr>
 	                              <input type="radio" value="interested" name="StatuS" required>Interested<br>
-	                              <input type="radio" id="not-button" value="Not-Interested" name="StatuS">Not Interested<span id="not-interested" required></span><br>
-	                              <input type="radio" id="follow-button" value="Follow-up" name="StatuS" required>Follow-Up <span id="follow-up"></span>	
+	                              <input type="radio" id="not-button" value="Not-Interested" name="StatuS" >Not Interested<span id="not-interested" required></span><br>
+	                              <input type="radio" id="follow-button" value="Follow-up" name="StatuS" required >Follow-Up <span id="follow-up"></span>	
 	                            </div>
 	                          </div>
 	                        </div>

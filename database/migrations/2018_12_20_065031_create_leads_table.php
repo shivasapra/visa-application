@@ -23,6 +23,9 @@ class CreateLeadsTable extends Migration
             $table->string('email')->nullable();
             $table->string('Mobile');
             $table->string('address')->nullable();
+            $table->string('state')->nullable();
+            $table->string('district')->nullable();
+            $table->string('city')->nullable();
             $table->integer('postal_code')->nullable();
             $table->string('description')->nullable();
             $table->string('interested')->nullable();

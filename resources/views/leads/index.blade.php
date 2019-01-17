@@ -69,7 +69,12 @@ Leads
 								<td>{{$lead->email}}</td>
 								<td>
 									<span class="text-info">{{$lead->interested}}&nbsp;</span>
-									@if($lead->status == 0)
+									@if($lead->interested == 'interested' and $lead->status != 2 )
+									<a href="{{route('student.add',['id'=>$lead->id])}}" class="btn btn-sm btn-success">Add student</a>
+									@elseif($lead->interested == 'interested' and $lead->status == 2)
+									<a href="{{route('details.lead',['id'=>$lead->id])}}">(Converted)</a>
+									@endif
+									{{-- @if($lead->status == 0)
 										Not processed
 										<a href="{{route('status.edit',['id'=>$lead->id])}}" class="btn btn-sm btn-info">Edit</a>
 									@elseif($lead->status == 1)
@@ -78,7 +83,7 @@ Leads
 											<a href="{{route('status.edit',['id'=>$lead->id])}}" class="btn btn-sm btn-info">Edit</a>
 									@else
 										<a href="{{route('details.lead',['id'=>$lead->id])}}">Processed</a>
-									@endif
+									@endif --}}
 								</td>
 								<td>
 									<a href="{{route('lead.show',['id'=>$lead->id])}}" class="btn btn-sm btn-info">View</a>

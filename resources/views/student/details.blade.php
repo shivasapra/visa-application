@@ -111,6 +111,24 @@ Student Details
 						</div>
 						<div class="row">
 							<tr>
+								<td><strong>State/UT:</strong></td>
+								<td>{{$student->state}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>District:</strong></td>
+								<td>{{$student->district}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>City:</strong></td>
+								<td>{{$student->city}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
 								<td><strong>Postal Code:</strong></td>
 								<td>{{$student->postal_code}}</td>
 							</tr>

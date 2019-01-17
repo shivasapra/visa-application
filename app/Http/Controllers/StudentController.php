@@ -94,6 +94,9 @@ class StudentController extends Controller
             $student->DOB = $request->DOB;
             $student->Mobile = $request->Mobile;
             $student->address = $request->address;
+            $student->district = $request->district;
+            $student->state = $request->state;
+            $student->city = $request->city;
             $student->postal_code = $request->postal_code;
             $student->passport_no = $request->passport_no;
             $student->passport_issue = $request->passport_issue;
@@ -227,6 +230,9 @@ class StudentController extends Controller
             $student->DOB = $request->DOB;
             $student->Mobile = $request->Mobile;
             $student->address = $request->address;
+            $student->district = $request->district;
+            $student->state = $request->state;
+            $student->city = $request->city;
             $student->postal_code = $request->postal_code;
             $student->passport_no = $request->passport_no;
             $student->passport_issue = $request->passport_issue;

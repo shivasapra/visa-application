@@ -24,6 +24,9 @@ class CreateStudentProfilesTable extends Migration
             $table->string('DOB');
             $table->string('Mobile');
             $table->string('address');
+            $table->string('state');
+            $table->string('district');
+            $table->string('city');
             $table->integer('postal_code');
             $table->integer('agent_id')->nullable();
             $table->integer('education_id')->nullable();

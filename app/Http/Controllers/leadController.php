@@ -66,6 +66,9 @@ class leadController extends Controller
             
             
             $lead->address = $request->address;
+            $lead->state = $request->state;
+            $lead->district = $request->district;
+            $lead->city = $request->city;
         
             
             $lead->postal_code = $request->postal_code;
@@ -129,6 +132,9 @@ class leadController extends Controller
             
             
             $lead->address = $request->address;
+            $lead->state = $request->state;
+            $lead->district = $request->district;
+            $lead->city = $request->city;
         
             
             $lead->postal_code = $request->postal_code;
@@ -231,6 +237,9 @@ class leadController extends Controller
             $student->DOB = $request->DOB;
             $student->Mobile = $request->Mobile;
             $student->address = $request->address;
+            $student->state = $request->state;
+            $student->district = $request->district;
+            $student->city = $request->city;
             $student->postal_code = $request->postal_code;
             $student->passport_no = $request->passport_no;
             $student->passport_issue = $request->passport_issue;

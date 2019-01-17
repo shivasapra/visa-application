@@ -87,6 +87,24 @@ Lead Details
 						</div>
 						<div class="row">
 							<tr>
+								<td><strong>State/UT:</strong></td>
+								<td>{{$lead->state}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>District:</strong></td>
+								<td>{{$lead->district}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
+								<td><strong>City:</strong></td>
+								<td>{{$lead->city}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
 								<td><strong>Postal Code:</strong></td>
 								<td>{{$lead->postal_code}}</td>
 							</tr>
@@ -109,7 +127,11 @@ Lead Details
 			</div>
 		</div>
 		<div class="text-center">
+			@if($lead->status != 2)
 			<a href="{{route('lead.edit',['id'=>$lead->id])}}" class="btn btn-sm btn-info">Edit</a>
+			@else
+			<span class="text-primary">{{'(Converted)'}}</span>
+			@endif
 		</div>
 </div>
 </div>

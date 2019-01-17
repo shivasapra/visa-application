@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class leads extends Model
 {
-    protected $fillable = ['agent_id','student_fname','email','student_lname','Mobile','address','postal_code','description','status','third_party','interested','StatuS_info' ];
+    protected $fillable = ['agent_id','student_fname','email','student_lname','Mobile','address','postal_code','description','status','third_party','interested','StatuS_info','state','district','city' ];
 
 
     public function agent()

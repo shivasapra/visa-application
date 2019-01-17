@@ -153,6 +153,24 @@ Add Student
 								<input type="text"  name='address' required class="form-control">
 	                            </div>
 	                            <div class="col-md-6">
+	                            <label for="state" >State/UT</label>
+								<input type="text"  name='state' required class="form-control">
+	                            </div>
+	                        </div>
+	                        <div class="row">
+	                        	<div class="col-md-6">
+	                            <div class="form-group">
+	                             <label for="district">District</label>
+								 <input type="text" name='district' required  class="form-control">
+	                            </div>
+	                        	</div>
+	                        	<div class="col-md-3">
+	                            <div class="form-group">
+	                             <label for="city">City</label>
+								 <input type="text" name='city' required  class="form-control">
+	                            </div>
+	                        	</div>
+	                            <div class="col-md-3">
 	                            <div class="form-group">
 	                             <label for="postal_code">Postal code</label>
 								 <input type="text" name='postal_code' required  class="form-control">
