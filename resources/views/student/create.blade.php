@@ -84,27 +84,7 @@ Add Student
 	                        </div> --}}
 	                    	</div>
 	                        <div class="row">
-	                            <div class="col-md-6">
-	                            <div class="form-group">
-									<label for="first_name" >First name</label>
-									<input type="text" name='first_name' required class="form-control">
-								</div>
-	                          	</div>
-	                          	<div class="col-md-6">
-	                          	<div class="form-group">
-	                          		<label for="last_name" >Last name</label>
-									<input type="text" name='last_name' required class="form-control">
-							  	</div>
-							  	</div>
-	                        </div>
-	                        <div class="row">
-		                        <div class="col-md-6">
-		                            <div class="form-group">
-		                            <label for="email" >Email</label>
-									<input type="email" name='email' required class="form-control">
-		                            </div>
-		                        </div>
-		                        <div class="col-md-6">
+	                        	<div class="col-md-6">
 		                            <div class="form-group">
 		                              <label for="title" >Title</label><br>
 										<select name="title" required class="form-control" >
@@ -114,6 +94,27 @@ Add Student
 									    </select>
 		                            </div>
 		                        </div>
+	                            <div class="col-md-6">
+	                            <div class="form-group">
+									<label for="first_name" >First name</label>
+									<input type="text" name='first_name' required class="form-control">
+								</div>
+	                          	</div>
+	                        </div>
+	                        <div class="row">
+	                          	<div class="col-md-6">
+	                          	<div class="form-group">
+	                          		<label for="last_name" >Last name</label>
+									<input type="text" name='last_name' required class="form-control">
+							  	</div>
+							  	</div>
+		                        <div class="col-md-6">
+		                            <div class="form-group">
+		                            <label for="email" >Email</label>
+									<input type="email" name='email' required class="form-control">
+		                            </div>
+		                        </div>
+		                        
 	                        </div>   	           
 	                    
 	                        <div class="row">

@@ -57,6 +57,12 @@ Student Details
 						</div>
 						<div class="row">
 							<tr>
+								<td><strong>Title:</strong></td>
+								<td>{{$student->title}}</td>
+							</tr>
+						</div>
+						<div class="row">
+							<tr>
 								<td><strong>First Name:</strong></td>
 								<td>{{$student->first_name}}</td>
 							</tr>
@@ -71,12 +77,6 @@ Student Details
 							<tr>
 								<td><strong>Email:</strong></td>
 								<td>{{$student->email}}</td>
-							</tr>
-						</div>
-						<div class="row">
-							<tr>
-								<td><strong>Title:</strong></td>
-								<td>{{$student->title}}</td>
 							</tr>
 						</div>
 						<div class="row">

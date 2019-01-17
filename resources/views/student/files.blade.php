@@ -94,7 +94,6 @@ File Progress
 								<td>
 									<input id="yessubmission" type="radio" name="file_submission" value="yes"
 									{{($student->file_submission == 'yes')?"checked":" "}}
-									{{($student->file_processed == 'no')?"disabled":" "}}
 									{{($student->file_declined == 'yes')?"readonly":" "}}>Yes
 									<input type="radio" id="nosubmission" name="file_submission" value="no"
 									{{($student->file_submission == 'no')?"checked":" "}}

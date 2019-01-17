@@ -155,11 +155,20 @@ Agent Summary
 							</div>
 							<div class="row">
 								<tr>
+								<div class="form-group">
+									<td><label for="percentage"><strong>Percentage</strong></label></td>
+									<div class="col-md-3">
+									<td><input type="text" name='percentage' required class="form-control" value="{{$agent->percentage}}" required {{($agent->agreement_signed_agent == 'no')?"disabled":" "}}></td></div>
+								</div>
+								</tr>
+							</div>
+							<div class="row">
+								<tr>
 									<td><strong>Agreement signed by college:</strong></td>
 									<td>
 										<input type="radio" id="yessignedclg" name="agreement_signed_college" value="yes" 
 										{{($agent->agreement_signed_college == 'yes')?"checked":" "}}
-										{{($agent->agreement_signed_agent == 'no')?"disabled":" "}}>Yes
+										{{($agent->percentage == null)?"disabled":" "}}>Yes
 										<input type="radio" id="nosignedclg" name="agreement_signed_college" value="no"
 										{{($agent->agreement_signed_college == 'no')?"checked":" "}}{{($agent->agreement_signed_college == 'yes')?"disabled":" "}}>No
 										<span id="signedclgdate">
@@ -188,7 +197,7 @@ Agent Summary
 								</tr>
 							</div>
 
-							<div class="row">
+							{{-- <div class="row">
 								<tr>
 								<div class="form-group">
 									<td><label for="percentage"><strong>Percentage</strong></label></td>
@@ -196,7 +205,7 @@ Agent Summary
 									<td><input type="text" name='percentage' required class="form-control" value="{{$agent->percentage}}" required {{($agent->certificate_issued == 'no')?"disabled":" "}}></td></div>
 								</div>
 								</tr>
-							</div>
+							</div> --}}
 						</tbody>
 					</table>
 					</div>
@@ -331,7 +340,7 @@ Agent Summary
 	        });
 	    });
 
-	    @if($agent->agreement_signed_agent == 'yes')
+	    @if($agent->agreement_signed_college == 'yes')
 		@if($contracts->count()==0)
 		window.onload = function(){
 			document.getElementById('createContract').click();
