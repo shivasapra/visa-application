@@ -185,6 +185,12 @@ Student Details
 						@foreach($educations as $education)
 						<div class="row">
 							<tr>
+								<td><strong>College/University Name:</strong></td>
+								<td>{{$education->college_name}}</td>
+							</tr><hr>
+						</div>
+						<div class="row">
+							<tr>
 								<td><strong>{{$education->education}} Percentage:</strong></td>
 								<td>{{$education->percentage}}</td>
 							</tr>
@@ -193,7 +199,7 @@ Student Details
 							<tr>
 								<td><strong>{{$education->education}} Passing Year:</strong></td>
 								<td>{{$education->passing_year}}</td>
-							</tr>
+							</tr><hr>
 						</div>
 						@endforeach
 						@endif

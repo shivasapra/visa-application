@@ -298,7 +298,13 @@ Edit Student
 	        			<div class="card-body">
 	        				<div class="row">
 	        					<div class="col-md-12">
-	        						<label for="education[]">Name:</label>
+	        						<label for="college_name[]">College/University Name::</label>
+	        						<input type="text"  name="college_name[]" required class="form-control" value="{{$education->college_name}}">
+	        					</div>
+	        				</div>
+	        				<div class="row">
+	        					<div class="col-md-12">
+	        						<label for="education[]">Education:</label>
 	        						<input type="text"  name="education[]" required class="form-control" value="{{$education->education}}">
 	        					</div>
 	        				</div>
@@ -513,7 +519,7 @@ Edit Student
 
   $(document).ready(function(){
     $("#addeducation").click(function(){
-    	var education = '<div class="card"><div class="card-content collapse show"><div class="card-body"><div class="row"><div class="col-md-12"><label for="neweducation[]">Name:</label><input type="text"  name="neweducation[]" required class="form-control"></div></div><div class="row"><div class="col-md-6"><label for="newpercentage[]">Percentage:</label><input type="text"  name="newpercentage[]" required class="form-control"></div><div class="col-md-6"><label for="newpassing_year[]">Passing Year:</label><input type="text"  name="newpassing_year[]" required class="form-control"></div></div><div class="text-center"><input type="button" class="btn btn-danger btn-sm" value="Remove" onclick="SomeDeleteRowFunction(this);"></div></div></div></div></div></div></div>';
+    	var education = '<div class="card"><div class="card-content collapse show"><div class="card-body"><div class="row"><div class="col-md-12"><label for="newcollege_name[]">College/University Name:</label><input type="text"  name="newcollege_name[]" required class="form-control"></div></div><div class="row"><div class="col-md-12"><label for="neweducation[]">Education:</label><input type="text"  name="neweducation[]" required class="form-control"></div></div><div class="row"><div class="col-md-6"><label for="newpercentage[]">Percentage:</label><input type="text"  name="newpercentage[]" required class="form-control"></div><div class="col-md-6"><label for="newpassing_year[]">Passing Year:</label><input type="text"  name="newpassing_year[]" required class="form-control"></div></div><div class="text-center"><input type="button" class="btn btn-danger btn-sm" value="Remove" onclick="SomeDeleteRowFunction(this);"></div></div></div></div></div></div></div>';
     	$("#education").append(education);  
     	});
 	});

@@ -128,6 +128,7 @@ class StudentController extends Controller
             foreach($request->education as $index => $education){
                 $neweducation = new education;
                 $neweducation->education = $education;
+                $neweducation->college_name = $request->college_name[$index];
                 $neweducation->percentage = $request->percentage[$index];
                 $neweducation->passing_year = $request->passing_year[$index];
                 $neweducation->student_id = $student->id;
@@ -267,6 +268,7 @@ class StudentController extends Controller
                 $idd = $request->idd[$index];
                 $neweducation = education::find($idd);
                 $neweducation->education = $education;
+                $neweducation->college_name = $request->college_name[$index];
                 $neweducation->percentage = $request->percentage[$index];
                 $neweducation->passing_year = $request->passing_year[$index];
                 $neweducation->student_id = $student->id;
@@ -277,6 +279,7 @@ class StudentController extends Controller
            foreach($request->neweducation as $index => $education){
                 $neweducation = new education;
                 $neweducation->education = $education;
+                $neweducation->college_name = $request->newcollege_name[$index];
                 $neweducation->percentage = $request->newpercentage[$index];
                 $neweducation->passing_year = $request->newpassing_year[$index];
                 $neweducation->student_id = $student->id;
@@ -433,8 +436,8 @@ class StudentController extends Controller
 
     public function filesUpdate(Request $request, $id){
         $student = studentProfile::find($id);
-        $student->file_processing = $request->file_processing;
-        $student->file_processed = $request->file_processed;
+        // $student->file_processing = $request->file_processing;
+        // $student->file_processed = $request->file_processed;
         $student->file_submission = $request->file_submission;
         if ($request->submission_date != null) {
             $student->submission_date = $request->submission_date;

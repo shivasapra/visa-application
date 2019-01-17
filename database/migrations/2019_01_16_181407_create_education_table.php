@@ -16,6 +16,7 @@ class CreateEducationTable extends Migration
         Schema::create('education', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('student_id');
+            $table->string('college_name')->nullable();
             $table->string('education')->nullable();
             $table->integer('percentage')->nullable();
             $table->string('passing_year')->nullable();

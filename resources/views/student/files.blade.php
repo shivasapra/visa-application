@@ -59,7 +59,7 @@ File Progress
 	                <div class="table-responsive">
 	             	<table class="table table-hover mb-0">
 					<tbody>
-						<div class="row">
+						{{-- <div class="row">
 							<tr>
 								<td><strong>Processing:</strong></td>
 								<td>
@@ -87,7 +87,7 @@ File Progress
 									{{($student->file_processed == 'yes')?"disabled":" "}}>No
 								</td>
 							</tr>
-						</div>
+						</div> --}}
 						<div class="row">
 							<tr>
 								<td><strong>Submission:</strong></td>

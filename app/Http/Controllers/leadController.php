@@ -236,6 +236,7 @@ class leadController extends Controller
         foreach($request->education as $index => $education){
                 $neweducation = new education;
                 $neweducation->education = $education;
+                $neweducation->college_name = $request->college_name[$index];
                 $neweducation->percentage = $request->percentage[$index];
                 $neweducation->passing_year = $request->passing_year[$index];
                 $neweducation->student_id = $student->id;
