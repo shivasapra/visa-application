@@ -83,13 +83,20 @@ Dashboard
             <h3 class="card-title"><strong>Application Fee</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ({{'$'.$application_fee}})</h3>
             <div class="heading-elements">
               <ul class="list-inline mb-0">
-                <a href="" class="btn btn-primary btn-sm">Report</a>
+                <a href="{{route('applicationFee.report')}}" class="btn btn-primary btn-sm">Report</a>
               </ul>
             </div>
           </div>
           <div class="card-content px-1">
             <div id="recent-buyers" class="media-list height-300 position-relative">
               <a href="#" class="media border-0">
+                {{-- <div class="media-left pr-1">
+                      <span class="avatar avatar-md avatar-online">
+                        <img class="media-object rounded-circle" src="{{asset('app/images/user-placeholder.jpg')}}"
+                        alt="Generic placeholder image">
+                        <i></i>
+                      </span>
+                    </div> --}}
                 <div class="media-body w-100">
                 @if($application->count()>0)
                 @foreach($application as $app)
@@ -125,7 +132,7 @@ Dashboard
             <h3 class="card-title"><strong>Tuition Fee</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ({{'$'.$tuition_fee}})</h3>
             <div class="heading-elements">
               <ul class="list-inline mb-0">
-                <a href="" class="btn btn-primary btn-sm">Report</a>
+                <a href="{{route('tuitionFee.report')}}" class="btn btn-primary btn-sm">Report</a>
               </ul>
             </div>
           </div>

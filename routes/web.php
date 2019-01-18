@@ -50,6 +50,14 @@ Route::post('/update/profile',[
 			'uses'=> 'ReportsController@refund',
 			'as'=>'refund.report'
 		]);
+	Route::get('/Application fee/report',[
+			'uses'=> 'ReportsController@applicationFee',
+			'as'=>'applicationFee.report'
+		]);
+	Route::get('Tuition fee/report',[
+			'uses'=> 'ReportsController@tuitionFee',
+			'as'=>'tuitionFee.report'
+		]);
 
 
 

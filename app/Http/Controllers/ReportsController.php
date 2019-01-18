@@ -21,4 +21,12 @@ class ReportsController extends Controller
     public function refund(){
     	return view('reports.refund')->with('students',studentProfile::where('refund','yes')->get());
     }
+
+    public function applicationFee(){
+        return view('reports.applicationFee')->with('students',studentProfile::where('application_fee','!=',null)->get());
+    }
+
+    public function tuitionFee(){
+        return view('reports.tuitionFee')->with('students',studentProfile::where('tuition_fee','!=',null)->get());
+    }
 }
