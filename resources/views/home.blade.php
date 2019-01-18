@@ -75,12 +75,11 @@ Dashboard
           </a>
           </div>
     </div>
-    
     <div class="row">
       <div class="col-xl-4 col-lg-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title"><strong>Application Fee</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ({{'$'.$application_fee}})</h3>
+            <h2 class="card-title"><strong>Application Fee</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ({{'$'.$application_fee}})</h2>
             <div class="heading-elements">
               <ul class="list-inline mb-0">
                 <a href="{{route('applicationFee.report')}}" class="btn btn-primary btn-sm">Report</a>
@@ -99,22 +98,23 @@ Dashboard
                     </div> --}}
                 <div class="media-body w-100">
                 @if($application->count()>0)
+                <?php $i =1;?>
                 @foreach($application as $app)
-                  <h6 class="list-group-item-heading"><strong>{{$app->first_name.' '.$app->last_name}}</strong>
+                  <h4 class="list-group-item-heading"><strong>{{$i++."."}}  {{$app->first_name.' '.$app->last_name}}</strong>
                     <span class="font-medium-4 float-right pt-1">${{$app->application_fee}}</span>
-                  </h6>
+                  </h4>
                   <p class="list-group-item-text mb-0">
                     @if($app->offer_letter == 'yes')
-                    <span class="badge badge-success">Offer Letter given </span>
+                    <span class="badge badge-success" style="border-radius: 50px">Offer Letter given </span>
                     @endif
                     @if($app->LOA == 'yes')
-                    <span class="badge badge-info ml-1">LOA Received</span>
+                    <span class="badge badge-info" style="border-radius: 50px">LOA Received</span>
                     @endif
                     @if($app->submission_to_visa == 'yes')
-                    <span class="badge badge-warning ml-1">Visa Submitted</span>
+                    <span class="badge badge-warning" style="border-radius: 50px">Visa Submitted</span>
                     @endif
                     @if($app->refund == 'yes')
-                    <span class="badge badge-danger ml-1">Refund</span>
+                    <span class="badge badge-danger" style="border-radius: 50px">Refund</span>
                     @endif
                   </p><br>
                 @endforeach
@@ -129,7 +129,7 @@ Dashboard
       <div class="col-xl-4 col-lg-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title"><strong>Tuition Fee</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ({{'$'.$tuition_fee}})</h3>
+            <h2 class="card-title"><strong>Tuition Fee</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ({{'$'.$tuition_fee}})</h2>
             <div class="heading-elements">
               <ul class="list-inline mb-0">
                 <a href="{{route('tuitionFee.report')}}" class="btn btn-primary btn-sm">Report</a>
@@ -141,22 +141,23 @@ Dashboard
               <a href="#" class="media border-0">
                 <div class="media-body w-100">
                 @if($tuition->count()>0)
+                <?php $i =1;?>
                 @foreach($tuition as $tut)
-                  <h6 class="list-group-item-heading"><strong>{{$tut->first_name.' '.$tut->last_name}}</strong>
+                  <h4 class="list-group-item-heading"><strong>{{$i++."."}}  {{$tut->first_name.' '.$tut->last_name}}</strong>
                     <span class="font-medium-4 float-right pt-1">${{$tut->tuition_fee}}</span>
-                  </h6>
+                  </h4>
                   <p class="list-group-item-text mb-0">
                     @if($tut->offer_letter == 'yes')
-                    <span class="badge badge-success">Offer Letter given </span>
+                    <span class="badge badge-success" style="border-radius: 50px">Offer Letter given </span>
                     @endif
                     @if($tut->LOA == 'yes')
-                    <span class="badge badge-info ml-1">LOA Received</span>
+                    <span class="badge badge-inf0" style="border-radius: 50px">LOA Received</span>
                     @endif
                     @if($tut->submission_to_visa == 'yes')
-                    <span class="badge badge-warning ml-1">Visa Submitted</span>
+                    <span class="badge badge-warning" style="border-radius: 50px">Visa Submitted</span>
                     @endif
                     @if($tut->refund == 'yes')
-                    <span class="badge badge-danger ml-1">Refund</span>
+                    <span class="badge badge-danger" style="border-radius: 50px">Refund</span>
                     @endif
                   </p><br>
                 @endforeach
@@ -169,8 +170,6 @@ Dashboard
         </div>
       </div>
     </div>
-
-    
 
 
     <div class="row">
