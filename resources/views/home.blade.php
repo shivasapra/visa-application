@@ -2,8 +2,8 @@
 @section('title')
 Dashboard
 @stop
-@section('css')
-@endsection
+{{-- @section('css')
+@endsection --}}
 @section('content')
     <div class="row">
           <div class="col-xl-3 col-lg-6 col-12">
@@ -75,6 +75,63 @@ Dashboard
           </a>
           </div>
     </div>
+      
+      <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-content">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                      <p><strong>Total Students</strong>
+                        <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      </p>
+                      <div class="progress progress-sm mt-1 mb-0">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: {{(($offer_letter->count()/$students->count())*100)}}%" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <h6 class="text-bold-500 mt-1 mb-0">Offer Letter Given: <strong>{{$offer_letter->count()}} Students</strong></h6>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                      <p><strong>Total Students</strong>
+                        <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      </p>
+                      <div class="progress progress-sm mt-1 mb-0">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: {{(($LOA->count()/$students->count())*100)}}%" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <h6 class="text-bold-500 mt-1 mb-0">L.O.A Received: <strong>{{$LOA->count()}} Students</strong></h6>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                      <p><strong>Total Students</strong>
+                        <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      </p>
+                      <div class="progress progress-sm mt-1 mb-0">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{(($visa_sub->count()/$students->count())*100)}}%" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <h6 class="text-bold-500 mt-1 mb-0">Visa Submission: <strong>{{$visa_sub->count()}} Students</strong></h6>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                      <p><strong>Total Students</strong>
+                        <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      </p>
+                      <div class="progress progress-sm mt-1 mb-0">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: {{(($refund->count()/$students->count())*100)}}%" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <h6 class="text-bold-500 mt-1 mb-0">Refund: <strong>{{$refund->count()}} Students</strong></h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
     <div class="row">
       <div class="col-xl-4 col-lg-12 col-md-12">
             <div class="card">
@@ -195,8 +252,8 @@ Dashboard
       </div>
     </div>
 @endsection
-@section('js')
-@endsection
+{{-- @section('js')
+@endsection --}}
 {{-- <div class="container">
 <div class="row">
     <div class="col-lg-4">

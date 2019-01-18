@@ -36,6 +36,79 @@ Leads
 @section('content')
     <div class="content-body">
 		<div class="row">
+        <div class="col-xl-3 col-lg-6 col-12">
+            <a href="">
+            <div class="card">
+              <div class="card-content">
+                <div class="media align-items-stretch">
+                  <div class="p-2 text-center bg-primary bg-darken-2">
+                    <i class="font-large-2 white fa fa-file menu-icon"></i>
+                  </div>
+                  <div class="p-2 bg-gradient-x-primary white media-body">
+                    <h5>Converted</h5>
+                    <h5 class="text-bold-400 mb-0">{{$converted->count()}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12">
+            <a href="">
+            <div class="card">
+              <div class="card-content">
+                <div class="media align-items-stretch">
+                  <div class="p-2 text-center bg-success bg-darken-2">
+                    <i class="font-large-2 white fa fa-file menu-icon"></i>
+                  </div>
+                  <div class="p-2 bg-gradient-x-success white media-body">
+                    <h5>Interested</h5>
+                    <h5 class="text-bold-400 mb-0">{{$interested->count()}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12">
+            <a href="">
+            <div class="card">
+              <div class="card-content">
+                <div class="media align-items-stretch">
+                  <div class="p-2 text-center bg-danger bg-darken-2">
+                    <i class="font-large-2 white fa fa-file menu-icon"></i>
+                  </div>
+                  <div class="p-2 bg-gradient-x-danger white media-body">
+                    <h5>Not Interestetd</h5>
+                    <h5 class="text-bold-400 mb-0">{{$not_interested->count()}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12">
+            <a href="">
+            <div class="card">
+              <div class="card-content">
+                <div class="media align-items-stretch">
+                  <div class="p-2 text-center bg-warning bg-darken-2">
+                    <i class="font-large-2 white fa fa-file menu-icon"></i>
+                  </div>
+                  <div class="p-2 bg-gradient-x-warning white media-body">
+                    <h5>Follow Up</h5>
+                    <h5 class="text-bold-400 mb-0">{{$follow_up->count()}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+    </div>
+
+
+		<div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-content collapse show">

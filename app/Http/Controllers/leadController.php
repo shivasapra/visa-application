@@ -18,8 +18,16 @@ class leadController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('leads.index')->with('leads',leads::all());
+    {   
+        $converted = leads::where('status',2)->get();
+        $interested = leads::where('interested','interested')->get();
+        $not_interested = leads::where('interested','Not-interested')->get();
+        $follow_up = leads::where('interested','Follow-up')->get();
+        return view('leads.index')->with('leads',leads::all())
+                                    ->with('converted',$converted)
+                                    ->with('interested',$interested)
+                                    ->with('not_interested',$not_interested)
+                                    ->with('follow_up',$follow_up);
     }
 
     /**

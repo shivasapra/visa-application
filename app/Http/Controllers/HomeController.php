@@ -52,12 +52,20 @@ class HomeController extends Controller
         $student_ten = studentProfile::orderBy('created_at','desc')->take(5)->get();
         // dd($lead_ten);
         // dd($i);
+        $offer_letter = studentProfile::where('offer_letter', 'yes')->get();
+        $LOA = studentProfile::where('LOA', 'yes')->get();
+        $visa_sub = studentProfile::where('submission_to_visa', 'yes')->get();
+        $refund = studentProfile::where('refund', 'yes')->get();
         return view('home')->with('agents',agentProfile::all())->with('students',studentProfile::all())
                             ->with('leads',leads::all())
                             ->with('contracts',contracts::all())
                             ->with('agent_five',$agent_five)
                             ->with('students_ten',$student_ten)
-                            ->with('lead_ten',$lead_ten);
+                            ->with('lead_ten',$lead_ten)
+                            ->with('offer_letter',$offer_letter)
+                            ->with('LOA',$LOA)
+                            ->with('visa_sub',$visa_sub)
+                            ->with('refund',$refund);
     }
 }
 
