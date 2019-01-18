@@ -85,6 +85,7 @@ Dashboard
                     <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
                       <p><strong>Total Students</strong>
                         <span class="text-muted">{{'('.$students->count().')'}}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('offer_letter.report')}}" class="btn btn-success btn-sm">Report</a></span>
                       </p>
                       <div class="progress progress-sm mt-1 mb-0">
                         <div class="progress-bar bg-success" role="progressbar" style="width: {{(($offer_letter->count()/$students->count())*100)}}%" aria-valuenow="25"
@@ -95,6 +96,7 @@ Dashboard
                     <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
                       <p><strong>Total Students</strong>
                         <span class="text-muted">{{'('.$students->count().')'}}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('LOA.report')}}" class="btn btn-info btn-sm">Report</a></span>
                       </p>
                       <div class="progress progress-sm mt-1 mb-0">
                         <div class="progress-bar bg-info" role="progressbar" style="width: {{(($LOA->count()/$students->count())*100)}}%" aria-valuenow="25"
@@ -105,6 +107,7 @@ Dashboard
                     <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
                       <p><strong>Total Students</strong>
                         <span class="text-muted">{{'('.$students->count().')'}}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('visa.report')}}" class="btn btn-warning btn-sm">Report</a></span>
                       </p>
                       <div class="progress progress-sm mt-1 mb-0">
                         <div class="progress-bar bg-warning" role="progressbar" style="width: {{(($visa_sub->count()/$students->count())*100)}}%" aria-valuenow="25"
@@ -115,6 +118,7 @@ Dashboard
                     <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
                       <p><strong>Total Students</strong>
                         <span class="text-muted">{{'('.$students->count().')'}}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('refund.report')}}" class="btn btn-danger btn-sm">Report</a></span>
                       </p>
                       <div class="progress progress-sm mt-1 mb-0">
                         <div class="progress-bar bg-danger" role="progressbar" style="width: {{(($refund->count()/$students->count())*100)}}%" aria-valuenow="25"

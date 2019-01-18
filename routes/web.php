@@ -33,6 +33,34 @@ Route::post('/update/profile',[
 			'uses'=> 'UserController@update',
 			'as'=>'update.profile'
 		]);
+//Reports
+	Route::get('/offer letter/report',[
+			'uses'=> 'ReportsController@offer_letter',
+			'as'=>'offer_letter.report'
+		]);
+	Route::get('/LOA/report',[
+			'uses'=> 'ReportsController@LOA',
+			'as'=>'LOA.report'
+		]);
+	Route::get('/visa/report',[
+			'uses'=> 'ReportsController@visa',
+			'as'=>'visa.report'
+		]);
+	Route::get('/refund/report',[
+			'uses'=> 'ReportsController@refund',
+			'as'=>'refund.report'
+		]);
+
+
+
+
+
+
+
+
+
+
+
 //contracts
 	Route::get('/contracts',[
 				'uses'=> 'ContractsController@index',
