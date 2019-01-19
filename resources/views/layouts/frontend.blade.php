@@ -71,6 +71,34 @@
           </ul>
 
           <ul class="nav navbar-nav float-right">
+            <li class="dropdown dropdown-notification nav-item">
+              <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i>
+                <span class="badge badge-pill badge-default badge-danger badge-default badge-up">1</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                <li class="dropdown-menu-header">
+                  <h6 class="dropdown-header m-0">
+                    <span class="grey darken-2">Notifications</span>
+                    <span class="notification-tag badge badge-default badge-danger float-right m-0">1 New</span>
+                  </h6>
+                </li>
+                <li class="scrollable-container media-list">
+                  <a href="javascript:void(0)">
+                    <div class="media">
+                      <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading">You have new order!</h6>
+                        <p class="notification-text font-small-3 text-muted">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                        <small>
+                          <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">30 minutes ago</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li>
+              </ul>
+            </li>
             <li class="dropdown dropdown-user nav-item">
               <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                 <span class="avatar avatar-online">
@@ -128,6 +156,23 @@
           <a href="{{route('contracts')}}" aria-expanded="false"><i class="fa fa-file menu-icon"></i>
 
           Contracts</a>
+        </li>
+        <li class="menu-item"><a href=""><i class="ft-layout"></i><span class="menu-title" data-i18n="">Reports</span><span class="badge badge badge-primary badge-pill float-right mr-2">7</span></a>
+          <ul class="menu-content">
+            <li><a class="menu-item" href="{{route('agent.report')}}">Agent Report</a>
+            </li>
+            <li><a class="menu-item" href="{{route('applicationFee.report')}}">Application Fee Report</a>
+              <li><a class="menu-item" href="{{route('LOA.report')}}">LOA Report</a>
+            </li>
+            <li><a class="menu-item" href="{{route('offer_letter.report')}}">Offer Letter Report</a>
+            </li>
+            <li><a class="menu-item" href="{{route('refund.report')}}">Refund Report</a>
+            </li>
+            <li><a class="menu-item" href="{{route('tuitionFee.report')}}">Tuition Fee Report</a>
+            </li>
+            <li><a class="menu-item" href="{{route('visa.report')}}">VisaReport</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
