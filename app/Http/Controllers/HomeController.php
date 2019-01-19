@@ -39,7 +39,7 @@ class HomeController extends Controller
             foreach ($all_todos as $todo) {
                 if ($todo->status != 1) {
                 
-                    if ($todo->date != $date_today) {
+                    if ($todo->date < $date_today) {
                         $todo->status = 3;  //misssed
                     }
                     if ($todo->date == $date_today and $todo->time < $time_now) {
@@ -121,7 +121,20 @@ class HomeController extends Controller
         $todo = todo::find($id);
             $todo->status = 1;
             $todo->save();
-        return redirect()->back();
+        return redirect()->route('home');
+    }
+
+
+    public function todos(Request $request){
+        $dt = Carbon::now();
+        $dt->timezone('Asia/Kolkata');
+        $date_today = $dt->toDateString();
+        $time_now =Carbon::now()->timezone('Asia/Kolkata')->format('h:i');
+        $todos = todo::where('date',$request->date)->orderBy('created_at','desc')->get();
+        return view('todo')->with('todos',$todos)
+                            ->with('date_today',$date_today)
+                            ->with('time',$time_now)
+                            ->with('date',$request->date);
     }
 }
 // $number = htmlspecialchars($_GET["number"]);
