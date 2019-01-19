@@ -71,7 +71,7 @@
           </ul>
 
           <ul class="nav navbar-nav float-right">
-            <li class="dropdown dropdown-notification nav-item">
+            {{-- <li class="dropdown dropdown-notification nav-item">
               <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i>
                 <span class="badge badge-pill badge-default badge-danger badge-default badge-up">1</span>
               </a>
@@ -98,7 +98,7 @@
                 </li>
                 <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li>
               </ul>
-            </li>
+            </li> --}}
             <li class="dropdown dropdown-user nav-item">
               <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                 <span class="avatar avatar-online">
