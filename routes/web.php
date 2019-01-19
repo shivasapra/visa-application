@@ -70,6 +70,10 @@ Route::post('todos',[
 			'uses'=> 'ReportsController@tuitionFee',
 			'as'=>'tuitionFee.report'
 		]);
+	Route::get('agent/report',[
+			'uses'=> 'ReportsController@agent',
+			'as'=>'agent.report'
+		]);
 
 
 

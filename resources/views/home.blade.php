@@ -194,7 +194,7 @@ Dashboard
                     </p>
                     <div class="progress progress-sm mt-1 mb-0">
                       <div class="progress-bar bg-warning" role="progressbar" style="width: @if($students->count()>0)
-                      {{(($vis_sub->count()/$students->count())*100)}}%
+                      {{(($visa_sub->count()/$students->count())*100)}}%
                       @else
                       0%
                       @endif" aria-valuenow="25"
@@ -321,11 +321,11 @@ Dashboard
       <div class="col-xl-4 col-lg-12 col-md-12">
             <div class="card">
               <div class="card-header">
-                <h2 class="card-title"><strong>Agents</strong></h2>
+                <h2 class="card-title"><strong>Agents ({{$agents->count()}})</strong></h2>
                 <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                 <div class="heading-elements">
                   <ul class="list-inline mb-0">
-                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                    <a href="{{route('agent.report')}}" class="btn btn-primary btn-sm">Report</a>
                   </ul>
                 </div>
               </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\studentProfile;
+use App\agentProfile;
 class ReportsController extends Controller
 {
     public function offer_letter(){
@@ -28,5 +29,9 @@ class ReportsController extends Controller
 
     public function tuitionFee(){
         return view('reports.tuitionFee')->with('students',studentProfile::where('tuition_fee','!=',null)->get());
+    }
+
+    public function agent(){
+        return view('reports.agent')->with('agents',agentProfile::orderBy('created_at','desc')->get());
     }
 }

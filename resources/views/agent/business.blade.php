@@ -70,7 +70,7 @@ Agent Business
                         <a href="#" style="text-decoration: none;">
                       <div class="card-header mb-2 pt-0">
                         <h5 class="primary">Total revenue</h5>
-                        <h3 class="font-large-2 text-bold-200">{{$agent->revenue}}</h3>
+                        <h3 class="font-large-2 text-bold-200">${{$agent->revenue}}</h3>
                       </div>
                   </a>
                     </div> 
@@ -82,7 +82,7 @@ Agent Business
                         <a href="#" style="text-decoration: none;">
                       <div class="card-header mb-2 pt-0">
                         <h5 class="warning">Commission</h5>
-                        <h3 class="font-large-2 text-bold-200">{{$agent->commission}}
+                        <h3 class="font-large-2 text-bold-200">${{$agent->commission}}
                         </h3>
                       </div>
                   </a>
