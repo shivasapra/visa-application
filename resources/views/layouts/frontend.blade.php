@@ -170,7 +170,9 @@
             </li>
             <li><a class="menu-item" href="{{route('tuitionFee.report')}}">Tuition Fee Report</a>
             </li>
-            <li><a class="menu-item" href="{{route('visa.report')}}">VisaReport</a>
+            <li><a class="menu-item" href="{{route('visa.report')}}">Visa Report</a>
+            </li>
+            <li><a class="menu-item" href="">Lead Report</a>
             </li>
           </ul>
         </li>
