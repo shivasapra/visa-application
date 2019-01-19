@@ -37,7 +37,7 @@ Report: Tuition Fee
     <div class="content-body">
 		<div class="row">
           <div class="col-12">
-          	<div id="target">
+          	<div id="tab">
 	            <div class="card">
 	              <div class="card-content collapse show">
 	                <div class="table-responsive">
@@ -85,7 +85,8 @@ Report: Tuition Fee
 	            </div>
             </div>
             <div class="text-center">
-				<button id="btnExport" class=" btn btn-info btn-sm" onclick="Export()">Export</button>
+				<input type="button" value="Export" 
+            id="btPrint" class="btn btn-sm btn-success" onclick="createPDF()" />
 			</div>
           </div>
 		</div>
@@ -106,22 +107,30 @@ Report: Tuition Fee
   <!-- END STACK JS-->
   <!-- BEGIN PAGE LEVEL JS-->
   <!-- END PAGE LEVEL JS-->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-    <script type="text/javascript">
-        function Export() {
-            html2canvas(document.getElementById('target'), {
-                onrendered: function (canvas) {
-                    var data = canvas.toDataURL();
-                    var docDefinition = {
-                        content: [{
-                            image: data,
-                            width: 550
-                        }]
-                    };
-                    pdfMake.createPdf(docDefinition).download("Table.pdf");
-                }
-            });
-        }
-    </script>
+  <script>
+    function createPDF() {
+        var sTable = document.getElementById('tab').innerHTML;
+
+        var style = "<style>";
+        style = style + "table {width: 100%;font: 17px Calibri;}";
+        style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
+        style = style + "padding: 2px 3px;text-align: center;}";
+        style = style + "</style>";
+
+        // CREATE A WINDOW OBJECT.
+        var win = window.open('', '', 'height=700,width=700');
+
+        win.document.write('<html><head>');
+        
+        win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
+        win.document.write('</head>');
+        win.document.write('<body>');
+        win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+        win.document.write('</body></html>');
+
+        win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+
+        win.print();    // PRINT THE CONTENTS.
+    }
+</script>
 @endsection
