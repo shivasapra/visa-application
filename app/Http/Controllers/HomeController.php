@@ -8,6 +8,7 @@ use App\studentProfile;
 use App\contracts;
 use Carbon\carbon;
 use App\leads;
+use App\todo;
 class HomeController extends Controller
 {
     /**
@@ -31,8 +32,25 @@ class HomeController extends Controller
         $dt = Carbon::now();
         $dt->timezone('Asia/Kolkata');
         $date_today = $dt->toDateString();
+        $time_now =Carbon::now()->timezone('Asia/Kolkata')->format('h:i');
+        // dd($time_now);
+        //
+            $all_todos = todo::all();
+            foreach ($all_todos as $todo) {
+                if ($todo->status != 1) {
+                
+                    if ($todo->date != $date_today) {
+                        $todo->status = 3;  //misssed
+                    }
+                    if ($todo->date == $date_today and $todo->time < $time_now) {
+                        $todo->status = 2;  //delayed
+                    }
+                }
+                $todo->save();
+            }
 
-        // $i = 0;
+
+
 
         foreach ($contracts as $contract) {
             if ($contract->expired == 'no' and $contract->declined == 'no') {
@@ -67,6 +85,8 @@ class HomeController extends Controller
         $refund = studentProfile::where('refund', 'yes')->get();
         $application = studentProfile::where('application_fee', '!=', null)->orderBy('created_at','desc')->take(5)->get();
         $tuition = studentProfile::where('tuition_fee', '!=', null)->orderBy('created_at','desc')->take(5)->get();
+        $todos = todo::where('date',$date_today)->orderBy('created_at','desc')->take(6)->get();
+        // dd($todos);
         return view('home')->with('agents',agentProfile::all())->with('students',$students)
                             ->with('leads',leads::all())
                             ->with('contracts',contracts::all())
@@ -80,10 +100,30 @@ class HomeController extends Controller
                             ->with('application_fee',$application_fee)
                             ->with('tuition_fee',$tuition_fee)
                             ->with('application',$application)
-                            ->with('tuition',$tuition);
+                            ->with('tuition',$tuition)
+                            ->with('date',$date_today)
+                            ->with('time',$time_now)
+                            ->with('todos',$todos);
+    }
+
+
+    public function addTodo(Request $request){
+        $todo = new todo;
+        // dd();
+        $todo->date = $request->date;
+        $todo->time = $request->time;
+        $todo->activity = $request->activity;
+        $todo->save();
+        return redirect()->route('home');
+    }
+
+    public function updateTodo(Request $request,$id){
+        $todo = todo::find($id);
+            $todo->status = 1;
+            $todo->save();
+        return redirect()->back();
     }
 }
-
 // $number = htmlspecialchars($_GET["number"]);
 // if(is_numeric($number) && $number > 0){
 //     echo "<table>";

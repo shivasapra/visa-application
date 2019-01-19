@@ -33,6 +33,14 @@ Route::post('/update/profile',[
 			'uses'=> 'UserController@update',
 			'as'=>'update.profile'
 		]);
+Route::post('/add/todo',[
+			'uses'=> 'HomeController@addTodo',
+			'as'=>'add.todo'
+		]);
+Route::post('/update/todo/{id}',[
+			'uses'=> 'HomeController@updateTodo',
+			'as'=>'update.todo'
+		]);
 //Reports
 	Route::get('/offer letter/report',[
 			'uses'=> 'ReportsController@offer_letter',

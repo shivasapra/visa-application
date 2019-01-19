@@ -76,7 +76,149 @@ Dashboard
           </div>
     </div>
     <div class="row">
-      <div class="col-xl-4 col-lg-12">
+          <div class="col-xl-8 col-lg-12">
+            <div class="card">
+              <div class="card-header border-0-bottom">
+                <h4 class="card-title"><strong>Todo</strong><span id="addtodo"><button class="btn btn-sm btn-primary">Add</button></span></h4>
+                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><strong>{{$date}}</strong></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-content">
+                <div id="todo"></div>
+                <div id="daily-activity" class="table-responsive height-350">
+                  <table class="table table-hover mb-0">
+                    <thead>
+                      <tr>
+                        <th>
+                        </th>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @if($todos->count()>0)
+                      @foreach($todos as $todo)
+                        <tr>
+                          <td class="text-truncate">
+                            <form action="{{route('update.todo',['id'=>$todo->id])}}" method="post">
+                              @csrf
+                              @if($todo->status==1)
+                              <button id="updateTodo" type="submit" class="btn btn-primary btn-sm" disabled><span class="fa fa-check"></span>
+                              @else
+                              <button id="updateTodo" type="submit" class="btn btn-danger btn-sm"><span class="fa fa-eye"></span>
+                              @endif
+                              </button>
+                              
+                            </form>
+                          </td>
+                          <td class="text-truncate">{{$todo->time}}</td>
+                          <td class="text-truncate">{{$todo->activity}}</td>
+                          <td class="text-truncate">
+                            @if($todo->status == 0)
+                            <span class="badge badge-default badge-info">Pending</span>
+                            @elseif($todo->status == 1)
+                            <span class="badge badge-default badge-success">Done</span>
+                            @elseif($todo->status == 2)
+                            <span class="badge badge-default badge-warning">Delayed</span>
+                            @elseif($todo->status == 3)
+                            <span class="badge badge-default badge-delete">Missed</span>
+                            @endif
+                          </td>
+                        </tr>
+                      @endforeach
+                      @endif
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                    <p><strong>Total Students</strong>
+                      <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('offer_letter.report')}}" class="btn btn-success btn-sm">Report</a></span>
+                    </p>
+                    <div class="progress progress-sm mt-1 mb-0">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: @if($students->count()>0)
+                      {{(($offer_letter->count()/$students->count())*100)}}%
+                      @else
+                      0%
+                      @endif" aria-valuenow="25"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h6 class="text-bold-500 mt-1 mb-0">Offer Letter Given: <strong>{{$offer_letter->count()}} Students</strong></h6>
+                  </div>
+                  <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                    <p><strong>Total Students</strong>
+                      <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('LOA.report')}}" class="btn btn-info btn-sm">Report</a></span>
+                    </p>
+                    <div class="progress progress-sm mt-1 mb-0">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 
+                      @if($students->count()>0)
+                      {{(($LOA->count()/$students->count())*100)}}%
+                      @else
+                      0%
+                      @endif
+                      " aria-valuenow="25"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h6 class="text-bold-500 mt-1 mb-0">L.O.A Received: <strong>{{$LOA->count()}} Students</strong></h6>
+                  </div>
+                  <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                    <p><strong>Total Students</strong>
+                      <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('visa.report')}}" class="btn btn-warning btn-sm">Report</a></span>
+                    </p>
+                    <div class="progress progress-sm mt-1 mb-0">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: @if($students->count()>0)
+                      {{(($vis_sub->count()/$students->count())*100)}}%
+                      @else
+                      0%
+                      @endif" aria-valuenow="25"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h6 class="text-bold-500 mt-1 mb-0">Visa Submission: <strong>{{$visa_sub->count()}} Students</strong></h6>
+                  </div>
+                  <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                    <p><strong>Total Students</strong>
+                      <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('refund.report')}}" class="btn btn-danger btn-sm">Report</a></span>
+                    </p>
+                    <div class="progress progress-sm mt-1 mb-0">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: @if($students->count()>0)
+                      {{(($refund->count()/$students->count())*100)}}%
+                      @else
+                      0%
+                      @endif" aria-valuenow="25"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h6 class="text-bold-500 mt-1 mb-0">Refund: <strong>{{$refund->count()}} Students</strong></h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xl-4 col-lg-12 col-md-12">
         <div class="card">
           <div class="card-header">
             <h2 class="card-title"><strong>Application Fee</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ({{'$'.$application_fee}})</h2>
@@ -126,7 +268,7 @@ Dashboard
           </div>
         </div>
       </div>
-      <div class="col-xl-4 col-lg-12">
+      <div class="col-xl-4 col-lg-12 col-md-12">
         <div class="card">
           <div class="card-header">
             <h2 class="card-title"><strong>Tuition Fee</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ({{'$'.$tuition_fee}})</h2>
@@ -169,67 +311,6 @@ Dashboard
           </div>
         </div>
       </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-content">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
-                    <p><strong>Total Students</strong>
-                      <span class="text-muted">{{'('.$students->count().')'}}</span>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('offer_letter.report')}}" class="btn btn-success btn-sm">Report</a></span>
-                    </p>
-                    <div class="progress progress-sm mt-1 mb-0">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: {{(($offer_letter->count()/$students->count())*100)}}%" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">Offer Letter Given: <strong>{{$offer_letter->count()}} Students</strong></h6>
-                  </div>
-                  <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
-                    <p><strong>Total Students</strong>
-                      <span class="text-muted">{{'('.$students->count().')'}}</span>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('LOA.report')}}" class="btn btn-info btn-sm">Report</a></span>
-                    </p>
-                    <div class="progress progress-sm mt-1 mb-0">
-                      <div class="progress-bar bg-info" role="progressbar" style="width: {{(($LOA->count()/$students->count())*100)}}%" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">L.O.A Received: <strong>{{$LOA->count()}} Students</strong></h6>
-                  </div>
-                  <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
-                    <p><strong>Total Students</strong>
-                      <span class="text-muted">{{'('.$students->count().')'}}</span>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('visa.report')}}" class="btn btn-warning btn-sm">Report</a></span>
-                    </p>
-                    <div class="progress progress-sm mt-1 mb-0">
-                      <div class="progress-bar bg-warning" role="progressbar" style="width: {{(($visa_sub->count()/$students->count())*100)}}%" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">Visa Submission: <strong>{{$visa_sub->count()}} Students</strong></h6>
-                  </div>
-                  <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
-                    <p><strong>Total Students</strong>
-                      <span class="text-muted">{{'('.$students->count().')'}}</span>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('refund.report')}}" class="btn btn-danger btn-sm">Report</a></span>
-                    </p>
-                    <div class="progress progress-sm mt-1 mb-0">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: {{(($refund->count()/$students->count())*100)}}%" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">Refund: <strong>{{$refund->count()}} Students</strong></h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-
-    <div class="row">
       <div class="col-xl-4 col-lg-12 col-md-12">
             <div class="card">
               <div class="card-header">
@@ -269,88 +350,40 @@ Dashboard
               </div>
             </div>
       </div>
-      <div class="col-xl-4 col-lg-12 col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h2 class="card-title"><strong>Leads</strong></h2>
-                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                <div class="heading-elements">
-                  <ul class="list-inline mb-0">
-                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="card-content">
-                <div id="friends-activity" class="media-list">
-                  @if($lead_ten->count()>0)
-                  <?php $i=1; ?>
-                  @foreach($lead_ten as $lead)
-                  <div class="media border-0">
-                    <div class="media-left pr-1">
-                      <strong>{{$i++."."}}</strong>
-                    </div>
-                    <div class="media-body w-100">
-                      <h5 class="list-group-item-heading"><strong>{{$lead->student_fname. " ". $lead->student_lname}}
-                      @if($lead->status == 2)
-                      <span class="success">{{'(Processed)'}}</span>
-                      @endif
-                      </strong>
-                      </h5>
-                      <p class="list-group-item-text mb-0">
-                        
-                      </p>
-                      <span class="font-small-2 float-right">{{$lead->created_at->toDateString()}}</span>
-                      <hr>
-                    </div>
-                  </div>
-                  @endforeach
-                  @endif
-                </div>
-              </div>
-            </div>
-      </div>
-      <div class="col-xl-4 col-lg-12 col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h2 class="card-title"><strong>Students</strong></h2>
-                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                <div class="heading-elements">
-                  <ul class="list-inline mb-0">
-                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="card-content">
-                <div id="friends-activity" class="media-list">
-                  @if($students_ten->count()>0)
-                  <?php $i=1; ?>
-                  @foreach($students_ten as $student)
-                  <div class="media border-0">
-                    <div class="media-left pr-1">
-                      <strong>{{$i++."."}}</strong>
-                    </div>
-                    <div class="media-body w-100">
-                      <h5 class="list-group-item-heading"><strong>{{$student->first_name. " ". $student->last_name}}
-                      </strong>
-                      </h5>
-                      <p class="list-group-item-text mb-0">
-                        
-                      <a href="{{route('student.details',['id'=>$student->id])}}" class="btn btn-info btn-sm">View</a>
-                      </p>
-                      <span class="font-small-2 float-right">{{$student->created_at->toDateString()}}</span>
-                      <hr>
-                    </div>
-                  </div>
-                  @endforeach
-                  @endif
-                </div>
-              </div>
-            </div>
-      </div>
     </div>
+
+      
+    
 @endsection
-{{-- @section('js')
-@endsection --}}
+@section('js')
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $("#addtodo").click(function(){
+      var name = '<form action="{{route('add.todo')}}" method="post">@csrf<table class="table table-hover mb-0"><thead><tr><th>Date</th><th>Time</th><th>Activity</th></tr></thead><tbody><td><input type="date" name="date" class="form-control" value="{{$date}}"></td><td><input type="time" name="time" class="form-control" value="{{$time}}"></td><td><input type="text" name="activity" class="form-control"></td></tbody></table><div class="text-center"><button class="btn btn-sm btn-success" type="submit">Save</button></div><br></form>';
+
+      var disabled = '<button class="btn btn-sm btn-primary" disabled>Add</button>'
+      $('#addtodo').html(disabled);
+      $("#todo").append(name);  
+      });
+  });
+
+  // $(document).ready(function(){
+  //   $("#update").click(function(){
+  //   document.getElementById('updateTodo').click();
+  //   });
+  // }):
+
+    function SomeDeleteRowFunction(btndel) {
+    if (typeof(btndel) == "object") {
+        $(btndel).closest('.row').remove();
+    } else {
+        return false;
+    }
+  }
+  </script>
+
+@endsection
 {{-- <div class="container">
 <div class="row">
     <div class="col-lg-4">
