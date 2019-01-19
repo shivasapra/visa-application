@@ -157,7 +157,7 @@
 
           Contracts</a>
         </li>
-        <li class="menu-item"><a href=""><i class="ft-layout"></i><span class="menu-title" data-i18n="">Reports</span><span class="badge badge badge-primary badge-pill float-right mr-2">7</span></a>
+        <li class="menu-item"><a href=""><i class="ft-layout"></i><span class="menu-title" data-i18n="">Reports</span><span class="badge badge badge-primary badge-pill float-right mr-2">8</span></a>
           <ul class="menu-content">
             <li><a class="menu-item" href="{{route('agent.report')}}">Agent Report</a>
             </li>
