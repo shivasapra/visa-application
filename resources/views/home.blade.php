@@ -300,7 +300,7 @@ Dashboard
                     <span class="badge badge-success" style="border-radius: 50px">Offer Letter given </span>
                     @endif
                     @if($tut->LOA == 'yes')
-                    <span class="badge badge-inf0" style="border-radius: 50px">LOA Received</span>
+                    <span class="badge badge-info" style="border-radius: 50px">LOA Received</span>
                     @endif
                     @if($tut->submission_to_visa == 'yes')
                     <span class="badge badge-warning" style="border-radius: 50px">Visa Submitted</span>
