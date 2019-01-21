@@ -254,11 +254,11 @@
             @endif
         </div>
 
-        <div class="form-group">
+        {{-- <div class="form-group">
             @if (Route::has('register'))
                 <a class="btn btn-default btn-block" href="{{ route('register') }}">{{ __('Register') }}</a>
             @endif
-        </div>
+        </div> --}}
     </div>
 </form>  
 </div>
