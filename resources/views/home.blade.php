@@ -302,7 +302,7 @@ Dashboard
             </div>
           </div>
           <div class="card-content px-1">
-            <div id="recent-buyers" class="media-list height-600 position-relative">
+            <div id="friends-activity" class="media-list ">
               <a href="#" class="media border-0">
                 {{-- <div class="media-left pr-1">
                       <span class="avatar avatar-md avatar-online">
@@ -352,7 +352,7 @@ Dashboard
             </div>
           </div>
           <div class="card-content px-1">
-            <div id="recent-buyers" class="media-list height-600 position-relative">
+            <div id="friends-activity" class="media-list ">
               <a href="#" class="media border-0">
                 <div class="media-body w-100">
                 @if($tuition->count()>0)
