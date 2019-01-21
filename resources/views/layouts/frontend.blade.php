@@ -157,25 +157,27 @@
 
           Contracts</a>
         </li>
-        <li class="menu-item"><a href=""><i class="ft-layout"></i><span class="menu-title" data-i18n="">Reports</span><span class="badge badge badge-primary badge-pill float-right mr-2">8</span></a>
-          <ul class="menu-content">
-            <li><a class="menu-item" href="{{route('agent.report')}}">Agent Report</a>
-            </li>
-            <li><a class="menu-item" href="{{route('applicationFee.report')}}">Application Fee Report</a>
-              <li><a class="menu-item" href="{{route('LOA.report')}}">LOA Report</a>
-            </li>
-            <li><a class="menu-item" href="{{route('offer_letter.report')}}">Offer Letter Report</a>
-            </li>
-            <li><a class="menu-item" href="{{route('refund.report')}}">Refund Report</a>
-            </li>
-            <li><a class="menu-item" href="{{route('tuitionFee.report')}}">Tuition Fee Report</a>
-            </li>
-            <li><a class="menu-item" href="{{route('visa.report')}}">Visa Report</a>
-            </li>
-            <li><a class="menu-item" href="">Lead Report</a>
-            </li>
-          </ul>
+        <li class=" navigation-header">
+         <i class="ft-layout"></i> Reports
         </li>
+        <div class="dropdown-divider"></div>
+        
+        <li><a class="menu-item" href="{{route('agent.report')}}"><i class="fa fa-file menu-icon"></i>Agent Report</a>
+        </li>
+        <li><a class="menu-item" href="{{route('applicationFee.report')}}"><i class="fa fa-file menu-icon"></i>Application Fee Report</a>
+          <li><a class="menu-item" href="{{route('LOA.report')}}"><i class="fa fa-file menu-icon"></i>LOA Report</a>
+        </li>
+        <li><a class="menu-item" href="{{route('offer_letter.report')}}"><i class="fa fa-file menu-icon"></i>Offer Letter Report</a>
+        </li>
+        <li><a class="menu-item" href="{{route('refund.report')}}"><i class="fa fa-file menu-icon"></i>Refund Report</a>
+        </li>
+        <li><a class="menu-item" href="{{route('tuitionFee.report')}}"><i class="fa fa-file menu-icon"></i>Tuition Fee Report</a>
+        </li>
+        <li><a class="menu-item" href="{{route('visa.report')}}"><i class="fa fa-file menu-icon"></i>Visa Report</a>
+        </li>
+        <li><a class="menu-item" href=""><i class="fa fa-file menu-icon"></i>Lead Report</a>
+        </li>
+          
       </ul>
     </div>
   </div>
