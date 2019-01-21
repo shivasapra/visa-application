@@ -158,7 +158,7 @@ Create Lead
 	                            <div class="col-md-3">
 	                            <div class="form-group">
 	                             <label for="postal_code">Postal code</label>
-								 <input type="text" name='postal_code' required  class="form-control" value="{{$lead->postal_code}}">
+								 <input type="text" pattern="\d*" name='postal_code' required  class="form-control" value="{{$lead->postal_code}}" maxlength="7">
 	                            </div>
 	                        	</div>
 	                        </div>

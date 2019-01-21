@@ -174,7 +174,7 @@ Add Student
 	                            <div class="col-md-3">
 	                            <div class="form-group">
 	                             <label for="postal_code">Postal code</label>
-								 <input type="text" name='postal_code' required  class="form-control">
+								 <input type="text" pattern="\d*" name='postal_code' required  class="form-control" maxlength='7'>
 	                            </div>
 	                        	</div>
 	                        </div>
@@ -255,12 +255,12 @@ Add Student
 		                        	<div class="row">
 			                          <div class="col-md-6">
 			                            <label for="tenth_year">10th Passing year</label>
-										<input type="text"  name='tenth_year' required class="form-control">
+										<input type="text" pattern="\d*"  name='tenth_year' required class="form-control" maxlength="4" minlength="4">
 			                            </div>
 			                            <div class="col-md-6">
 			                            <div class="form-group">
 			                             <label for="twelveth_year">12th Passing year</label>
-										 <input type="text" name='twelveth_year' required  class="form-control">
+										 <input type="text" pattern="\d*" name='twelveth_year' required  class="form-control" maxlength="4" minlength="4">
 			                            </div>
 			                        	</div>
 		                        	</div>

@@ -234,6 +234,7 @@
             toastr.danger("{{Session::get('danger')}}")
         @endif
     </script>
+  
   <!-- END PAGE LEVEL JS-->
   @yield('js')
 

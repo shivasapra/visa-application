@@ -139,7 +139,7 @@ Edit Agent
 							<div class="col-md-3">
 								<div class="form-group">
 									<label for="postal_code">Postal Code</label>
-									<input type="text" name='postal_code' value="{{$agent->postal_code}}" required class="form-control">
+									<input type="text" pattern="\d*" name='postal_code' value="{{$agent->postal_code}}" required class="form-control" maxlength="7">
 								</div>
 							</div>
 						</div>

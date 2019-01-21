@@ -270,6 +270,7 @@ class StudentController extends Controller
                 $student->test_score = $request->test_score;
             }
         $student->save();
+        if($request->education != null){
         foreach($request->education as $index => $education){
                 $idd = $request->idd[$index];
                 $neweducation = education::find($idd);
@@ -279,7 +280,7 @@ class StudentController extends Controller
                 $neweducation->passing_year = $request->passing_year[$index];
                 $neweducation->student_id = $student->id;
                 $neweducation->save();
-            }
+            }}
 
         if($request->neweducation != null){
            foreach($request->neweducation as $index => $education){

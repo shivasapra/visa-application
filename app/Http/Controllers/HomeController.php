@@ -9,6 +9,9 @@ use App\contracts;
 use Carbon\carbon;
 use App\leads;
 use App\todo;
+use Session;
+use sweetalert;
+
 class HomeController extends Controller
 {
     /**

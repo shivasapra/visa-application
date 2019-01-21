@@ -149,9 +149,9 @@ Contracts
                            @endif
                          </td>
                           <td>
-                            <a href="{{route('contract.delete',['id'=>$contract->id])}}" class="btn btn-sm btn-danger">Delete</a>
+                            {{-- <a href="{{route('contract.delete',['id'=>$contract->id])}}" class="btn btn-sm btn-danger">Delete</a> --}}
                             @if($contract->declined == 'no')
-                            <a href="{{route('contract.decline',['id'=>$contract->id])}}" class="btn btn-sm btn-success">Decline</a>
+                            <a href="{{route('contract.decline',['id'=>$contract->id])}}" class="btn btn-sm btn-danger">Decline</a>
                             @endif
                          </td>
                       </tr>
