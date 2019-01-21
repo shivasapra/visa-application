@@ -345,7 +345,7 @@ class StudentController extends Controller
         }
         if ($request->st_ins_3 != null) {
             $student->st_ins_3 = $request->st_ins_3;
-            $student->agent->commission = $student->agent->commission + $request->st_ins_3;
+            
         }
         if ($request->st_ins_date != null) {
             $student->st_ins_date = $request->st_ins_date;
@@ -358,7 +358,7 @@ class StudentController extends Controller
         }
         if ($request->nd_ins_3 != null) {
             $student->nd_ins_3 = $request->nd_ins_3;
-            $student->agent->commission = $student->agent->commission + $request->nd_ins_3;
+
         }
         if ($request->nd_ins_date != null) {
             $student->nd_ins_date = $request->nd_ins_date;
@@ -371,7 +371,7 @@ class StudentController extends Controller
         }
         if ($request->rd_ins_3 != null) {
             $student->rd_ins_3 = $request->rd_ins_3;
-            $student->agent->commission = $student->agent->commission + $request->rd_ins_3;
+            
         }
         if ($request->rd_ins_date != null) {
             $student->rd_ins_date = $request->rd_ins_date;
@@ -422,8 +422,13 @@ class StudentController extends Controller
             $student->offer_letter_date = $request->offer_letter_date;
         }
         $student->save();
+        if ($student->agent) {
         $student->agent->revenue = $request->tuition_fee;
+        $student->agent->commission = $student->agent->commission + $request->st_ins_3;
+        $student->agent->commission = $student->agent->commission + $request->nd_ins_3;
+        $student->agent->commission = $student->agent->commission + $request->rd_ins_3;
         $student->agent->save();
+        }
         return redirect()->route('process',['id'=>$id]);
     }
     public function reapply($id){

@@ -18,6 +18,13 @@ class UsersTableSeeder extends Seeder
             'admin' => 1
         ]);
 
+        $user = App\User::create([
+            'name' => 'Pankaj Paul',
+            'email' => 'admin@adeptuser.com',
+            'password' => bcrypt('pankaj'),
+            'admin' => 1
+        ]);
+
         $social = App\social::create([
             'social' => 'Facebook'
         ]);

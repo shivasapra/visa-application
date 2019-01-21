@@ -60,7 +60,7 @@ Process
 	                	<div class="col-md-6">
 	                	<div class="form-group">
 						<label for="application_fee" ><strong>Application Fee:</strong></label>
-						<input type="text" name='application_fee' required class="form-control" value="{{$student->application_fee}}">
+						<input type="number" name='application_fee' required class="form-control" value="{{$student->application_fee}}">
 						</div>
 						</div>
 					</div>
@@ -115,7 +115,7 @@ Process
 	                	<div class="col-md-6">
 	                	<div class="form-group">
 						<label for="tuition_fee" ><strong>Tuition Fee:</strong></label>
-						<input type="text" name='tuition_fee' required class="form-control" value="{{$student->tuition_fee}}">
+						<input type="number" name='tuition_fee' required class="form-control" value="{{$student->tuition_fee}}">
 						</div>
 						</div>
 					</div>
