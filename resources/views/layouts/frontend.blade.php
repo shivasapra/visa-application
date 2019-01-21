@@ -175,7 +175,7 @@
         </li>
         <li><a class="menu-item" href="{{route('visa.report')}}"><i class="fa fa-file menu-icon"></i>Visa Report</a>
         </li>
-        <li><a class="menu-item" href=""><i class="fa fa-file menu-icon"></i>Lead Report</a>
+        <li><a class="menu-item" href="{{route('lead.report')}}"><i class="fa fa-file menu-icon"></i>Lead Report</a>
         </li>
           
       </ul>

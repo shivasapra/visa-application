@@ -89,6 +89,9 @@ class HomeController extends Controller
         $application = studentProfile::where('application_fee', '!=', null)->orderBy('created_at','desc')->take(5)->get();
         $tuition = studentProfile::where('tuition_fee', '!=', null)->orderBy('created_at','desc')->take(5)->get();
         $todos = todo::where('date',$date_today)->orderBy('created_at','desc')->take(6)->get();
+        $interested_leads = leads::where('interested', 'interested')->get();
+        $not_interested_leads = leads::where('interested', 'Not-interested')->get();
+        $follow_up_leads = leads::where('interested', 'Follow-up')->get();
         // dd($todos);
         return view('home')->with('agents',agentProfile::all())->with('students',$students)
                             ->with('leads',leads::all())
@@ -106,7 +109,10 @@ class HomeController extends Controller
                             ->with('tuition',$tuition)
                             ->with('date',$date_today)
                             ->with('time',$time_now)
-                            ->with('todos',$todos);
+                            ->with('todos',$todos)
+                            ->with('interested_leads',$interested_leads)
+                            ->with('not_interested_leads',$not_interested_leads)
+                            ->with('follow_up_leads',$follow_up_leads);
     }
 
 

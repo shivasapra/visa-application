@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\studentProfile;
 use App\agentProfile;
+use App\leads;
 class ReportsController extends Controller
 {
     public function offer_letter(){
@@ -33,5 +34,17 @@ class ReportsController extends Controller
 
     public function agent(){
         return view('reports.agent')->with('agents',agentProfile::orderBy('created_at','desc')->get());
+    }
+
+    public function lead(Request $request){
+        $array =[];
+        foreach ($request->interested as $interested) {
+            # code...
+            $array = $request->interested;
+        }
+            $leads = leads::whereIn('interested',$array)->get();
+            // dd($leads);
+
+        return view('reports.lead')->with('leads',$leads);
     }
 }

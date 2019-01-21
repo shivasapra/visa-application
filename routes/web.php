@@ -74,6 +74,11 @@ Route::post('todos',[
 			'uses'=> 'ReportsController@agent',
 			'as'=>'agent.report'
 		]);
+	Route::post('lead/report',[
+			'uses'=> 'ReportsController@lead',
+			'as'=>'lead.report'
+		]);
+
 
 
 
