@@ -14,7 +14,7 @@ Agent Files
           </li>
           <li class="breadcrumb-item"><a href="{{route('agents')}}">Agents</a>
           </li>
-          <li class="breadcrumb-item"><a href="{{route('agent.business',['id'=>$agent->id])}}">Agent Buisness</a></li>
+          <li class="breadcrumb-item"><a href="{{route('agent.business',['id'=>$agent->id])}}">Agent Business</a></li>
           <li class="breadcrumb-item">Agent Files</li>
         </ol>
       </div>

@@ -15,7 +15,7 @@ Agent Business
           </li>
           <li class="breadcrumb-item"><a href="{{route('agents')}}">Agents</a>
           </li>
-          <li class="breadcrumb-item">Agent Buisness</li>
+          <li class="breadcrumb-item">Agent Business</li>
         </ol>
       </div>
     </div>

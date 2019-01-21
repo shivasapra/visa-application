@@ -181,7 +181,7 @@ Agent Summary
 							</div>
 							<div class="row">
 								<tr>
-									<td><strong>certificate issued:</strong></td>
+									<td><strong>Certificate Issued:</strong></td>
 									<td>
 										<input type="radio" id="yescrt" name="certificate_issued" value="yes" 
 										{{($agent->certificate_issued == 'yes')?"checked":" "}}
