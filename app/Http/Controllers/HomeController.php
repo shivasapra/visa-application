@@ -163,6 +163,23 @@ class HomeController extends Controller
                             ->with('week_start_date',$week_start_date)
                             ->with('date',$date);
     }
+
+    public function pastMonthTodos(Request $request){
+        $dt = Carbon::now();
+        $dt->timezone('Asia/Kolkata');
+        $time_now =Carbon::now()->timezone('Asia/Kolkata')->format('h:i');
+        $month_start_date = $dt->addDays(-30)->toDateString();
+        // dd($week_start_date);
+        $date_today = Carbon::now()->toDateString();
+        $todos = todo::whereBetween('date',[$month_start_date,$date_today])->orderBy('date','desc')->get();
+        $date = null;
+        // dd($todos);
+        return view('todo')->with('todos',$todos)
+                            ->with('time',$time_now)
+                            ->with('date_today',$date_today)
+                            ->with('month_start_date',$month_start_date)
+                            ->with('date',$date);
+    }
 }
 // $number = htmlspecialchars($_GET["number"]);
 // if(is_numeric($number) && $number > 0){

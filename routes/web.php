@@ -49,6 +49,10 @@ Route::get('/pastWeekTodos',[
 			'uses'=> 'HomeController@pastWeekTodos',
 			'as'=>'pastWeekTodos'
 		]);
+Route::get('/pastMonthTodos',[
+			'uses'=> 'HomeController@pastMonthTodos',
+			'as'=>'pastMonthTodos'
+		]);
 //Reports
 	Route::get('/offer letter/report',[
 			'uses'=> 'ReportsController@offer_letter',

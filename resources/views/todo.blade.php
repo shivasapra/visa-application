@@ -23,7 +23,14 @@ Todos
         @if($date != null)
 					<button class="btn btn-sm btn-primary">Add</button>
         @endif
-				</span></h3>
+				</span>
+      <span>
+      <a href="{{route('pastWeekTodos')}}" class="btn btn-sm btn-success">Past Week Todos</a>
+      </span>
+    <span>
+      <a href="{{route('pastMonthTodos')}}" class="btn btn-sm btn-danger">Past Month Todos</a>
+      </span>
+    </h3>
     </div>
 	  <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
 	    <div class="breadcrumb-wrapper col-12">
@@ -51,12 +58,10 @@ Todos
             <th id="date">{{$date}} 
               @if($date != null)
               <span id="editDate">
-							<button class="btn btn-sm btn-primary">Edit</button>
+							<button class="btn btn-sm btn-primary">Edit</button><br>
 							</span>
               @endif
-               <span>
-              <a href="{{route('pastWeekTodos')}}" class="btn btn-sm btn-info">Past Week Todos</a>
-              </span>
+               
                  
                </form>
 						</th>
