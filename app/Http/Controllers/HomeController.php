@@ -35,6 +35,7 @@ class HomeController extends Controller
         $dt = Carbon::now();
         $dt->timezone('Asia/Kolkata');
         $date_today = $dt->toDateString();
+
         $time_now =Carbon::now()->timezone('Asia/Kolkata')->format('h:i');
         // dd($time_now);
         //

@@ -143,7 +143,7 @@ Leads
 								<td>
 									<span class="text-info">{{$lead->interested}}&nbsp;</span>
 									@if($lead->interested == 'interested' and $lead->status != 2 )
-									<a href="{{route('student.add',['id'=>$lead->id])}}" class="btn btn-sm btn-success">Add student</a>
+									<a href="{{route('student.add',['id'=>$lead->id])}}" class="btn btn-sm btn-success">Add Add student Details</a>
 									@elseif($lead->interested == 'interested' and $lead->status == 2)
 									<a href="{{route('details.lead',['id'=>$lead->id])}}">(Converted)</a>
 									@endif
@@ -152,7 +152,7 @@ Leads
 										<a href="{{route('status.edit',['id'=>$lead->id])}}" class="btn btn-sm btn-info">Edit</a>
 									@elseif($lead->status == 1)
 										Processing
-											<a href="{{route('student.add',['id'=>$lead->id])}}" class="btn btn-sm btn-success">Add student</a>
+											<a href="{{route('student.add',['id'=>$lead->id])}}" class="btn btn-sm btn-success">Add student Details</a>
 											<a href="{{route('status.edit',['id'=>$lead->id])}}" class="btn btn-sm btn-info">Edit</a>
 									@else
 										<a href="{{route('details.lead',['id'=>$lead->id])}}">Processed</a>

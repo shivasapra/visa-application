@@ -49,7 +49,12 @@ Todos
                         <th id="date">{{$date}} 
                         	<span id="editDate">
 							<button class="btn btn-sm btn-warning">Edit</button>
-							</span> 
+							</span>
+               <span>
+              <button class="btn btn-sm btn-warning">Past Week</button>
+              </span>
+                 
+               </form>
 						</th>
                         <th>
 							Time
