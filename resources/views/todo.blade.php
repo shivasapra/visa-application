@@ -20,7 +20,9 @@ Todos
     <div class="content-header row">
 	<div class="content-header col-md-6 col-12 mb-1">
     	<h3 class="content-header-title"><strong>Todos</strong> <span id="addtodo">
+        @if($date != null)
 					<button class="btn btn-sm btn-primary">Add</button>
+        @endif
 				</span></h3>
     </div>
 	  <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
@@ -46,17 +48,22 @@ Todos
                  <table class="table table-hover mb-0">
                     <thead>
                       <tr>
-                        <th id="date">{{$date}} 
-                        	<span id="editDate">
-							<button class="btn btn-sm btn-warning">Edit</button>
+            <th id="date">{{$date}} 
+              @if($date != null)
+              <span id="editDate">
+							<button class="btn btn-sm btn-primary">Edit</button>
 							</span>
+              @endif
                <span>
-              <button class="btn btn-sm btn-warning">Past Week</button>
+              <a href="{{route('pastWeekTodos')}}" class="btn btn-sm btn-info">Past Week Todos</a>
               </span>
                  
                </form>
 						</th>
-                        <th>
+            @if($date==null)
+            <th>Date</th>
+            @endif
+            <th>
 							Time
 						</th>
 						<th>
@@ -83,6 +90,9 @@ Todos
                               
                             </form>
                           </td>
+                          @if($date==null)
+                          <td class="text-truncate">{{$todo->date}}</td>
+                          @endif
                           <td class="text-truncate">{{$todo->time}}</td>
                           <td class="text-truncate">{{$todo->activity}}</td>
                           <td class="text-truncate">

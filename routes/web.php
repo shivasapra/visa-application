@@ -41,9 +41,13 @@ Route::post('/update/todo/{id}',[
 			'uses'=> 'HomeController@updateTodo',
 			'as'=>'update.todo'
 		]);
-Route::post('todos',[
+Route::post('/todos',[
 			'uses'=> 'HomeController@todos',
 			'as'=>'todos'
+		]);
+Route::get('/pastWeekTodos',[
+			'uses'=> 'HomeController@pastWeekTodos',
+			'as'=>'pastWeekTodos'
 		]);
 //Reports
 	Route::get('/offer letter/report',[
