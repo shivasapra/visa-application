@@ -203,7 +203,7 @@ Dashboard
                   <input type="checkbox" name="interested[]" value="Follow-up" checked>
                   </div>
                   <div class="text-center">
-                    <span><button type="submit" class="btn btn-success btn-sm">Report</button></span>
+                    <span><button type="submit" class="btn btn-info btn-sm">Report</button></span>
                   </div>
                 </div>
               </form>
@@ -212,121 +212,107 @@ Dashboard
       </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-content">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-xl-12 col-lg-12 col-md-12">
-                    <p><strong>Total Students</strong>
-                      <span class="text-muted">{{'('.$students->count().')'}}</span>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('offer_letter.report')}}" class="btn btn-success btn-sm">Report</a></span>
-                    </p>
-                    <div class="progress progress-sm mt-1 mb-0">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: @if($students->count()>0)
-                      {{(($offer_letter->count()/$students->count())*100)}}%
-                      @else
-                      0%
-                      @endif" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">Offer Letter Given: <strong>{{$offer_letter->count()}} Students</strong></h6><hr>
-                 
-                    <p><strong>Total Students</strong>
-                      <span class="text-muted">{{'('.$students->count().')'}}</span>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('LOA.report')}}" class="btn btn-info btn-sm">Report</a></span>
-                    </p>
-                    <div class="progress progress-sm mt-1 mb-0">
-                      <div class="progress-bar bg-info" role="progressbar" style="width: 
-                      @if($students->count()>0)
-                      {{(($LOA->count()/$students->count())*100)}}%
-                      @else
-                      0%
-                      @endif
-                      " aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">L.O.A Received: <strong>{{$LOA->count()}} Students</strong></h6><hr>
-                  
-                    <p><strong>Total Students</strong>
-                      <span class="text-muted">{{'('.$students->count().')'}}</span>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('visa.report')}}" class="btn btn-warning btn-sm">Report</a></span>
-                    </p>
-                    <div class="progress progress-sm mt-1 mb-0">
-                      <div class="progress-bar bg-warning" role="progressbar" style="width: @if($students->count()>0)
-                      {{(($visa_sub->count()/$students->count())*100)}}%
-                      @else
-                      0%
-                      @endif" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">Visa Submission: <strong>{{$visa_sub->count()}} Students</strong></h6>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+                <div class="text-center">
+                  <strong>Total Students</strong>
+                  <span class="text-muted">{{'('.$students->count().')'}}</span>
+                </div><hr>
+              <div class="row">
+                <div class="col-xl-6 col-lg-12 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                  <p><strong>Offer Letter Given:</strong>
+                    <span class="text-muted"><strong>{{$offer_letter->count()}} Students</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('offer_letter.report')}}" class="btn btn-success btn-sm">Report</a></span>
+                  </p>
+                  <div class="progress progress-sm mt-1 mb-0">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: @if($students->count()>0)
+                    {{(($offer_letter->count()/$students->count())*100)}}%
+                    @else
+                    0%
+                    @endif" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <hr>
+               
+                  <p><strong>L.O.A Received:</strong>
+                    <span class="text-muted"><strong>{{$LOA->count()}} Students</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('LOA.report')}}" class="btn btn-dark btn-sm">Report</a></span>
+                  </p>
+                  <div class="progress progress-sm mt-1 mb-0">
+                    <div class="progress-bar bg-dark" role="progressbar" style="width: 
+                    @if($students->count()>0)
+                    {{(($LOA->count()/$students->count())*100)}}%
+                    @else
+                    0%
+                    @endif
+                    " aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                  </div><hr>
+                
+                  <p><strong>Visa Submission:</strong>
+                    <span class="text-muted"><strong>{{$visa_sub->count()}} Students</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('visa.report')}}" class="btn btn-info btn-sm">Report</a></span>
+                  </p>
+                  <div class="progress progress-sm mt-1 mb-0">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: @if($students->count()>0)
+                    {{(($visa_sub->count()/$students->count())*100)}}%
+                    @else
+                    0%
+                    @endif" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 col-md-12">
+                  <p><strong>Refund:</strong>
+                    <span class="text-muted"><strong>{{$refund->count()}} Students</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('refund.report')}}" class="btn btn-danger btn-sm">Report</a></span>
+                  </p>
+                  <div class="progress progress-sm mt-1 mb-0">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: @if($students->count()>0)
+                    {{(($refund->count()/$students->count())*100)}}%
+                    @else
+                    0%
+                    @endif" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                  </div><hr>
+                
+                  <p><strong>Application fee:</strong>
+                    <span class="text-muted"><strong>{{$application->count()}} Students</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('applicationFee.report')}}" class="btn btn-warning btn-sm">Report</a></span>
+                  </p>
+                  <div class="progress progress-sm mt-1 mb-0">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: @if($students->count()>0)
+                    {{(($application->count()/$students->count())*100)}}%
+                    @else
+                    0%
+                    @endif" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                  </div><hr>
+                
+                  <p><strong>Tuition fee:</strong>
+                    <span class="text-muted"><strong>{{$tuition->count()}} Students</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('tuitionFee.report')}}" class="btn btn-light btn-sm">Report</a></span>
+                  </p>
+                  <div class="progress progress-sm mt-1 mb-0">
+                    <div class="progress-bar bg-light" role="progressbar" style="width: @if($students->count()>0)
+                    {{(($tuition->count()/$students->count())*100)}}%
+                    @else
+                    0%
+                    @endif" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-content">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-xl-12 col-lg-12 col-md-12">
-                    <p><strong>Total Students</strong>
-                      <span class="text-muted">{{'('.$students->count().')'}}</span>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('refund.report')}}" class="btn btn-danger btn-sm">Report</a></span>
-                    </p>
-                    <div class="progress progress-sm mt-1 mb-0">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: @if($students->count()>0)
-                      {{(($refund->count()/$students->count())*100)}}%
-                      @else
-                      0%
-                      @endif" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">Refund: <strong>{{$refund->count()}} Students</strong></h6><hr>
-                  
-                    <p><strong>Total Students</strong>
-                      <span class="text-muted">{{'('.$students->count().')'}}</span>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('applicationFee.report')}}" class="btn btn-success btn-sm">Report</a></span>
-                    </p>
-                    <div class="progress progress-sm mt-1 mb-0">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: @if($students->count()>0)
-                      {{(($application->count()/$students->count())*100)}}%
-                      @else
-                      0%
-                      @endif" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">Application fee: <strong>{{$application->count()}} Students</strong></h6><hr>
-                  
-                    <p><strong>Total Students</strong>
-                      <span class="text-muted">{{'('.$students->count().')'}}</span>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('tuitionFee.report')}}" class="btn btn-info btn-sm">Report</a></span>
-                    </p>
-                    <div class="progress progress-sm mt-1 mb-0">
-                      <div class="progress-bar bg-info" role="progressbar" style="width: @if($students->count()>0)
-                      {{(($tuition->count()/$students->count())*100)}}%
-                      @else
-                      0%
-                      @endif" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">Tuition fee: <strong>{{$tuition->count()}} Students</strong></h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
+    
+    
     <div class="row">
       <div class="col-xl-4 col-lg-12 col-md-12">
         <div class="card">
