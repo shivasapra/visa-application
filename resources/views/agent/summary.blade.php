@@ -73,7 +73,7 @@ Agent Summary
 										{{($agent->interested == 'yes')?"checked":" "}}>Yes
 										<input type="radio" name="interested" value="no"
 										{{($agent->interested == 'no')?"checked":" "}}
-										{{($agent->interested == 'yes')?"disabled":" "}}>No
+										{{($agent->proposal_sent == 'yes')?"disabled":""}}>No
 									</td>
 								</tr>
 							</div>
@@ -86,7 +86,7 @@ Agent Summary
 										{{($agent->interested == 'no')?"disabled":" "}}>Yes
 										<input type="radio" id="noproposalsent" name="proposal_sent" value="no"
 										{{($agent->proposal_sent == 'no')?"checked":" "}}
-										{{($agent->proposal_sent == 'yes')?"disabled":" "}}>No
+										{{($agent->document_received == 'yes')?"disabled":""}}>No
 										<span id="proposalsentdate">
 										@if($agent->proposal_sent == 'yes')
 										<input type="date" name="proposal_sent_date" value="{{$agent->proposal_sent_date}}" required readonly>
@@ -103,7 +103,8 @@ Agent Summary
 										{{($agent->document_received == 'yes')?"checked":" "}}
 										{{($agent->proposal_sent == 'no')?"disabled":" "}}>Yes
 										<input type="radio" id="nodocumentreceived" name="document_received" value="no"
-										{{($agent->document_received == 'no')?"checked":" "}}{{($agent->document_received == 'yes')?"disabled":" "}}>No
+										{{($agent->document_received == 'no')?"checked":" "}}
+										{{($agent->agreement_sent == 'yes')?"disabled":""}}>No
 										<span id="documentreceiveddate">
 										@if($agent->document_received == 'yes')
 										<input type="date" name="document_received_date" value="{{$agent->document_received_date}}" required readonly>
@@ -121,7 +122,7 @@ Agent Summary
 										{{($agent->document_received == 'no')?"disabled":" "}}>Yes
 										<input type="radio" id="nosent" name="agreement_sent" value="no"
 										{{($agent->agreement_sent == 'no')?"checked":" "}}
-										{{($agent->agreement_sent == 'yes')?"disabled":" "}}>No
+										{{($agent->agreement_signed_agent == 'yes')?"disabled":""}}>No
 										<span id="sentdate">
 										@if($agent->agreement_sent == 'yes')
 										<input type="date" name="agreement_sent_date" value="{{$agent->agreement_sent_date}}" required readonly>
@@ -138,7 +139,8 @@ Agent Summary
 										{{($agent->agreement_signed_agent == 'yes')?"checked":" "}}
 										{{($agent->agreement_sent == 'no')?"disabled":" "}}>Yes
 										<input type="radio" id="nosignedagent" name="agreement_signed_agent" value="no"
-										{{($agent->agreement_signed_agent == 'no')?"checked":" "}}{{($agent->agreement_signed_agent == 'yes')?"disabled":" "}}>No
+										{{($agent->agreement_signed_agent == 'no')?"checked":" "}}
+										{{($agent->agreement_signed_college == 'yes')?"disabled":""}}>No
 										<span id="signedagentdate">
 										@if($agent->agreement_signed_agent == 'yes')
 										<input type="date" name="agreement_signed_agent_date" value="{{$agent->agreement_signed_agent_date}}" required>
@@ -170,7 +172,8 @@ Agent Summary
 										{{($agent->agreement_signed_college == 'yes')?"checked":" "}}
 										{{($agent->percentage == null)?"disabled":" "}}>Yes
 										<input type="radio" id="nosignedclg" name="agreement_signed_college" value="no"
-										{{($agent->agreement_signed_college == 'no')?"checked":" "}}{{($agent->agreement_signed_college == 'yes')?"disabled":" "}}>No
+										{{($agent->agreement_signed_college == 'no')?"checked":" "}}
+										{{($agent->certificate_issued == 'yes')?"disabled":""}}>No
 										<span id="signedclgdate">
 										@if($agent->agreement_signed_college == 'yes')
 										<input type="date" name="agreement_signed_college_date" value="{{$agent->agreement_signed_college_date}}" required>
@@ -187,7 +190,7 @@ Agent Summary
 										{{($agent->certificate_issued == 'yes')?"checked":" "}}
 										{{($agent->agreement_signed_college == 'no')?"disabled":" "}}>Yes
 										<input type="radio" id="nocrt" name="certificate_issued" value="no"
-										{{($agent->certificate_issued == 'no')?"checked":" "}}{{($agent->certificate_issued == 'yes')?"disabled":" "}}>No
+										{{($agent->certificate_issued == 'no')?"checked":" "}}>No
 										<span id="crtdate">
 										@if($agent->certificate_issued == 'yes')
 										<input type="date" name="certificate_issued_date" value="{{$agent->certificate_issued_date}}" required>
