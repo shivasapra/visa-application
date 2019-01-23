@@ -25,11 +25,26 @@ class ReportsController extends Controller
     }
 
     public function applicationFee(){
-        return view('reports.applicationFee')->with('students',studentProfile::where('application_fee','!=',null)->get());
+        $students = studentProfile::all();
+        $application_fee = 0;
+        foreach ($students as $student) {
+            $application_fee = $application_fee + $student->application_fee;
+        }
+        
+        return view('reports.applicationFee')
+                ->with('students',studentProfile::where('application_fee','!=',null)->get())
+                ->with('application_fee',$application_fee);
     }
 
     public function tuitionFee(){
-        return view('reports.tuitionFee')->with('students',studentProfile::where('tuition_fee','!=',null)->get());
+        $students = studentProfile::all();
+        $tuition_fee = 0;
+        foreach ($students as $student) {
+            $tuition_fee = $tuition_fee + $student->tuition_fee;
+        }
+        return view('reports.tuitionFee')
+                    ->with('students',studentProfile::where('tuition_fee','!=',null)->get())
+                    ->with('tuition_fee',$tuition_fee);
     }
 
     public function agent(){

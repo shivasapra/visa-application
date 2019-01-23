@@ -19,7 +19,7 @@ Report: Tuition Fee
 @section('header')
     <div class="content-header row">
 	<div class="content-header col-md-6 col-12 mb-1">
-    	<h3 class="content-header-title"><strong>Report: Tuition Fee</strong></h3>
+    	<h3 class="content-header-title"><strong>Report: Tuition Fee ({{'$'.$tuition_fee}})</strong></h3>
     </div>
 	  <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
 	    <div class="breadcrumb-wrapper col-12">
@@ -70,7 +70,7 @@ Report: Tuition Fee
 									</td>
 									<td>{{$student->email}}</td>
 									<td>{{$student->gender}}</td>
-									<td><strong>{{$student->tuition_fee}}</strong></td>
+									<td><strong>{{"$".$student->tuition_fee}}</strong></td>
 								</tr>
 								@endforeach
 							@else
@@ -80,6 +80,7 @@ Report: Tuition Fee
 							@endif
 	                    </tbody>
 	                </table>
+	                
 	                </div>
 	              </div>
 	            </div>

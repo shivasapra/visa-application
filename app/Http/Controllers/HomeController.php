@@ -87,8 +87,8 @@ class HomeController extends Controller
         $LOA = studentProfile::where('LOA', 'yes')->get();
         $visa_sub = studentProfile::where('submission_to_visa', 'yes')->get();
         $refund = studentProfile::where('refund', 'yes')->get();
-        $application = studentProfile::where('application_fee', '!=', null)->orderBy('created_at','desc')->take(5)->get();
-        $tuition = studentProfile::where('tuition_fee', '!=', null)->orderBy('created_at','desc')->take(5)->get();
+        $application = studentProfile::where('application_fee', '!=', null)->get();
+        $tuition = studentProfile::where('tuition_fee', '!=', null)->get();
         $todos = todo::where('date',$date_today)->orderBy('created_at','desc')->take(6)->get();
         $interested_leads = leads::where('interested', 'interested')->get();
         $not_interested_leads = leads::where('interested', 'Not-interested')->get();

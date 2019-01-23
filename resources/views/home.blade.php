@@ -224,7 +224,7 @@ Dashboard
             <div class="card-content">
               <div class="card-body">
                 <div class="row">
-                  <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
                     <p><strong>Total Students</strong>
                       <span class="text-muted">{{'('.$students->count().')'}}</span>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('offer_letter.report')}}" class="btn btn-success btn-sm">Report</a></span>
@@ -239,7 +239,7 @@ Dashboard
                     </div>
                     <h6 class="text-bold-500 mt-1 mb-0">Offer Letter Given: <strong>{{$offer_letter->count()}} Students</strong></h6>
                   </div>
-                  <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
                     <p><strong>Total Students</strong>
                       <span class="text-muted">{{'('.$students->count().')'}}</span>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('LOA.report')}}" class="btn btn-info btn-sm">Report</a></span>
@@ -256,7 +256,7 @@ Dashboard
                     </div>
                     <h6 class="text-bold-500 mt-1 mb-0">L.O.A Received: <strong>{{$LOA->count()}} Students</strong></h6>
                   </div>
-                  <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
                     <p><strong>Total Students</strong>
                       <span class="text-muted">{{'('.$students->count().')'}}</span>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('visa.report')}}" class="btn btn-warning btn-sm">Report</a></span>
@@ -271,7 +271,13 @@ Dashboard
                     </div>
                     <h6 class="text-bold-500 mt-1 mb-0">Visa Submission: <strong>{{$visa_sub->count()}} Students</strong></h6>
                   </div>
-                  <div class="col-xl-3 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
                     <p><strong>Total Students</strong>
                       <span class="text-muted">{{'('.$students->count().')'}}</span>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('refund.report')}}" class="btn btn-danger btn-sm">Report</a></span>
@@ -285,6 +291,36 @@ Dashboard
                       aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <h6 class="text-bold-500 mt-1 mb-0">Refund: <strong>{{$refund->count()}} Students</strong></h6>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                    <p><strong>Total Students</strong>
+                      <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('applicationFee.report')}}" class="btn btn-success btn-sm">Report</a></span>
+                    </p>
+                    <div class="progress progress-sm mt-1 mb-0">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: @if($students->count()>0)
+                      {{(($application->count()/$students->count())*100)}}%
+                      @else
+                      0%
+                      @endif" aria-valuenow="25"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h6 class="text-bold-500 mt-1 mb-0">Application fee: <strong>{{$application->count()}} Students</strong></h6>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                    <p><strong>Total Students</strong>
+                      <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('tuitionFee.report')}}" class="btn btn-info btn-sm">Report</a></span>
+                    </p>
+                    <div class="progress progress-sm mt-1 mb-0">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: @if($students->count()>0)
+                      {{(($tuition->count()/$students->count())*100)}}%
+                      @else
+                      0%
+                      @endif" aria-valuenow="25"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h6 class="text-bold-500 mt-1 mb-0">Tuition fee: <strong>{{$tuition->count()}} Students</strong></h6>
                   </div>
                 </div>
               </div>
