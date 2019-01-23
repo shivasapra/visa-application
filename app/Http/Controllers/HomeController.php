@@ -83,6 +83,7 @@ class HomeController extends Controller
         }
         // dd($lead_ten);
         // dd($i);
+        //students
         $offer_letter = studentProfile::where('offer_letter', 'yes')->get();
         $LOA = studentProfile::where('LOA', 'yes')->get();
         $visa_sub = studentProfile::where('submission_to_visa', 'yes')->get();
@@ -90,10 +91,19 @@ class HomeController extends Controller
         $application = studentProfile::where('application_fee', '!=', null)->get();
         $tuition = studentProfile::where('tuition_fee', '!=', null)->get();
         $todos = todo::where('date',$date_today)->orderBy('created_at','desc')->take(6)->get();
+        //leads
         $interested_leads = leads::where('interested', 'interested')->get();
         $not_interested_leads = leads::where('interested', 'Not-interested')->get();
         $follow_up_leads = leads::where('interested', 'Follow-up')->get();
-        // dd($todos);
+        //agents
+        $interested_agents = agentProfile::where('interested','yes')->get();
+        $proposal_sent_agents = agentProfile::where('proposal_sent','yes')->get();
+        $document_received_agents = agentProfile::where('document_received','yes')->get();
+        $agreement_sent_agents = agentProfile::where('agreement_sent','yes')->get();
+        $agreement_signed_agent_agents = agentProfile::where('agreement_signed_agent','yes')->get();
+        $agreement_signed_college_agents = agentProfile::where('agreement_signed_college','yes')->get();
+        $certificate_issued_agents = agentProfile::where('certificate_issued','yes')->get();
+
         return view('home')->with('agents',agentProfile::all())->with('students',$students)
                             ->with('leads',leads::all())
                             ->with('contracts',contracts::all())
@@ -113,7 +123,14 @@ class HomeController extends Controller
                             ->with('todos',$todos)
                             ->with('interested_leads',$interested_leads)
                             ->with('not_interested_leads',$not_interested_leads)
-                            ->with('follow_up_leads',$follow_up_leads);
+                            ->with('follow_up_leads',$follow_up_leads)
+                            ->with('interested_agents',$interested_agents)
+                            ->with('proposal_sent_agents',$proposal_sent_agents)
+                            ->with('document_received_agents',$document_received_agents)
+                            ->with('agreement_sent_agents',$agreement_sent_agents)
+                            ->with('agreement_signed_agent_agents',$agreement_signed_agent_agents)
+                            ->with('agreement_signed_college_agents',$agreement_signed_college_agents)
+                            ->with('certificate_issued_agents',$certificate_issued_agents);
     }
 
 

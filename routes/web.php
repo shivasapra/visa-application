@@ -87,6 +87,31 @@ Route::get('/pastMonthTodos',[
 			'as'=>'lead.report'
 		]);
 
+	Route::get('interested-agents/report',[
+			'uses'=> 'ReportsController@interestedAgents',
+			'as'=>'interestedAgents.report'
+		]);
+	Route::get('proposal-sent-agents/report',[
+			'uses'=> 'ReportsController@proposalSentAgents',
+			'as'=>'proposalSentAgents.report'
+		]);
+	Route::get('document-received-agents/report',[
+			'uses'=> 'ReportsController@documentReceivedAgents',
+			'as'=>'documentReceivedAgents.report'
+		]);
+	Route::get('agreement-sent-agents/report',[
+			'uses'=> 'ReportsController@agreementSentAgents',
+			'as'=>'agreementSentAgents.report'
+		]);
+	Route::get('agreement-signed-agents/report',[
+			'uses'=> 'ReportsController@agreementSignedAgents',
+			'as'=>'agreementSignedAgents.report'
+		]);
+	Route::get('agreement-signed-college/report',[
+			'uses'=> 'ReportsController@agreementSignedCollege',
+			'as'=>'agreementSignedCollege.report'
+		]);
+
 
 
 

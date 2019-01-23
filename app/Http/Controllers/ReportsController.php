@@ -47,9 +47,6 @@ class ReportsController extends Controller
                     ->with('tuition_fee',$tuition_fee);
     }
 
-    public function agent(){
-        return view('reports.agent')->with('agents',agentProfile::orderBy('created_at','desc')->get());
-    }
 
     public function lead(Request $request){
         $array =[];
@@ -61,5 +58,33 @@ class ReportsController extends Controller
             // dd($leads);
 
         return view('reports.lead')->with('leads',$leads);
+    }
+
+    public function agent(){
+        return view('reports.agent')->with('agents',agentProfile::orderBy('created_at','desc')->get());
+    }
+
+    public function interestedAgents(){
+        return view('reports.agent')->with('agents',agentProfile::where('interested','yes')->get());
+    }
+
+    public function proposalSentAgents(){
+        return view('reports.agent')->with('agents',agentProfile::where('proposal_sent','yes')->get());
+    }
+
+    public function documentReceivedAgents(){
+        return view('reports.agent')->with('agents',agentProfile::where('document_received','yes')->get());
+    }
+
+    public function agreementSentAgents(){
+        return view('reports.agent')->with('agents',agentProfile::where('agreement_sent','yes')->get());
+    }
+
+    public function agreementSignedAgents(){
+        return view('reports.agent')->with('agents',agentProfile::where('agreement_signed_agent','yes')->get());
+    }
+
+    public function agreementSignedcollege(){
+        return view('reports.agent')->with('agents',agentProfile::where('agreement_signed_college','yes')->get());
     }
 }

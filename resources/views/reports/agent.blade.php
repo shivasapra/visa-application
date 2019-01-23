@@ -55,6 +55,9 @@ Report: Agent
 								Company
 							</th>
 							<th>
+								Status
+							</th>
+							<th>
 								Revenue
 							</th>
 							<th>
@@ -73,6 +76,25 @@ Report: Agent
 									</td>
 									<td>{{$agent->email}}</td>
 									<td>{{$agent->company}}</td>
+									<td>
+										@if($agent->certificate_issued == 'yes')
+										<div class="success">{{"Certificate Issued"}}</div>
+									@elseif($agent->agreement_signed_college == 'yes')
+										<div class="info">{{"Agreement Signed by college"}}</div>
+									@elseif($agent->agreement_signed_agent == 'yes')
+										<div class="info">{{"Agreement Signed by agent"}}</div>
+									@elseif($agent->agreement_sent == 'yes')
+										<div class="info">{{"Agreement Sent to agent"}}</div>
+									@elseif($agent->document_received == 'yes')
+										<div class="info">{{"Document Received"}}</div>
+									@elseif($agent->proposal_sent == 'yes')
+										<div class="info">{{"Proposal Sent"}}</div>
+									@elseif($agent->interested == 'yes')
+										<div class="success">{{"Interested"}}</div>
+									@else
+										<div class="warning">{{"Not Interested"}}</div>
+									@endif
+									</td>
 									<td><strong>${{$agent->revenue}}</strong></td>
 									<td><strong>${{$agent->commission}}</strong></td>
 								</tr>

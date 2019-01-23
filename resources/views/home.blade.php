@@ -317,12 +317,12 @@ Dashboard
               <div class="row">
                 <div class="col-xl-6 col-lg-12 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
                   <p><strong>Interested:</strong>
-                    <span class="text-muted"><strong>{{$offer_letter->count()}} Agents</strong></span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('offer_letter.report')}}" class="btn btn-success btn-sm">Report</a></span>
+                    <span class="text-muted"><strong>{{$interested_agents->count()}} Agents</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('interestedAgents.report')}}" class="btn btn-success btn-sm">Report</a></span>
                   </p>
                   <div class="progress progress-sm mt-1 mb-0">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: @if($students->count()>0)
-                    {{(($offer_letter->count()/$students->count())*100)}}%
+                    <div class="progress-bar bg-success" role="progressbar" style="width: @if($agents->count()>0)
+                    {{(($interested_agents->count()/$agents->count())*100)}}%
                     @else
                     0%
                     @endif" aria-valuenow="25"
@@ -331,13 +331,13 @@ Dashboard
                   <hr>
                
                   <p><strong>Proposal Sent:</strong>
-                    <span class="text-muted"><strong>{{$LOA->count()}} Agents</strong></span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('LOA.report')}}" class="btn btn-dark btn-sm">Report</a></span>
+                    <span class="text-muted"><strong>{{$proposal_sent_agents->count()}} Agents</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('proposalSentAgents.report')}}" class="btn btn-dark btn-sm">Report</a></span>
                   </p>
                   <div class="progress progress-sm mt-1 mb-0">
                     <div class="progress-bar bg-dark" role="progressbar" style="width: 
-                    @if($students->count()>0)
-                    {{(($LOA->count()/$students->count())*100)}}%
+                    @if($agents->count()>0)
+                    {{(($proposal_sent_agents->count()/$agents->count())*100)}}%
                     @else
                     0%
                     @endif
@@ -346,12 +346,12 @@ Dashboard
                   </div><hr>
                 
                   <p><strong>Document Received:</strong>
-                    <span class="text-muted"><strong>{{$visa_sub->count()}} Agents</strong></span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('visa.report')}}" class="btn btn-info btn-sm">Report</a></span>
+                    <span class="text-muted"><strong>{{$document_received_agents->count()}} Agents</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('documentReceivedAgents.report')}}" class="btn btn-info btn-sm">Report</a></span>
                   </p>
                   <div class="progress progress-sm mt-1 mb-0">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: @if($students->count()>0)
-                    {{(($visa_sub->count()/$students->count())*100)}}%
+                    <div class="progress-bar bg-info" role="progressbar" style="width: @if($agents->count()>0)
+                    {{(($document_received_agents->count()/$agents->count())*100)}}%
                     @else
                     0%
                     @endif" aria-valuenow="25"
@@ -360,12 +360,12 @@ Dashboard
                 </div>
                 <div class="col-xl-6 col-lg-12 col-md-12">
                   <p><strong>Agreement Sent To Agent:</strong>
-                    <span class="text-muted"><strong>{{$refund->count()}} Agents</strong></span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('refund.report')}}" class="btn btn-danger btn-sm">Report</a></span>
+                    <span class="text-muted"><strong>{{$agreement_sent_agents->count()}} Agents</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('agreementSentAgents.report')}}" class="btn btn-danger btn-sm">Report</a></span>
                   </p>
                   <div class="progress progress-sm mt-1 mb-0">
                     <div class="progress-bar bg-danger" role="progressbar" style="width: @if($students->count()>0)
-                    {{(($refund->count()/$students->count())*100)}}%
+                    {{(($agreement_sent_agents->count()/$students->count())*100)}}%
                     @else
                     0%
                     @endif" aria-valuenow="25"
@@ -373,12 +373,12 @@ Dashboard
                   </div><hr>
                 
                   <p><strong>Agreement Signed By Agent:</strong>
-                    <span class="text-muted"><strong>{{$application->count()}} Agents</strong></span>
-                    <span><a href="{{route('applicationFee.report')}}" class="btn btn-warning btn-sm">Report</a></span>
+                    <span class="text-muted"><strong>{{$agreement_signed_agent_agents->count()}} Agents</strong></span>
+                    <span><a href="{{route('agreementSignedAgents.report')}}" class="btn btn-warning btn-sm">Report</a></span>
                   </p>
                   <div class="progress progress-sm mt-1 mb-0">
                     <div class="progress-bar bg-warning" role="progressbar" style="width: @if($students->count()>0)
-                    {{(($application->count()/$students->count())*100)}}%
+                    {{(($agreement_signed_agent_agents->count()/$students->count())*100)}}%
                     @else
                     0%
                     @endif" aria-valuenow="25"
@@ -386,11 +386,11 @@ Dashboard
                   </div><hr>
                 
                   <p><strong>Agreement Signed By College</strong>
-                    <span class="text-muted"><strong>{{$tuition->count()}} Agents</strong></span><span><a href="{{route('tuitionFee.report')}}" class="btn btn-light btn-sm">Report</a></span>
+                    <span class="text-muted"><strong>{{$agreement_signed_college_agents->count()}} Agents</strong></span><span><a href="{{route('agreementSignedCollege.report')}}" class="btn btn-light btn-sm">Report</a></span>
                   </p>
                   <div class="progress progress-sm mt-1 mb-0">
                     <div class="progress-bar bg-light" role="progressbar" style="width: @if($students->count()>0)
-                    {{(($tuition->count()/$students->count())*100)}}%
+                    {{(($agreement_signed_college_agents->count()/$students->count())*100)}}%
                     @else
                     0%
                     @endif" aria-valuenow="25"
