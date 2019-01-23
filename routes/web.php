@@ -322,6 +322,22 @@ Route::get('/pastMonthTodos',[
 			'uses'=> 'leadController@update',
 			'as'=>'lead.update'
 		]);
+	Route::get('converted/leads',[
+		'uses'=> 'leadController@converted',
+			'as'=>'converted.leads'
+	]);
+	Route::get('interested/leads',[
+		'uses'=> 'leadController@interested',
+			'as'=>'interested.leads'
+	]);
+	Route::get('Not-Interested/leads',[
+		'uses'=> 'leadController@notInterested',
+			'as'=>'notInterested.leads'
+	]);
+	Route::get('follow-up/leads',[
+		'uses'=> 'leadController@followUp',
+			'as'=>'followUp.leads'
+	]);
 
 //
 	Route::get('files/progress',[

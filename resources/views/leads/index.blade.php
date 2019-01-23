@@ -37,7 +37,7 @@ Leads
     <div class="content-body">
 		<div class="row">
         <div class="col-xl-3 col-lg-6 col-12">
-            <a href="">
+            <a href="{{route('converted.leads')}}">
             <div class="card">
               <div class="card-content">
                 <div class="media align-items-stretch">
@@ -54,7 +54,7 @@ Leads
             </a>
         </div>
         <div class="col-xl-3 col-lg-6 col-12">
-            <a href="">
+            <a href="{{route('interested.leads')}}">
             <div class="card">
               <div class="card-content">
                 <div class="media align-items-stretch">
@@ -71,7 +71,7 @@ Leads
           </a>
         </div>
         <div class="col-xl-3 col-lg-6 col-12">
-            <a href="">
+            <a href="{{route('notInterested.leads')}}">
             <div class="card">
               <div class="card-content">
                 <div class="media align-items-stretch">
@@ -88,7 +88,7 @@ Leads
           </a>
         </div>
         <div class="col-xl-3 col-lg-6 col-12">
-            <a href="">
+            <a href="{{route('followUp.leads')}}">
             <div class="card">
               <div class="card-content">
                 <div class="media align-items-stretch">
@@ -124,6 +124,9 @@ Leads
 							Last Name
 						</th>
 						<th>
+							source
+						</th>
+						<th>
 							Email
 						</th>
 						<th>
@@ -139,11 +142,18 @@ Leads
 		                        <th scope="row">{{$i++}}</th>
 		                        <td>{{$lead->student_fname}}</td>
 								<td>{{$lead->student_lname}}</td>
+								@if($lead->agent_id)
+								<td>{{$lead->agent->name}}</td>
+								@elseif($lead->social_id)
+								<td>{{$lead->social->social}}</td>
+								@elseif($lead->third_party)
+								<td>{{$lead->third_party}}</td>
+								@endif
 								<td>{{$lead->email}}</td>
 								<td>
 									<span class="text-info">{{$lead->interested}}&nbsp;</span>
 									@if($lead->interested == 'interested' and $lead->status != 2 )
-									<a href="{{route('student.add',['id'=>$lead->id])}}" class="btn btn-sm btn-success">Add Add student Details</a>
+									<a href="{{route('student.add',['id'=>$lead->id])}}" class="btn btn-sm btn-success"> Add student Details</a>
 									@elseif($lead->interested == 'interested' and $lead->status == 2)
 									<a href="{{route('details.lead',['id'=>$lead->id])}}">(Converted)</a>
 									@endif

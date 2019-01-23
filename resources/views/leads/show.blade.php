@@ -118,7 +118,7 @@ Lead Details
 						<div class="row">
 							<tr>
 								<td><strong>Status:</strong></td>
-								<td>{{$lead->interested}}</td>
+								<td>{{$lead->interested}} ({{$lead->StatuS_info}})</td>
 							</tr>
 						</div>
 					</tbody>
