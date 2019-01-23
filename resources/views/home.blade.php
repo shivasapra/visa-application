@@ -343,13 +343,7 @@ Dashboard
           <div class="card-content px-1">
             <div id="friends-activity" class="media-list ">
               <a href="#" class="media border-0">
-                {{-- <div class="media-left pr-1">
-                      <span class="avatar avatar-md avatar-online">
-                        <img class="media-object rounded-circle" src="{{asset('app/images/user-placeholder.jpg')}}"
-                        alt="Generic placeholder image">
-                        <i></i>
-                      </span>
-                    </div> --}}
+                
                 <div class="media-body w-100">
                 @if($application->count()>0)
                 <?php $i =1;?>

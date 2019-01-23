@@ -19,7 +19,7 @@ Report: Application Fee
 @section('header')
     <div class="content-header row">
 	<div class="content-header col-md-6 col-12 mb-1">
-    	<h3 class="content-header-title"><strong>Report: Application Fee ({{'$'.$application_fee}})</strong></h3>
+    	<h3 class="content-header-title"><strong>Report: Application Fee <span class="text-success">({{'$'.$application_fee}})</span></strong></h3>
     </div>
 	  <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
 	    <div class="breadcrumb-wrapper col-12">
