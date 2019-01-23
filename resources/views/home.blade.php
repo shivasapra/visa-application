@@ -145,88 +145,82 @@ Dashboard
           </div>
         </div>
       </div>
-      <div class="col-xl-4 col-lg-12 border-right-blue-grey border-right-lighten-5 clearfix">
-      <div class="card">
-          <div class="card-content">
-            <div class="card-body">
-              <p>
-                <strong>Total Leads</strong>
-                <span class="text-muted">{{'('.$leads->count().')'}}</span>
-              </p>
-              <a href="{{route('interested.leads')}}">
-              <div class="progress progress-sm mt-1 mb-0">
-                <div class="progress-bar bg-success" role="progressbar" style="width: 
-                @if($leads->count()>0)
-                {{(($interested_leads->count()/$leads->count())*100)}}%
-                @else
-                0%
-                @endif" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                
-                <h6 class="text-bold-500 mt-1 mb-0">Interested: <strong>{{$interested_leads->count()}} Leads</strong></h6></a>
-            </div>
-      
-            <div class="card-body">
-              <a href="{{route('notInterested.leads')}}">
-              <div class="progress progress-sm mt-1 mb-0">
-                <div class="progress-bar bg-danger" role="progressbar" style="width: 
-                @if($leads->count()>0)
-                {{(($not_interested_leads->count()/$leads->count())*100)}}%
-                @else
-                0%
-                @endif" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-                <h6 class="text-bold-500 mt-1 mb-0">Not-Interested: <strong>{{$not_interested_leads->count()}} leads</strong></h6></a>
-            </div>
-      
-            <div class="card-body">
-              <a href="{{route('followUp.leads')}}">
-              <div class="progress progress-sm mt-1 mb-0">
-                <div class="progress-bar bg-warning" role="progressbar" style="width: 
-                @if($leads->count()>0)
-                {{(($follow_up_leads->count()/$leads->count())*100)}}%
-                @else
-                0%
-                @endif" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-                <h6 class="text-bold-500 mt-1 mb-0">Follow-up: <strong>{{$follow_up_leads->count()}} leads</strong></h6></a>
-            </div>
-            <form action="{{route('lead.report')}}" method="post" >
-              @csrf
+      <div class="col-xl-4 col-lg-12 border-right-blue-grey">
+        <div class="card">
+            <div class="card-content">
               <div class="card-body">
-                <div class="form-group" >
-                <label for="interested">Interested</label>
-                <input type="checkbox" name="interested[]" value="interested" checked>&nbsp;&nbsp;
-                <label for="Not-interested">Not-Interested</label>
-                <input type="checkbox" name="interested[]" value="Not-interested" checked>&nbsp;
-                <label for="Follow-up">Follow-Up</label>
-                <input type="checkbox" name="interested[]" value="Follow-up" checked>
-                </div>
-                <div class="text-center">
-                  <span><button type="submit" class="btn btn-success btn-sm">Report</button></span>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+                <p class="text-center">
+                  <strong>Total Leads</strong>
+                  <span class="text-muted">{{'('.$leads->count().')'}}</span>
+                </p><hr>
 
+                <a href="{{route('interested.leads')}}" style="color: black">
+                <h6 class="text-bold-500 mt-1 mb-0">Interested: <strong>{{$interested_leads->count()}} Leads</strong></h6>
+                <div class="progress progress-sm mt-1 mb-0">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 
+                  @if($leads->count()>0)
+                  {{(($interested_leads->count()/$leads->count())*100)}}%
+                  @else
+                  0%
+                  @endif" aria-valuenow="25"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+                  </div><br></a>
+              
+                <a href="{{route('notInterested.leads')}}" style="color: black">
+                <h6 class="text-bold-500 mt-1 mb-0">Not-Interested: <strong>{{$not_interested_leads->count()}} leads</strong></h6>
+                <div class="progress progress-sm mt-1 mb-0">
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: 
+                  @if($leads->count()>0)
+                  {{(($not_interested_leads->count()/$leads->count())*100)}}%
+                  @else
+                  0%
+                  @endif" aria-valuenow="25"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+                </div><br></a>
+              
+                <a href="{{route('followUp.leads')}}" style="color: black">
+                <h6 class="text-bold-500 mt-1 mb-0">Follow-up: <strong>{{$follow_up_leads->count()}} leads</strong></h6>
+                <div class="progress progress-sm mt-1 mb-0">
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 
+                  @if($leads->count()>0)
+                  {{(($follow_up_leads->count()/$leads->count())*100)}}%
+                  @else
+                  0%
+                  @endif" aria-valuenow="25"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+                </div><br></a><hr>
+              
+
+              <form action="{{route('lead.report')}}" method="post" >
+                @csrf
+                
+                  <div class="form-group" >
+                  <label for="interested">Interested</label>
+                  <input type="checkbox" name="interested[]" value="interested" checked>&nbsp;&nbsp;
+                  <label for="Not-interested">Not-Interested</label>
+                  <input type="checkbox" name="interested[]" value="Not-interested" checked>&nbsp;
+                  <label for="Follow-up">Follow-Up</label>
+                  <input type="checkbox" name="interested[]" value="Follow-up" checked>
+                  </div>
+                  <div class="text-center">
+                    <span><button type="submit" class="btn btn-success btn-sm">Report</button></span>
+                  </div>
+                </div>
+              </form>
+            </div>
         </div>
       </div>
-    
-
-
+    </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-4">
           <div class="card">
             <div class="card-content">
               <div class="card-body">
                 <div class="row">
-                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                  <div class="col-xl-12 col-lg-12 col-md-12">
                     <p><strong>Total Students</strong>
                       <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('offer_letter.report')}}" class="btn btn-success btn-sm">Report</a></span>
                     </p>
                     <div class="progress progress-sm mt-1 mb-0">
@@ -237,11 +231,11 @@ Dashboard
                       @endif" aria-valuenow="25"
                       aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">Offer Letter Given: <strong>{{$offer_letter->count()}} Students</strong></h6>
-                  </div>
-                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                    <h6 class="text-bold-500 mt-1 mb-0">Offer Letter Given: <strong>{{$offer_letter->count()}} Students</strong></h6><hr>
+                 
                     <p><strong>Total Students</strong>
                       <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('LOA.report')}}" class="btn btn-info btn-sm">Report</a></span>
                     </p>
                     <div class="progress progress-sm mt-1 mb-0">
@@ -254,11 +248,11 @@ Dashboard
                       " aria-valuenow="25"
                       aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">L.O.A Received: <strong>{{$LOA->count()}} Students</strong></h6>
-                  </div>
-                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                    <h6 class="text-bold-500 mt-1 mb-0">L.O.A Received: <strong>{{$LOA->count()}} Students</strong></h6><hr>
+                  
                     <p><strong>Total Students</strong>
                       <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('visa.report')}}" class="btn btn-warning btn-sm">Report</a></span>
                     </p>
                     <div class="progress progress-sm mt-1 mb-0">
@@ -274,12 +268,17 @@ Dashboard
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
             <div class="card-content">
               <div class="card-body">
                 <div class="row">
-                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                  <div class="col-xl-12 col-lg-12 col-md-12">
                     <p><strong>Total Students</strong>
                       <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('refund.report')}}" class="btn btn-danger btn-sm">Report</a></span>
                     </p>
                     <div class="progress progress-sm mt-1 mb-0">
@@ -290,11 +289,11 @@ Dashboard
                       @endif" aria-valuenow="25"
                       aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">Refund: <strong>{{$refund->count()}} Students</strong></h6>
-                  </div>
-                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                    <h6 class="text-bold-500 mt-1 mb-0">Refund: <strong>{{$refund->count()}} Students</strong></h6><hr>
+                  
                     <p><strong>Total Students</strong>
                       <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('applicationFee.report')}}" class="btn btn-success btn-sm">Report</a></span>
                     </p>
                     <div class="progress progress-sm mt-1 mb-0">
@@ -305,11 +304,11 @@ Dashboard
                       @endif" aria-valuenow="25"
                       aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <h6 class="text-bold-500 mt-1 mb-0">Application fee: <strong>{{$application->count()}} Students</strong></h6>
-                  </div>
-                  <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                    <h6 class="text-bold-500 mt-1 mb-0">Application fee: <strong>{{$application->count()}} Students</strong></h6><hr>
+                  
                     <p><strong>Total Students</strong>
                       <span class="text-muted">{{'('.$students->count().')'}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('tuitionFee.report')}}" class="btn btn-info btn-sm">Report</a></span>
                     </p>
                     <div class="progress progress-sm mt-1 mb-0">
@@ -328,7 +327,6 @@ Dashboard
           </div>
         </div>
     </div>
-
     <div class="row">
       <div class="col-xl-4 col-lg-12 col-md-12">
         <div class="card">
@@ -457,6 +455,7 @@ Dashboard
             </div>
       </div>
     </div>
+
 
       
     
