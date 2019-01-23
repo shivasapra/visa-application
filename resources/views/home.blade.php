@@ -2,8 +2,6 @@
 @section('title')
 Dashboard
 @stop
-{{-- @section('css')
-@endsection --}}
 @section('content')
     <div class="row">
           <div class="col-xl-3 col-lg-6 col-12">
@@ -309,102 +307,105 @@ Dashboard
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    
-    
-    <div class="row">
-      <div class="col-xl-4 col-lg-12 col-md-12">
         <div class="card">
-          <div class="card-header">
-            <h2 class="card-title"><strong>Application Fee</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ({{'$'.$application_fee}})</h2>
-            <div class="heading-elements">
-              <ul class="list-inline mb-0">
-                <a href="{{route('applicationFee.report')}}" class="btn btn-primary btn-sm">Report</a>
-              </ul>
-            </div>
-          </div>
-          <div class="card-content px-1">
-            <div id="friends-activity" class="media-list ">
-              <a href="#" class="media border-0">
+          <div class="card-content">
+            <div class="card-body">
+                <div class="text-center">
+                  <strong>Total Agent</strong>
+                  <span class="text-muted">{{'('.$agents->count().')'}}</span>
+                </div><hr>
+              <div class="row">
+                <div class="col-xl-6 col-lg-12 col-md-12 border-right-blue-grey border-right-lighten-5 clearfix">
+                  <p><strong>Interested:</strong>
+                    <span class="text-muted"><strong>{{$offer_letter->count()}} Agents</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('offer_letter.report')}}" class="btn btn-success btn-sm">Report</a></span>
+                  </p>
+                  <div class="progress progress-sm mt-1 mb-0">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: @if($students->count()>0)
+                    {{(($offer_letter->count()/$students->count())*100)}}%
+                    @else
+                    0%
+                    @endif" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <hr>
+               
+                  <p><strong>Proposal Sent:</strong>
+                    <span class="text-muted"><strong>{{$LOA->count()}} Agents</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('LOA.report')}}" class="btn btn-dark btn-sm">Report</a></span>
+                  </p>
+                  <div class="progress progress-sm mt-1 mb-0">
+                    <div class="progress-bar bg-dark" role="progressbar" style="width: 
+                    @if($students->count()>0)
+                    {{(($LOA->count()/$students->count())*100)}}%
+                    @else
+                    0%
+                    @endif
+                    " aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                  </div><hr>
                 
-                <div class="media-body w-100">
-                @if($application->count()>0)
-                <?php $i =1;?>
-                @foreach($application as $app)
-                  <h4 class="list-group-item-heading"><strong>{{$i++."."}}  {{$app->first_name.' '.$app->last_name}}</strong>
-                    <span class="font-medium-4 float-right pt-1">${{$app->application_fee}}</span>
-                  </h4>
-                  <p class="list-group-item-text mb-0">
-                    @if($app->offer_letter == 'yes')
-                    <span class="badge badge-success" style="border-radius: 50px">Offer Letter given </span>
-                    @endif
-                    @if($app->LOA == 'yes')
-                    <span class="badge badge-info" style="border-radius: 50px">LOA Received</span>
-                    @endif
-                    @if($app->submission_to_visa == 'yes')
-                    <span class="badge badge-warning" style="border-radius: 50px">Visa Submitted</span>
-                    @endif
-                    @if($app->refund == 'yes')
-                    <span class="badge badge-danger" style="border-radius: 50px">Refund</span>
-                    @endif
-                  </p><br>
-                @endforeach
-                @endif
+                  <p><strong>Document Received:</strong>
+                    <span class="text-muted"><strong>{{$visa_sub->count()}} Agents</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('visa.report')}}" class="btn btn-info btn-sm">Report</a></span>
+                  </p>
+                  <div class="progress progress-sm mt-1 mb-0">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: @if($students->count()>0)
+                    {{(($visa_sub->count()/$students->count())*100)}}%
+                    @else
+                    0%
+                    @endif" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
                 </div>
-                  
-              </a>
+                <div class="col-xl-6 col-lg-12 col-md-12">
+                  <p><strong>Agreement Sent To Agent:</strong>
+                    <span class="text-muted"><strong>{{$refund->count()}} Agents</strong></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="{{route('refund.report')}}" class="btn btn-danger btn-sm">Report</a></span>
+                  </p>
+                  <div class="progress progress-sm mt-1 mb-0">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: @if($students->count()>0)
+                    {{(($refund->count()/$students->count())*100)}}%
+                    @else
+                    0%
+                    @endif" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                  </div><hr>
+                
+                  <p><strong>Agreement Signed By Agent:</strong>
+                    <span class="text-muted"><strong>{{$application->count()}} Agents</strong></span>
+                    <span><a href="{{route('applicationFee.report')}}" class="btn btn-warning btn-sm">Report</a></span>
+                  </p>
+                  <div class="progress progress-sm mt-1 mb-0">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: @if($students->count()>0)
+                    {{(($application->count()/$students->count())*100)}}%
+                    @else
+                    0%
+                    @endif" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                  </div><hr>
+                
+                  <p><strong>Agreement Signed By College</strong>
+                    <span class="text-muted"><strong>{{$tuition->count()}} Agents</strong></span><span><a href="{{route('tuitionFee.report')}}" class="btn btn-light btn-sm">Report</a></span>
+                  </p>
+                  <div class="progress progress-sm mt-1 mb-0">
+                    <div class="progress-bar bg-light" role="progressbar" style="width: @if($students->count()>0)
+                    {{(($tuition->count()/$students->count())*100)}}%
+                    @else
+                    0%
+                    @endif" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-xl-4 col-lg-12 col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title"><strong>Tuition Fee</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ({{'$'.$tuition_fee}})</h2>
-            <div class="heading-elements">
-              <ul class="list-inline mb-0">
-                <a href="{{route('tuitionFee.report')}}" class="btn btn-primary btn-sm">Report</a>
-              </ul>
-            </div>
-          </div>
-          <div class="card-content px-1">
-            <div id="friends-activity" class="media-list ">
-              <a href="#" class="media border-0">
-                <div class="media-body w-100">
-                @if($tuition->count()>0)
-                <?php $i =1;?>
-                @foreach($tuition as $tut)
-                  <h4 class="list-group-item-heading"><strong>{{$i++."."}}  {{$tut->first_name.' '.$tut->last_name}}</strong>
-                    <span class="font-medium-4 float-right pt-1">${{$tut->tuition_fee}}</span>
-                  </h4>
-                  <p class="list-group-item-text mb-0">
-                    @if($tut->offer_letter == 'yes')
-                    <span class="badge badge-success" style="border-radius: 50px">Offer Letter given </span>
-                    @endif
-                    @if($tut->LOA == 'yes')
-                    <span class="badge badge-info" style="border-radius: 50px">LOA Received</span>
-                    @endif
-                    @if($tut->submission_to_visa == 'yes')
-                    <span class="badge badge-warning" style="border-radius: 50px">Visa Submitted</span>
-                    @endif
-                    @if($tut->refund == 'yes')
-                    <span class="badge badge-danger" style="border-radius: 50px">Refund</span>
-                    @endif
-                  </p><br>
-                @endforeach
-                @endif
-                </div>
-                  
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4 col-lg-12 col-md-12">
+      <div class="col-md-4">
             <div class="card">
               <div class="card-header">
-                <h2 class="card-title"><strong>Agents ({{$agents->count()}})</strong></h2>
+                <h5><strong>Agents ({{$agents->count()}})</strong></h5>
                 <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                 <div class="heading-elements">
                   <ul class="list-inline mb-0">
@@ -440,11 +441,7 @@ Dashboard
               </div>
             </div>
       </div>
-    </div>
-
-
-      
-    
+    </div> 
 @endsection
 @section('js')
 

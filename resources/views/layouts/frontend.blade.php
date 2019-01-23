@@ -52,7 +52,7 @@
           <li class="nav-item">
             <a class="navbar-brand" href="{{route('home')}}">
               <img class="brand-logo" alt="stack admin logo" src="{{asset('app/front/app-assets/images/logo/stack-logo.png')}}">
-              <h2 class="brand-text">Visa Application</h2>
+              <h2 class="brand-text">Adept User</h2>
             </a>
           </li>
           <li class="nav-item d-md-none">

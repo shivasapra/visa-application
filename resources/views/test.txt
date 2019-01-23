@@ -1,0 +1,90 @@
+<div class="row">
+      <div class="col-xl-4 col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title"><strong>Application Fee</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ({{'$'.$application_fee}})</h2>
+            <div class="heading-elements">
+              <ul class="list-inline mb-0">
+                <a href="{{route('applicationFee.report')}}" class="btn btn-primary btn-sm">Report</a>
+              </ul>
+            </div>
+          </div>
+          <div class="card-content px-1">
+            <div id="friends-activity" class="media-list ">
+              <a href="#" class="media border-0">
+                
+                <div class="media-body w-100">
+                @if($application->count()>0)
+                <?php $i =1;?>
+                @foreach($application as $app)
+                  <h4 class="list-group-item-heading"><strong>{{$i++."."}}  {{$app->first_name.' '.$app->last_name}}</strong>
+                    <span class="font-medium-4 float-right pt-1">${{$app->application_fee}}</span>
+                  </h4>
+                  <p class="list-group-item-text mb-0">
+                    @if($app->offer_letter == 'yes')
+                    <span class="badge badge-success" style="border-radius: 50px">Offer Letter given </span>
+                    @endif
+                    @if($app->LOA == 'yes')
+                    <span class="badge badge-info" style="border-radius: 50px">LOA Received</span>
+                    @endif
+                    @if($app->submission_to_visa == 'yes')
+                    <span class="badge badge-warning" style="border-radius: 50px">Visa Submitted</span>
+                    @endif
+                    @if($app->refund == 'yes')
+                    <span class="badge badge-danger" style="border-radius: 50px">Refund</span>
+                    @endif
+                  </p><br>
+                @endforeach
+                @endif
+                </div>
+                  
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title"><strong>Tuition Fee</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ({{'$'.$tuition_fee}})</h2>
+            <div class="heading-elements">
+              <ul class="list-inline mb-0">
+                <a href="{{route('tuitionFee.report')}}" class="btn btn-primary btn-sm">Report</a>
+              </ul>
+            </div>
+          </div>
+          <div class="card-content px-1">
+            <div id="friends-activity" class="media-list ">
+              <a href="#" class="media border-0">
+                <div class="media-body w-100">
+                @if($tuition->count()>0)
+                <?php $i =1;?>
+                @foreach($tuition as $tut)
+                  <h4 class="list-group-item-heading"><strong>{{$i++."."}}  {{$tut->first_name.' '.$tut->last_name}}</strong>
+                    <span class="font-medium-4 float-right pt-1">${{$tut->tuition_fee}}</span>
+                  </h4>
+                  <p class="list-group-item-text mb-0">
+                    @if($tut->offer_letter == 'yes')
+                    <span class="badge badge-success" style="border-radius: 50px">Offer Letter given </span>
+                    @endif
+                    @if($tut->LOA == 'yes')
+                    <span class="badge badge-info" style="border-radius: 50px">LOA Received</span>
+                    @endif
+                    @if($tut->submission_to_visa == 'yes')
+                    <span class="badge badge-warning" style="border-radius: 50px">Visa Submitted</span>
+                    @endif
+                    @if($tut->refund == 'yes')
+                    <span class="badge badge-danger" style="border-radius: 50px">Refund</span>
+                    @endif
+                  </p><br>
+                @endforeach
+                @endif
+                </div>
+                  
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
