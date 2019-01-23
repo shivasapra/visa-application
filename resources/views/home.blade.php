@@ -153,6 +153,7 @@ Dashboard
                 <strong>Total Leads</strong>
                 <span class="text-muted">{{'('.$leads->count().')'}}</span>
               </p>
+              <a href="{{route('interested.leads')}}">
               <div class="progress progress-sm mt-1 mb-0">
                 <div class="progress-bar bg-success" role="progressbar" style="width: 
                 @if($leads->count()>0)
@@ -162,11 +163,12 @@ Dashboard
                 @endif" aria-valuenow="25"
                 aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <h6 class="text-bold-500 mt-1 mb-0">Interested: <strong>{{$interested_leads->count()}} Leads</strong></h6>
+                
+                <h6 class="text-bold-500 mt-1 mb-0">Interested: <strong>{{$interested_leads->count()}} Leads</strong></h6></a>
             </div>
       
             <div class="card-body">
-      
+              <a href="{{route('notInterested.leads')}}">
               <div class="progress progress-sm mt-1 mb-0">
                 <div class="progress-bar bg-danger" role="progressbar" style="width: 
                 @if($leads->count()>0)
@@ -176,10 +178,11 @@ Dashboard
                 @endif" aria-valuenow="25"
                 aria-valuemin="0" aria-valuemax="100"></div>
               </div>
-                <h6 class="text-bold-500 mt-1 mb-0">Not-Interested: <strong>{{$not_interested_leads->count()}} leads</strong></h6>
+                <h6 class="text-bold-500 mt-1 mb-0">Not-Interested: <strong>{{$not_interested_leads->count()}} leads</strong></h6></a>
             </div>
       
             <div class="card-body">
+              <a href="{{route('followUp.leads')}}">
               <div class="progress progress-sm mt-1 mb-0">
                 <div class="progress-bar bg-warning" role="progressbar" style="width: 
                 @if($leads->count()>0)
@@ -189,7 +192,7 @@ Dashboard
                 @endif" aria-valuenow="25"
                 aria-valuemin="0" aria-valuemax="100"></div>
               </div>
-                <h6 class="text-bold-500 mt-1 mb-0">Follow-up: <strong>{{$follow_up_leads->count()}} leads</strong></h6>
+                <h6 class="text-bold-500 mt-1 mb-0">Follow-up: <strong>{{$follow_up_leads->count()}} leads</strong></h6></a>
             </div>
             <form action="{{route('lead.report')}}" method="post" >
               @csrf
