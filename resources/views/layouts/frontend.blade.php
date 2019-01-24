@@ -1,3 +1,10 @@
+<?php
+use App\todo;
+use Carbon\carbon;
+$yesterday_date = Carbon::now()->addDays(-1)->toDateString();
+$missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
+?>
+
 <!-- - var menuBorder = true-->
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
@@ -11,7 +18,6 @@
   <title>@yield('title')</title>
   <link rel="apple-touch-icon" href="{{asset('app/front/app-assets/images/ico/apple-icon-120.png')}}">
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('app/front/app-assets/images/ico/favicon.ico')}}">
-  <link href="{{ asset('/css/toastr.min.css') }}" rel="stylesheet">
   {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
   <link href="{{asset('app/front/https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i')}}"
   rel="stylesheet">
@@ -36,6 +42,7 @@
   <!-- END Page Level CSS-->
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
+  <link href="{{ asset('app/front/app-assets/css/toastr.min.css') }}" rel="stylesheet">
   <!-- END Custom CSS-->
   @yield('css')
   
@@ -71,34 +78,38 @@
           </ul>
 
           <ul class="nav navbar-nav float-right">
-            {{-- <li class="dropdown dropdown-notification nav-item">
+            <li class="dropdown dropdown-notification nav-item">
               <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i>
-                <span class="badge badge-pill badge-default badge-danger badge-default badge-up">1</span>
+                <span class="badge badge-pill badge-default badge-danger badge-default badge-up">{{$missed_todos->count()}}</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                 <li class="dropdown-menu-header">
                   <h6 class="dropdown-header m-0">
                     <span class="grey darken-2">Notifications</span>
-                    <span class="notification-tag badge badge-default badge-danger float-right m-0">1 New</span>
+                    <span class="notification-tag badge badge-default badge-danger float-right m-0">{{$missed_todos->count()}} New</span>
                   </h6>
                 </li>
+                @if($missed_todos->count()>0)
+                @foreach($missed_todos as $missed_todo)
                 <li class="scrollable-container media-list">
                   <a href="javascript:void(0)">
                     <div class="media">
                       <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
                       <div class="media-body">
-                        <h6 class="media-heading">You have new order!</h6>
-                        <p class="notification-text font-small-3 text-muted">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                        <h6 class="media-heading">Todo: {{$missed_todo->date}}</h6>
+                        <p class="notification-text font-small-3 text-muted">{{$missed_todo->activity}}</p>
                         <small>
-                          <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">30 minutes ago</time>
+                          <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">{{$missed_todo->time}} <span class="text-danger">{{'Missed'}}</span></time>
                         </small>
                       </div>
                     </div>
                   </a>
                 </li>
-                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li>
+                @endforeach
+                @endif
+                {{-- <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li> --}}
               </ul>
-            </li> --}}
+            </li>
             <li class="dropdown dropdown-user nav-item">
               <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                 <span class="avatar avatar-online">
@@ -221,7 +232,7 @@
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="{{asset("app/front/app-assets/js/scripts/pages/dashboard-fitness.js")}}" type="text/javascript"></script>
   {{-- <script src="{{ asset('/js/app.js') }}"></script> --}}
-    <script src="{{ asset('/js/toastr.min.js') }}"></script>
+  <script src="{{asset('app/front/app-assets/js/scripts/toastr.min.js')}}"></script>
     <script>
         @if(Session::has('success'))
             toastr.success("{{Session::get('success')}}")
@@ -229,13 +240,8 @@
         @if(Session::has('info'))
             toastr.info("{{Session::get('info')}}")
         @endif
-        @if(Session::has('warning'))
-            toastr.warning("{{Session::get('warning')}}")
-        @endif
-        @if(Session::has('danger'))
-            toastr.danger("{{Session::get('danger')}}")
-        @endif
     </script>
+    
   
   <!-- END PAGE LEVEL JS-->
   @yield('js')

@@ -103,7 +103,8 @@ class HomeController extends Controller
         $agreement_signed_agent_agents = agentProfile::where('agreement_signed_agent','yes')->get();
         $agreement_signed_college_agents = agentProfile::where('agreement_signed_college','yes')->get();
         $certificate_issued_agents = agentProfile::where('certificate_issued','yes')->get();
-
+        $yesterday_date = Carbon::now()->addDays(-1)->toDateString();
+        $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
         return view('home')->with('agents',agentProfile::all())->with('students',$students)
                             ->with('leads',leads::all())
                             ->with('contracts',contracts::all())
@@ -130,7 +131,8 @@ class HomeController extends Controller
                             ->with('agreement_sent_agents',$agreement_sent_agents)
                             ->with('agreement_signed_agent_agents',$agreement_signed_agent_agents)
                             ->with('agreement_signed_college_agents',$agreement_signed_college_agents)
-                            ->with('certificate_issued_agents',$certificate_issued_agents);
+                            ->with('certificate_issued_agents',$certificate_issued_agents)
+                            ->with('missed_todos',$missed_todos);
     }
 
 
@@ -141,6 +143,7 @@ class HomeController extends Controller
         $todo->time = $request->time;
         $todo->activity = $request->activity;
         $todo->save();
+        Session::flash('success','You successfully created a Todo!!');
         return redirect()->route('home');
     }
 
