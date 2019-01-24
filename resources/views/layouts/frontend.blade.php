@@ -63,7 +63,7 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar"
   data-open="click" data-menu="vertical-menu" data-col="2-columns">
   <!-- fixed-top-->
-  <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-light navbar-border">
+  <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-dark navbar-border">
     <div class="navbar-wrapper">
       <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
@@ -153,7 +153,7 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
     </div>
   </nav>
   <!-- ////////////////////////////////////////////////////////////////////////////-->
-  <div class="main-menu menu-fixed menu-light menu-accordion" data-scroll-to-active="true">
+  <div class="main-menu menu-fixed menu-dark menu-accordion" data-scroll-to-active="true">
     <div class="main-menu-content">
       <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
         <li class=" navigation-header">
@@ -180,6 +180,7 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
 
           Contracts</a>
         </li>
+        <div class="dropdown-divider"></div>
         <li class=" navigation-header">
          <i class="ft-layout"></i> Reports
         </li>
@@ -205,7 +206,7 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
     </div>
   </div>
 
-  <div class="app-content content">
+  <div class="app-content content"  style="background-color:#D3D3D3;">
     <div class="content-wrapper">
       @yield('header')
       <div class="content-body">
@@ -214,7 +215,7 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
     </div>
   </div>
   <!-- ////////////////////////////////////////////////////////////////////////////-->
-  <footer class="footer footer-static footer-light navbar-border">
+  <footer class="footer footer-static footer-dark navbar-border">
     <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
       <span class="float-md-right d-block d-md-inline-block d-none d-lg-block">Designed and Developed by <a href="https://www.himsoftsolution.com">Him Soft Solution Chandigarh</a></span>
     </p>
