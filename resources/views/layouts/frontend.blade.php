@@ -16,6 +16,15 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
   <meta name="keywords" content="admin template, stack admin template, dashboard template, flat admin template, responsive admin template, web app">
   <meta name="author" content="PIXINVENT">
   <title>@yield('title')</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBDkKetQwosod2SZ7ZGCpxuJdxY3kxo5Po"
+  type="text/javascript"></script>
+  <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
+  <script src="{{asset('js/toastr.min.js')}}"></script>
+  
+
+
   <link rel="apple-touch-icon" href="{{asset('app/front/app-assets/images/ico/apple-icon-120.png')}}">
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('app/front/app-assets/images/ico/favicon.ico')}}">
   {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
@@ -42,7 +51,10 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
   <!-- END Page Level CSS-->
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
-  <link href="{{ asset('app/front/app-assets/css/toastr.min.css') }}" rel="stylesheet">
+  {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+  swal("Hello world!");
+  </script> --}}
   <!-- END Custom CSS-->
   @yield('css')
   
@@ -208,9 +220,7 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
     </p>
     {{-- <img src="{{asset('images/himsoft.jpg')}}" alt="" height="20px" width="20px" style="border-radius: 50px"> --}}
   </footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBDkKetQwosod2SZ7ZGCpxuJdxY3kxo5Po"
-  type="text/javascript"></script>
+  
    <!-- BEGIN VENDOR JS-->
   <script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script>
   <!-- BEGIN VENDOR JS-->
@@ -229,21 +239,18 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
   <script src="{{asset("app/front/app-assets/js/core/app.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/js/scripts/customizer.js")}}" type="text/javascript"></script>
   <!-- END STACK JS-->
-  <!-- BEGIN PAGE LEVEL JS-->
+  <!-- BEGIN  PAGE LEVEL JS-->
   <script src="{{asset("app/front/app-assets/js/scripts/pages/dashboard-fitness.js")}}" type="text/javascript"></script>
   {{-- <script src="{{ asset('/js/app.js') }}"></script> --}}
-  <script src="{{asset('app/front/app-assets/js/scripts/toastr.min.js')}}"></script>
-    <script>
-        @if(Session::has('success'))
-            toastr.success("{{Session::get('success')}}")
-        @endif
-        @if(Session::has('info'))
-            toastr.info("{{Session::get('info')}}")
-        @endif
-    </script>
-    
   
   <!-- END PAGE LEVEL JS-->
+  
+  
+  <script>
+    @if(Session::has('success'))
+    toastr.success("{{Session::get('success')}}")
+    @endif
+  </script>
   @yield('js')
 
 </body>
