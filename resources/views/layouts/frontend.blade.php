@@ -28,8 +28,8 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
   <link rel="apple-touch-icon" href="{{asset('app/front/app-assets/images/ico/apple-icon-120.png')}}">
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('app/front/app-assets/images/ico/favicon.ico')}}">
   {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-  <link href="{{asset('app/front/https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i')}}"
-  rel="stylesheet">
+  {{-- <link href="{{asset('app/front/https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i')}}"
+  rel="stylesheet"> --}}
   <!-- BEGIN VENDOR CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/vendors.css")}}">
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/vendors/css/forms/icheck/icheck.css")}}">
@@ -230,7 +230,7 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
   <script src="{{asset("app/front/app-assets/vendors/js/forms/icheck/icheck.min.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/extensions/jquery.knob.min.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/charts/raphael-min.js")}}" type="text/javascript"></script>
-  <script src="{{asset("app/front/app-assets/vendors/js/charts/morris.min.j")}}s" type="text/javascript"></script>
+  <script src="{{asset("app/front/app-assets/vendors/js/charts/morris.min.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/charts/jquery.sparkline.min.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/extensions/unslider-min.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/charts/echarts/echarts.js")}}" type="text/javascript"></script>
@@ -241,7 +241,7 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
   <script src="{{asset("app/front/app-assets/js/scripts/customizer.js")}}" type="text/javascript"></script>
   <!-- END STACK JS-->
   <!-- BEGIN  PAGE LEVEL JS-->
-  <script src="{{asset("app/front/app-assets/js/scripts/pages/dashboard-fitness.js")}}" type="text/javascript"></script>
+  {{-- <script src="{{asset("app/front/app-assets/js/scripts/pages/dashboard-fitness.js")}}" type="text/javascript"></script> --}}
   {{-- <script src="{{ asset('/js/app.js') }}"></script> --}}
   
   <!-- END PAGE LEVEL JS-->
