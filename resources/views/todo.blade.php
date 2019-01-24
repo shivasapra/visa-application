@@ -38,6 +38,9 @@ Todos
 	        <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a>
 	        </li>
 	        <li class="breadcrumb-item">Todos
+                                          @if($date == null)
+                                            {{ $todos->links() }}
+                                          @endif
 	        </li>
 	      </ol>
 	    </div>

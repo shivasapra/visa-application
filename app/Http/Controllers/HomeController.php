@@ -168,14 +168,14 @@ class HomeController extends Controller
                             ->with('date',$request->date);
     }
 
-    public function pastWeekTodos(Request $request){
+    public function pastWeekTodos(){
         $dt = Carbon::now();
         $dt->timezone('Asia/Kolkata');
         $time_now =Carbon::now()->timezone('Asia/Kolkata')->format('h:i');
         $week_start_date = $dt->addDays(-7)->toDateString();
         // dd($week_start_date);
         $date_today = Carbon::now()->toDateString();
-        $todos = todo::whereBetween('date',[$week_start_date,$date_today])->orderBy('date','desc')->get();
+        $todos = todo::whereBetween('date',[$week_start_date,$date_today])->orderBy('date','desc')->paginate(10);
         $date = null;
         // dd($todos);
         return view('todo')->with('todos',$todos)
@@ -185,14 +185,14 @@ class HomeController extends Controller
                             ->with('date',$date);
     }
 
-    public function pastMonthTodos(Request $request){
+    public function pastMonthTodos(){
         $dt = Carbon::now();
         $dt->timezone('Asia/Kolkata');
         $time_now =Carbon::now()->timezone('Asia/Kolkata')->format('h:i');
         $month_start_date = $dt->addDays(-30)->toDateString();
         // dd($week_start_date);
         $date_today = Carbon::now()->toDateString();
-        $todos = todo::whereBetween('date',[$month_start_date,$date_today])->orderBy('date','desc')->get();
+        $todos = todo::whereBetween('date',[$month_start_date,$date_today])->orderBy('date','desc')->paginate(10);
         $date = null;
         // dd($todos);
         return view('todo')->with('todos',$todos)
