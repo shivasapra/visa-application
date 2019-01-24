@@ -26,7 +26,7 @@ Leads
 	      <ol class="breadcrumb">
 	        <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a>
 	        </li>
-	        <li class="breadcrumb-item">leads
+	        <li class="breadcrumb-item">leads{{ $leads->links() }}
 	        </li>
 	      </ol>
 	    </div>

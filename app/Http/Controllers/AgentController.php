@@ -17,7 +17,7 @@ class AgentController extends Controller
      */
     public function index()
     {
-        return view('agent.index')->with('agents',agentProfile::all());
+        return view('agent.index')->with('agents',agentProfile::paginate(10));
     }
 
     /**

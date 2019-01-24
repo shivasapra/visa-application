@@ -121,6 +121,7 @@ Todos
             </div>
           </div>
 		</div>
+    {{-- {{ $todos->links() }} --}}
 	</div>
 	
 @stop

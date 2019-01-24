@@ -17,7 +17,7 @@ class ContractsController extends Controller
      */
     public function index()
     {   
-        $contracts = contracts::all();
+        $contracts = contracts::paginate(10);
         $active = contracts::take(100000000000)->where('active','yes')->get();
         $signed = contracts::take(100000000000)->where('signed','yes')->get();
         $expired = contracts::take(100000000000)->where('expired','yes')->get();

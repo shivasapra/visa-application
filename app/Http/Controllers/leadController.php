@@ -23,7 +23,7 @@ class leadController extends Controller
         $interested = leads::where('interested','interested')->get();
         $not_interested = leads::where('interested','Not-interested')->get();
         $follow_up = leads::where('interested','Follow-up')->get();
-        return view('leads.index')->with('leads',leads::all())
+        return view('leads.index')->with('leads',leads::paginate(10))
                                     ->with('converted',$converted)
                                     ->with('interested',$interested)
                                     ->with('not_interested',$not_interested)

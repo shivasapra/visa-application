@@ -26,7 +26,7 @@ Students
 	      <ol class="breadcrumb">
 	        <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a>
 	        </li>
-	        <li class="breadcrumb-item">Students
+	        <li class="breadcrumb-item">Students{{ $students->links() }}
 	        </li>
 	      </ol>
 	    </div>
@@ -83,14 +83,16 @@ Students
 						@endif
                     </tbody>
                 </table>
-                </div>
+				</div>
               </div>
             </div>
+						
               <div class="text-center">
 					<a href="{{route('students.create')}}" class="btn btn-sm btn-info">Add Student</a>
 				</div>
           </div>
 		</div>
+              	
 	</div>
 
 
