@@ -283,7 +283,7 @@ class AgentController extends Controller
                 $identity->save();
             }
 
-        Session::flash('success','agent update successfully');
+        Session::flash('success','agent updated successfully');
         return redirect()->back()->with('agent',$agent);
     }
 

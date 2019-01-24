@@ -430,6 +430,7 @@ class StudentController extends Controller
         $student->agent->commission = $student->agent->commission + $request->rd_ins_3;
         $student->agent->save();
         }
+        Session::flash('success','Process Updated!!');
         return redirect()->route('process',['id'=>$id]);
     }
     public function reapply($id){

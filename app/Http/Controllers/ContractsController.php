@@ -158,7 +158,7 @@ class ContractsController extends Controller
         $contract->start_date = $request->start_date;
         $contract->end_date = $request->end_date;
         $contract->save();
-        Session::flash('success','contract created successfully');
+        Session::flash('success','contract updated successfully');
         return redirect()->route("contracts");
     }
 
@@ -193,7 +193,7 @@ class ContractsController extends Controller
         $contract->agent->contracts = $contract->agent->contracts - 1;
         $contract->agent->save();
         $contract->forceDelete();
-        Session::flash('success','Contract Deleted!');
+        Session::flash('danger','Contract Deleted!');
         return redirect()->route('contracts');
     }
     public function details($id){
@@ -233,6 +233,7 @@ class ContractsController extends Controller
         $contract->agent->active_c = $contract->agent->active_c - 1;
         $contract->agent->declined_c = $contract->agent->declined_c + 1;
         $contract->agent->save();
+        Session::flash('success','Contract Declined');
         return redirect()->route('contracts');
     }
     public function active(){

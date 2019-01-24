@@ -151,6 +151,7 @@ class HomeController extends Controller
         $todo = todo::find($id);
             $todo->status = 1;
             $todo->save();
+            Session::flash('info','You successfully completed a Task!!');
         return redirect()->route('home');
     }
 
