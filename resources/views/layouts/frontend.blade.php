@@ -109,10 +109,9 @@ $missed_todos_five = todo::where('date',$yesterday_date)->where('status',3)->tak
                 </li>
                 @if($missed_todos->count()>0)
                 @foreach($missed_todos_five as $missed_todo)
-                <form action="{{route('todos')}}" method="post">
                 @csrf
                 <li class="scrollable-container media-list">
-                  <a>
+                  <a href="{{route('todos',['target_date'=>$missed_todo->date])}}">
                     <input type="text" name="date" hidden value="{{$missed_todo->date}}">
                     <div class="media">
                       <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
@@ -126,10 +125,10 @@ $missed_todos_five = todo::where('date',$yesterday_date)->where('status',3)->tak
                     </div>
                   </a>
                 </li>
-              </form>
+              
                 @endforeach
                 @endif
-                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="">Read all notifications</a></li>
+                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="{{route('todos',['target_date'=>$yesterday_date])}}">Read all notifications</a></li>
               </ul>
             </li>
             <li class="dropdown dropdown-user nav-item">

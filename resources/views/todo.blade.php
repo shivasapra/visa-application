@@ -156,7 +156,7 @@ Todos
 
   $(document).ready(function(){
     $("#editDate").click(function(){
-      var temp = '<form action="{{route('todos')}}" method="post">@csrf<input type="text" name="datee" hidden value="{{$date}}"><input type="date" name="date"  style="border-radius: 20%" value="{{$date}}"> <button type="submit" class="btn btn-sm btn-success">Show</button></form>';
+      var temp = '<form action="{{route('todos.custom')}}" method="post">@csrf<input type="text" name="datee" hidden value="{{$date}}"><input type="date" name="date"  style="border-radius: 20%" value="{{$date}}"> <button type="submit" class="btn btn-sm btn-success">Show</button></form>';
       $("#date").html(temp);  
       });
   });

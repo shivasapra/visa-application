@@ -158,7 +158,19 @@ class HomeController extends Controller
     }
 
 
-    public function todos(Request $request){
+    public function todos($target_date){
+        $dt = Carbon::now();
+        $dt->timezone('Asia/Kolkata');
+        $date_today = $dt->toDateString();
+        $time_now =Carbon::now()->timezone('Asia/Kolkata')->format('h:i');
+        $todos = todo::where('date',$target_date)->orderBy('created_at','desc')->get();
+        return view('todo')->with('todos',$todos)
+                            ->with('date_today',$date_today)
+                            ->with('time',$time_now)
+                            ->with('date',$target_date);
+    }
+
+    public function todosCustom(Request $request){
         $dt = Carbon::now();
         $dt->timezone('Asia/Kolkata');
         $date_today = $dt->toDateString();

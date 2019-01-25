@@ -132,13 +132,12 @@ Dashboard
                   @endif
                 </tbody>
               </table>
-            <form action="{{route('todos')}}" method="post">
-              @csrf
+            
               <div class="text-center">
-                <input type="text" name="date" hidden value="{{$date}}">
-                <button class="btn btn-sm btn-warning" style="margin-top: 7px">All Todos</button>
+                {{-- <input type="text" name="date" hidden value="{{$date}}"> --}}
+                <a class="btn btn-sm btn-warning" href="{{route('todos',['target_date'=>$date])}}"  style="margin-top: 7px">All Todos</a>
               </div>
-            </form>
+            
             </div>
           </div>
         </div>

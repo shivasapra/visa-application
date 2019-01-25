@@ -41,9 +41,13 @@ Route::post('/update/todo/{id}',[
 			'uses'=> 'HomeController@updateTodo',
 			'as'=>'update.todo'
 		]);
-Route::post('/todos',[
+Route::get('/todos/{target_date}',[
 			'uses'=> 'HomeController@todos',
 			'as'=>'todos'
+		]);
+Route::post('/todos/',[
+			'uses'=> 'HomeController@todosCustom',
+			'as'=>'todos.custom'
 		]);
 Route::get('/pastWeekTodos',[
 			'uses'=> 'HomeController@pastWeekTodos',
