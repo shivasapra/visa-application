@@ -4,7 +4,7 @@ Edit Profile
 @stop
 @section('css')
 	<!-- BEGIN VENDOR CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/vendors.css")}}">
+  {{-- <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/vendors.css")}}">
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/vendors/css/pickers/daterange/daterangepicker.css")}}">
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/vendors/css/pickers/pickadate/pickadate.css")}}">
   <!-- END VENDOR CSS-->
@@ -19,7 +19,7 @@ Edit Profile
   <!-- END STACK CSS-->
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
-  <!-- END Custom CSS-->
+  <!-- END Custom CSS--> --}}
 @endsection
 @section('content')
 	@if(count($errors)>0)
@@ -86,7 +86,7 @@ Edit Profile
 	</div>
 @stop
 @section('js')
-	<!-- BEGIN VENDOR JS-->
+	{{-- <!-- BEGIN VENDOR JS-->
   <script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script>
   <!-- BEGIN VENDOR JS-->
   <!-- BEGIN PAGE VENDOR JS-->
@@ -107,5 +107,5 @@ Edit Profile
   <!-- END STACK JS-->
   <!-- BEGIN PAGE LEVEL JS-->
   <script src="{{asset("app/front/app-assets/js/scripts/forms/wizard-steps.js")}}" type="text/javascript"></script>
-  <!-- END PAGE LEVEL JS-->
+  <!-- END PAGE LEVEL JS--> --}}
 @endsection

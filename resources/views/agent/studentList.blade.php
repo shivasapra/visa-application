@@ -2,7 +2,7 @@
 @section('title')
 Agent's Students
 @stop
-@section('css')
+{{-- @section('css')
 	<link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/vendors.css")}}">
   <!-- END VENDOR CSS-->
   <!-- BEGIN STACK CSS-->
@@ -15,7 +15,7 @@ Agent's Students
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
   <!-- END Custom CSS-->
-@endsection
+@endsection --}}
 @section('header')
     <div class="content-header row">
     <div class="content-header col-md-6 col-12 mb-1">
@@ -90,7 +90,7 @@ Agent's Students
 
 	
 @stop
-@section('js')
+{{-- @section('js')
 	<script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script>
   <!-- BEGIN VENDOR JS-->
   <!-- BEGIN PAGE VENDOR JS-->
@@ -102,4 +102,4 @@ Agent's Students
   <!-- END STACK JS-->
   <!-- BEGIN PAGE LEVEL JS-->
   <!-- END PAGE LEVEL JS-->
-@endsection
+@endsection --}}

@@ -2,7 +2,7 @@
 @section('title')
 Report: Application Fee
 @stop
-@section('css')
+{{-- @section('css')
 	<link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/vendors.css")}}">
   <!-- END VENDOR CSS-->
   <!-- BEGIN STACK CSS-->
@@ -15,7 +15,7 @@ Report: Application Fee
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
   <!-- END Custom CSS-->
-@endsection
+@endsection --}}
 @section('header')
     <div class="content-header row">
 	<div class="content-header col-md-6 col-12 mb-1">
@@ -95,14 +95,14 @@ Report: Application Fee
 	
 @stop
 @section('js')
-	<script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script>
+	{{-- <script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script> --}}
   <!-- BEGIN VENDOR JS-->
   <!-- BEGIN PAGE VENDOR JS-->
   <!-- END PAGE VENDOR JS-->
   <!-- BEGIN STACK JS-->
-  <script src="{{asset("app/front/app-assets/js/core/app-menu.js")}}" type="text/javascript"></script>
+ {{--  <script src="{{asset("app/front/app-assets/js/core/app-menu.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/js/core/app.js")}}" type="text/javascript"></script>
-  <script src="{{asset("app/front/app-assets/js/scripts/customizer.js")}}" type="text/javascript"></script>
+  <script src="{{asset("app/front/app-assets/js/scripts/customizer.js")}}" type="text/javascript"></script> --}}
   <!-- END STACK JS-->
   <!-- BEGIN PAGE LEVEL JS-->
   <!-- END PAGE LEVEL JS-->

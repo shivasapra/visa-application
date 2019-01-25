@@ -3,7 +3,7 @@
 Create Lead
 @stop
 
-@section('css')
+{{-- @section('css')
 	<!-- BEGIN VENDOR CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/vendors.css")}}">
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/vendors/css/pickers/daterange/daterangepicker.css")}}">
@@ -21,7 +21,7 @@ Create Lead
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
   <!-- END Custom CSS-->
-@endsection
+@endsection --}}
 @section('header')
     <div class="content-header row">
 	<div class="content-header col-md-6 col-12 mb-1">
@@ -231,10 +231,10 @@ Create Lead
 @stop
 @section('js')
 	<!-- BEGIN VENDOR JS-->
-  <script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script>
+ {{--  <script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script> --}}
   <!-- BEGIN VENDOR JS-->
   <!-- BEGIN PAGE VENDOR JS-->
-  <script src="{{asset("app/front/app-assets/vendors/js/extensions/jquery.steps.min.js")}}" type="text/javascript"></script>
+  {{-- <script src="{{asset("app/front/app-assets/vendors/js/extensions/jquery.steps.min.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/pickers/dateTime/moment-with-locales.min.js")}}"
   type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/pickers/daterange/daterangepicker.js")}}"
@@ -242,15 +242,15 @@ Create Lead
   <script src="{{asset("app/front/app-assets/vendors/js/pickers/pickadate/picker.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/pickers/pickadate/picker.date.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/vendors/js/forms/validation/jquery.validate.min.js")}}"
-  type="text/javascript"></script>
+  type="text/javascript"></script> --}}
   <!-- END PAGE VENDOR JS-->
   <!-- BEGIN STACK JS-->
-  <script src="{{asset("app/front/app-assets/js/core/app-menu.js")}}" type="text/javascript"></script>
+  {{-- <script src="{{asset("app/front/app-assets/js/core/app-menu.js")}}" type="text/javascript"></script>
   <script src="{{asset("app/front/app-assets/js/core/app.js")}}" type="text/javascript"></script>
-  <script src="{{asset("app/front/app-assets/js/scripts/customizer.js")}}" type="text/javascript"></script>
+  <script src="{{asset("app/front/app-assets/js/scripts/customizer.js")}}" type="text/javascript"></script> --}}
   <!-- END STACK JS-->
   <!-- BEGIN PAGE LEVEL JS-->
-  <script src="{{asset("app/front/app-assets/js/scripts/forms/wizard-steps.js")}}" type="text/javascript"></script>
+  {{-- <script src="{{asset("app/front/app-assets/js/scripts/forms/wizard-steps.js")}}" type="text/javascript"></script> --}}
   <!-- END PAGE LEVEL JS-->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
