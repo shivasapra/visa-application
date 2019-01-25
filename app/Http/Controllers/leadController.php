@@ -19,10 +19,10 @@ class leadController extends Controller
      */
     public function index()
     {   
-        $converted = leads::where('status',2)->get();
-        $interested = leads::where('interested','interested')->get();
-        $not_interested = leads::where('interested','Not-interested')->get();
-        $follow_up = leads::where('interested','Follow-up')->get();
+        $converted = leads::where('status',2)->paginate(10);
+        $interested = leads::where('interested','interested')->paginate(10);
+        $not_interested = leads::where('interested','Not-interested')->paginate(10);
+        $follow_up = leads::where('interested','Follow-up')->paginate(10);
         return view('leads.index')->with('leads',leads::paginate(10))
                                     ->with('converted',$converted)
                                     ->with('interested',$interested)
@@ -32,10 +32,10 @@ class leadController extends Controller
 
     public function converted()
     {   
-        $converted = leads::where('status',2)->get();
-        $interested = leads::where('interested','interested')->get();
-        $not_interested = leads::where('interested','Not-interested')->get();
-        $follow_up = leads::where('interested','Follow-up')->get();
+        $converted = leads::where('status',2)->paginate(10);
+        $interested = leads::where('interested','interested')->paginate(10);
+        $not_interested = leads::where('interested','Not-interested')->paginate(10);
+        $follow_up = leads::where('interested','Follow-up')->paginate(10);
         return view('leads.index')->with('leads',$converted)
                                     ->with('converted',$converted)
                                     ->with('interested',$interested)
@@ -45,10 +45,10 @@ class leadController extends Controller
 
     public function interested()
     {   
-        $converted = leads::where('status',2)->get();
-        $interested = leads::where('interested','interested')->get();
-        $not_interested = leads::where('interested','Not-interested')->get();
-        $follow_up = leads::where('interested','Follow-up')->get();
+        $converted = leads::where('status',2)->paginate(10);
+        $interested = leads::where('interested','interested')->paginate(10);
+        $not_interested = leads::where('interested','Not-interested')->paginate(10);
+        $follow_up = leads::where('interested','Follow-up')->paginate(10);
         return view('leads.index')->with('leads',$interested)
                                     ->with('converted',$converted)
                                     ->with('interested',$interested)
@@ -58,10 +58,10 @@ class leadController extends Controller
 
     public function notInterested()
     {   
-        $converted = leads::where('status',2)->get();
-        $interested = leads::where('interested','interested')->get();
-        $not_interested = leads::where('interested','Not-interested')->get();
-        $follow_up = leads::where('interested','Follow-up')->get();
+        $converted = leads::where('status',2)->paginate(10);
+        $interested = leads::where('interested','interested')->paginate(10);
+        $not_interested = leads::where('interested','Not-interested')->paginate(10);
+        $follow_up = leads::where('interested','Follow-up')->paginate(10);
         return view('leads.index')->with('leads',$not_interested)
                                     ->with('converted',$converted)
                                     ->with('interested',$interested)
@@ -71,10 +71,10 @@ class leadController extends Controller
 
     public function followUp()
     {   
-        $converted = leads::where('status',2)->get();
-        $interested = leads::where('interested','interested')->get();
-        $not_interested = leads::where('interested','Not-interested')->get();
-        $follow_up = leads::where('interested','Follow-up')->get();
+        $converted = leads::where('status',2)->paginate(10);
+        $interested = leads::where('interested','interested')->paginate(10);
+        $not_interested = leads::where('interested','Not-interested')->paginate(10);
+        $follow_up = leads::where('interested','Follow-up')->paginate(10);
         return view('leads.index')->with('leads',$follow_up)
                                     ->with('converted',$converted)
                                     ->with('interested',$interested)
