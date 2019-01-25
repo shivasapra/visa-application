@@ -3,6 +3,7 @@ use App\todo;
 use Carbon\carbon;
 $yesterday_date = Carbon::now()->addDays(-1)->toDateString();
 $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
+$missed_todos_five = todo::where('date',$yesterday_date)->where('status',3)->take(5)->get();
 ?>
 
 <!-- - var menuBorder = true-->
@@ -57,7 +58,12 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
   </script> --}}
   <!-- END Custom CSS-->
   @yield('css')
-  
+  <style type="text/css">
+    body .navbar-dark .vertical-menu .vertical-layout .main-menu{
+      font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    }
+
+  </style>
 </head>
 
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar"
@@ -102,9 +108,12 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
                   </h6>
                 </li>
                 @if($missed_todos->count()>0)
-                @foreach($missed_todos as $missed_todo)
+                @foreach($missed_todos_five as $missed_todo)
+                <form action="{{route('todos')}}" method="post">
+                @csrf
                 <li class="scrollable-container media-list">
-                  <a href="javascript:void(0)">
+                  <a>
+                    <input type="text" name="date" hidden value="{{$missed_todo->date}}">
                     <div class="media">
                       <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
                       <div class="media-body">
@@ -117,9 +126,10 @@ $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
                     </div>
                   </a>
                 </li>
+              </form>
                 @endforeach
                 @endif
-                {{-- <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li> --}}
+                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="">Read all notifications</a></li>
               </ul>
             </li>
             <li class="dropdown dropdown-user nav-item">

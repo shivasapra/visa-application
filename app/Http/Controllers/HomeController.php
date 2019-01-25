@@ -105,6 +105,7 @@ class HomeController extends Controller
         $certificate_issued_agents = agentProfile::where('certificate_issued','yes')->get();
         $yesterday_date = Carbon::now()->addDays(-1)->toDateString();
         $missed_todos = todo::where('date',$yesterday_date)->where('status',3)->get();
+        $missed_todos_five = todo::where('date',$yesterday_date)->where('status',3)->take(5)->get();
         return view('home')->with('agents',agentProfile::all())->with('students',$students)
                             ->with('leads',leads::all())
                             ->with('contracts',contracts::all())
@@ -132,7 +133,8 @@ class HomeController extends Controller
                             ->with('agreement_signed_agent_agents',$agreement_signed_agent_agents)
                             ->with('agreement_signed_college_agents',$agreement_signed_college_agents)
                             ->with('certificate_issued_agents',$certificate_issued_agents)
-                            ->with('missed_todos',$missed_todos);
+                            ->with('missed_todos',$missed_todos)
+                            ->with('missed_todos_five',$missed_todos_five);
     }
 
 

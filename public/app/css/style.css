@@ -1200,7 +1200,7 @@ body.page-small.show-sidebar #wrapper {
     right: 1px;
     font-size: 11px;
     top: 13px;
-    font-family: Verdana, serif;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     vertical-align: middle;
     text-align: center;
     border-radius: 8px;
@@ -1962,7 +1962,7 @@ body.rtl .dataTables_length {
 
 .checkbox input[type="checkbox"]:checked+label::after,
 .checkbox input[type="radio"]:checked+label::after {
-    font-family: 'Glyphicons Halflings';
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     content: "\e013";
 }
 
@@ -2175,7 +2175,7 @@ body.rtl .dataTables_length {
 
 input[type="checkbox"].styled:checked+label:after,
 input[type="radio"].styled:checked+label:after {
-    font-family: 'Glyphicons Halflings';
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     content: "\e013";
 }
 
@@ -3284,7 +3284,7 @@ body.rtl.hide-sidebar #wrapper {
         right: -4px;
         font-size: 11px;
         top: 14px;
-        font-family: Verdana, serif;
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
         vertical-align: middle;
         text-align: center;
         border-radius: 8px;
@@ -5409,7 +5409,7 @@ textarea[name="checklist-description"]:disabled {
     height: 7em;
     font-size: 0.75em;
     line-height: 1.333333em;
-    font-family: Consolas, monospace;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 5px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -5543,7 +5543,7 @@ textarea[name="checklist-description"]:disabled {
 
 .dd-item>button {
     height: 30px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .dd-item>button:nth-child(2) {
@@ -6111,7 +6111,7 @@ body.rtl .hr-panel-heading.project-area-separation {
     right: 1px;
     font-size: 11px;
     top: 13px;
-    font-family: Verdana, serif;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     vertical-align: middle;
     text-align: center;
     border-radius: 8px;
@@ -8401,7 +8401,7 @@ body.system-popup {
 }
 
 .system-popup .popup-message {
-    font-family: 'Helvetica';
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
     font-size: 38px;
 }
