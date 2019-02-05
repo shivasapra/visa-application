@@ -153,8 +153,16 @@ Create Lead
 	                            <div class="form-group">
 	                            	<label for="StatuS">Status:</label><hr>
 	                              <input type="radio" value="interested" name="StatuS" required {{($lead->interested == 'interested')?"checked":""}}>Interested<br>
-	                              <input type="radio" id="not-button" value="Not-Interested" name="StatuS" {{($lead->interested == 'Not-Interested')?"checked":""}}>Not Interested<span id="not-interested" required></span><br>
-	                              <input type="radio" id="follow-button" value="Follow-up" name="StatuS" required {{($lead->interested == 'Follow-up')?"checked":""}}>Follow-Up <span id="follow-up"></span>	
+	                              <input type="radio" id="not-button" value="Not-Interested" name="StatuS" {{($lead->interested == 'Not-Interested')?"checked":""}}>Not Interested<span id="not-interested" required>
+	                              	@if($lead->not_interested_info != null)
+	                              	<input type="text" class="form-control" name="not_interested_info" required value="{{$lead->not_interested_info}}">
+	                              	@endif
+	                              </span><br>
+	                              <input type="radio" id="follow-button" value="Follow-up" name="StatuS" required {{($lead->interested == 'Follow-up')?"checked":""}}>Follow-Up <span id="follow-up">
+	                              	@if($lead->follow_up_info != null)
+	                              	<input type="text" class="form-control" name="follow_up_info" required value="{{$lead->follow_up_info}}">
+	                              	@endif
+	                              </span>	
 	                            </div>
 	                          </div>
 	                        </div>
@@ -185,6 +193,7 @@ Create Lead
 		$(document).ready(function(){
 	    $('#not-button').click(function(){
 	    	var textbox = '<input type="text" class="form-control" name="not_interested_info" required value="{{$lead->not_interested_info}}">';
+	    	$('#follow-up').html('');
 	    	$('#not-interested').html(textbox);
 	    });
 	});
@@ -192,6 +201,7 @@ Create Lead
 		$(document).ready(function(){
 	    $('#follow-button').click(function(){
 	    	var textbox = '<input type="text" class="form-control" name="follow_up_info" required value="{{$lead->follow_up_info}}">';
+	    	$('#not-interested').html('');
 	    	$('#follow-up').html(textbox);
 	    });
 	});
