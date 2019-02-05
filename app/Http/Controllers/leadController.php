@@ -207,7 +207,14 @@ class leadController extends Controller
             
             $lead->description = $request->description;
             $lead->interested = $request->StatuS;
-            $lead->StatuS_info = $request->StatuS_info;
+            if ($request->not_interested_info != null) {
+                $lead->not_interested_info = $request->not_interested_info;
+                $lead->follow_up_info = null;
+                }
+            if ($request->follow_up_info != null) {
+                $lead->follow_up_info = $request->follow_up_info;
+                $lead->not_interested_info = null;
+                }
         $lead->save();
         
         Session::flash('success','lead updated ');
