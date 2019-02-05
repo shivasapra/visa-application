@@ -29,7 +29,8 @@ class CreateLeadsTable extends Migration
             $table->integer('postal_code')->nullable();
             $table->string('description')->nullable();
             $table->string('interested')->nullable();
-            $table->string('StatuS_info')->nullable();
+            $table->string('not_interested_info')->nullable();
+            $table->string('follow_up_info')->nullable();
             $table->integer('status')->default(0);
             $table->timestamps();
         });
