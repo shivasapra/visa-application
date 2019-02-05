@@ -2,20 +2,7 @@
 @section('title')
 Lead Details
 @stop
-{{-- @section('css')
-	<link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/vendors.css")}}">
-  <!-- END VENDOR CSS-->
-  <!-- BEGIN STACK CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/app.css")}}">
-  <!-- END STACK CSS-->
-  <!-- BEGIN Page Level CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/core/menu/menu-types/vertical-menu.css")}}">
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/core/colors/palette-callout.css")}}">
-  <!-- END Page Level CSS-->
-  <!-- BEGIN Custom CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
-  <!-- END Custom CSS-->
-@endsection --}}
+
 @section('header')
     <div class="content-header row">
 	<div class="content-header col-md-6 col-12 mb-1">
