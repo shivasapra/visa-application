@@ -105,7 +105,7 @@ Lead Details
 						<div class="row">
 							<tr>
 								<td><strong>Status:</strong></td>
-								<td>{{$lead->interested}} ({{$lead->StatuS_info}})</td>
+								<td>{{$lead->interested}} @if($lead->not_interested_info != null)({{$lead->not_interested_info}})@else({{$lead->follow_up_info}})@endif</td>
 							</tr>
 						</div>
 					</tbody>
@@ -124,15 +124,3 @@ Lead Details
 </div>
 </div>
 @stop
-
-
-{{-- @section('js')
-	<script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script>
-  <!-- BEGIN VENDOR JS-->
-  <!-- BEGIN PAGE VENDOR JS-->
-  <!-- END PAGE VENDOR JS-->
-  <!-- BEGIN STACK JS-->
-  <script src="{{asset("app/front/app-assets/js/core/app-menu.js")}}" type="text/javascript"></script>
-  <script src="{{asset("app/front/app-assets/js/core/app.js")}}" type="text/javascript"></script>
-  <script src="{{asset("app/front/app-assets/js/scripts/customizer.js")}}" type="text/javascript"></script>
-@stop --}}

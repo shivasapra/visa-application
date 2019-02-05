@@ -157,82 +157,9 @@ Create Lead
 	    </section>
     </div>
 
-
-
-	{{-- <div class="card-header">Create a new lead</div>
-		<div class="card-body">
-			<form action="{{route('lead.store')}}" method='post'>
-				{{csrf_field()}}
-				<div class="form-group">
-				<label for="agent_id">Select Agent</label><br>
-				<select name="agent_id" class="form-control">
-					@foreach( $agents as $agent)
-					 <option value="{{$agent->id}}">{{$agent->name}}</option>
-					@endforeach
-				</select>
-				</div>
-				<div class="form-group">
-					<label for="student_fname">First name</label>
-					<input type="text" name='student_fname' class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="student_lname">Last name</label>
-					<input type="text" name='student_lname' class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" name='email' class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="Mobile">Moblie</label>
-					<input type="text" name='Mobile' class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="address">address</label>
-					<input type="text" name='address' class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="postal_code">Postal code</label>
-					<input type="text" name='postal_code' class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="description">Description</label>
-					<textarea name="description" cols="5" rows="5" class="form-control"></textarea>
-					
-				<div class="form-group">
-					<div class="text-center">
-						<button class="btn btn-success" type="submit">Add lead</button>
-					</div>
-				</div>
-				
-			</form>
-		</div>
-
- --}}
 @stop
 @section('js')
-	<!-- BEGIN VENDOR JS-->
- {{--  <script src="{{asset("app/front/app-assets/vendors/js/vendors.min.js")}}" type="text/javascript"></script> --}}
-  <!-- BEGIN VENDOR JS-->
-  <!-- BEGIN PAGE VENDOR JS-->
-  {{-- <script src="{{asset("app/front/app-assets/vendors/js/extensions/jquery.steps.min.js")}}" type="text/javascript"></script>
-  <script src="{{asset("app/front/app-assets/vendors/js/pickers/dateTime/moment-with-locales.min.js")}}"
-  type="text/javascript"></script>
-  <script src="{{asset("app/front/app-assets/vendors/js/pickers/daterange/daterangepicker.js")}}"
-  type="text/javascript"></script>
-  <script src="{{asset("app/front/app-assets/vendors/js/pickers/pickadate/picker.js")}}" type="text/javascript"></script>
-  <script src="{{asset("app/front/app-assets/vendors/js/pickers/pickadate/picker.date.js")}}" type="text/javascript"></script>
-  <script src="{{asset("app/front/app-assets/vendors/js/forms/validation/jquery.validate.min.js")}}"
-  type="text/javascript"></script> --}}
-  <!-- END PAGE VENDOR JS-->
-  <!-- BEGIN STACK JS-->
-  {{-- <script src="{{asset("app/front/app-assets/js/core/app-menu.js")}}" type="text/javascript"></script>
-  <script src="{{asset("app/front/app-assets/js/core/app.js")}}" type="text/javascript"></script>
-  <script src="{{asset("app/front/app-assets/js/scripts/customizer.js")}}" type="text/javascript"></script> --}}
-  <!-- END STACK JS-->
-  <!-- BEGIN PAGE LEVEL JS-->
-  {{-- <script src="{{asset("app/front/app-assets/js/scripts/forms/wizard-steps.js")}}" type="text/javascript"></script> --}}
-  <!-- END PAGE LEVEL JS-->
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -270,14 +197,16 @@ Create Lead
 
 		$(document).ready(function(){
 	    $('#not-button').click(function(){
-	    	var textbox = '<input type="text" class="form-control" name="StatuS_info" required>';
+	    	var textbox = '<input type="text" class="form-control" name="not_interested_info" required>';
+	    	$('#follow-up').html('');
 	    	$('#not-interested').html(textbox);
 	    });
 	});
 
 		$(document).ready(function(){
 	    $('#follow-button').click(function(){
-	    	var textbox = '<input type="text" class="form-control" name="StatuS_info" required>';
+	    	var textbox = '<input type="text" class="form-control" name="follow_up_info" required>';
+	    	$('#not-interested').html('');
 	    	$('#follow-up').html(textbox);
 	    });
 	});
