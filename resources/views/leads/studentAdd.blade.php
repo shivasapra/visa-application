@@ -2,25 +2,7 @@
 @section('title')
 Convert Lead into Student
 @stop
-{{-- @section('css')
-	<!-- BEGIN VENDOR CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/vendors.css")}}">
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/vendors/css/pickers/daterange/daterangepicker.css")}}">
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/vendors/css/pickers/pickadate/pickadate.css")}}">
-  <!-- END VENDOR CSS-->
-  <!-- BEGIN Page Level CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/core/menu/menu-types/vertical-menu.css")}}">
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/plugins/forms/wizard.css")}}">
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/plugins/pickers/daterange/daterange.css")}}">
-  <!-- END Page Level CSS-->
 
-  <!-- BEGIN STACK CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/app.css")}}">
-  <!-- END STACK CSS-->
-  <!-- BEGIN Custom CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
-  <!-- END Custom CSS-->
-@endsection --}}
 @section('header')
     <div class="content-header row">
 	<div class="content-header col-md-6 col-12 mb-1">
@@ -258,24 +240,24 @@ Convert Lead into Student
 		                       		<div class="row">
 			                          <div class="col-md-6">
 			                            <label for="tenth_percentage">10th Percentage</label>
-										<input type="text"  name='tenth_percentage' required class="form-control" placeholder="eg. 90">
+										<input type="text" pattern="\d*"  name='tenth_percentage' required class="form-control" maxlength="2" minlength="2">
 			                            </div>
 			                            <div class="col-md-6">
 			                            <div class="form-group">
 			                             <label for="twelveth_percentage">12th Percentage</label>
-										 <input type="text" name='twelveth_percentage' required  class="form-control" placeholder="eg. 90">
+										 <input type="text" pattern="\d*" name='twelveth_percentage' required  class="form-control" maxlength="2" minlength="2">
 			                            </div>
 			                        	</div>
 		                        	</div>
 		                        	<div class="row">
 			                          <div class="col-md-6">
 			                            <label for="tenth_year">10th Passing year</label>
-										<input type="text"  name='tenth_year' required class="form-control">
+										<input type="text" pattern="\d*"  name='tenth_year' required class="form-control" maxlength="4" minlength="4">
 			                            </div>
 			                            <div class="col-md-6">
 			                            <div class="form-group">
 			                             <label for="twelveth_year">12th Passing year</label>
-										 <input type="text" name='twelveth_year' required  class="form-control">
+										 <input type="text" pattern="\d*" name='twelveth_year' required  class="form-control"maxlength="4" minlength="4">
 			                            </div>
 			                        	</div>
 		                        	</div>
