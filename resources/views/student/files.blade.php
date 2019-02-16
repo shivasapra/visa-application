@@ -2,25 +2,7 @@
 @section('title')
 File Progress
 @stop
-{{-- @section('css')
-	<!-- BEGIN VENDOR CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/vendors.css")}}">
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/vendors/css/pickers/daterange/daterangepicker.css")}}">
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/vendors/css/pickers/pickadate/pickadate.css")}}">
-  <!-- END VENDOR CSS-->
-  <!-- BEGIN Page Level CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/core/menu/menu-types/vertical-menu.css")}}">
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/plugins/forms/wizard.css")}}">
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/plugins/pickers/daterange/daterange.css")}}">
-  <!-- END Page Level CSS-->
 
-  <!-- BEGIN STACK CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/app-assets/css/app.css")}}">
-  <!-- END STACK CSS-->
-  <!-- BEGIN Custom CSS-->
-  <link rel="stylesheet" type="text/css" href="{{asset("app/front/assets/css/style.css")}}">
-  <!-- END Custom CSS-->
-@endsection --}}
 @section('header')
     <div class="content-header row">
 	<div class="content-header col-md-6 col-12 mb-1">
@@ -97,7 +79,7 @@ File Progress
 									{{($student->file_declined == 'yes')?"readonly":" "}}>Yes
 									<input type="radio" id="nosubmission" name="file_submission" value="no"
 									{{($student->file_submission == 'no')?"checked":" "}}
-									{{($student->file_submission == 'yes')?"disabled":" "}}>No
+									{{($student->file_approved == 'yes')?"disabled":" "}}>No
 									<span id="submissiondate">
 										@if($student->file_submission == 'yes')
 										<input type="date" name="submission_date" value="{{$student->submission_date}}" required readonly>
@@ -113,10 +95,10 @@ File Progress
 									<input id="yesapproved" type="radio" name="file_approved" value="yes"
 									{{($student->file_approved == 'yes')?"checked":" "}}
 									{{($student->file_submission == 'no')?"disabled":" "}}
-									{{($student->file_declined == 'yes')?"readonly":" "}}>Yes
+									{{($student->file_declined == 'yes')?"disabled":" "}}>Yes
 									<input type="radio" id="noapproved" name="file_approved" value="no"
 									{{($student->file_approved == 'no')?"checked":" "}}
-									{{($student->file_approved == 'yes')?"disabled":" "}}
+									{{($student->file_declined == 'yes')?"readonly":" "}}
 									>No
 									<span id="approveddate">
 										@if($student->file_approved == 'yes')
@@ -135,10 +117,13 @@ File Progress
 									{{($student->LOA == 'no')?"disabled":" "}}
 									{{($student->file_approved == 'yes')?"disabled":" "}}>Yes
 									<input type="radio" id="nodeclined" name="file_declined" value="no"
-									{{($student->file_declined == 'no')?"checked":" "}}{{($student->file_declined == 'yes')?"disabled":" "}}>No
+									{{($student->file_declined == 'no')?"checked":" "}}
+									{{($student->refund == 'yes')?"disabled":" "}}>No
 									<span id="declineddate">
-										@if($student->file_declined == 'yes' and $student->refund == 'no')
+										@if($student->file_declined == 'yes')
 										<input type="date" name="declined_date" value="{{$student->declined_date}}" required readonly>&nbsp;
+										@endif
+										@if($student->file_declined == 'yes' and $student->refund == 'no')
 										<a href="{{route('reapply',['id'=>$student->id])}}" class="btn btn-sm btn-success">Re-Apply</a>
 										@endif
 									</span>
@@ -151,9 +136,7 @@ File Progress
 									<input id="yesrefund" type="radio" name="refund" value="yes"
 									{{($student->refund == 'yes')?"checked":" "}}>Yes
 									<input type="radio" id="norefund" name="refund" value="no"
-									{{($student->refund == 'no')?"checked":" "}}
-									{{($student->refund == 'yes')?"disabled":" "}}
-									>No
+									{{($student->refund == 'no')?"checked":" "}}>No
 									<span id="refunddate">
 										@if($student->refund == 'yes')
 										<input type="date" name="refund_date" value="{{$student->refund_date}}" required readonly>
